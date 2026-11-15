@@ -6,10 +6,11 @@ Usage:
     python render.py --force      re-render everything
 
 Reads scripts/*.txt and lexicon.json. Writes app/audio/<id>.mp3 and
-app/tracks.json, which holds per-sentence timings for the player.
+app/tracks.json, which holds sections and per-sentence timings for the player.
 
 Script format: see scripts/STYLE.md.
 """
+import hashlib
 import json
 import re
 import subprocess
@@ -28,12 +29,12 @@ LEXICON_FILE = ROOT / "lexicon.json"
 
 MODEL = "mlx-community/Kokoro-82M-bf16"
 SR = 24000
-# voice, language code, speed
-VOICES = {"N": ("bf_emma", "b", 0.9), "A": ("bm_george", "b", 0.94)}
+# voice, language code, speed. Each paragraph is spoken in one pass so the
+# voice keeps its natural melody across sentences.
+VOICES = {"N": ("af_bella", "b", 0.97), "A": ("bm_george", "b", 0.95)}
 # Seconds of silence. Pacing lives here.
-GAP_SENTENCE = 0.5
-GAP_PARAGRAPH = 1.0
-GAP_SPEAKER = 1.4
+GAP_PARAGRAPH = 1.2
+GAP_SPEAKER = 1.5
 GAP_LONG = 2.4
 LEAD_IN, LEAD_OUT = 0.4, 1.0
 
@@ -50,11 +51,17 @@ def apply_lexicon(text, lexicon):
 
 
 def parse(path):
-    """Return (title, stop, items). Items are ("pause",) or (who, text)."""
+    """Return (title, stop, items).
+
+    Items are ("pause",), ("section", heading) or (who, text).
+    """
     title, stop, items = path.stem, 0, []
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
         if not line:
+            continue
+        if line.startswith("##"):
+            items.append(("section", line.lstrip("#").strip()))
             continue
         if line.startswith("#"):
             m = re.match(r"#\s*(title|stop):\s*(.+)", line)
@@ -81,13 +88,44 @@ def silence(seconds):
     return np.zeros(int(SR * seconds), dtype=np.float32)
 
 
+def sentence_bounds(audio, sents):
+    """Estimate where each sentence starts inside one paragraph of audio.
+
+    Guess each boundary from text length, then snap it to the quietest
+    moment nearby, which is the pause between sentences.
+    """
+    n = len(audio)
+    if len(sents) < 2:
+        return [0.0, n / SR]
+    hop = int(SR * 0.02)
+    env = np.abs(audio[: n - n % hop]).reshape(-1, hop).mean(axis=1)
+    env = np.convolve(env, np.ones(5) / 5, mode="same")
+    weights = np.array([len(s) + 8 for s in sents], dtype=float)
+    cuts = np.cumsum(weights)[:-1] / weights.sum() * len(env)
+    # No sentence can be shorter than its text allows, in 20 ms hops.
+    least = [max(25, int(len(s) * 2.2)) for s in sents]
+    loud = np.nonzero(env > env.max() * 0.05)[0]
+    speech_start = int(loud[0]) if len(loud) else 0
+    bounds, prev = [0], speech_start
+    for i, c in enumerate(cuts):
+        lo = max(prev + least[i], int(c) - 40)
+        hi = min(len(env) - sum(least[i + 1:]), int(c) + 40)
+        k = lo + int(np.argmin(env[lo:hi])) if hi > lo else min(lo, len(env) - 1)
+        bounds.append(k)
+        prev = k
+    return [b * hop / SR for b in bounds] + [n / SR]
+
+
 def render(path, model, lexicon):
     title, stop, items = parse(path)
-    parts, segments, t = [silence(LEAD_IN)], [], LEAD_IN
-    last_who, pending, para = None, 0.0, -1
+    parts, segments, sections, t = [silence(LEAD_IN)], [], [], LEAD_IN
+    last_who, pending, para, new_section = None, 0.0, -1, None
     for item in items:
         if item[0] == "pause":
             pending = max(pending, GAP_LONG)
+            continue
+        if item[0] == "section":
+            new_section = item[1]
             continue
         who, text = item
         para += 1
@@ -97,19 +135,20 @@ def render(path, model, lexicon):
             parts.append(silence(gap))
             t += gap
         pending, last_who = 0.0, who
-        for i, sent in enumerate(sentences(text)):
-            if i:
-                parts.append(silence(GAP_SENTENCE))
-                t += GAP_SENTENCE
-            chunks = [np.asarray(r.audio, dtype=np.float32).reshape(-1)
-                      for r in model.generate(text=apply_lexicon(sent, lexicon),
-                                              voice=voice, speed=speed, lang_code=lang)]
-            audio = np.concatenate(chunks)
-            parts.append(audio)
-            dur = len(audio) / SR
-            segments.append({"p": para, "who": who, "text": sent,
-                             "start": round(t, 2), "end": round(t + dur, 2)})
-            t += dur
+        if new_section is not None or not sections:
+            sections.append({"title": new_section or "Start", "start": round(max(0.0, t - 0.3), 2)})
+            new_section = None
+        chunks = [np.asarray(r.audio, dtype=np.float32).reshape(-1)
+                  for r in model.generate(text=apply_lexicon(text, lexicon),
+                                          voice=voice, speed=speed, lang_code=lang)]
+        audio = np.concatenate(chunks)
+        parts.append(audio)
+        sents = sentences(text)
+        bounds = sentence_bounds(audio, sents)
+        for i, sent in enumerate(sents):
+            segments.append({"p": para, "s": len(sections) - 1, "who": who, "text": sent,
+                             "start": round(t + bounds[i], 2), "end": round(t + bounds[i + 1], 2)})
+        t += len(audio) / SR
     parts.append(silence(LEAD_OUT))
     audio = np.concatenate(parts)
     AUDIO.mkdir(parents=True, exist_ok=True)
@@ -120,9 +159,12 @@ def render(path, model, lexicon):
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(wav),
                     "-ac", "1", "-b:a", "48k", str(mp3)], check=True)
     wav.unlink()
+    # The version tag makes phones fetch a re-rendered file instead of a saved old one.
+    version = hashlib.sha1(mp3.read_bytes()).hexdigest()[:8]
     meta = {"id": path.stem, "title": title, "stop": stop,
-            "file": f"audio/{path.stem}.mp3", "duration": round(len(audio) / SR, 2),
-            "bytes": mp3.stat().st_size, "segments": segments}
+            "file": f"audio/{path.stem}.mp3?v={version}",
+            "duration": round(len(audio) / SR, 2), "bytes": mp3.stat().st_size,
+            "sections": sections, "segments": segments}
     (CACHE / f"{path.stem}.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
     return meta
 
@@ -144,7 +186,7 @@ def main():
                 from mlx_audio.tts.utils import load_model
                 model = load_model(MODEL)
             meta = render(path, model, lexicon)
-            print(f"{path.stem}: {meta['duration'] / 60:.1f} min", flush=True)
+            print(f"{path.stem}: {meta['duration'] / 60:.1f} min, {len(meta['sections'])} sections", flush=True)
         elif cached.exists() and mp3.exists():
             meta = json.loads(cached.read_text(encoding="utf-8"))
         else:

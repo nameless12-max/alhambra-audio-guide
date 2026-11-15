@@ -1,10 +1,15 @@
 # title: Stop 12. The gardens and the water
 # stop: 12
+
+## Where you are
+
 N: Stop twelve. The gardens and the water.
 
 N: This is the Generalife, the sultans' country estate on the hill facing the Alhambra. It has its own signed, one-way route. Follow it, and take the next stops in whatever order it gives you.
 
 N: You are in the new gardens below the palace. Around you are hedged walks, walls of clipped cypress and long pools, and an open-air theatre. Now look ahead and up the slope. The building above you is the summer palace.
+
+## The New Gardens
 
 ...
 
@@ -12,11 +17,15 @@ N: These gardens are not medieval. They are the Jardines Nuevos, the New Gardens
 
 N: Now look down the slope. The terraced orchards there have been farmed since the thirteen hundreds.
 
+## A country estate
+
 ...
 
 N: The Generalife was never only a garden. It was an almunia, a country estate that was both a retreat and a working farm, a short walk from the palace.
 
 N: It probably began under Muhammad the Second, at the end of the twelve hundreds. An inscription records that Isma'il the First remodelled it in thirteen nineteen. Yusuf the Third reworked the southern parts in the fourteen hundreds. Another inscription, by Ibn al-Jayyab, calls the estate the House of the Felicitous Kingdom.
+
+## How the water arrives
 
 ...
 
@@ -34,6 +43,8 @@ N: So, one river. A high channel and a low channel. One slow slope across a whol
 
 N: Now look up, to the hilltop above the estate. The ruined fort up there is the Silla del Moro. It was a lookout, and one of its jobs was to guard this water supply.
 
+## Stories you will hear
+
 ...
 
 A: Often told, thinly sourced. A recent documentary describes very deep wells on the hill above the Generalife. In them, it says, waterwheels turned by animals lifted water further uphill, in stages. Treat the details as approximate.
@@ -41,6 +52,8 @@ A: Often told, thinly sourced. A recent documentary describes very deep wells on
 A: The same programme claims the Nasrids had a pressure device that pushed water up to the Alcazaba, and that nobody else in medieval Iberia could do it. We found nothing to support this. Treat it with real caution.
 
 A: And a myth check on the name. You will hear that Generalife comes from the Arabic Jannat al-'Arif, the Garden of the Architect. Scholars dispute this, and other readings have been proposed.
+
+## Walk on
 
 ...
 

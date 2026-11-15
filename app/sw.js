@@ -1,8 +1,9 @@
 /* Alhambra audio guide service worker.
-   Shell: cache-first with background refresh. Audio: cache with HTTP Range support, else network. */
+   Shell: cache-first with background refresh; tracks.json network-first (short timeout) with cache fallback.
+   Audio: cache keyed by the exact URL (including ?v= version), with HTTP Range support, else network. */
 'use strict';
 
-const SHELL_CACHE = 'alh-shell-v1';
+const SHELL_CACHE = 'alh-shell-v2';
 const AUDIO_CACHE = 'alh-audio-v1'; // kept across shell versions
 const SHELL_FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg', 'icon-180.png', 'icon-512.png', 'tracks.json'];
 
@@ -23,6 +24,13 @@ self.addEventListener('activate', (event) => {
     await self.clients.claim();
   })());
 });
+
+// Exact cache key for audio: the version query stays, only the fragment goes.
+function audioKey(url) {
+  const u = new URL(url);
+  u.hash = '';
+  return u.href;
+}
 
 function stripSearch(url) {
   const u = new URL(url);
@@ -51,8 +59,51 @@ self.addEventListener('fetch', (event) => {
   const shellSet = new Set(SHELL_FILES.map(scopeUrl));
   if (!shellSet.has(key)) return; // not part of the shell: plain network
 
+  if (key === scopeUrl('tracks.json')) {
+    event.respondWith(tracksResponse(event, key));
+    return;
+  }
   event.respondWith(shellResponse(event, key));
 });
+
+const TRACKS_TIMEOUT_MS = 4000;
+
+async function notifyTracksUpdated() {
+  const clients = await self.clients.matchAll({ type: 'window' });
+  clients.forEach((c) => c.postMessage({ type: 'tracks-updated' }));
+}
+
+// Network-first so an online phone sees new audio versions; falls back to the cache
+// when offline, or after a short wait on a weak signal (then tells the page if it changed).
+async function tracksResponse(event, key) {
+  const cache = await caches.open(SHELL_CACHE);
+  const cached = await cache.match(key);
+  const network = (async () => {
+    const res = await fetch(key, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    await cache.put(key, res.clone());
+    return res;
+  })();
+  if (!cached) {
+    try { return await network; } catch (e) {
+      return new Response('Offline and not cached', { status: 503, headers: { 'Content-Type': 'text/plain' } });
+    }
+  }
+  let timer;
+  const timeout = new Promise((resolve) => { timer = setTimeout(() => resolve(null), TRACKS_TIMEOUT_MS); });
+  const first = await Promise.race([network.then((r) => r, () => null), timeout]);
+  clearTimeout(timer);
+  if (first) return first;
+  // Serve the cached copy now; if the network answers later with something new, say so.
+  event.waitUntil((async () => {
+    try {
+      const [a, res] = await Promise.all([cached.clone().text(), network]);
+      const b = await res.clone().text();
+      if (a !== b) await notifyTracksUpdated();
+    } catch (e) { /* still offline */ }
+  })());
+  return cached;
+}
 
 async function shellResponse(event, key) {
   const cache = await caches.open(SHELL_CACHE);
@@ -61,16 +112,7 @@ async function shellResponse(event, key) {
     try {
       const res = await fetch(key, { cache: 'no-cache' });
       if (!res.ok) return null;
-      let changed = false;
-      if (key === scopeUrl('tracks.json') && cached) {
-        const [a, b] = await Promise.all([cached.clone().text(), res.clone().text()]);
-        changed = a !== b;
-      }
       await cache.put(key, res.clone());
-      if (changed) {
-        const clients = await self.clients.matchAll({ type: 'window' });
-        clients.forEach((c) => c.postMessage({ type: 'tracks-updated' }));
-      }
       return res;
     } catch (e) {
       return null;
@@ -85,7 +127,7 @@ async function shellResponse(event, key) {
 }
 
 async function audioResponse(req) {
-  const key = stripSearch(req.url);
+  const key = audioKey(req.url);
   const cache = await caches.open(AUDIO_CACHE);
   const cached = await cache.match(key);
   if (!cached) {

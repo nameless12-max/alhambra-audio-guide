@@ -1,11 +1,15 @@
 # title: Stop 11. Paseo de las Torres
 # stop: 11
 
+## Where you are
+
 N: Stop eleven. The Paseo de las Torres, the walk of the towers.
 
 N: This begins part three of the tour. You are on the path that runs east from the Partal, just inside the northern wall. Keep the wall on your left. At intervals, towers jut out from it. You will pass them one by one on your way toward the Generalife.
 
 N: Start walking, and listen as you go.
+
+## Towers as homes
 
 ...
 
@@ -14,6 +18,8 @@ N: These towers were homes as well as defences. A military tower fitted out as a
 N: The first you come to is the Torre de los Picos. Look up at its pointed battlements. It guarded the Puerta del Arrabal, a gate leading down toward the Albaicín.
 
 N: Inside, it has three vaulted levels, decorated with stucco and paintings. Its date is disputed. The first tower may go back to around thirteen hundred, with later work under Yusuf the First and Muhammad the Fifth.
+
+## Cadí and Cautiva
 
 ...
 
@@ -31,6 +37,8 @@ A: About that name. Cautiva means captive, and you will hear it called the Tower
 
 N: The Cautiva and the Picos open from time to time as the Space of the Month. If you find a door open, go in.
 
+## Torre de las Infantas
+
 N: Now walk on, farther east, to the Torre de las Infantas, the Tower of the Princesses. It was built, or rebuilt, by Muhammad the Seventh toward the end of the thirteen hundreds.
 
 ...
@@ -41,6 +49,8 @@ N: The windows are small and screened with lattices. High openings let rising ho
 
 N: Along this stretch, the defensive wall became a string of private apartments with views. It is the idea of the Comares Tower, on a smaller scale.
 
+## Stories you will hear
+
 ...
 
 A: A few things you will hear along this wall. First, that the Infantas is the setting of Washington Irving's Legend of the Three Beautiful Princesses, in his Tales of the Alhambra.
@@ -50,6 +60,8 @@ A: Second, a recent documentary claims that rooms like these stayed around twent
 A: Third, the Torre del Agua, the Water Tower, farther on, is a ruin. The story goes that Napoleon's troops blew it up as they withdrew in eighteen twelve.
 
 A: Guides also say that the royal water channel, the Acequia Real, crosses into the Alhambra there on a small aqueduct, and that the tower was built to guard it. And the path outside the wall, the Camino de Ronda, is often called a patrol path or a moat. None of this is firmly sourced.
+
+## Walk on
 
 ...
 

@@ -1,6 +1,8 @@
 # title: Closing
 # stop: 0
 
+## What you walked through
+
 N: Closing. What you have walked through.
 
 N: You began in a council chamber, and you have ended at a fortress gate. In between, you saw how one dynasty built a public stage, a private paradise and a country estate. All three were fed by one channel of mountain water.
@@ -11,11 +13,15 @@ N: Much of what you saw has been repaired or rebuilt, from the ceiling of the Sa
 
 N: In nineteen eighty-four, the Alhambra and the Generalife were named a World Heritage site by UNESCO. Ten years later, the Albaicín, the old quarter across the valley, was added.
 
+## The unnamed builders
+
 ...
 
 N: Remember, too, the people this guide has not named. They are the labourers who rammed the earth, cut the tiles and carved the plaster. They worked by hand, with ropes and pulleys and no machines. We celebrate the sultans. But the walls are the labourers' work.
 
 N: If you have time, you can follow the Nasrids down the hill. The Dobla de Oro ticket adds a set of Nasrid monuments in the Albaicín. Check what it includes when you buy.
+
+## Look back
 
 ...
 

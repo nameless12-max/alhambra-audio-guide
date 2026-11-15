@@ -1,6 +1,8 @@
 # title: Stop 3. The Court of the Myrtles
 # stop: 3
 
+## Where you are
+
 N: Stop three. The Court of the Myrtles.
 
 N: The bent passage lets you out into light. You are in a long, open courtyard. A narrow pool runs down the middle, with a clipped green hedge along each side. Those hedges are myrtle, and they give the court its Spanish name, the Patio de los Arrayanes.
@@ -10,6 +12,8 @@ N: Walk to the south end, the end with the wall behind you, and turn around to f
 ...
 
 N: Now look up. The heavy square tower over the far arcade is the Comares Tower. It is forty-five metres tall, and its walls are thicker than you are tall. It is a fortress with a throne room inside.
+
+## The reflecting pool
 
 ...
 
@@ -21,11 +25,15 @@ N: That is the trick of this court. The water is not a fountain. It is kept almo
 
 N: The pool fills almost the whole length of the court, about thirty-four metres. Walk a few steps beside it and watch the reflection. It barely trembles.
 
+## Yusuf and the court
+
 ...
 
 N: This was the heart of the official palace. Here the sultan held court and received foreign envoys. It was built mainly under Yusuf the First, in the middle of the thirteen hundreds, and redecorated by his son, Muhammad the Fifth.
 
 N: Yusuf the First died violently. In thirteen fifty-four, on the feast day of Eid al-Fitr, a madman stabbed him to death while he was at prayer. Sources differ on where. Some place it in the Alhambra's own mosque, others in the Great Mosque of the city below.
+
+## Stories you will hear
 
 ...
 
@@ -33,11 +41,15 @@ A: Two things you will hear in this court. First, that the name Comares comes fr
 
 A: Second, and thinly sourced, a story about two restorers. Rafael Contreras, in the nineteenth century, is said to have put Persian-style domes on these arcades. Leopoldo Torres Balbás is said to have taken them off again. We could not confirm that detail for this court.
 
+## The restorers' argument
+
 ...
 
 N: The argument behind that story is real, and you will meet both names again. Contreras and his family restored the Alhambra through much of the eighteen hundreds. They filled gaps with romantic, sometimes invented decoration in what they took to be the Moorish style.
 
 N: Torres Balbás was the conservation architect from nineteen twenty-three to nineteen thirty-six. He took a stricter line. Repair only where there is evidence, and keep new work recognisable. Much of what you see today is the result of that argument.
+
+## Walk on
 
 ...
 

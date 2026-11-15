@@ -1,11 +1,15 @@
 # title: Stop 17. The Alhambra Museum and the Vase of the Gazelles
 # stop: 17
 
+## Where you are
+
 N: Stop seventeen. The Alhambra Museum and the Vase of the Gazelles.
 
 N: You are on the ground floor of the Palace of Charles the Fifth, inside the Alhambra Museum. This floor holds the Nasrid collection, the objects made and used by the sultans' court. The Fine Arts Museum, the Museo de Bellas Artes, is on the floor above you.
 
 N: Make your way through the galleries to room five. It is the room with the low lights.
+
+## The Vase of the Gazelles
 
 ...
 
@@ -15,6 +19,8 @@ N: It was made under Muhammad the Fifth, a sultan you have met many times on thi
 
 N: Now look for the gazelles that give the jar its name. They are picked out in gold, among the blue.
 
+## Gold lustre
+
 ...
 
 N: The gold is not paint and it is not metal leaf. It is lustre, a glaze that shines like metal. Lustre takes three firings in the kiln. The last firing is done with the air starved of oxygen. That turns a thin coating of copper and silver into a metallic sheen that sits on the surface of the glaze.
@@ -23,15 +29,21 @@ N: Golden lustreware like this was a prized product of Nasrid Granada. It was ex
 
 N: The jar has moved around the Alhambra for centuries. It stood in the Jardín de los Adarves, in the Court of the Myrtles, in the Hall of the Kings, and in the Hall of the Two Sisters. Then it came here. You will walk through that first garden later, in the fortress.
 
+## Stories about the vase
+
 ...
 
 A: Two things guides often tell you about this jar. First, a tip. The room is kept dim on purpose. Stand still, and move your head slowly from side to side. The lustre catches the light, and the gazelles come up in gold. It costs nothing to try.
 
 A: Second, you will often hear that the vase is about one metre thirty-five tall, and that it was made in Málaga. Both are plausible. But the museum itself does not confirm either one, so treat them as likely, not certain.
 
+## The royal tombstones
+
 ...
 
 N: Before you leave, look for the royal tombstones. They come from the Rauda, the royal burial ground of the Nasrid sultans. Find the carved Arabic writing on their faces. These stones once marked the graves of the men who built the palaces you have just walked through.
+
+## Walk on
 
 ...
 

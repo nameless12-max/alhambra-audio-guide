@@ -1,8 +1,13 @@
 # title: How to read a Nasrid wall
 # stop: 0
+
+## Where you are
+
 N: How to read a Nasrid wall.
 
 N: This track is for the queue. Every room in the palaces uses the same vocabulary. Read each wall from the floor up. Tiles at the bottom, carved plaster in the middle, wood or honeycomb overhead. Then the writing, which runs through them all.
+
+## Tiles and geometry
 
 ...
 
@@ -28,6 +33,8 @@ A: Careful surveys disagree, and some count fewer. Either way, the craftsmen got
 
 N: Why did geometry matter so much? One historian's answer, in a recent documentary, is that it was useful first. Astronomy and geometry told people the prayer times and the direction of Mecca. They guided pilgrims and traders. They were practical, even religious, skills long before they became an art.
 
+## Stucco and ceilings
+
 ...
 
 N: Now the middle band. Above the tiles, the walls are carved plaster, called stucco. You will see plant scrolls, lattices, and bands of writing.
@@ -43,6 +50,8 @@ N: Muqarnas first appeared in the eastern Islamic world, around the tenth and el
 ...
 
 A: Often told, though we could not confirm it. A recent documentary describes the method. Seven or eight basic prism shapes were cast in plaster moulds. The pieces were trimmed, polished, and fixed one by one with plaster paste, working upward from the walls. It is hard to imagine without a written plan, yet no Nasrid drawings survive.
+
+## Writing on the walls
 
 ...
 
@@ -69,6 +78,8 @@ N: Often the building speaks for itself, in the first person. One window says, I
 ...
 
 A: One myth to drop now. You will hear that Nasrid art shows no living creatures. Most of the ornament is abstract. But wait until you meet twelve stone lions, and a ceiling full of painted kings, knights and ladies.
+
+## Walk on
 
 ...
 

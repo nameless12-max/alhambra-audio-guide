@@ -1,9 +1,13 @@
 # title: Stop 19, continued. The fall of Granada
 # stop: 19
 
+## Where you are
+
 N: Stop nineteen, continued. The fall of Granada.
 
 N: Stay on the ramparts. The Torre de la Vela, the watchtower with the bell, is at the western prow of the fortress. Find it now. This is where the Nasrid kingdom ended.
+
+## The surrender terms
 
 ...
 
@@ -13,11 +17,15 @@ N: Those promises were broken within ten years.
 
 N: On the second of January, fourteen ninety-two, the last sultan, Boabdil, handed over the city to Ferdinand and Isabella. That same day, their banners were raised on the Torre de la Vela, in front of you.
 
+## Keys and Columbus
+
 ...
 
 N: Tradition places the handing over of the keys down by the river Genil, below the city. A small chapel stands there, the Ermita de San Sebastián.
 
 N: One visitor was still waiting for an answer. Christopher Columbus was in Granada, hoping for royal backing for a voyage west. He got it that April. He later wrote that he had seen the royal banners planted by force of arms upon the towers of the Alhambra.
+
+## Boabdil's exile
 
 ...
 
@@ -28,6 +36,8 @@ N: Now turn south, toward the mountains. That is the way Boabdil rode into exile
 A: The story goes that he stopped on a mountain pass for a last look at Granada, and wept. His mother, Aixa, is said to have told him to weep like a woman for what he had not defended like a man.
 
 A: The pass is still called the Suspiro del Moro, the Moor's Sigh. But treat the scene as legend. It was first written down in the fifteen thirties, about forty years later, and even then only as hearsay.
+
+## Why it is called red
 
 ...
 
@@ -40,6 +50,8 @@ N: That colour gave the whole place its name. In Arabic, al-Hamra means the red 
 A: You will also hear a second explanation, often told alongside the first. Muhammad the First, who founded this fortress, was known as Ibn al-Ahmar, the son of the red one. Some link the name of the Alhambra to him as well. That link is thinly sourced. The colour of the walls is the better supported explanation.
 
 ...
+
+## Walk on
 
 N: Take a last look at the view. Then you are ready for the way out.
 

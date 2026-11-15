@@ -1,10 +1,15 @@
 # title: Stop 16. Palace of Charles V
 # stop: 16
+
+## Where you are
+
 N: Stop sixteen. The Palace of Charles the Fifth.
 
 N: You are on the open esplanade, facing the west front of a vast square palace. It belongs to a different world from everything else on this hill. This is the Renaissance, set down in a Nasrid palace city.
 
 N: The front is sixty-three metres wide. The whole building is a square of that size.
+
+## The facade
 
 ...
 
@@ -24,6 +29,8 @@ A: Several things are said about this front. The main west portal is said to hav
 
 A: You will also notice that the palace sits at a slight angle to its neighbours. One story says the archbishop objected to it crowding the church on the site of the old mosque. That too is unconfirmed.
 
+## Why Charles built it
+
 ...
 
 N: Who built this, and why here? Charles the Fifth was the grandson of Ferdinand and Isabella. He was king of Spain from fifteen sixteen and Holy Roman Emperor from fifteen nineteen. He ruled much of Europe and the Americas.
@@ -33,6 +40,8 @@ N: In fifteen twenty-six he married Isabella of Portugal in Seville. He then spe
 N: The designer was Pedro Machuca, trained in Rome. Work began in fifteen twenty-seven. Machuca directed it on site from fifteen thirty-three until his death in fifteen fifty. His son Luis built the courtyard.
 
 N: Charles never lived in it. Neither did his son, Philip the Second, who moved the court to Madrid. Work stopped for fifteen years after the Morisco rebellion of fifteen sixty-eight. In sixteen thirty-seven it was abandoned without a roof. Restoration began in nineteen twenty-three, and the building was finished only in the middle of the twentieth century.
+
+## The Moriscos
 
 ...
 
@@ -45,6 +54,8 @@ N: Who were the Moriscos? After fourteen ninety-two, Granada's Muslims were prom
 N: In fifteen sixty-eight that pressure exploded in a great revolt in the Alpujarras. Those are the valleys on the far side of the Sierra Nevada, the mountains you saw from the Alcazaba.
 
 N: The revolt was crushed, and Granada's Moriscos were scattered across Castile. Between sixteen oh nine and sixteen fourteen they were expelled from Spain altogether. This half-built palace is, among other things, a monument to that story.
+
+## The round courtyard
 
 ...
 
@@ -63,6 +74,8 @@ N: Walk to the centre and look up at the open sky. Now think back to the Court o
 A: Try this. Stand dead centre and speak or clap softly. Many visitors notice an echo. You will also hear this court compared to Hadrian's Villa at Tivoli.
 
 A: And one famous line. Charles is often quoted as saying, on first seeing the Alhambra, unfortunate the man who lost all this. No early source records it.
+
+## Walk on
 
 ...
 

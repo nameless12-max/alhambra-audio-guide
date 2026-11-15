@@ -1,11 +1,15 @@
 # title: Stop 4. The Sala de la Barca and the Salón de Embajadores
 # stop: 4
 
+## Where you are
+
 N: Stop four. The Sala de la Barca and the Salón de Embajadores, the Hall of the Ambassadors.
 
 N: You are under the north arcade, at the foot of the Comares Tower. Ahead of you, a double archway leads into a long, narrow room. That is the Sala de la Barca. Beyond it, inside the tower itself, is the square throne room.
 
 N: The throne room may be closed, so follow the signs and go as far as they allow. Either way, here is what is inside.
+
+## The Sala de la Barca
 
 ...
 
@@ -18,6 +22,8 @@ N: The ceiling is curved wood, shaped like the hull of a boat turned upside down
 ...
 
 A: You will hear two explanations for the name. One is that it comes from the Arabic word baraka, meaning blessing, which Castilian ears heard as barca, meaning boat. The other is that it simply describes the ceiling. Both are current.
+
+## Throne room and dome
 
 ...
 
@@ -33,6 +39,8 @@ N: Now find the band of writing at the base of the dome. These are verses from t
 
 N: So the dome is read as an image of those seven heavens. It is a wooden sky over a fortress room.
 
+## Envoys and the decree
+
 ...
 
 N: Now look at the walls. There are nine alcoves, three in each side wall. The middle alcove of the north wall, straight ahead of you, is where the throne stood.
@@ -47,11 +55,15 @@ N: The Alhambra has a darker place in history. On the thirty-first of March, fou
 
 N: The decree gave Spain's Jews until the end of July to convert or leave. Many tens of thousands left, though the totals are much disputed. It ended one of the great Jewish communities of medieval Europe. Granada's Muslims had been promised their faith in the surrender terms. Within a decade, they too were forced to convert.
 
+## Stories you will hear
+
 ...
 
 A: You will hear that the decree was signed in this very hall. That is tradition only. The documents say simply that it was signed in the Alhambra, and no record names the room.
 
 A: Often told, though we could not confirm it, is that the dome was once painted, with lapis lazuli among the colours. We found no technical study to support it.
+
+## Walk on
 
 ...
 

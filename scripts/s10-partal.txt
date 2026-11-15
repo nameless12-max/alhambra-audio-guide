@@ -1,11 +1,15 @@
 # title: Stop 10. The Partal: Torre de las Damas, houses, oratory, Partal Alto and the Rauda
 # stop: 10
 
+## Where you are
+
 N: Stop ten. The Partal.
 
 N: This is the start of part two of the tour. You are in terraced gardens on the north side of the hill. Below you is a long pool. Beyond it stands a portico of five arches, and behind that a tower, the Torre de las Damas.
 
 N: Walk to the far end of the pool, and turn to face the arches.
+
+## The old palace
 
 ...
 
@@ -25,6 +29,8 @@ N: Those columns date only from nineteen sixty-five. They are the work of Franci
 
 A: Some sources go further, and say that only the central arch of the portico is original. We could not confirm it.
 
+## Tower, oratory, houses
+
 ...
 
 N: If you go into the tower, look up at where the ceiling should be. The original carved wooden dome is in Berlin.
@@ -41,6 +47,8 @@ N: Along the wall runs a row of small Nasrid houses. Look in if any are open.
 
 N: One of them, the House of the Paintings, keeps rare wall paintings from the thirteen hundreds. Found in nineteen oh seven, they show rows of horsemen, and tents with musicians, servants and women of the Nasrid court.
 
+## Partal Alto
+
 ...
 
 N: Now look uphill, above the gardens. There is the excavated outline of another palace. Find the long pool, the footings of rooms, and the remains of a bath.
@@ -53,6 +61,8 @@ N: Then they backed the losing side in the War of the Spanish Succession. In sev
 
 N: The Marquis then pulled the palace down and sold off pieces. Sources differ on whether that was in seventeen eighteen or in the seventeen thirties. The site was excavated in nineteen twenty-four. About a third of it is still buried.
 
+## The royal tombs
+
 ...
 
 N: One more place belongs to this story, though you cannot see it from here. The sultans were buried in a royal cemetery called the Rauda. It lay just across the lower street, the Calle Real Baja, from the royal palaces. You will pass close to its site later.
@@ -62,6 +72,8 @@ N: Ismail the First, Muhammad the Fourth, Yusuf the First and Yusuf the Third we
 N: After the conquest, Boabdil dug up his ancestors and took them with him into exile. They probably went to a burial ground his wife owned, at Mondújar.
 
 N: When the Rauda was excavated in nineteen twenty-five, about seventy tombs were found. All but one were empty. No remains of the dynasty survive.
+
+## Walk on
 
 ...
 

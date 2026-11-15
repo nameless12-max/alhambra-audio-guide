@@ -1,9 +1,13 @@
 # title: Stop 19. The Alcazaba
 # stop: 19
 
+## Where you are
+
 N: Stop nineteen. The Alcazaba.
 
 N: You are at the entrance to the Alcazaba, the fortress on the western tip of the hill. Follow the marked route through it.
+
+## Where the Alhambra began
 
 ...
 
@@ -15,11 +19,15 @@ N: In the eleventh century, Granada was ruled by the Zirid kings. Their chief mi
 
 A: A disputed point. One scholar placed Joseph's palace here, on this hill. Not everyone accepts it.
 
+## The rammed earth walls
+
 ...
 
 N: Put your hand on the wall if you can reach it. This is rammed earth. Look for rows of small square holes. Builders packed earth, lime and gravel into wooden frames, one layer at a time. The holes mark where the crossbeams of those frames sat.
 
 N: These plain, thick walls are the reason the palaces could be all lace and light.
+
+## The Adarves garden
 
 ...
 
@@ -38,6 +46,8 @@ N: The lines on it are by the Mexican poet Francisco de Icaza. In English they r
 ...
 
 A: A local legend says this garden was paid for with gold coins, found hidden in jars inside the walls. It is only a legend.
+
+## The Plaza de Armas
 
 ...
 
@@ -62,6 +72,8 @@ N: The gunpowder blast in the Darro valley in fifteen ninety damaged this tower 
 ...
 
 A: A few more things you will hear, all thinly sourced. After the conquest, the Count of Tendilla is said to have adapted the fortress for cannon. The rounded bastion by the Powder Tower is the usual example. Another tower, the Torre de las Armas, is said to have linked the fortress to the Albaicín by a bridge over the river. We could not confirm these.
+
+## The rampart view
 
 ...
 

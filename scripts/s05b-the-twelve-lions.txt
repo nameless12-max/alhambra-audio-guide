@@ -1,9 +1,13 @@
 # title: Stop 5, continued. The twelve lions
 # stop: 5
 
+## Where you are
+
 N: Stop five, continued. The twelve lions.
 
 N: You are standing at the fountain in the centre of the court. Twelve stone lions stand in a ring, facing outward. On their backs they carry a twelve-sided basin. Walk slowly once around them.
+
+## Why lions
 
 ...
 
@@ -23,9 +27,13 @@ N: Why twelve? No Nasrid text says. The number matches the twelve-sided basin an
 
 A: Often told, though thinly sourced, is that the lions fall into three carving styles, four lions in each. Look at the manes, the muzzles and the tails, and judge for yourself.
 
+## The water works
+
 ...
 
 N: Now listen. Restorers found that the water once rose through a pierced stone cylinder at the centre. It slipped out of the lions' mouths almost silently. It was more like a spring than a fountain. That matches the poem's picture of water so clear and still that it seems solid.
+
+## Restorations and war
 
 ...
 
@@ -34,6 +42,8 @@ N: The fountain has had a busy afterlife. An upper basin was added in sixteen tw
 N: During Napoleon's occupation of Granada, from eighteen ten to eighteen twelve, a French commander planted a flower garden in this court. It was removed in eighteen forty-six, because the damp threatened the building.
 
 N: In two thousand and seven the lions were taken away for restoration, while the original water system was rebuilt. They came back at the end of two thousand and eleven. The restored fountain was unveiled in July twenty twelve.
+
+## Stories you will hear
 
 ...
 
@@ -44,6 +54,8 @@ A: You will hear that the lions are older than this palace. A theory published i
 A: The theory held that the lions came from Joseph's palace. It rested on a poem by Solomon ibn Gabirol. The poem describes a basin resting on lions, like the bronze sea carried by twelve oxen in Solomon's Temple. It is a beautiful idea, but it is disputed. The carving is fourteenth-century Nasrid work, and most scholars have set it aside.
 
 A: You may also hear that the fountain worked as a water clock. That is a guess with no documents behind it. And one more story we could not confirm, that a traveller in fourteen ninety-four counted thirteen lions here.
+
+## Walk on
 
 ...
 

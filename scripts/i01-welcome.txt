@@ -1,14 +1,21 @@
 # title: Welcome
 # stop: 0
+
+## Where you are
+
 N: Welcome to the Alhambra. This walk starts where your ticket says you must be on time, in the Nasrid Palaces.
 
 N: From there it moves outward. First come the council hall, the throne tower and the private Palace of the Lions. Then the older Partal, and the tower-houses on the walls. Then across to the Generalife, the summer estate. Last, back along the old town street to the emperor's palace and the fortress where it all began.
 
 N: There is one track for each stop. Each one tells you where to stand, what to look at, and why it matters. Pause whenever you like. The building will wait.
 
+## The second voice
+
 ...
 
 A: I am the second voice. You will hear me when a story is legend, when experts disagree, or when a detail is widely told but we could not trace it to a solid source.
+
+## Etiquette and timing
 
 ...
 

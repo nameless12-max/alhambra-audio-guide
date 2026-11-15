@@ -1,11 +1,15 @@
 # title: Stop 8. Dos Hermanas, Ajimeces and the Mirador de Lindaraja
 # stop: 8
 
+## Where you are
+
 N: Stop eight. The Hall of the Two Sisters, and the Mirador de Lindaraja.
 
 N: This is a quiet room. If you have not gone in yet, you may prefer to hear this track just outside, then step in and look in silence.
 
 N: You are on the north side of the Court of the Lions, at the door of the Sala de las Dos Hermanas, the Hall of the Two Sisters. A small fountain sits in the middle of its floor. Beyond it, a second room, the Sala de los Ajimeces, leads to a little window bay at the far end.
+
+## Floor and dome
 
 ...
 
@@ -24,6 +28,8 @@ N: The dome above you is muqarnas, a honeycomb of small carved cells. There are 
 N: Each side of that drum has two windows. Sixteen windows in all, letting the light fall through the honeycomb.
 
 N: Across the court, the Hall of the Abencerrajes has a dome of the same kind. The two face each other over the Lions. Together they are the summit of this art.
+
+## Poems on the walls
 
 N: Now find the bands of writing on the walls. These are poems, and the room speaks in them for itself. Here it boasts of its peerless, radiant dome.
 
@@ -45,6 +51,8 @@ N: Ibn Zamrak rose to become vizier himself. In thirteen ninety-three, he too wa
 
 N: This hall belongs to the private palace of Muhammad the Fifth. Now walk on through the next room, the Sala de los Ajimeces, to the small window bay at the end.
 
+## The Lindaraja window
+
 ...
 
 N: This is the Mirador de Lindaraja. Mirador means a place to look out from. Lindaraja comes from the Arabic ayn dar Aisha, the eye of the house of Aisha.
@@ -59,9 +67,13 @@ N: At this height, the view frames itself. The room was built for people sitting
 
 N: This bay was the jewel of the private palace. It once looked out over the Darro valley. After the Christian conquest, rooms built for Charles the Fifth went up in front of it. They closed off the view and enclosed the garden below.
 
+## Stories you will hear
+
 ...
 
 A: One more story about this hall. A recent documentary says Charles the Fifth dined here during his long honeymoon stay in fifteen twenty-six. It adds that Pedro Machuca labelled the room His Majesty the Emperor's dining room. Often told, though we could not confirm it.
+
+## Walk on
 
 ...
 

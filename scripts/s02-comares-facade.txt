@@ -1,5 +1,8 @@
 # title: Stop 2. Patio del Cuarto Dorado and the Comares facade
 # stop: 2
+
+## Where you are
+
 N: Stop two. The Patio del Cuarto Dorado and the Comares facade.
 
 N: You are in a small courtyard, with a low fountain in the middle. Facing you is a tall wall, carved from top to bottom. It has two doorways, and a deep wooden eave at the top. A room called the Cuarto Dorado, the Golden Room, opens off the courtyard.
@@ -12,11 +15,15 @@ N: Here the public world of the Mexuar met the sultan's private palace. The sult
 
 N: Look up at the eave. It is cedar, and it juts out over the courtyard. It shaded the raised seat below.
 
+## Muhammad's return
+
 ...
 
 N: Muhammad the Fifth had reason to celebrate. In thirteen fifty-nine a palace coup drove him from the throne. He spent nearly three years in exile in Fez, in Morocco. His vizier, the poet Ibn al-Khatib, stayed beside him.
 
 N: In thirteen sixty-two he won his kingdom back, with help from Castile. In the thirteen sixties his court sent the historian Ibn Khaldun as its envoy to Peter the First of Castile, in Seville.
+
+## The ruby legend
 
 ...
 
@@ -30,6 +37,8 @@ N: In thirteen sixty-nine Muhammad the Fifth took Algeciras, the port on the Str
 
 N: This facade belongs to his second reign. So does the redecorated Mexuar behind you, and so does the whole Palace of the Lions. This is a restored king, building to be seen.
 
+## Words on the facade
+
 ...
 
 N: Now find the bands of writing across the facade. One is a poem by Ibn Zamrak. Another is the Throne Verse from the Qur'an.
@@ -41,6 +50,8 @@ N: Over a ruler's door, it says two things at once. This house is protected. And
 ...
 
 A: You will often hear the poem quoted as opening, I am a crown on the front of my door. The gateway speaks for itself. But the full translation comes only from secondary sites, so treat the wording with care.
+
+## Doors and golden room
 
 ...
 
@@ -59,6 +70,8 @@ N: Before you go through, step into the Cuarto Dorado and look up at the cedar c
 A: You will hear two accounts of this ceiling. It is often credited to the reign of Muhammad the Fifth. Others say it was repainted and gilded under the Catholic Monarchs.
 
 A: You will also hear that the low fountain in the courtyard is a copy of one moved here from the Patio de Lindaraja. Often told, though we could not confirm it.
+
+## Walk on
 
 ...
 

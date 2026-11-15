@@ -1,9 +1,13 @@
 # title: Stop 7. Sala de los Reyes
 # stop: 7
 
+## Where you are
+
 N: Stop seven. The Hall of the Kings, the Sala de los Reyes.
 
 N: You are at the east end of the Court of the Lions. The long hall in front of you runs behind the arcade and closes this end of the court. Step inside and walk slowly along it.
+
+## The leather vaults
 
 ...
 
@@ -20,6 +24,8 @@ N: Now look to each end of the same vault. At each end there are two shields. Th
 ...
 
 N: Now move to one of the side vaults and look up again. The scene changes completely. Here are knights and ladies. Here are hunts, a game of chess, and jousting. A whole romance of chivalry is painted over your head.
+
+## The ten men
 
 ...
 
@@ -39,6 +45,8 @@ N: That palace in Seville looks so Nasrid that its plasterwork carries Arabic in
 
 N: So here you have Christian painters working for a sultan. In Seville you have Granadan plasterers working for a king. The frontier was a war zone. It was also a shared workshop.
 
+## Christian painters
+
 ...
 
 N: Go back to the centre vault and look up once more at the ten figures. The subjects are Muslim. But most of the figures, and the buildings painted behind them, look Christian in style.
@@ -46,6 +54,8 @@ N: Go back to the centre vault and look up once more at the ten figures. The sub
 N: The painters were probably Christians. They seem to have had links to a workshop in Toledo, and their work shows touches of Italian painting from the thirteen hundreds. They were working for a Muslim patron.
 
 N: Who exactly they were is still debated. What is certain is what you see. A Nasrid sultan sat under ceilings full of Muslim figures, painted in the manner of his Christian neighbours.
+
+## Walk on
 
 ...
 

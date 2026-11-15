@@ -1,10 +1,15 @@
 # title: Stop 13. Patio de la Acequia and the Sala Regia
 # stop: 13
+
+## Where you are
+
 N: Stop thirteen. Patio de la Acequia and the Sala Regia.
 
 N: You have come through the palace entrance into a long, narrow courtyard. A channel of water runs down its whole length, with planted beds on either side and a pavilion at each end. This is the Patio de la Acequia, the Court of the Water Channel.
 
 N: Walk to the south end and turn to face north, toward the taller pavilion.
+
+## The sound of water
 
 ...
 
@@ -20,6 +25,8 @@ N: Garden historians read all this water as a statement of royal power and good 
 
 N: Unlike the palaces across the ravine, the Generalife had no grand state rooms. It was a place for the court's pleasure, close enough for a day trip.
 
+## The mirador
+
 ...
 
 N: Now turn to your left, to the western wall. Halfway along, a small room juts out. That is a mirador, a room built to frame a view. It is probably the earliest known mirador in Nasrid architecture.
@@ -29,6 +36,8 @@ N: Step inside and look back across the ravine. The Alhambra is in front of you.
 ...
 
 N: Now walk to the north pavilion and look up. The upper gallery was added by the Catholic Monarchs in fourteen ninety-four, two years after the conquest.
+
+## Sala Regia and later owners
 
 ...
 
@@ -42,9 +51,13 @@ N: The estate outlived the sultans. After the conquest, the Generalife passed to
 
 N: Then came a long lawsuit. It ended in a settlement, and in nineteen twenty-one the estate was handed to the Spanish state.
 
+## The niches story
+
 ...
 
 A: You will hear this about the north portico. Beside its entrance are two small wall niches, called tacas. They are said to have held jars of cool water. An inscription attributed to Isma'il the First is said to compare them to maidens greeting guests. We could not confirm its wording.
+
+## Walk on
 
 ...
 

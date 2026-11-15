@@ -1,9 +1,13 @@
 # title: Stop 9. Patio de la Reja, Patio de Lindaraja and the exit
 # stop: 9
 
+## Where you are
+
 N: Stop nine. The Patio de la Reja, the Patio de Lindaraja, and the way out.
 
 N: From the Mirador, the route leads along a corridor. It passes a small courtyard, the Patio de la Reja, and then goes down into a garden courtyard, the Patio de Lindaraja. You can listen as you walk.
+
+## The Emperor's chambers
 
 ...
 
@@ -14,6 +18,8 @@ N: The rooms along this corridor are not Nasrid. From fifteen twenty-eight, Char
 N: Around fifteen thirty-seven, two painters trained in Raphael's workshop decorated the so-called fruit rooms. Their names were Julio Aquiles and Alejandro Mayner.
 
 N: The chambers are normally closed. They open only now and then, as the Space of the Month. If the doors are open today, it is worth the detour.
+
+## Washington Irving
 
 ...
 
@@ -33,6 +39,8 @@ N: Close by, at the top of a tower, is a small room called the Peinador de la Re
 
 A: You will also hear that the Peinador was redecorated for the Empress Isabella in the fifteen hundreds. That is often told, but thinly sourced.
 
+## Patio de Lindaraja
+
 ...
 
 N: Now you are in the Patio de Lindaraja. Turn around and look back up.
@@ -51,11 +59,15 @@ A: Two things you will hear about these baths. First, that the resting hall is c
 
 A: Second, that musicians played to the bathers from the gallery of that resting hall. They are often said to have been blind. Both details are thinly sourced.
 
+## Leaving the palaces
+
 ...
 
 N: You leave the palaces from this garden, through a gate into the Partal gardens. If the exit has been moved, follow the staff.
 
 N: Once you pass the gate, you cannot come back in. So take a last look. Listen for the water, and look up once more at the Mirador.
+
+## Walk on
 
 ...
 

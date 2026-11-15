@@ -1,10 +1,15 @@
 # title: Stop 14. Patio del Ciprés de la Sultana, the Water Stairway and the Mirador Romántico
 # stop: 14
+
+## Where you are
+
 N: Stop fourteen. The Patio del Ciprés de la Sultana, the Water Stairway, and the Mirador Romántico.
 
 N: You are above the Patio de la Acequia, in a courtyard of pools and clipped hedges. This is the Court of the Sultana's Cypress. Paths lead on from here, up to the upper gardens.
 
 N: Find the arcade on the north side. It was built between fifteen eighty-four and fifteen eighty-six. This whole courtyard was designed after the Nasrids had gone.
+
+## The sultana legend
 
 ...
 
@@ -17,6 +22,8 @@ A: The story goes that a sultana was caught here, meeting a knight of the Abence
 A: Whose wife was she? In most tellings she is Morayma, the wife of Boabdil. Other tellings make her the wife of Muley Hacén. Versions differ. Treat all of it as legend.
 
 A: You will also hear that the famous cypress itself is long dead, and that its trunk is kept as a relic of the story. That too is often told and thinly sourced.
+
+## The Water Stairway
 
 ...
 
@@ -34,15 +41,21 @@ N: Start to climb. The flights break at small round landings, each with a founta
 
 N: This stairway existed in the Muslim period, and it is reputedly the oldest stair in these gardens. Its water comes from the higher channel, the Acequia del Tercio, the branch that splits off far up the valley. Here, at last, you can put your hand in it.
 
+## Stairway stories
+
 ...
 
 A: Often told, thinly sourced. The stairway is often linked to the poet Juan Ramón Jiménez, who is said to have written about its running handrails.
+
+## The Romantic lookout
 
 ...
 
 N: At the top stands the Mirador Romántico, the Romantic Lookout, built in eighteen thirty-six. It probably stands on the site of a former prayer hall.
 
 N: Go to the edge and look out. From here you can read the whole water system. Below you runs the channel. Then come the palace and its courtyards, and the orchards on the slope. Across the ravine is the Alhambra, where all this water is heading.
+
+## Walk on
 
 ...
 

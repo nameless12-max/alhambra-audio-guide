@@ -1,9 +1,13 @@
 # title: Stop 20. Out by the Puerta de la Justicia
 # stop: 20
 
+## Where you are
+
 N: Stop twenty. Out by the Puerta de la Justicia.
 
 N: You are inside the walls, in front of the great gate in the southern wall. This is the Puerta de la Justicia, the Gate of Justice. If it is open as an exit, it is your way out. Do not hurry through it. Stop first, facing the inner arch.
+
+## The key and the Virgin
 
 ...
 
@@ -23,6 +27,8 @@ N: Think about what you are looking at. The Catholic Monarchs set their Virgin o
 
 N: The gate's Arabic name is Bab al-Sharia. It is usually translated as the Gate of the Esplanade, and sometimes as the Gate of the Law.
 
+## Through the passage
+
 ...
 
 N: Now walk slowly through the passage. Count the arches as you pass under them. Look at the great wooden door. It is the original, sheathed in metal.
@@ -31,6 +37,8 @@ N: Now walk slowly through the passage. Count the arches as you pass under them.
 
 A: Often told, and only partly confirmed. The passage is usually described as a bent entrance. It turns at right angles, so that attackers could not charge straight through. Watch for the turns as you walk. We could not confirm how many there are.
 
+## Outside the gate
+
 ...
 
 N: When you are outside, turn around and face the gate.
@@ -38,6 +46,8 @@ N: When you are outside, turn around and face the gate.
 ...
 
 N: Look up, to the stone at the very top of the great outer arch, the keystone. An open hand is carved on it.
+
+## Myths and legends
 
 ...
 
@@ -48,6 +58,8 @@ A: You will hear that judges once held court under this gate. There is no record
 A: And there is the legend Washington Irving retells. The Alhambra will stand until the hand reaches down and grasps the key. On that day, the whole fortress will fall. The hand is out here, and the key is on the inner arch. They have not met yet.
 
 A: One last thing you will hear. The fountain of Charles the Fifth, beside the gate, is said to carry the arms of Burgundy and Lorraine among its imperial heraldry. That too is thinly sourced.
+
+## Walk on
 
 ...
 
