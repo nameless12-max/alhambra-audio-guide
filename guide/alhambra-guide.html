@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alhambra walking guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a knowledgeable guide at your shoulder, calm and precise, never breathless.
+   IDEA: a pocket guidebook printed for the palace: plaster-white pages, myrtle-green ribbon, tile-blue route.
+   PICTURE: drawn scenes and plans of the red walls, the Myrtles mirror, the Lions court, the water's path.
+   COLOUR and TYPE: plaster white, myrtle green #1f5641, tile blue #1d5a9e, earth red for walls; Alegreya + Alegreya Sans.
+   LAYOUT: one readable column for a phone in one hand; sticky bar with progress and the stop list. */
+:root{color-scheme:light dark;
+--bg:light-dark(#fbfaf7,#0e1412);--paper:light-dark(#ffffff,#141c19);--paper2:light-dark(#f2efe8,#1a2421);
+--ink:light-dark(#1b1f1d,#ebeae4);--muted:light-dark(#5b635e,#a4aba6);--line:light-dark(#e3ded3,#2a3531);
+--green:light-dark(#1f5641,#7cc2a0);--green-bg:light-dark(#1f5641,#173a2d);--accent:light-dark(#1d5a9e,#86b6ee);
+--wall:light-dark(#ad4a2f,#c4694c);--wall-lt:light-dark(#cd7b57,#9c573e);--water:light-dark(#3a84a6,#5aa7c8);
+--plaster:light-dark(#efe7da,#28302d);--plaster-dk:light-dark(#c9b99f,#4b524e);--wood:light-dark(#6b4527,#4a311f);--wood-lt:light-dark(#9c6c40,#6d4a2e);
+--tile-bg:light-dark(#f5f0e7,#20302a);--tile1:light-dark(#1f5641,#3f8a68);--tile2:light-dark(#1d5a9e,#4f83c2);--tile3:light-dark(#ad4a2f,#b35e43);
+--sky1:light-dark(#cfe3ef,#18283a);--sky2:light-dark(#f6efe2,#2b3340);--mtn:light-dark(#9fb2c2,#3a4a5c);--snow:light-dark(#ffffff,#d7dee6);
+--hill:light-dark(#8aa36c,#2f4a35);--hill2:light-dark(#5f7f4b,#22382a);--cypress:light-dark(#2c4f33,#1a3322);--shadow:light-dark(#3b2a20,#000000);
+--myth:light-dark(#fff4dc,#2e2717);--myth-ink:light-dark(#7a5300,#e8c372);
+--sans:"Alegreya Sans",system-ui,sans-serif;--serif:"Alegreya",Georgia,serif;--fs:17px}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.6 var(--sans);overflow-x:clip;-webkit-text-size-adjust:100%}
+a{color:var(--accent)}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:8px;padding:8px max(4vw,12px);background:var(--green-bg);color:#fff}
+.bar .bt{font:700 1.05rem/1.1 var(--serif);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .bt small{display:block;font:400 .78rem/1.2 var(--sans);opacity:.85}
+.bar button{min-height:44px;min-width:44px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;border-radius:22px;font:500 .95rem var(--sans);padding:0 14px;cursor:pointer}
+.bar button:focus-visible,.next:focus-visible,.seen:focus-visible,.drawer a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.prog{height:4px;background:var(--line)}.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.wrap{max-width:680px;margin:0 auto;padding:0 max(4vw,14px) 60px}
+.hero{margin:0 calc(-1*max(4vw,14px));background:var(--paper2)}
+.hero svg{display:block;width:100%;height:auto}
+.hero .ht{padding:18px max(4vw,14px) 6px}
+h1{font:700 clamp(32px,8.5vw,46px)/1.05 var(--serif);margin:0 0 6px;text-wrap:balance}
+.sub{font:500 1.05rem/1.3 var(--sans);color:var(--green);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px;padding:0;list-style:none}
+.chips li{font-size:.85rem;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
+h2{font:700 1.55rem/1.15 var(--serif);margin:0 0 10px;text-wrap:balance}
+h3{font:700 1.3rem/1.2 var(--serif);margin:0;text-wrap:balance}
+.sec{padding:26px 0 6px;scroll-margin-top:64px}
+.sec h3{font-size:1.12rem;margin:18px 0 6px}
+.callout{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--wall);border-radius:10px;padding:2px 16px 8px;margin:16px 0}
+.checks{background:var(--paper2);border-radius:10px;padding:2px 16px 8px;margin:16px 0}
+p{margin:0 0 .8em}ul{padding-left:1.15em;margin:0 0 .9em}li{margin:0 0 .35em}
+.part{margin:34px calc(-1*max(4vw,14px)) 0;padding:22px max(4vw,14px) 14px;background:var(--green-bg);color:#fff;scroll-margin-top:60px}
+.part h2{margin:0 0 4px;color:#fff}.part .plab{margin:0;font-size:.9rem;opacity:.85}.part .dur{color:#d8eee3}.part p{margin:.5em 0 0}
+.stop{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 16px 12px;margin:16px 0;scroll-margin-top:64px}
+.stop.done{border-color:var(--green)}
+.sh{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font:700 1.1rem var(--serif)}
+.stop.done .num{background:var(--green)}
+.slab{margin:0;font-size:.85rem;color:var(--muted)}
+.dur{display:inline-block;margin-top:4px;font-size:.85rem;color:var(--muted)}
+h4{font:700 .95rem/1.2 var(--sans);color:var(--green);margin:16px 0 4px}
+h4.myth{display:inline-block;background:var(--myth);color:var(--myth-ink);padding:3px 10px;border-radius:6px}
+h4.myth+p{background:var(--myth);border-radius:0 8px 8px 8px;padding:8px 12px;margin-top:-1px}
+h4.thin{display:inline-flex;align-items:center;gap:6px;color:var(--muted);border:1.5px dashed var(--plaster-dk);border-bottom:0;border-radius:8px 8px 0 0;padding:4px 10px;margin-bottom:0}
+h4.thin::before{content:"?";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--plaster-dk);color:var(--paper);font-size:.75rem}
+h4.thin+ul{border:1.5px dashed var(--plaster-dk);border-radius:0 8px 8px 8px;padding:10px 12px 4px 30px;margin-top:0;font-size:.95rem;color:var(--ink)}
+.fig{margin:14px 0 6px}.fig svg{display:block;width:100%;height:auto;border-radius:10px}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:5px}
+.foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.photo{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:.95rem;flex:1 1 100%}
+.seen,.next{min-height:44px;border-radius:22px;font:500 .95rem var(--sans);padding:0 16px;cursor:pointer}
+.seen{border:1px solid var(--line);background:var(--paper2);color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+.tick{width:18px;height:18px;border:2px solid var(--muted);border-radius:50%}
+.seen[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+.seen[aria-pressed=true] .tick{border-color:#fff;background:#fff;box-shadow:inset 0 0 0 3px var(--green)}
+.next{border:0;background:var(--accent);color:#fff;flex:1 1 auto;text-align:left;line-height:1.25;padding:8px 16px}
+details summary{cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center}
+details summary h2{margin:0}details summary::after{content:"＋";margin-left:auto;font-size:1.3rem;color:var(--muted)}
+details[open] summary::after{content:"－"}
+.legend{list-style:none;padding:0;margin:8px 0 20px;display:grid;gap:6px}.legend li{display:flex;align-items:center;gap:10px;margin:0;font-size:.95rem}.legend b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.85rem}.legend b.tk{background:var(--ink);color:var(--paper);border-radius:6px}.legend span{color:var(--muted);font-size:.85rem;margin-left:auto;white-space:nowrap}
+#sources li{font-size:.85rem;word-break:break-word}
+.drawer{position:fixed;inset:0;z-index:40;display:none}
+.drawer.open{display:block}
+.drawer .sc{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.drawer nav{position:absolute;top:0;right:0;bottom:0;width:min(88vw,380px);background:var(--paper);overflow-y:auto;padding:10px 0 30px;box-shadow:-8px 0 24px rgba(0,0,0,.25)}
+.drawer .dh{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px}
+.drawer .dh b{font:700 1.2rem var(--serif)}
+.drawer .dh button{min-width:44px;min-height:44px;border:0;background:transparent;color:var(--ink);font-size:1.5rem;cursor:pointer}
+.drawer ul{list-style:none;margin:0;padding:0}
+.drawer li{margin:0}
+.drawer li.ng{font-size:.82rem;color:var(--muted);padding:12px 16px 4px;border-top:1px solid var(--line)}
+.drawer a{display:flex;gap:10px;align-items:center;min-height:44px;padding:6px 16px;color:var(--ink);text-decoration:none;cursor:pointer}
+.drawer a b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--paper2);display:grid;place-items:center;font-size:.85rem}
+.drawer a.done b{background:var(--green);color:#fff}
+.drawer a.here{background:var(--paper2)}
+@media (prefers-reduced-motion:reduce){.prog i{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="bt">Alhambra walk<small id="pc">0 of 20 stops seen</small></div>
+  <button id="fz" aria-label="Change text size">Aa</button>
+  <button id="ob" aria-haspopup="true" aria-controls="dr">Stops</button>
+</div>
+<div class="prog" aria-hidden="true"><i id="pb"></i></div>
+<main class="wrap">
+  <div class="hero">
+    <svg viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: the red walls and towers of the Alhambra on its hill, with the snowy Sierra Nevada behind">
+<defs><linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky1)"/><stop offset="1" stop-color="var(--sky2)"/></linearGradient>
+<linearGradient id="hwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--wall-lt)"/><stop offset="1" stop-color="var(--wall)"/></linearGradient></defs>
+<rect width="400" height="210" fill="url(#hsky)"/>
+<path d="M0 118 L48 78 L80 96 L128 52 L162 80 L205 40 L246 76 L282 58 L330 90 L366 66 L400 86 L400 140 L0 140Z" fill="var(--mtn)"/>
+<path d="M118 61 L128 52 L138 61 L132 59 L128 63 L123 59Z M196 48 L205 40 L214 49 L208 47 L204 52 L200 47Z M274 64 L282 58 L291 65 L285 63 L281 67Z M358 72 L366 66 L374 72 L368 71 L365 74Z" fill="var(--snow)"/>
+<path d="M0 168 Q90 128 200 132 T400 150 L400 210 L0 210Z" fill="var(--hill)"/>
+<g fill="url(#hwall)">
+<rect x="34" y="112" width="24" height="34"/><rect x="58" y="126" width="60" height="16"/>
+<rect x="118" y="104" width="16" height="38"/><rect x="134" y="122" width="54" height="18"/>
+<rect x="188" y="74" width="34" height="64"/><rect x="222" y="118" width="70" height="20"/>
+<rect x="250" y="106" width="16" height="32"/><rect x="292" y="112" width="18" height="28"/><rect x="310" y="124" width="56" height="16"/>
+</g>
+<g fill="var(--wall)">
+<path d="M34 112h4v-4h4v4h4v-4h4v4h4v-4h4v4z"/><path d="M188 74h5v-5h5v5h4v-5h5v5h4v-5h5v5z"/><path d="M118 104h4v-4h4v4h4v-4h4v4z"/>
+</g>
+<g fill="var(--shadow)" opacity=".5"><rect x="196" y="96" width="5" height="9" rx="2.5"/><rect x="209" y="96" width="5" height="9" rx="2.5"/><rect x="40" y="124" width="4" height="7" rx="2"/></g>
+<g fill="var(--cypress)"><path d="M330 140 q4-26 8 0z"/><path d="M342 140 q4-32 8 0z"/><path d="M354 140 q3-22 7 0z"/><path d="M150 142 q3-18 6 0z"/></g>
+<path d="M0 185 Q120 168 230 176 T400 172 L400 210 L0 210Z" fill="var(--hill2)"/>
+</svg>
+
+    <div class="ht">
+      <h1>The Alhambra, Nasrid Palaces First</h1>
+      <p class="sub">A Walking Guide for November 2026</p>
+      <p>This walk starts where the ticket system insists you be on time: the Nasrid Palaces. From there it moves outward, from council hall to throne tower and the private Palace of the Lions, then to the older Partal and the tower-houses on the walls, across to the Generalife summer estate, and back along the old town street to the emperor's palace and the fortress where it all began. At each stop you'll get where to stand, what to look at, and why it matters. Where a story is legend, or experts disagree, the guide says so. Boxes marked <strong>Often told, thinly sourced</strong> hold details that are widely repeated, and too good to leave out, but that we couldn't trace to a solid source. Allow four to five hours; the official estimate for a general visit is about three, but this walk lingers.</p>
+      <ul class="chips"><li>Starts at your Nasrid slot</li><li>20 stops</li><li>4–5 hours</li><li>Checked for November 2026</li></ul>
+    </div>
+  </div>
+  <section class="sec" id="before"><h2>Before you go — November 2026</h2><div><p><strong>Hours.</strong> Winter hours run from 15 October to 31 March. Day visits are 08:30 to 18:00 every day, and the ticket office opens at 08:00. Plan your last stops around that 18:00 close.</p>
+<p><strong>Your Nasrid time slot is strict.</strong> The official rule: if you are not at the Nasrid Palaces entrance at the time printed on your ticket, you lose that visit. No grace period is published. Entry is capped at about 300 people per half hour.</p>
+<p><strong>One entry per area.</strong> You can enter each ticketed area (Nasrid Palaces, Partal, Generalife, Alcazaba) only once. You can leave and re-enter the complex as a whole, but once you leave the Nasrid Palaces you cannot go back in.</p>
+<p><strong>ID.</strong> Bring your original passport or national ID card. It is mandatory, and tickets are issued against it. Children under 12 need no ID.</p>
+<p><strong>Bags.</strong> Backpacks bigger than 40 × 40 cm are not allowed. Lockers at the Puerta del Vino are free with a same-day ticket, if available.</p>
+<p><strong>Cameras.</strong> Selfie sticks, flash and tripods are banned inside the Nasrid Palaces and other enclosed spaces. Baby buggies are not allowed in the Nasrid Palaces or the Generalife palace.</p>
+<p><strong>Food, drink, toilets.</strong> Eating is allowed only in certain areas, including the Plaza de los Aljibes. The official services list shows only vending machines, so bring water. Toilets are at the Access Pavilion, by the Puerta del Vino, and at the Generalife.</p>
+<p><strong>The Alhambra Museum</strong> (inside the Palace of Charles V) is free and <strong>closed on Mondays</strong>. It opens Wednesday to Saturday 08:30–18:00, and Tuesday and Sunday 08:30–14:30 only. If you visit on a Tuesday or Sunday, see the museum before your Nasrid slot: it is right beside the palace entrance.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Inside the palaces you may be asked to wear a small backpack on your front, so it can't brush the plasterwork.</li>
+<li>Some rooms are reported to be "quiet rooms", where guides may not talk to their groups: the Cuarto Dorado, the Dos Hermanas, the Abencerrajes and the north gallery of the Generalife. On your own, just keep your voice down there.</li>
+<li>Free lockers are also reported at the Access Pavilion, and a free visitor Wi-Fi network has been listed on site. Load this page before you go anyway.</li>
+<li>A drinking fountain is said to stand partway up the Cuesta de Gomérez.</li>
+</ul>
+</div><div class="callout"><h3>The earthquakes and what is closed</h3>
+<p>A swarm of earthquakes began near Alhendín, just south of Granada, on 14 August 2026. The largest were a magnitude 5.0 on 15 August and a 4.8 on 18 August, when the complex was evacuated and closed for the day. There was no significant structural damage, but some battlements fell in the Alcazaba, and decorative plaster fell in the Nasrid Palaces, mostly in the Throne Room (the Salón de Embajadores).</p>
+<p>The complex reopened on 19 August on adapted routes. At the latest reports:</p>
+<ul>
+<li><strong>Salón de Embajadores (Throne Room):</strong> closed "until further notice" as of a 25 August 2026 report. No reopening had been reported by mid-November.</li>
+<li><strong>Sala de la Barca</strong>, its antechamber: reported to have reopened around 26 August.</li>
+<li><strong>Alcazaba:</strong> reopened on 23 September on an adapted route.</li>
+<li><strong>Torre de la Vela:</strong> still "temporarily closed" for technical inspections as of 28 September 2026.</li>
+<li><strong>Jardín de la Umbría</strong> in the Generalife: closed since 2018. A roughly three-month restoration was announced in July 2026. Treat it as a bonus if it is open.</li>
+</ul>
+<p>The official ticket site warns that routes "may be modified as required by conservation, safety, and visitor management needs." Expect some scaffolding too: restoration of the Mexuar roofs and of decorative elements in the Court of the Lions has been under way or announced.</p>
+</div><div class="checks"><h3>What to check on the day</h3>
+<ul>
+<li>The notices on the official ticket site, and the signs at each entrance, for the Throne Room, the Torre de la Vela and any route changes.</li>
+<li>Whether your date falls on a special-access day. The official tips page mentions an Open Doors Day on 16 November with access by invitation.</li>
+<li>Which normally closed room is the current "Space of the Month" (Irving's rooms, the Comares Baths, the Torre de la Cautiva and others rotate, for about 30 people at a time).</li>
+<li>If your Nasrid slot is the last of the day (one hour before closing), reverse this walk: do the Generalife and Alcazaba first, then the palaces.</li>
+</ul></div></section>
+<section class="sec" id="getting"><h2>Getting to your Nasrid slot</h2><figure class="fig"><svg viewBox="0 0 360 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic route map with numbered places: 1 Nasrid Palaces, 2 Partal, 3 Paseo de las Torres, 4 Generalife, 5 Calle Real, 6 Palace of Charles V, 7 Puerta del Vino, 8 Alcazaba, 9 Puerta de la Justicia exit">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker></defs>
+<rect width="360" height="290" fill="var(--paper2)" rx="10"/>
+<path d="M276 30 C300 18 344 22 352 44 L354 104 C340 118 300 118 280 104 Z" fill="var(--green)" opacity=".18"/>
+<path d="M14 168 C30 128 80 104 140 96 C190 90 236 86 262 96 C276 104 280 130 270 152 C246 196 180 214 120 216 C66 218 26 204 14 168Z" fill="var(--hill)" opacity=".45"/>
+<path d="M18 166 C34 130 82 108 140 100 C190 94 234 90 258 100 C272 108 274 130 266 150 C244 192 180 210 120 212 C68 214 30 200 18 166Z" fill="none" stroke="var(--wall)" stroke-width="3.5"/>
+<rect x="24" y="140" width="58" height="40" rx="4" fill="var(--wall)" opacity=".3"/>
+<rect x="124" y="140" width="34" height="34" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/><circle cx="141" cy="157" r="9" fill="none" stroke="var(--ink)"/>
+<rect x="128" y="104" width="62" height="28" rx="3" fill="var(--accent)" opacity=".2"/>
+<rect x="196" y="98" width="26" height="14" rx="3" fill="var(--water)" opacity=".4"/>
+<rect x="262" y="118" width="10" height="10" fill="var(--wall)"/>
+<rect x="290" y="234" width="58" height="26" rx="5" fill="var(--ink)" opacity=".8"/>
+<g fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+<path d="M176 108 L200 104" marker-end="url(#ar)"/>
+<path d="M226 100 L246 98" marker-end="url(#ar)"/>
+<path d="M256 102 L268 116 L292 86" marker-end="url(#ar)"/>
+<path d="M300 98 L274 132 L232 150 L176 156" stroke-dasharray="7 5" marker-end="url(#ar)"/>
+<path d="M120 158 L108 158" marker-end="url(#ar)"/>
+<path d="M88 160 L74 160" marker-end="url(#ar)"/>
+<path d="M54 180 Q70 204 98 200" stroke-dasharray="2 5" marker-end="url(#ar)"/>
+</g>
+<g font-family="var(--sans)" font-weight="700" font-size="13" text-anchor="middle" fill="#fff">
+<g fill="var(--accent)"><circle cx="160" cy="92" r="11"/><circle cx="212" cy="86" r="11"/><circle cx="244" cy="80" r="11"/><circle cx="318" cy="66" r="11"/><circle cx="214" cy="174" r="11"/><circle cx="141" cy="190" r="11"/><circle cx="96" cy="140" r="11"/><circle cx="40" cy="126" r="11"/><circle cx="110" cy="222" r="11"/></g>
+<text x="160" y="96.5">1</text><text x="212" y="90.5">2</text><text x="244" y="84.5">3</text><text x="318" y="70.5">4</text><text x="214" y="178.5">5</text><text x="141" y="194.5">6</text><text x="96" y="144.5">7</text><text x="40" y="130.5">8</text><text x="110" y="226.5">9</text>
+<text x="319" y="251" font-size="11.5" fill="var(--paper)">Tickets</text>
+</g>
+<g font-family="var(--sans)" font-size="12" fill="var(--muted)">
+<text x="318" y="45" text-anchor="middle">Generalife</text>
+<text x="246" y="138" text-anchor="end" font-size="11">Torre del Agua ▪</text>
+<text x="16" y="262">N ↑   Schematic, not to scale</text>
+<text x="16" y="279">Solid: route out · Dashed: walk back west</text>
+</g>
+</svg>
+<figcaption>The walk at a glance.</figcaption></figure><ol class="legend"><li><b>1</b>Nasrid Palaces <span>stops 1–9</span></li><li><b>2</b>Partal <span>stop 10</span></li><li><b>3</b>Paseo de las Torres <span>stop 11</span></li><li><b>4</b>Generalife <span>stops 12–14</span></li><li><b>5</b>Calle Real <span>stop 15</span></li><li><b>6</b>Palace of Charles V and museum <span>stops 16–17</span></li><li><b>7</b>Puerta del Vino <span>stop 18</span></li><li><b>8</b>Alcazaba <span>stop 19</span></li><li><b>9</b>Puerta de la Justicia, exit <span>finale</span></li><li><b class="tk">T</b>Access Pavilion: tickets and buses</li></ol><p>The Nasrid Palaces entrance is beside the Palace of Charles V. Be in the queue at that entrance 20 to 30 minutes before your slot. If you still have to buy or collect tickets at the monument's offices, do it at least an hour before your time.</p>
+<p><strong>From the Access Pavilion (main entrance and ticket office).</strong> Allow about 20 minutes to walk to the palaces. The route runs along the Cypress Walk, over the bridge by the Torre del Agua (Water Tower), and along the Calle Real through the old palace-town to the Palace of Charles V. You'll walk this street again later, so don't stop now.</p>
+<p><strong>On foot from the city, by the Cuesta de Gomérez.</strong> The steep street climbs from Plaza Nueva to the <strong>Puerta de las Granadas</strong> (Gate of the Pomegranates), a Renaissance gate of 1536 built over an earlier Islamic one. It opens into the Alhambra woods, whose three-path layout was made in 1729 for a visit by Philip V. On the Cuesta de la Cruz path you'll pass the <strong>statue of Washington Irving</strong> by Julio López Hernández, unveiled in 2009 for the 150th anniversary of his death. Off in the trees stands the <strong>Puerta de Bib-Rambla</strong>, an 11th- or 12th-century city gate demolished downtown in 1884 and rebuilt here in 1933.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The tall elms in the woods are often said to have been planted by the Duke of Wellington's troops around 1812. Guides also mention a Renaissance fountain of 1554 on the way up, and guitar makers' workshops along the street. We couldn't confirm any of these.</li>
+<li>The steeper alternative climb from the Darro valley, the Cuesta de los Chinos, is said to have been called the "Slope of the Dead" because it led to an old cemetery.</li>
+<li>Plaza Nueva, where the climb starts, is said to be Granada's oldest square, laid out over a covered stretch of the Darro river.</li>
+<li>On the Puerta de las Granadas, look up for the carved <strong>pomegranates</strong>, the city's emblem, and the imperial arms. The design is often attributed to Pedro Machuca, the architect of Charles V's palace; that attribution is unconfirmed.</li>
+<li>Some guides say ticket holders now enter by the <strong>Puerta de los Carros</strong>, a later opening in the wall near the Palace of Charles V, rather than by the Gate of Justice. Follow the signs.</li>
+</ul>
+<p>At the top, the path brings you to the <strong>Puerta de la Justicia</strong> (Gate of Justice), which has long been recommended to visitors who already hold a ticket. Check the signs, since gates can switch between entry and exit. Beside it is the <strong>Pilar de Carlos V</strong>, a wall fountain of 1545 designed by Pedro Machuca. You'll come back here at the end, so keep moving: the Nasrid queue is beyond the Puerta del Vino, beside Charles V's palace. Allow at least 30 minutes for the climb from Plaza Nueva.</p></section>
+<section class="sec" id="nasrids"><h2>The Nasrids in two minutes</h2><p>Everything in the palaces was built by one family, the Nasrids, rulers of the last Muslim kingdom in the Iberian peninsula. In the 1230s and 1240s, as Christian Castile and Aragon swallowed Córdoba, Valencia and Seville, Muhammad I ibn Nasr carved out a kingdom in the mountains around Granada and started building on this hill in 1238.</p>
+<p>The kingdom survived for 250 years by being useful and careful. Its sultans paid tribute to Castile as vassals, sometimes fought beside it, and leaned on Morocco when they needed help. Granada filled up with Muslims leaving the conquered cities and grew rich on silk, trade and farming. The palaces you're about to see are the luxury of a small, wealthy and permanently threatened state. Much of the finest work belongs to just two rulers, Yusuf I (1333–1354) and his son Muhammad V (1354–1359 and 1362–1391). The end came in 1492, after a decade of war made worse by civil war inside the ruling family.</p></section>
+<section class="sec" id="reading"><h2>How to read a Nasrid wall</h2><figure class="fig"><svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a Nasrid wall in three bands: wooden ceiling and muqarnas at the top, carved stucco with an inscription band in the middle, and a glazed tile dado at the bottom">
+<defs>
+<pattern id="star" width="28" height="28" patternUnits="userSpaceOnUse">
+<rect width="28" height="28" fill="var(--tile-bg)"/>
+<path d="M14 3 L17 9.5 L24 7 L21.5 14 L25 17 L18.5 18.5 L14 25 L9.5 18.5 L3 17 L6.5 14 L4 7 L11 9.5Z" fill="var(--tile1)" transform="rotate(0 14 14)"/>
+<path d="M14 7 L16 11 L21 9.5 L18.5 14 L21 18.5 L16 17 L14 21 L12 17 L7 18.5 L9.5 14 L7 9.5 L12 11Z" fill="var(--tile2)"/>
+<circle cx="14" cy="14" r="2.6" fill="var(--tile3)"/>
+<path d="M0 0h4v4H0zM24 0h4v4h-4zM0 24h4v4H0zM24 24h4v4h-4z" fill="var(--tile3)"/>
+</pattern>
+<pattern id="stucco" width="24" height="24" patternUnits="userSpaceOnUse">
+<rect width="24" height="24" fill="var(--plaster)"/>
+<path d="M0 12 Q6 2 12 12 T24 12 M12 0 Q18 6 12 12 Q6 18 12 24" fill="none" stroke="var(--plaster-dk)" stroke-width="1.3"/>
+<circle cx="12" cy="12" r="1.6" fill="var(--plaster-dk)"/>
+</pattern>
+</defs>
+<rect x="40" y="10" width="220" height="62" fill="var(--wood)"/>
+<g fill="var(--wood-lt)">
+<path d="M40 72 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 22 0z"/>
+<path d="M49 58 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 13 0z" opacity=".75"/>
+<path d="M40 44 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 18 0 q9-14 22 0z" opacity=".5"/>
+</g>
+<rect x="40" y="72" width="220" height="12" fill="var(--plaster-dk)"/>
+<g stroke="var(--plaster)" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M50 78h14m4 0c3-3 6 3 9 0h12m6 0q4-4 8 0h18m5 0c3 3 6-3 9 0h10m6 0h16m4 0q4-4 8 0h10m5 0h14m4 0c3-3 6 3 9 0h8"/></g>
+<rect x="40" y="84" width="220" height="118" fill="url(#stucco)"/>
+<path d="M112 202 V140 Q150 104 188 140 V202Z" fill="var(--shadow)" opacity=".35"/>
+<path d="M112 140 Q150 104 188 140" fill="none" stroke="var(--plaster-dk)" stroke-width="3"/>
+<rect x="40" y="202" width="220" height="10" fill="var(--tile3)"/>
+<rect x="40" y="212" width="220" height="78" fill="url(#star)"/>
+<g font-family="var(--sans)" font-size="13" fill="var(--ink)">
+<path d="M266 40h14M266 78h14M266 142h14M266 250h14" stroke="var(--muted)" stroke-width="1"/>
+<text x="284" y="36" font-weight="700">Ceiling</text><text x="284" y="49" fill="var(--muted)" font-size="11.5">wood &amp; muqarnas:</text><text x="284" y="61" fill="var(--muted)" font-size="11.5">the heavens</text>
+<text x="284" y="82" font-weight="700" font-size="11.5">Inscription band</text>
+<text x="284" y="138" font-weight="700">Carved stucco</text><text x="284" y="151" fill="var(--muted)" font-size="11.5">vines, geometry,</text><text x="284" y="163" fill="var(--muted)" font-size="11.5">poetry, the motto</text>
+<text x="284" y="246" font-weight="700">Tile dado</text><text x="284" y="259" fill="var(--muted)" font-size="11.5">alicatado: cut,</text><text x="284" y="271" fill="var(--muted)" font-size="11.5">glazed geometry</text>
+</g>
+</svg>
+<figcaption>Read every wall from the floor up.</figcaption></figure><p>Read this in the queue. Every room uses the same vocabulary.</p>
+<p><strong>Bottom: the tile dado.</strong> At eye level and below, walls are clad in glazed tiles in geometric patterns. These patterns have had a long afterlife. The Dutch artist M. C. Escher sketched the tiles here in 1922 and came back to draw them again in 1936; they fed straight into his famous interlocking prints. In the 1830s–40s the architect Owen Jones measured and drew the Alhambra's ornament, and his books, and the Alhambra Court he built at London's Crystal Palace in 1854, spread Nasrid patterns through Victorian design. Mathematicians still argue over these walls. Every repeating flat pattern belongs to one of exactly 17 types of symmetry, and you'll hear that all 17 can be found here. Careful surveys disagree, and some count fewer. Either way, the craftsmen got there centuries before the mathematics was written down. The patterns start simple. Lay one square over another, turned 45 degrees, and you have an eight-pointed star. Extend its lines and you get longer stars, octagons and crosses. Rotate, mirror and repeat, then choose which lines to keep and which colours to fill, and a single square grows into the interlacing star patterns (<em>lazo</em>) on these walls. Why did geometry matter so much? One historian's answer in a recent documentary: in the Islamic world, finding prayer times and the direction of Mecca, and navigating for pilgrimage and trade, made astronomy and geometry practical, even religious, skills long before they became an art.</p>
+<p><strong>Middle: carved stucco.</strong> Above the tiles, the walls are carved plaster: panels of plant scrolls, lattices and bands of writing.</p>
+<p><strong>Top: wood and muqarnas.</strong> Ceilings are either carpentry, with thousands of small wooden pieces fitted into star patterns, or muqarnas: prism-shaped cells of plaster stacked into honeycomb vaults that seem to drip from the dome. Muqarnas first appeared in the eastern Islamic world around the 10th and 11th centuries and spread from Iran to Morocco. Built up from a small set of standard prism shapes, they turn a dome into something like a sky of stars, which is exactly the effect the Nasrids wanted over a ruler's head.</p>
+<p><strong>Read the writing.</strong> Look for a short phrase repeated again and again in a neat cartouche: <em>wa-la ghaliba illa Allah</em>, "There is no victor but God," the Nasrid motto. It appears so often you'll stop counting. Nobody has published a reliable total, so ignore the precise figures you may hear. (The figure you'll hear most is "over 9,000 times." Treat it as folklore until someone publishes a count.) Where did the motto come from? The story goes that the dynasty's founder, Muhammad I, was hailed as <em>ghalib</em>, "victor," on returning from a campaign, and answered that there is no victor but God. His title really was al-Ghalib billah, but the scene itself is tradition, and accounts disagree on when and where it happened.</p>
+<p>Around the motto run Qur'anic verses and poems written for these walls by court poet-statesmen. <strong>Ibn Zamrak</strong> (died 1393) wrote the poems on the Comares facade and the Lions fountain. <strong>Ibn al-Jayyab</strong> wrote verses in the Generalife and the Torre de la Cautiva. A poem in the Throne Room is attributed either to him or to <strong>Ibn al-Khatib</strong>. Often the building speaks in the first person: "I am the fresh eye of this garden," says one window.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>A 2026 documentary describes how muqarnas were made. Seven or eight basic prism shapes were cast in plaster moulds, trimmed and polished, then fixed one by one with plaster paste, working upward from the walls. Such a complex 3D puzzle is hard to imagine without a written plan, though no Nasrid drawings of one survive.</li>
+</ul>
+<p><strong>One myth to drop now.</strong> You'll hear that Nasrid art had no living creatures. Most of the ornament is abstract, but wait until you meet twelve stone lions and a ceiling full of painted kings, knights and ladies.</p></section>
+<header class="part"><p class="plab">Part 1</p><h2>The Nasrid Palaces</h2><span class="dur">75–90 minutes</span><p>The circuit is one-way. Since August the order of some rooms has varied; if yours differs, just match each room to its stop.</p></header>
+<article class="stop" id="stop-1" data-n="1">
+<div class="sh"><span class="num" aria-hidden="true">1</span><div><p class="slab">Stop 1</p><h3>The Mexuar and the Oratory</h3><span class="dur">about 10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>Past the ticket check, you step into the Mexuar, a long, low hall with four columns in the middle. The small Oratory opens off its far end.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>four columns and their entablature</strong> in the centre of the hall: all that survives of a raised lantern that once lit the room from above.</li>
+<li>The <strong>tile dado</strong>: Nasrid pieces mixed with Christian ones, including a <strong>double-headed eagle</strong>.</li>
+<li>A <strong>stucco frieze</strong> above the tiles that reads "The Kingdom is God's, Power is God's, Glory is God's."</li>
+<li>In the Oratory: the <strong>mihrab</strong> (prayer niche), the <strong>low windows</strong> framing the valley, and an inscription urging, "Come to pray. Don't be one of the negligent people."</li>
+</ul>
+<h4>The story</h4>
+<p>The name comes from the Arabic <em>maswar</em>. Here the Council of Ministers met and the sultan dispensed justice. It was built under Isma'il I (1314–1325), Yusuf I's father, and redecorated by Yusuf I and by Muhammad V in his second reign (1362–1391), and is probably the oldest room in the palaces.</p>
+<p>After 1492 it became a chapel. An upper floor was added in the 16th century, the lantern was lost (sources disagree over whether under the Catholic Monarchs, Ferdinand and Isabella, or their grandson Charles V), and the area behind the balustrade became the choir. The stucco frieze was salvaged from a lost portico in the neighbouring Court of Machuca, named after Pedro Machuca, the architect of Charles V's palace, who lived there while he built it. The <strong>double-headed eagle</strong> in the tiles is the emblem of Charles V as Holy Roman Emperor. Its appearance among Nasrid stars is the first of many places today where the conquerors wrote themselves into the sultans' rooms.</p>
+<h4>The architecture</h4>
+<p>The Oratory is not aligned with the city wall it sits on: it is turned toward the qibla, the direction of Mecca. The windows sit low because worshippers knelt, and the view was framed for eyes close to the floor. (The floor itself was lowered in the 20th century.)</p>
+<p>Much of what you see is rebuilt. In 1590 a gunpowder store down in the Darro valley exploded and wrecked the Oratory, which was restored in 1917. The same blast will turn up at three more stops.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Some guides describe an inscription near the Mexuar's south entrance praising Muhammad V as "the shadow of God" over his people. We couldn't find it in a primary source.</li>
+<li>On your way in you pass the excavated foundations of two lost courtyards, thought to have held the chancery and the treasury.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Mexuar+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="1" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-2">Next: 2. Patio del Cuarto Dorado and the Comares facade <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-2" data-n="2">
+<div class="sh"><span class="num" aria-hidden="true">2</span><div><p class="slab">Stop 2</p><h3>Patio del Cuarto Dorado and the Comares facade</h3><span class="dur">about 10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>You step out into a small courtyard with a low fountain in the middle. Facing you is a tall wall, carved from top to bottom, with two doorways and a deep wooden eave. The Cuarto Dorado (Golden Room) opens off the patio.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>two rectangular doorways</strong> framed in tile. The left one is the way into the private palace.</li>
+<li>The <strong>cedar eave</strong> jutting out at the top of the wall.</li>
+<li>Bands of <strong>inscription</strong> across the facade: a poem by Ibn Zamrak and the Throne Verse (Qur'an 2:255). The Throne Verse is among the best-known passages of the Qur'an. It describes God, ever-living and never sleeping, whose throne extends over the heavens and the earth, and it has long been used as a verse of protection. Over a ruler's door it says two things at once: this house is protected, and the sultan sits under a far greater throne.</li>
+<li>In the Cuarto Dorado, look up at the cedar <strong>ceiling</strong> with pine-cone and shell motifs.</li>
+</ul>
+<h4>The story</h4>
+<p>This is a political statement in stucco. Muhammad V ordered it in 1370 to commemorate his conquest of Algeciras, the port on the Strait of Gibraltar, the year before. Here the public world of the Mexuar met the sultan's private palace, and the eave shaded the raised seat where he sat to receive people.</p>
+<p>Muhammad V had reason to celebrate. In 1359 a palace coup drove him from the throne, and he spent nearly three years in exile in Fez, with his vizier Ibn al-Khatib beside him. He won his kingdom back in 1362 with Castilian help, and in 1369 took Algeciras. This facade, the rebuilt Mexuar and the whole Palace of the Lions belong to that second reign: a restored king building to be seen.</p>
+<h4>The architecture</h4>
+<p>The two doors are a lesson in Nasrid privacy. The right-hand door led to other quarters, possibly a treasury tied to the Mexuar. The left-hand door leads to the Court of the Myrtles, but not directly. Its passage bends, so no one standing in this courtyard can see into the palace beyond. Watch for the turns as you go through.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The facade poem is often quoted as opening "I am a crown on the front of my door," with the gateway speaking for itself. The full translation comes from secondary sites only.</li>
+<li>The Cuarto Dorado ceiling is often credited to Muhammad V's reign. Others say it was repainted and gilded under the Catholic Monarchs. The low courtyard fountain is said to be a copy of one moved here from the Patio de Lindaraja.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Fachada+de+Comares+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="2" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-3">Next: 3. The Court of the Myrtles <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-3" data-n="3">
+<div class="sh"><span class="num" aria-hidden="true">3</span><div><p class="slab">Stop 3</p><h3>The Court of the Myrtles</h3><span class="dur">about 10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>The bent passage brings you into a long, bright courtyard: a rectangular pool edged with myrtle hedges and arcades at each end. Walk to the south end and turn to face north. The massive tower rising over the far arcade is the Comares Tower.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>Comares Tower reflected</strong> in the still pool. Crouch near the water's edge to fit the whole tower in.</li>
+<li>The <strong>myrtle hedges</strong> on both long sides, which give the court its Spanish name, Patio de los Arrayanes.</li>
+</ul>
+<figure class="fig"><svg viewBox="0 0 360 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: the Comares Tower above its seven-arched portico, reflected upside down in the long still pool of the Court of the Myrtles">
+<defs><linearGradient id="mpool" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--water)" stop-opacity=".55"/><stop offset="1" stop-color="var(--water)" stop-opacity=".95"/></linearGradient>
+<g id="tw"><rect x="130" y="14" width="100" height="84" fill="var(--wall-lt)"/>
+<rect x="130" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="146" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="162" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="178" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="194" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="210" y="6" width="9" height="9" fill="var(--wall-lt)"/><rect x="226" y="6" width="9" height="9" fill="var(--wall-lt)"/>
+<g fill="var(--shadow)" opacity=".5"><rect x="150" y="40" width="11" height="22" rx="5.5"/><rect x="174.5" y="40" width="11" height="22" rx="5.5"/><rect x="199" y="40" width="11" height="22" rx="5.5"/></g>
+<rect x="24" y="98" width="312" height="40" fill="var(--plaster)"/>
+<g fill="var(--shadow)" opacity=".55">
+<path d="M34 138 v-18 a14 14 0 0 1 28 0 v18z"/><path d="M74 138 v-18 a14 14 0 0 1 28 0 v18z"/><path d="M114 138 v-18 a14 14 0 0 1 28 0 v18z"/>
+<path d="M156 138 v-22 a24 24 0 0 1 48 0 v22z"/>
+<path d="M218 138 v-18 a14 14 0 0 1 28 0 v18z"/><path d="M258 138 v-18 a14 14 0 0 1 28 0 v18z"/><path d="M298 138 v-18 a14 14 0 0 1 28 0 v18z"/></g></g>
+</defs>
+<rect width="360" height="270" fill="var(--paper2)" rx="10"/>
+<use href="#tw"/>
+<g fill="var(--green)"><rect x="0" y="132" width="24" height="12" rx="6"/><rect x="336" y="132" width="24" height="12" rx="6"/></g>
+<rect x="0" y="140" width="360" height="130" fill="url(#mpool)"/>
+<g transform="translate(0 280) scale(1 -1)" opacity=".35"><use href="#tw"/></g>
+<g stroke="var(--paper)" stroke-width="1.2" opacity=".55"><path d="M40 200h40M240 222h60M120 246h30"/></g>
+<g font-family="var(--sans)" font-size="12.5" fill="var(--ink)">
+<text x="14" y="26" font-weight="700">Comares Tower</text>
+<text x="14" y="42" fill="var(--muted)">about 45 m tall</text>
+<text x="14" y="262" fill="#fff" font-weight="700">Still water: a mirror, not a fountain</text>
+</g>
+</svg>
+<figcaption>The Comares Tower and its reflection. Illustration, not to scale.</figcaption></figure><h4>The story</h4>
+<p>This was the heart of the official palace, built mainly under Yusuf I (1333–1354) and redecorated by Muhammad V. Everything leads to the tower, 45 metres tall with walls two to three metres thick: a fortress with a throne room inside.</p>
+<h4>The architecture</h4>
+<p>The court measures about 36.6 × 23 metres, and the pool, about 34 × 7.1 metres, fills almost its whole length. The nearly still water works as a mirror, doubling the tower and pulling your eye along the axis to the throne.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The 19th-century restorer Rafael Contreras is said to have added Persian-style domes to the porticoes, later removed by Leopoldo Torres Balbás in the 20th century. The detail for this court is thinly sourced, but the broad story is not. Two names recur through this guide. Contreras and his family restored the Alhambra through much of the 19th century, filling gaps with romantic, sometimes invented "Moorish" decoration. Torres Balbás, the conservation architect from 1923 to 1936, took a stricter line: repair only with evidence, and keep new work recognisable. Much of what you see is the result of that argument.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>You'll hear that "Comares" comes from <em>comaraxía</em>, the coloured glass that once filled the tower windows. That is one theory among several, and the origin of the name is still debated.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Patio+de+los+Arrayanes&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="3" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-4">Next: 4. Sala de la Barca and Salón de Embajadores <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-4" data-n="4">
+<div class="sh"><span class="num" aria-hidden="true">4</span><div><p class="slab">Stop 4</p><h3>Sala de la Barca and Salón de Embajadores</h3><span class="dur">5–15 minutes, depending on what is open</span></div></div>
+<h4>Where you are</h4>
+<p>Walk to the north arcade, under the tower. A double archway leads into the long Sala de la Barca, and beyond it lies the square Salón de Embajadores.</p>
+<p><strong>Status.</strong> At the latest reports, the Sala de la Barca had reopened (around 26 August 2026), but the Salón de Embajadores was closed "until further notice" after plaster fell during the August quakes. No reopening had been reported by mid-November. Check the signs: you may be able to walk through the Barca and look toward the hall, or you may be turned back at the arcade. Either way, here is what is inside.</p>
+<h4>Look for (Sala de la Barca)</h4>
+<ul>
+<li>The <strong>long, narrow room</strong>, about 24 × 4.35 metres.</li>
+<li>Its <strong>curved wooden ceiling</strong>, shaped like an upturned hull. It is a replica: the original was destroyed by fire in 1890, and the replacement was finished in 1964.</li>
+</ul>
+<h4>Look for (Salón de Embajadores, if open)</h4>
+<ul>
+<li>The <strong>wooden dome</strong>, 18.2 metres above a room 11.3 metres square, built from <strong>8,017 interlocking pieces</strong> into tiers of stars.</li>
+<li>The <strong>nine alcoves</strong>, three in each side wall. The <strong>central alcove of the north wall</strong>, straight ahead as you enter, is where the throne stood.</li>
+<li>The <strong>band of Qur'anic text</strong> at the base of the dome, from the Surah al-Mulk, which names God as Lord of the heavens.</li>
+</ul>
+<h4>The story</h4>
+<p>This was the ceremonial climax of the Nasrid state, built under Yusuf I. An envoy came from the bright court, through the Barca, and found the sultan in the alcove facing him. The poem in the throne alcove is attributed to Ibn al-Jayyab or Ibn al-Khatib. The 1590 explosion in the Darro valley blew out most of the hall's coloured glass.</p>
+<p>The Alhambra was also where, on 31 March 1492, Ferdinand and Isabella signed and published the decree expelling Spain's Jews. It is known as the Alhambra Decree. An earlier version had been dated at nearby Santa Fe, the camp-town the monarchs built for the siege of Granada, on 20 March. No document records which room they signed it in. The decree gave Spain's Jews until the end of July 1492 to convert or leave. Many tens of thousands left (the totals are much disputed), ending one of the great Jewish communities of medieval Europe. Granada's Muslims were promised their faith in the surrender terms; within a decade, they too were forced to convert.</p>
+<h4>The architecture</h4>
+<p>The dome is read as an image of the <strong>seven heavens</strong>, rising in tiers to a central point: a wooden sky over a fortress room. The idea comes straight from the inscription around its base. Surah al-Mulk speaks of God who created the seven heavens one above another, and of the lamps (the stars) that adorn the lowest of them. Under that sky sat the sultan in his alcove. The message to an ambassador was plain: this throne stands under God's order of the universe, and draws its legitimacy from it.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Tradition places the signing of the 1492 Alhambra Decree in this very hall. The documents say only "in the Alhambra."</li>
+<li>The dome is said to have been painted originally, with lapis lazuli among the pigments. We found no technical study to confirm it.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>The Barca's name may come from the Arabic <em>baraka</em>, "blessing," heard by Castilian ears as <em>barca</em>, "boat." Or it may simply describe the hull-shaped ceiling. Both explanations are current.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Sal%C3%B3n+de+Embajadores+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="4" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-5">Next: 5. Sala de los Mocárabes and the Court of the Lions <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-5" data-n="5">
+<div class="sh"><span class="num" aria-hidden="true">5</span><div><p class="slab">Stop 5</p><h3>Sala de los Mocárabes and the Court of the Lions</h3><span class="dur">15–20 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>From the Myrtles, the route leads into the Sala de los Mocárabes, a long entrance hall. It opens straight onto the Court of the Lions. Walk in and stand under the arcade at the near (west) end, with the fountain and the far pavilion in line.</p>
+<h4>Look for</h4>
+<ul>
+<li>In the Mocárabes, the <strong>plaster vault</strong>, which replaced Nasrid muqarnas wrecked by the 1590 explosion.</li>
+<li>The <strong>forest of slender marble columns</strong>: 124 in all, standing alone or in clusters of two to four at the corners.</li>
+<li>The <strong>four channels</strong> that run from the surrounding halls and meet at the fountain, quartering the court.</li>
+<li>The <strong>twelve lions</strong> carrying a twelve-sided basin, and the <strong>poem carved around the rim</strong>.</li>
+</ul>
+<figure class="fig"><svg viewBox="0 0 400 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic plan of the Court of the Lions: a central fountain with four channels running to the two end pavilions and to the halls on the north and south sides">
+<rect width="400" height="270" fill="var(--paper2)" rx="10"/>
+<rect x="60" y="62" width="280" height="148" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1.2"/>
+<rect x="74" y="76" width="252" height="120" fill="var(--paper)"/>
+<rect x="74" y="106" width="34" height="60" fill="var(--plaster)" stroke="var(--ink)" stroke-width=".8"/>
+<rect x="292" y="106" width="34" height="60" fill="var(--plaster)" stroke="var(--ink)" stroke-width=".8"/>
+<g stroke="var(--water)" stroke-width="5" stroke-linecap="round"><path d="M200 136 H96 M200 136 H304 M200 136 V40 M200 136 V232"/></g>
+<circle cx="91" cy="136" r="5" fill="var(--water)"/><circle cx="309" cy="136" r="5" fill="var(--water)"/>
+<circle cx="200" cy="136" r="15" fill="var(--water)" stroke="var(--ink)" stroke-width="1"/>
+<g fill="var(--wall)"><circle cx="200" cy="116" r="2.6"/><circle cx="210" cy="118.7" r="2.6"/><circle cx="217.3" cy="126" r="2.6"/><circle cx="220" cy="136" r="2.6"/><circle cx="217.3" cy="146" r="2.6"/><circle cx="210" cy="153.3" r="2.6"/><circle cx="200" cy="156" r="2.6"/><circle cx="190" cy="153.3" r="2.6"/><circle cx="182.7" cy="146" r="2.6"/><circle cx="180" cy="136" r="2.6"/><circle cx="182.7" cy="126" r="2.6"/><circle cx="190" cy="118.7" r="2.6"/></g>
+<g fill="var(--ink)">
+<circle cx="78" cy="80" r="1.8"/><circle cx="83" cy="80" r="1.8"/><circle cx="78" cy="85" r="1.8"/>
+<circle cx="322" cy="80" r="1.8"/><circle cx="317" cy="80" r="1.8"/><circle cx="322" cy="85" r="1.8"/>
+<circle cx="78" cy="192" r="1.8"/><circle cx="83" cy="192" r="1.8"/><circle cx="78" cy="187" r="1.8"/>
+<circle cx="322" cy="192" r="1.8"/><circle cx="317" cy="192" r="1.8"/><circle cx="322" cy="187" r="1.8"/>
+<circle cx="112" cy="80" r="1.8"/><circle cx="134" cy="80" r="1.8"/><circle cx="139" cy="80" r="1.8"/><circle cx="160" cy="80" r="1.8"/><circle cx="180" cy="80" r="1.8"/><circle cx="220" cy="80" r="1.8"/><circle cx="240" cy="80" r="1.8"/><circle cx="261" cy="80" r="1.8"/><circle cx="266" cy="80" r="1.8"/><circle cx="288" cy="80" r="1.8"/>
+<circle cx="112" cy="192" r="1.8"/><circle cx="134" cy="192" r="1.8"/><circle cx="139" cy="192" r="1.8"/><circle cx="160" cy="192" r="1.8"/><circle cx="180" cy="192" r="1.8"/><circle cx="220" cy="192" r="1.8"/><circle cx="240" cy="192" r="1.8"/><circle cx="261" cy="192" r="1.8"/><circle cx="266" cy="192" r="1.8"/><circle cx="288" cy="192" r="1.8"/>
+</g>
+<rect x="150" y="18" width="100" height="44" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1"/>
+<rect x="150" y="210" width="100" height="44" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1"/>
+<rect x="340" y="80" width="46" height="112" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1"/>
+<rect x="2" y="80" width="58" height="40" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1"/>
+<g font-family="var(--sans)" font-size="12" fill="var(--ink)" text-anchor="middle">
+<text x="200" y="36" font-weight="700">Dos Hermanas</text><text x="200" y="48" fill="var(--muted)">north</text>
+<text x="200" y="230" font-weight="700">Abencerrajes</text><text x="200" y="242" fill="var(--muted)">south</text>
+<text x="363" y="132" font-weight="700">Reyes</text><text x="363" y="144" fill="var(--muted)">east</text>
+<text x="31" y="97" font-weight="700" font-size="10">Mocárabes</text><text x="31" y="110" fill="var(--muted)" font-size="10">you enter</text>
+<text x="91" y="180" font-size="10.5">pavilion</text><text x="309" y="180" font-size="10.5">pavilion</text>
+<text x="230" y="268" fill="var(--muted)" font-size="10.5">Schematic plan, not to scale. Columns stand single, paired or clustered.</text>
+</g>
+</svg>
+<figcaption>Plan of the Court of the Lions: four channels, four sides.</figcaption></figure><h4>The story</h4>
+<p>This was Muhammad V's private palace, begun around 1377 beside the official Comares palace. The court is about 35 × 20 metres, slightly out of square, with a pavilion projecting at each end.</p>
+<p>Ibn Zamrak's verses on the rim say water and marble are so alike you can hardly tell which is flowing, and liken the sultan's generosity to water soaking a garden. The four channels are usually read as the four rivers of Paradise. A visitor in 1502 saw six orange trees here, with the rest paved in marble.</p>
+<p><strong>Why lions?</strong> Read the rim, and the poem answers. Ibn Zamrak likens the flowing water to the ruler's generous hand, and the lions to his warriors. They look ready to pounce, the poem says, but respect for the emir holds back their fury. So the fountain is a portrait of power: wild strength, tamed and in Muhammad V's service, pouring out water, the ultimate luxury on a dry hill, to all four sides of his garden.</p>
+<p>The idea had deep roots in al-Andalus. Four centuries earlier, the palace-city of the Umayyad caliphs of Córdoba, Madinat al-Zahra, had a marble basin ringed by twelve gold animal figures, a lion among them. Muhammad V liked the motif. In 1367 he gave his new hospital in the city below, the Maristán, a pair of lion water-spouts. Sixteen Nasrid lions survive, and twelve of them are here. Why twelve? No Nasrid text says. The number matches the twelve-sided basin and that old Andalusi model; readings as the zodiac or the months have no evidence behind them.</p>
+<p>Listen, too. The restorers found that water rose through a pierced stone cylinder at the centre and slipped out of the lions' mouths almost silently, more like a spring than a fountain. That matches the poem's picture of water so clear and still it seems solid.</p>
+<p>The fountain has had a busy afterlife. An upper basin added in 1626 now stands in the Alcazaba's Jardín de los Adarves, where you'll see it later. A jet stood on top from 1835 to 1966. During Napoleon's occupation of Granada (1810–1812), a French commander planted a flower garden here, removed in 1846 because the damp threatened the structure. From 2007 the lions were away for restoration while the original hydraulic system was rebuilt; they came back at the end of 2011, and the restored fountain was unveiled in July 2012.</p>
+<h4>The architecture</h4>
+<p>Compare this court with the Myrtles: there, solid walls and still water; here, thin columns and moving water. Notice, too, that the Myrtles runs north–south while this court runs east–west, probably because it had to fit between existing buildings, streets and gardens. Yet its two grandest halls, the Dos Hermanas and the Abencerrajes, still face each other on the north–south line. The columns are white marble from Macael, in the Almería mountains, which were then part of the kingdom. Look at the corners where the columns bunch together. The grouping breaks the rhythm of the arcades, and the court reads as a grove.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Look closely at the twelve lions. Several guides say they fall into three carving styles, four lions each, with differences in the manes, muzzles and tails. Judge for yourself.</li>
+<li>Figures you'll hear: a basin about 2.5 metres across, a jet about 4 metres high (1835–1966), and a central spout that is a replica since 1981. None of these could be confirmed in an official source.</li>
+<li>The Lions palace is thought to have been called <em>Qasr al-Riyad al-Sa'id</em>, the Palace of the Happy Garden.</li>
+<li>The Mocárabes vault is sometimes dated to 1714. Other sources put it in the 17th century.</li>
+<li>Some writers point out √2 proportions in the plan, and that the north–south layout uses deep eaves to block high summer sun while letting low winter sun into the halls.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>Most scholars date the lions to Muhammad V's reign. A theory published in 1956 held that they came from the 11th-century palace of the Naghrela family, Granada's Jewish viziers. It rested on a poem by Solomon ibn Gabirol describing a basin like "the sea of Solomon" resting on lions, an echo of the twelve oxen that carried the bronze sea in Solomon's Temple. It is a beautiful idea, but the carving is 14th-century Nasrid work, and most scholars have set the theory aside. The popular claim that the fountain worked as a water clock is a hypothesis with no documentary basis. And a traveller in 1494, two years after the conquest, counted <em>thirteen</em> lions.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Patio+de+los+Leones&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="5" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-6">Next: 6. Sala de los Abencerrajes <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-6" data-n="6">
+<div class="sh"><span class="num" aria-hidden="true">6</span><div><p class="slab">Stop 6</p><h3>Sala de los Abencerrajes</h3><span class="dur">about 5 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>On the south side of the Court of the Lions, go through the doorway into a square hall with a small marble fountain in the centre. Stand next to the fountain and look straight up.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>dome</strong>: an eight-pointed star of muqarnas that opens out into eight trunk-like clusters of stalactites.</li>
+<li><strong>Sixteen windows</strong>, one in each side of the drum, lighting the honeycomb from within.</li>
+<li>The <strong>twelve-sided fountain</strong>, which reflects the dome when the water is still.</li>
+<li>The <strong>original wooden door</strong>, and a tile dado that is 16th-century Sevillian work.</li>
+</ul>
+<h4>The story</h4>
+<p>The hall is named after the Abencerrajes, a powerful noble family. A 16th-century legend says they were invited to a banquet here and massacred. In the best-known version, 36 Abencerrajes were beheaded after a rival clan, the Zegríes, accused one of them of an affair with Isabel de Solís, the favourite of Sultan Muley Hacén (Abu l-Hasan Ali, the last sultan's father). Some tellings add that the blood still stains the fountain.</p>
+<p>Behind the legend lies a real feud. Muley Hacén's passion for Isabel de Solís, a Christian captive who took the name Zoraya, split the court. His first wife, Aixa, fled with her sons in 1482, and one of them, Boabdil (Muhammad XII, who would be Granada's last sultan), rose against his father. Captured by Castile at Lucena in 1483, Boabdil was released as a vassal. The civil war between father, son and uncle did much to doom the kingdom.</p>
+<h4>The architecture</h4>
+<p>Light enters through the sixteen windows and breaks across the plaster facets, so the ceiling seems weightless. Most of the plasterwork was restored in the 16th century.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The reddish stain in the fountain, "the blood of the Abencerrajes," is usually explained as rust or iron oxide in the stone. That's plausible, but we found no study of it.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>The massacre is a legend first written down in the 16th century. It is good storytelling, not documented history.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Sala+de+los+Abencerrajes&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="6" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-7">Next: 7. Sala de los Reyes <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-7" data-n="7">
+<div class="sh"><span class="num" aria-hidden="true">7</span><div><p class="slab">Stop 7</p><h3>Sala de los Reyes</h3><span class="dur">about 5–10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>The long hall that closes the east end of the Court of the Lions, behind the arcade. Walk along it and look up into its vaulted alcoves.</p>
+<h4>Look for</h4>
+<ul>
+<li>Three <strong>elliptical ceilings painted on leather</strong>, stretched over wooden planks.</li>
+<li>In the centre vault, <strong>ten seated Muslim figures</strong> on cushions, against a gold ground.</li>
+<li>At each end of that vault, <strong>two heraldic shields of the Order of the Band</strong>, a Castilian order of chivalry.</li>
+<li>In the side vaults, <strong>knights, ladies, hunts, chess and jousts</strong>: a whole romance of chivalry, painted overhead.</li>
+</ul>
+<h4>The story</h4>
+<p>Here is your proof that the Nasrids were not against images. Who the ten figures are is debated: the first ten Nasrid kings (the reading that names the room), a council, nobles of the Order of the Band, or Muhammad V and his court. If they are kings, the paintings date from about 1396–1408. The shields are a clue to how entangled the two worlds were. The Order of the Band was a knightly order founded by Alfonso XI of Castile in the 1330s. Muhammad V was a close ally of Peter I of Castile, who had helped him back to his throne. At the same moment, in the 1360s, Peter was building his own palace in the Alcázar of Seville with craftsmen from Granada and Toledo. Its plasterwork looks so Nasrid that it carries Arabic inscriptions praising a Christian king. Christian painters here, Granadan plasterers there: the frontier was a war zone, and also a workshop.</p>
+<h4>The architecture</h4>
+<p>Wet leather was stretched over planed boards shaped into an ellipse, glued and nailed, then painted. The subjects are Muslim, but most figures and the background architecture look Christian. The painters were probably Christians with links to a Toledo workshop and touches of Italian 14th-century style, working for a Muslim patron. Attribution is still debated.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Sala+de+los+Reyes+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="7" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-8">Next: 8. Dos Hermanas, Ajimeces and the Mirador de Lindaraja <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-8" data-n="8">
+<div class="sh"><span class="num" aria-hidden="true">8</span><div><p class="slab">Stop 8</p><h3>Dos Hermanas, Ajimeces and the Mirador de Lindaraja</h3><span class="dur">10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>Cross to the north side of the court and go into the Sala de las Dos Hermanas (Hall of the Two Sisters). Stand near the small central fountain, look down, then up. Then go on through the Sala de los Ajimeces to the little window bay at the end, the Mirador de Lindaraja.</p>
+<h4>Look for</h4>
+<ul>
+<li>On the floor, the <strong>two great white marble slabs</strong> either side of the fountain, matched in size and colour. They are the "two sisters."</li>
+<li>Overhead, a <strong>muqarnas dome of at least 5,000 pieces</strong>, rising from an octagonal drum with <strong>two windows on each of its eight sides</strong>.</li>
+<li>In the Mirador, the <strong>low windows</strong>. Crouch to the height of someone seated on floor cushions and see how the view frames itself.</li>
+<li><strong>Poems that speak for the building.</strong> Here the room boasts of its "peerless, radiant dome." In the Mirador, the window calls itself "the fresh eye of this garden."</li>
+</ul>
+<h4>The story</h4>
+<p>The Dos Hermanas belongs to Muhammad V's private palace, and the Mirador was its jewel. It once looked out over the Darro valley. After the conquest, rooms built for Charles V went up in front of it and closed the view, enclosing the garden below.</p>
+<p>The man whose verses fill this room and the Lions fountain did not die peacefully. Ibn Zamrak was the pupil of the great vizier and historian Ibn al-Khatib. When Ibn al-Khatib fled to Morocco in 1371, his writings were condemned in Granada and burned. In 1374 he was tried in Fez, with Ibn Zamrak in the Granadan delegation, and was strangled in prison. Ibn Zamrak rose to be vizier himself, and in 1393 he too was murdered. The walls that speak so serenely were written by men living dangerously.</p>
+<h4>The architecture</h4>
+<p>This dome and the Abencerrajes dome face each other across the court, the summit of muqarnas work. Here the cells cascade from the apex in tier after tier, lit by sixteen windows.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The Dos Hermanas poem by Ibn Zamrak is often translated as opening "I am a garden graced by every beauty," and goes on to bring the stars, the moon and Gemini down to touch the dome. Translations vary, and none we found is authoritative.</li>
+<li>A recent documentary says Charles V dined in this hall during his long honeymoon stay in 1526, and that Pedro Machuca labelled it "His Majesty the Emperor's dining room."</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Sala+de+las+Dos+Hermanas&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="8" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-9">Next: 9. Patio de la Reja, Patio de Lindaraja and the exit <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-9" data-n="9">
+<div class="sh"><span class="num" aria-hidden="true">9</span><div><p class="slab">Stop 9</p><h3>Patio de la Reja, Patio de Lindaraja and the exit</h3><span class="dur">10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>From the Mirador area the route leads along a corridor beside the Emperor's Chambers, through the small Patio de la Reja, and down into the Patio de Lindaraja, a garden courtyard below the Mirador. You leave the palaces from here through a gate into the Partal gardens. If the exit has been changed, follow the staff.</p>
+<h4>Look for</h4>
+<ul>
+<li>In the Patio de Lindaraja, look back up at the <strong>Mirador</strong> you just stood in. Now you can see it from the garden it was named for.</li>
+<li>In the Patio de la Reja, a <strong>balcony toward the Albaicín and Sacromonte</strong>, if it is open on your route.</li>
+<li><strong>Doors you can't go through.</strong> The <strong>Emperor's Chambers</strong> lie along this corridor. Washington Irving stayed in them from 4 May to 29 July 1829, and a marble plaque placed on the door of his rooms in 1914 commemorates him. The <strong>Comares Baths</strong> are reached by stairs from the Patio de Lindaraja. Both are normally closed and open only occasionally as the "Space of the Month." If either is open on your day, it is worth the detour.</li>
+</ul>
+<h4>The story</h4>
+<p>From 1528 Charles V built new rooms here, along a corridor linking the Comares and Lions palaces. Julio Aquiles and Alejandro Mayner, trained in Raphael's workshop, painted the "fruit rooms" around 1537. Three centuries later Irving moved in; his <em>Tales of the Alhambra</em> came out in 1832. When he arrived, the Alhambra was half-abandoned: a barracks for invalid soldiers, a prison at times, and home to squatters and Gitano families. Irving's book made the world look again. Restoration began in earnest in the 1840s, and in 1870 the Alhambra was declared a National Monument.</p>
+<h4>The architecture</h4>
+<p>The hidden baths have vaults pierced with star-shaped skylights that let steam out and air in. Once you pass the gate you can't come back in, so take a last look.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The resting hall of the Comares Baths, the Sala de las Camas, is named for its two raised benches, where bathers undressed and rested.</li>
+<li>The Peinador de la Reina, a tower room nearby redecorated for the Empress Isabella in the 16th century, is usually closed too.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Patio+de+Lindaraja&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="9" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-10">Next: 10. The Partal: Torre de las Damas, houses, oratory, Partal Alto and the Rauda <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 2</p><h2>The Partal</h2><span class="dur">20–30 minutes</span></header>
+<article class="stop" id="stop-10" data-n="10">
+<div class="sh"><span class="num" aria-hidden="true">10</span><div><p class="slab">Stop 10</p><h3>The Partal: Torre de las Damas, houses, oratory, Partal Alto and the Rauda</h3></div></div>
+<h4>Where you are</h4>
+<p>You come out into terraced gardens on the north side of the hill. Below you is a long pool, and behind it a portico of five arches fronting a tower: the Partal and the Torre de las Damas. Stand at the far end of the pool to see the portico reflected.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>five-arched portico</strong> over the pool, and the <strong>lattice (sebka) stucco</strong> above the arches.</li>
+<li>The <strong>slender marble columns</strong>. They date from 1965, the work of Francisco Prieto-Moreno, Torres Balbás's long-serving successor; brick pillars originally held up the arches.</li>
+<li>Inside the tower, the <strong>ceiling</strong>, or rather its absence. The original carved cupola is in Berlin.</li>
+<li>Next to it, the small <strong>Oratory of the Partal</strong>, raised on the wall, with a correctly oriented mihrab.</li>
+<li>Along the wall, a row of <strong>small Nasrid houses</strong>. One of them, the House of the Paintings, preserves rare 14th-century wall paintings. They are normally closed; look in if they are open.</li>
+<li>Uphill, the <strong>excavated outline of a palace</strong>: a long pool, room footings and the remains of a bath.</li>
+</ul>
+<h4>The story</h4>
+<p>This is the oldest palace still standing in the Alhambra, though only partly. Its style suggests it was built under Muhammad III (1302–1309), decades before the Court of the Lions. <em>Partal</em> comes from the Arabic <em>al-Bartal</em>, which in turn came from Latin <em>portale</em>, portico: the palace is named after the very feature in front of you.</p>
+<p>"Tower of the Ladies" is a 19th-century nickname. Its last private owner, the German banker Arthur von Gwinner, removed the carved wooden cupola before giving the building to the Spanish state in 1891. It has belonged to Berlin's Museum für Islamische Kunst since 1977.</p>
+<p>The oratory is usually attributed to Yusuf I, though tree-ring dating of its timber to 1332–33 suggests Isma'il I may have begun it. The house paintings, found in 1907, show rows of horsemen and tents with musicians, servants and women of the Nasrid court.</p>
+<p><strong>The palace on the hill.</strong> The ruin above the gardens is one building with two names: the Partal Alto, long called the Palace of Yusuf III, though current scholarship gives it to Muhammad II (1273–1302). After 1492 it became the home of the Count of Tendilla, the Christian governor of the Alhambra, and his successors. Tendilla's descendants, the Marquises of Mondéjar, held the governorship almost as an inheritance for two centuries. Then they backed the losing Habsburg claimant in the War of the Spanish Succession (1701–1714), the war over who would inherit the Spanish throne, and in 1717 the winner, Philip V, stripped them of office. The Marquis then demolished the palace, in 1718 or in 1734–35 (sources differ), and sold off pieces. It was excavated in 1924; about a third is still buried.</p>
+<p><strong>The Rauda.</strong> The sultans were buried in the royal cemetery, the Rauda. It lay north-west of the old Great Mosque, just across the lower street, the Calle Real Baja, from the royal palaces. You'll pass close to its site later. Ismail I, Muhammad IV, Yusuf I, Yusuf III and probably Muhammad V were buried there. After the conquest, Boabdil exhumed his ancestors and took them into exile, probably to a burial ground his wife owned at Mondújar. When the site was excavated in 1925, about seventy tombs were found, all but one empty. No remains of the dynasty survive. Some royal tombstones are in the Alhambra Museum.</p>
+<h4>The architecture</h4>
+<p>Compare this portico-and-pool with the Court of the Myrtles: the same idea, at an earlier and simpler stage. The gardens around you are not Nasrid at all. They were laid out between the 1910s and the 1930s, though this was a great garden in Nasrid times too.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Some sources say only the central arch of the Partal portico is original.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Partal+Alhambra+Torre+de+las+Damas&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="10" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-11">Next: 11. Paseo de las Torres <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 3</p><h2>The Paseo de las Torres</h2><span class="dur">15–20 minutes</span></header>
+<article class="stop" id="stop-11" data-n="11">
+<div class="sh"><span class="num" aria-hidden="true">11</span><div><p class="slab">Stop 11</p><h3>Paseo de las Torres</h3></div></div>
+<h4>Where you are</h4>
+<p>From the Partal, walk east along the path inside the northern wall. Towers project from the wall at intervals. Keep the wall on your left and keep walking toward the Generalife.</p>
+<h4>Look for</h4>
+<ul>
+<li><strong>Torre de los Picos</strong>, with its pointed battlements. It guarded the Puerta del Arrabal, a gate leading down toward the Albaicín.</li>
+<li><strong>Torre del Cadí</strong>, then <strong>Torre de la Cautiva</strong>. The Cautiva looks like any other tower from outside.</li>
+<li><strong>Torre de las Infantas</strong>, farther east.</li>
+<li>Any <strong>open door</strong>: the Cautiva and the Picos open from time to time as the Space of the Month.</li>
+</ul>
+<h4>The story</h4>
+<p>These were houses as well as defences. The Picos, built by Yusuf I, has three vaulted levels with stucco and paintings. The Cautiva was built at the end of the 13th century and refitted as a home under Yusuf I. Its interior is second only to Comares in richness. Its tile poems are by Ibn al-Jayyab, and one inscription sums it up: "Calahorra with a palace within… tell us it is both a fortress and a mansion to be enjoyed!" The Infantas was built, or rebuilt, by Muhammad VII toward the end of the 14th century.</p>
+<h4>The architecture</h4>
+<p><em>Qalahurra</em> (calahorra) means a tower-palace: a military tower fitted out as a home. The Infantas shows how such homes stayed bearable in a Granada summer. The main rooms face north, away from the sun. The earthen walls are so thick that the day's heat takes hours to get through. Windows are small and screened with lattices, high openings let rising hot air escape, and water in the central basin cools the air as it evaporates. Here the defensive wall became a string of private apartments with views, the logic of the Comares Tower on a smaller scale.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The Torre de las Infantas is the setting of Washington Irving's "Legend of the Three Beautiful Princesses" in <em>Tales of the Alhambra</em>.</li>
+<li>A recent documentary claims rooms like these stayed around 25°C while it was 40°C outside, and that Nasrid watchtowers across the kingdom passed warnings to the Alhambra by smoke and mirror signals. Both are plausible, but we couldn't check either.</li>
+<li>The Torre del Agua is said to have been blown up by Napoleon's troops as they withdrew in 1812, which would explain why it is a ruin.</li>
+<li>At the Torre del Agua, guides say the Acequia Real crosses into the Alhambra on a small aqueduct, and the tower was built to guard it. The Camino de Ronda outside the wall is often called a defensive patrol path or moat.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>"Tower of the Captive" is a fanciful name with no historical basis. The story linking it to Isabel de Solís is legend.</p>
+<p><strong>Getting to the Generalife.</strong> The old access to the Generalife was near the Torre del Agua, across the ravine of the Cuesta del Rey Chico. <em>Rey Chico</em>, "the little king," is what the Castilians called Boabdil. Today, follow the signs across the bridge by that tower. Allow roughly 10 to 15 minutes; walking times are not published.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Torre+de+la+Cautiva+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="11" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-12">Next: 12. The gardens and the water <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 4</p><h2>The Generalife</h2><span class="dur">45–60 minutes</span><p>The Generalife has its own signed one-way route. Take the stops below in whatever order it gives you.</p></header>
+<article class="stop" id="stop-12" data-n="12">
+<div class="sh"><span class="num" aria-hidden="true">12</span><div><p class="slab">Stop 12</p><h3>The gardens and the water</h3><span class="dur">10–15 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>You enter through the modern gardens below the palace: hedged walks, cypress walls and long pools, and an open-air theatre. Above you on the slope stands the summer palace.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>Jardines Nuevos</strong>, laid out between 1931 and 1951 by Torres Balbás and Prieto-Moreno. The theatre dates from 1952.</li>
+<li>Down the slope, the <strong>terraced orchards</strong> (Las Huertas), farmed since the 14th century.</li>
+<li>On the hilltop above the estate, the ruined fort of the <strong>Silla del Moro</strong>, a lookout that protected the water supply.</li>
+</ul>
+<figure class="fig"><svg viewBox="0 0 360 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the water supply: the Acequia Real takes water from the Darro river about 6 km upstream, runs by gravity past the Generalife, and enters the Alhambra by the Torre del Agua to feed its pools and fountains">
+<rect width="360" height="175" fill="var(--paper2)" rx="10"/>
+<path d="M8 40 Q30 30 52 44 T96 46" fill="none" stroke="var(--water)" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+<path d="M40 48 L190 92 L265 112 L330 128" fill="none" stroke="var(--water)" stroke-width="3.5" stroke-dasharray="9 5"/>
+<g fill="var(--ink)"><circle cx="40" cy="48" r="4.5"/><circle cx="190" cy="92" r="4.5"/><circle cx="265" cy="112" r="4.5"/><circle cx="330" cy="128" r="4.5"/></g>
+<path d="M124 48 l8 -13 l8 13z" fill="var(--wall)"/>
+<g font-family="var(--sans)" font-size="12" fill="var(--ink)">
+<text x="12" y="20" font-weight="700">Darro river <tspan font-weight="400" fill="var(--muted)">· intake about 6 km upstream</tspan></text>
+<text x="146" y="47" fill="var(--muted)">Silla del Moro fort guarded it</text>
+<text x="190" y="114" text-anchor="middle" font-weight="700">Generalife</text>
+<text x="265" y="138" text-anchor="middle" font-weight="700">Torre del Agua</text>
+<text x="350" y="158" text-anchor="end" font-weight="700">Alhambra pools</text>
+<text x="12" y="160" fill="var(--muted)">Acequia Real: gravity only</text>
+</g>
+</svg>
+<figcaption>How the water arrives: by gravity, from the Darro.</figcaption></figure><h4>The story</h4>
+<p>The Generalife was an <em>almunia</em>: a country estate that was both a retreat and a working farm, a short walk from the palace. It probably began under Muhammad II at the end of the 13th century. An inscription records that Isma'il I remodelled it in 1319, and Yusuf III reworked the southern parts in the 15th century. An inscription by Ibn al-Jayyab calls it "the House of the Felicitous Kingdom."</p>
+<h4>The architecture</h4>
+<p>All of this runs on the <strong>Acequia Real</strong>, the royal channel, which draws water from the Darro about 6 kilometres upstream. A smaller channel, the Acequia del Tercio, splits off several kilometres before the estate and runs along higher ground to feed the upper gardens and the Water Stairway. The main channel runs lower, through the palace. The two rejoin past the Albercones reservoir, a medieval tank of about 400 cubic metres, and go on toward the Alhambra. It is gravity engineering on a valley-wide scale.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>On the hill above the Generalife, a recent documentary describes very deep wells, roughly 60 metres, where animal-powered waterwheels (<em>norias</em>) lifted water further uphill in stages. Treat the figures as approximate.</li>
+<li>The same programme claims the Nasrids used a pressure device to push water about 6 metres up to the Alcazaba, and that nobody else in medieval Iberia could. We found nothing to back this up, so treat it with real caution.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>The name "Generalife" is traditionally explained as <em>Jannat al-'Arif</em> and often translated "Garden of the Architect." Scholars dispute this, and other readings have been proposed.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Jardines+del+Generalife&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="12" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-13">Next: 13. Patio de la Acequia and the Sala Regia <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-13" data-n="13">
+<div class="sh"><span class="num" aria-hidden="true">13</span><div><p class="slab">Stop 13</p><h3>Patio de la Acequia and the Sala Regia</h3><span class="dur">15 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>Through the palace entrance you reach a long, narrow courtyard with the Acequia Real running down its whole length in a channel, beds on either side and a pavilion at each end. Stand at the south end and look north toward the taller pavilion.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>arcing jets</strong>. They are pretty, but they are 19th-century.</li>
+<li>The <strong>mirador</strong> projecting from the middle of the western wall: probably the earliest known mirador in Nasrid architecture. Step in and look back across the ravine at the Alhambra.</li>
+<li>On the north pavilion, the <strong>upper gallery</strong> added by the Catholic Monarchs in 1494.</li>
+<li>The <strong>three-arched stucco entrance</strong> to the Sala Regia, with Ibn al-Jayyab's inscriptions. Inside are a wooden ceiling, a muqarnas frieze, and a projecting mirador (added by Isma'il I in 1319) looking toward the Albaicín.</li>
+</ul>
+<h4>The story</h4>
+<p>After a fire in 1958, excavations found the Nasrid garden about 70 centimetres below today's beds. The original beds were sunken below the walkways, planted low with things like myrtle, with deeper pits for orange trees. The old level was then covered over and replanted.</p>
+<h4>The architecture</h4>
+<p>Picture it the Nasrid way: no jets, plants at the level of your feet, water running quietly down the middle. The channel at your feet is the same water that goes on to feed the whole Alhambra. Garden historians read this display of abundant water as a statement of royal power and good stewardship: there may be no water on this hill, but the sultan has it, and he uses it to make the land fruitful, as a good Muslim ruler should. Unlike the palaces, the Generalife had no grand state rooms. It was a place for the court's pleasure, close enough for a day trip. And note the miradors, rooms built to frame a view, forerunners of the Mirador de Lindaraja.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Beside the entrance to the north portico, two small wall niches (<em>tacas</em>) are said to have held cool water jars. An inscription attributed to Isma'il I compares them to maidens greeting guests. We couldn't confirm the inscription's wording.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Patio+de+la+Acequia+Generalife&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="13" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-14">Next: 14. Patio del Ciprés de la Sultana, the Water Stairway and the Mirador Romántico <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-14" data-n="14">
+<div class="sh"><span class="num" aria-hidden="true">14</span><div><p class="slab">Stop 14</p><h3>Patio del Ciprés de la Sultana, the Water Stairway and the Mirador Romántico</h3><span class="dur">15–20 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>Above the Patio de la Acequia lies the Patio del Ciprés de la Sultana, a courtyard of pools and clipped hedges. From there, paths lead up to the upper gardens, and the Escalera del Agua (Water Stairway) climbs the slope under a canopy of laurels.</p>
+<h4>Look for</h4>
+<ul>
+<li>In the Patio de la Sultana, the <strong>north arcade</strong>, built in 1584–86. This courtyard was designed after the Nasrids.</li>
+<li>On the Water Stairway, the <strong>handrails</strong>. They are open channels with water running down beside your hands.</li>
+<li>The small <strong>round landings with fountains</strong> where the flights break.</li>
+<li>At the top, the <strong>Mirador Romántico</strong> of 1836.</li>
+</ul>
+<h4>The story</h4>
+<p>The patio is named after a legend: a sultana was caught meeting an Abencerraje knight under a cypress here, which led to the downfall of that family. The tellings disagree over whose wife she was, Boabdil's or Muley Hacén's. It is the same family as in the palace legend.</p>
+<h4>The architecture</h4>
+<p>The Water Stairway existed in the Muslim period and is reputedly the oldest stair in these gardens. Its water comes from the higher channel, the Acequia del Tercio. The Mirador Romántico probably stands on the site of a former prayer hall. Look out from it and you can read the whole system: the channel, the palace, the orchards, and the Alhambra across the ravine.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The Water Stairway is often linked to the poet Juan Ramón Jiménez, who is said to have written about its running handrails. The famous "Sultana's cypress" is said to be long dead, its trunk kept as a relic of the legend.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Escalera+del+Agua+Generalife&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="14" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-15">Next: 15. Along the Calle Real <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 5</p><h2>Back through the town</h2><span class="dur">10–15 minutes</span></header>
+<article class="stop" id="stop-15" data-n="15">
+<div class="sh"><span class="num" aria-hidden="true">15</span><div><p class="slab">Stop 15</p><h3>Along the Calle Real</h3></div></div>
+<h4>Where you are</h4>
+<p>Cross back over the bridge by the Torre del Agua and walk west along the Calle Real, the main street of the old palace-town (the Medina), toward the great square block of the Palace of Charles V.</p>
+<h4>Look for</h4>
+<ul>
+<li>The <strong>Church of Santa María de la Alhambra</strong>, built between 1581 and 1618 on the site of the Alhambra's congregational mosque.</li>
+<li>The lower street off to your right, the <strong>Calle Real Baja</strong>, near which lay the <strong>Rauda</strong>, the royal cemetery.</li>
+</ul>
+<h4>The story</h4>
+<p>This was a town serving a court, not just a palace. Its mosque, commissioned by Muhammad III and finished in 1305, was demolished in 1576. The sultans' tombs lay just north-west of it.</p>
+<p><strong>A five-minute detour: the Gate of the Seven Floors.</strong> On the southern wall, a short walk downhill from the Calle Real, stands the Puerta de los Siete Suelos, a 14th-century gate of Yusuf I with a bent entrance and a bastion added after the conquest. Despite the name, excavations have found only two levels below ground. Legend says Boabdil rode out through it in 1492 and begged that no one ever pass through it again, so it was walled up. History adds a darker chapter. In September 1812 Napoleon's troops, abandoning Granada, blew it up along with other towers on the south wall; it was later rebuilt. Worse was planned. A plaque honours corporal José García of the invalid soldiers' corps, who risked his life in 1812 to save the palaces and towers from ruin. The usual telling has him cutting the burning fuses; the plaque doesn't give details.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>Near the church, a small Nasrid bathhouse, the Baño de la Mezquita, is listed as free to enter when open.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Santa+Mar%C3%ADa+de+la+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="15" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-16">Next: 16. Palace of Charles V <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 6</p><h2>The Palace of Charles V and the Alhambra Museum</h2><span class="dur">30–45 minutes</span></header>
+<article class="stop" id="stop-16" data-n="16">
+<div class="sh"><span class="num" aria-hidden="true">16</span><div><p class="slab">Stop 16</p><h3>Palace of Charles V</h3></div></div>
+<h4>Where you are</h4>
+<p>Start on the esplanade in front of the west facade, then walk inside to the circular courtyard.</p>
+<h4>Look for</h4>
+<ul>
+<li>Outside, the <strong>rusticated lower storey</strong> and the <strong>Ionic upper storey</strong>. The main facade is 63 metres wide and 17 metres high.</li>
+<li><strong>Bronze rings</strong> set into the lower pilasters.</li>
+<li>The <strong>portals in Sierra Elvira stone</strong>, and on the facade, a <strong>relief of the Battle of Pavia</strong>, one of Charles's victories. At Pavia, in northern Italy in 1525, Charles's army crushed the French and captured King Francis I himself. It was the high point of his power, and he had it carved onto his palace here.</li>
+<li>Inside, the <strong>circular courtyard</strong>, about 30 metres across, with Doric columns below and Ionic above, set inside a 63-metre square.</li>
+</ul>
+<figure class="fig"><svg viewBox="0 0 430 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plan of the Palace of Charles V: a circular colonnaded courtyard about 30 metres across, set inside a square block about 63 metres a side, with 32 columns per level">
+<rect width="430" height="230" fill="var(--paper2)" rx="10"/>
+<rect x="30" y="15" width="200" height="200" fill="var(--plaster)" stroke="var(--ink)" stroke-width="1.4"/>
+<circle cx="130" cy="115" r="62" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.2"/>
+<circle cx="130" cy="115" r="48" fill="none" stroke="var(--muted)" stroke-width=".8" stroke-dasharray="3 3"/>
+
+<g fill="var(--wall)">
+<circle cx="192.0" cy="115.0" r="2.6"/><circle cx="190.8" cy="127.1" r="2.6"/><circle cx="187.3" cy="138.7" r="2.6"/><circle cx="181.6" cy="149.4" r="2.6"/><circle cx="173.8" cy="158.8" r="2.6"/><circle cx="164.4" cy="166.6" r="2.6"/><circle cx="153.7" cy="172.3" r="2.6"/><circle cx="142.1" cy="175.8" r="2.6"/><circle cx="130.0" cy="177.0" r="2.6"/><circle cx="117.9" cy="175.8" r="2.6"/><circle cx="106.3" cy="172.3" r="2.6"/><circle cx="95.6" cy="166.6" r="2.6"/><circle cx="86.2" cy="158.8" r="2.6"/><circle cx="78.4" cy="149.4" r="2.6"/><circle cx="72.7" cy="138.7" r="2.6"/><circle cx="69.2" cy="127.1" r="2.6"/><circle cx="68.0" cy="115.0" r="2.6"/><circle cx="69.2" cy="102.9" r="2.6"/><circle cx="72.7" cy="91.3" r="2.6"/><circle cx="78.4" cy="80.6" r="2.6"/><circle cx="86.2" cy="71.2" r="2.6"/><circle cx="95.6" cy="63.4" r="2.6"/><circle cx="106.3" cy="57.7" r="2.6"/><circle cx="117.9" cy="54.2" r="2.6"/><circle cx="130.0" cy="53.0" r="2.6"/><circle cx="142.1" cy="54.2" r="2.6"/><circle cx="153.7" cy="57.7" r="2.6"/><circle cx="164.4" cy="63.4" r="2.6"/><circle cx="173.8" cy="71.2" r="2.6"/><circle cx="181.6" cy="80.6" r="2.6"/><circle cx="187.3" cy="91.3" r="2.6"/><circle cx="190.8" cy="102.9" r="2.6"/>
+</g>
+<g font-family="var(--sans)" font-size="12.5" fill="var(--ink)">
+<text x="246" y="40" font-weight="700">A circle in a square</text>
+<text x="246" y="60" fill="var(--muted)">Square block: about 63 m</text>
+<text x="246" y="76" fill="var(--muted)">Courtyard: about 30 m across</text>
+<text x="246" y="92" fill="var(--muted)">32 columns per level:</text>
+<text x="246" y="108" fill="var(--muted)">Doric below, Ionic above</text>
+<text x="246" y="136" fill="var(--muted)">Stand in the centre and</text>
+<text x="246" y="152" fill="var(--muted)">look up at the open sky</text>
+<text x="246" y="200" fill="var(--muted)" font-size="11">Schematic plan</text>
+</g>
+</svg>
+<figcaption>Machuca&#x27;s plan: a circle inside a square.</figcaption></figure><h4>The story</h4>
+<p>Charles V was Ferdinand and Isabella's grandson: king of Spain from 1516 and Holy Roman Emperor from 1519, ruler of much of Europe and the Americas. In 1526 he married Isabella of Portugal in Seville and spent several months in the Alhambra, where he decided to build a second royal residence. Pedro Machuca, trained in Rome, designed it. Work began in 1527, with Machuca directing on site from 1533 until his death in 1550; his son Luis built the courtyard. It is often said that a special tax paid by the Moriscos (Granada's converted Muslims) largely funded the work.</p>
+<p>Charles never lived in it, and nor did his son Philip II, who moved the court to Madrid. Work stopped for fifteen years after the Morisco rebellion of 1568 and was abandoned in 1637 without a roof. Restoration began in 1923, and the building was completed only in the mid-20th century (sources give 1956 to 1967).</p>
+<p>Who were the Moriscos? After 1492 Granada's Muslims were promised freedom of religion. Between 1499 and 1502 they were forced to choose baptism or exile, and those who stayed became "Moriscos", nominal Christians whose language, dress and customs were steadily banned. That pressure exploded in the great revolt of 1568 in the Alpujarras, the valleys on the far side of the Sierra Nevada that you can see from the Alcazaba. It was crushed, Granada's Moriscos were scattered across Castile, and between 1609 and 1614 they were expelled from Spain altogether. The half-built palace is, among other things, a monument to that story.</p>
+<h4>The architecture</h4>
+<p>A circle inside a square: a Renaissance ideal set down in a Nasrid palace-city. Machuca split the plan along a diagonal into an emperor's side and an empress's side, each with its own staircase, meeting at an octagonal chapel. Stand in the middle and compare it with the Court of the Lions: one all mass, the other all columns and light.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The palace sits at a slight angle to its neighbours. One story says the archbishop objected to it crowding the church on the site of the old mosque. Unconfirmed.</li>
+<li>The round court is often compared to Hadrian's Villa at Tivoli. Stand dead centre and speak or clap softly: many visitors notice an echo. The main west portal is said to have been completed under Philip II by Juan de Herrera.</li>
+<li>The facades are said to carry green-marble medallions and reclining winged figures above the doorways.</li>
+<li>Charles is often quoted as saying, on first seeing the Alhambra, "unfortunate the man who lost all this." No early source records it.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Palacio+de+Carlos+V+patio&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="16" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-17">Next: 17. The Alhambra Museum and the Vase of the Gazelles <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-17" data-n="17">
+<div class="sh"><span class="num" aria-hidden="true">17</span><div><p class="slab">Stop 17</p><h3>The Alhambra Museum and the Vase of the Gazelles</h3></div></div>
+<h4>Where you are</h4>
+<p>The ground floor of the palace. The Museo de Bellas Artes (Fine Arts Museum) is upstairs. <strong>Closed on Mondays.</strong> On Tuesdays and Sundays it shuts at 14:30, so if you're here on one of those days, visit before your Nasrid slot.</p>
+<h4>Look for</h4>
+<ul>
+<li>In <strong>Room V</strong>, the <strong>Vase of the Gazelles</strong>: blue and gold lustreware made under Muhammad V. It is the only Alhambra vase that keeps its full curved outline, and the only one never to have left the complex.</li>
+<li>Royal <strong>tombstones</strong> from the Rauda.</li>
+</ul>
+<h4>The story</h4>
+<p>The Gazelle vase was displayed in the Jardín de los Adarves, the Court of the Myrtles, the Sala de los Reyes and the Dos Hermanas before ending up here. Golden lustreware of this kind was exported from Málaga.</p>
+<h4>The architecture (of a pot)</h4>
+<p>Lustre takes three firings. The last is in a kiln starved of oxygen, which turns a coating of copper and silver into a metallic sheen.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The vase is often given as about 1.35 metres tall and made in Málaga. Both are plausible, but neither is confirmed by the museum page.</li>
+<li>A tip guides give: Room V is kept dim, so move your head slowly from side to side. The lustre catches the light and the gazelles appear in gold.</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Jarr%C3%B3n+de+las+Gacelas&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="17" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-18">Next: 18. Puerta del Vino and the Plaza de los Aljibes <span aria-hidden="true">→</span></button></div>
+</article>
+<header class="part"><p class="plab">Part 7</p><h2>The Puerta del Vino and the Alcazaba</h2><span class="dur">45–60 minutes</span></header>
+<article class="stop" id="stop-18" data-n="18">
+<div class="sh"><span class="num" aria-hidden="true">18</span><div><p class="slab">Stop 18</p><h3>Puerta del Vino and the Plaza de los Aljibes</h3><span class="dur">10 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>West of the Palace of Charles V, a gate stands on its own on the edge of a wide open square. Walk around both sides of it.</p>
+<h4>Look for</h4>
+<ul>
+<li>On the <strong>west face</strong>, an Arabic plaque honouring "our Master the Sultan Abu 'Abd Allah al-Ghani billah" (Muhammad V), and above the arch a carved <strong>key</strong> with a cord. You'll meet the key again on the Gate of Justice at the end of the walk. Its meaning is debated: a sign of power to open and close, of faith as the key to paradise, or simply a Nasrid emblem. Either way, it marked an official gateway.</li>
+<li>On the <strong>east face</strong>, later decoration: <strong>tile spandrels</strong> with leaves and branches in green, blue and yellow on white, a stucco frame around the upper window, traces of paint and reddish brickwork.</li>
+<li>The <strong>two levels</strong>: a stone passage with a horseshoe arch below and a brick room above.</li>
+<li>The square itself: <strong>cisterns</strong> lie under your feet.</li>
+</ul>
+<h4>The story</h4>
+<p>The gate dates from the early 14th century, usually attributed to Muhammad III, with some sources pointing to Muhammad II. It was the main entrance to the Medina, and it may once have stood among buildings that have since gone. Its east face was decorated about half a century after it was built.</p>
+<p>The square was once a gully between fortress and palaces. In 1494 the Count of Tendilla built cisterns in it, 34 metres long, 6 wide and 8 deep, and it was later filled in. Toilets, lockers and first aid are by this gate.</p>
+<p><strong>Flamenco history was made here.</strong> On 13 and 14 June 1922 this square hosted the Concurso de Cante Jondo, a contest of deep song, the oldest layer of flamenco singing. It was organised by the composer Manuel de Falla and the young poet Federico García Lorca, who feared the old style was dying out. The same Falla sent Debussy the postcard of the gate in front of you.</p>
+<h4 class="myth">Myth check</h4>
+<p>The name "Wine Gate" may come from residents' right to bring in untaxed wine here in the mid-16th century (1554 or 1556 in different accounts). Or it may be a garbling of an Arabic name. And Debussy never saw it. His piano prelude <em>La Puerta del Vino</em> (1913) was sparked by a postcard of the gate that Manuel de Falla sent him in late 1909.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Puerta+del+Vino+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="18" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-19">Next: 19. The Alcazaba <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-19" data-n="19">
+<div class="sh"><span class="num" aria-hidden="true">19</span><div><p class="slab">Stop 19</p><h3>The Alcazaba</h3><span class="dur">35–45 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>The Alcazaba, the fortress on the western tip of the hill, is entered from the Plaza de los Aljibes. Since 23 September 2026 it has had an adapted route covering the Jardín de los Adarves, the Plaza de Armas and Barrio Castrense, and the terrace of the Puerta de las Armas. Follow it.</p>
+<h4>Look for</h4>
+<ul>
+<li>In the <strong>Jardín de los Adarves</strong>, the narrow garden along the southern ramparts, the <strong>upper basin</strong> that once crowned the Lions fountain.</li>
+<li>On the wall of the <strong>Torre de la Pólvora</strong>, at the west end of the garden, the <strong>plaque</strong> with lines by the Mexican poet and diplomat Francisco de Icaza: "Give him alms, woman, for there is nothing in life like the grief of being blind in Granada."</li>
+<li>In the <strong>Plaza de Armas</strong>, the <strong>foundations of the Barrio Castrense</strong>: the soldiers' quarter, with houses, a bakery, a bath, a cistern, workshops and underground silos and dungeons.</li>
+<li>At the eastern end, the tall <strong>Torre del Homenaje</strong> (the keep), which guarded the main entrance.</li>
+<li>At the western prow, the <strong>Torre de la Vela</strong> and its bell.</li>
+<li>The <strong>walls themselves</strong>: reddish rammed earth. Look for rows of small square holes. Builders packed a mix of earth, lime and gravel into wooden formwork, one layer at a time, and the holes are where the crossbeams of that formwork sat. Corners and arches are often reinforced with brick or stone.</li>
+<li>From the ramparts and the Puerta de las Armas terrace, <strong>the view</strong>: the Albaicín across the Darro valley, the city and the Vega plain to the west, and the Sierra Nevada behind you on a clear day.</li>
+</ul>
+<h4>The story</h4>
+<p>This is where the Alhambra began. Muhammad I, founder of the Nasrid dynasty, started building in 1238 on the site of an older castle. The keep, about 26 metres high with five vaulted floors, is one of the two oldest towers with the Vela, and tradition says the founder lived on its top floor.</p>
+<p>The garden was made in the 17th century by the Marquis of Mondéjar, the governor of the day, who filled the moat between the outer and inner walls. The Vase of the Gazelles stood here once.</p>
+<p><strong>The Torre de la Vela.</strong> As of the latest report (28 September 2026), the tower was still "temporarily closed" for technical inspections after the earthquakes. Check the signs; if it's open, climb it. Its name says what it was for: <em>vela</em> means watch or vigil. It is 26.8 metres high on a 16-metre-square base, with four floors plus a cellar.</p>
+<p>On 2 January 1492, the banners of Ferdinand and Isabella were raised on it as Granada surrendered. Christopher Columbus was in Granada, still waiting for royal backing for his voyage west; he got it that April, and he later wrote that he saw the royal banners "planted by force of arms upon the towers of the Alhambra." The bell, hung in 1840 and rebuilt in 1882 after lightning damage, signalled night-time irrigation turns to farmers on the plain below and doubled as a clock and an alarm. It is still rung every 2 January, and folklore says a single woman who rings it that day will marry within the year. In 1590 the same Darro-valley powder blast you have been following all day damaged this tower too; it was repaired that year.</p>
+<p><strong>How Granada fell, and the Moor's sigh.</strong> The end was negotiated, not stormed. The Capitulations of Granada were signed on 25 November 1491, guaranteeing Muslims their faith, property and laws, promises broken within a decade. On 2 January 1492 Boabdil handed over the city; tradition places the handing over of the keys down by the Genil river, where the small Ermita de San Sebastián stands. Legend supplies the epilogue. Riding south into exile, Boabdil stopped on a pass for a last look at Granada and wept, and his mother Aixa told him to weep like a woman for what he had not defended like a man. The pass is still called the Suspiro del Moro, the Moor's Sigh. Look south from these ramparts toward the mountains as you hear it. The story was first written down in the 1530s as hearsay, so treat it as legend.</p>
+<h4>The architecture</h4>
+<p>The name <em>al-Hamra</em>, "the red one," comes from the colour of these rammed-earth walls, made with local clay rich in iron oxide. The palaces could be all lace and light only because these plain, thick walls existed.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>A local legend says the Jardín de los Adarves was paid for with gold coins found hidden in jars inside the walls.</li>
+<li>The Torre de la Vela is said to have come through the earthquakes of 1522 and 1821. We couldn't confirm this.</li>
+<li>Guides say you enter the Alcazaba below the Torre Quebrada ("Broken Tower"), and that a rounded 16th-century tower, the Torre del Cubo, was added to brace the keep.</li>
+<li>After 1492 the Count of Tendilla is said to have spent years adapting the fortress for gunpowder artillery. The rounded bastion by the Torre de la Pólvora is the example usually given.</li>
+<li>The Torre de las Armas on the north side is said to have linked the fortress to the Albaicín by a bridge over the Darro.</li>
+<li>Rammed earth and plaster, all dug or made on the spot, let Nasrid builders put up buildings far faster than the cut-stone builders of Christian Europe. One documentary says a building could take two or three years.</li>
+<li>Some link the name <em>al-Hamra</em> to the founder's nickname as well: Muhammad I was known as Ibn al-Ahmar, "son of the red one."</li>
+</ul>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Alcazaba+Alhambra+Torre+de+la+Vela&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="19" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="stop-20">Next: Finale Out by the Puerta de la Justicia <span aria-hidden="true">→</span></button></div>
+</article>
+<article class="stop" id="stop-20" data-n="20">
+<div class="sh"><span class="num" aria-hidden="true">★</span><div><p class="slab">Finale</p><h3>Out by the Puerta de la Justicia</h3><span class="dur">15–20 minutes</span></div></div>
+<h4>Where you are</h4>
+<p>Leave the Alcazaba, cross the Plaza de los Aljibes and pass the Puerta del Vino to the <strong>Puerta de la Justicia</strong>, the great gate in the southern wall. Go through it slowly, if it is open as an exit. From outside, the path drops through the woods to the Cuesta de Gomérez and Plaza Nueva. Or, if you need the Access Pavilion (for a bus or a car), walk back east along the Calle Real and the Cypress Walk, about 20 minutes.</p>
+<h4>Look for</h4>
+<ul>
+<li>An <strong>open hand</strong> carved in the keystone of the great outer arch.</li>
+<li>A <strong>key</strong> above the inner arch.</li>
+<li>The <strong>Arabic foundation inscription</strong>, dating the gate to 1348 under Yusuf I. Foundation stones like this are rare in the Alhambra.</li>
+<li>An inscription inlaid in <strong>white Macael marble with slate</strong>, the only documented use of the technique in the Alhambra.</li>
+<li>A <strong>Gothic Virgin and Child</strong> in a niche above the key. It is a copy. The original, from 1501 and attributed to Roberto Alemán, is in the Museo de Bellas Artes, upstairs in the Palace of Charles V.</li>
+<li>The <strong>sequence of arches</strong> as you go through, and the original metal-sheathed wooden door.</li>
+</ul>
+<h4>The story</h4>
+<p>Its Arabic name, <em>Bab al-Shari'a</em>, is usually translated "Gate of the Esplanade," sometimes "Gate of the Law." The Catholic Monarchs set their Virgin over a sultan's foundation inscription: the layering of conquest you have seen all day.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>The passage is usually described as a bent entrance, turning at right angles so attackers could not charge straight through. Watch for the turns as you walk it; we couldn't confirm the exact number of bends.</li>
+<li>The Pilar de Carlos V beside the gate is said to bear the arms of Burgundy and Lorraine among its imperial heraldry.</li>
+</ul>
+<h4 class="myth">Myth check</h4>
+<p>The hand and key are Islamic symbols whose exact meaning is debated. The hand is popularly read as the five pillars of Islam, or as a charm against the evil eye. The often-told story that judges held court under the gate has no documentary support. And the legend Washington Irving retells: the Alhambra will stand until the hand reaches down and grasps the key, and on that day the whole fortress will fall.</p>
+<div class="foot"><a class="photo" href="https://commons.wikimedia.org/w/index.php?search=Puerta+de+la+Justicia+Alhambra&title=Special:MediaSearch&type=image" target="_blank" rel="noopener">See photos of this spot <span aria-hidden="true">↗</span></a><button class="seen" data-n="20" aria-pressed="false"><span class="tick" aria-hidden="true"></span><span class="sl">Mark as seen</span></button><button class="next" data-go="more">If you have more time <span aria-hidden="true">→</span></button></div>
+</article>
+<section class="sec" id="more"><h2>If you have more time</h2><p>The <strong>Dobla de Oro</strong> ticket pairs the Alhambra with a set of Nasrid-era monuments down in the Albaicín. Check what is included when you buy. Over the years it has covered the Corral del Carbón, El Bañuelo, the Casa del Horno de Oro and the Palacio de Dar al-Horra. Some of these closed after the August earthquakes. According to the official ticket site, Dar al-Horra and the Horno de Oro house reopened on 24 October 2026, and the Maristán, the old Nasrid hospital, on 28 October.</p>
+<h4 class="thin">Often told, thinly sourced</h4>
+<ul>
+<li>On certain days an extended visit is offered that adds the Carmen de los Porcel and the Torres Bermejas, the "Vermilion Towers" on the next hill south. The towers are among the oldest fortifications in Granada. Check the ticket site for days and access; the towers are reported not to be accessible for people with limited mobility.</li>
+</ul></section>
+<section class="sec" id="closing"><h2>Closing: what you&#x27;ve walked through</h2><p>You began in a council chamber and ended at a fortress gate. In between you saw how one dynasty built a public stage, a private paradise and a country estate, all fed by one channel of mountain water, and what came after: chapels, an emperor's palace, Romantic writers and the restorers who put the lions back.</p>
+<p>Much of it is repaired or rebuilt, from the Barca's ceiling to the Generalife's jets, which makes the surviving Nasrid work more remarkable, not less. Remember, too, the people this guide hasn't named: the labourers who rammed the earth, cut the tiles and carved the plaster by hand, with ropes, pulleys and no machines. We celebrate the sultans, but the walls are their work. Before you head down the hill, look back at the red walls. The motto carved inside them says no one is the victor but God. The sultans lost the city in 1492, and what they built is still standing.</p></section>
+<section class="sec" id="sources"><details><summary><h2>Sources</h2></summary><p><strong>Official visitor information</strong>
+- Patronato de la Alhambra, FAQ: https://www.alhambra-patronato.es/en/visit/faq
+- Patronato, services: https://www.alhambra-patronato.es/en/visit/services
+- Official ticket site and current notices: https://tickets.alhambra-patronato.es/en
+- Official visitor tips: https://tickets.alhambra-patronato.es/en/?p=2710
+- Alhambra Museum hours: https://www.alhambra-patronato.es/en/discover/alhambra-y-generalife/museum/museo-de-la-alhambra/localizacion-y-horarios</p>
+<p><strong>Earthquakes and closures (2026)</strong>
+- Euronews, 15 Aug 2026: https://es.euronews.com/2026/08/15/asi-vivio-granada-el-terremoto-de-magnitud-5-que-se-sintio-en-10-provincias
+- alhambradegranada.org, 19 Aug 2026: https://alhambradegranada.org/en/info/alhambranews/alhambra-reopens-granada-earthquakes-august-2026.asp
+- ESdiario, 25 Aug 2026: https://www.esdiario.com/andalucia/260825/196115/alhambra-reabre-estabilizarse-actividad-sismica-granada.html
+- alhambradegranada.org, 28 Sep 2026: https://www.alhambradegranada.org/en/info/alhambranews/alhambra-returns-normal-reopening-alcazaba.asp
+- Jardín de la Umbría restoration: https://www.alhambradegranada.org/en/amp-info/alhambranews/alhambra-will-restore-hidden-generalife-garden-closed-public.html</p>
+<p><strong>Nasrid Palaces</strong>
+- Patronato, Mexuar and Oratory: https://www.alhambra-patronato.es/en/edificios-lugares/mexuar-oratorio
+- Patronato, Façade of Comares: https://www.alhambra-patronato.es/en/edificios-lugares/the-facade-of-comares
+- Patronato, Hall of the Abencerrajes: https://www.alhambra-patronato.es/en?p=10208
+- Patronato, Emperor's Chambers and Irving: https://alhambra-patronato.es/en?p=26040 and https://alhambra-patronato.es/en?p=25602
+- Patronato repository, interventions in the Court of the Lions (PDF): https://www.alhambra-patronato.es/ria/bitstream/handle/10514/84/intervenciones%20en%20el%20patio%20de%20los%20leones.pdf?sequence=3
+- Hispanopedia, Palacios nazaríes: https://es.hispanopedia.com/wiki/Palacios_nazar%C3%ADes
+- Hispanopedia, Patio de los Leones: https://es.hispanopedia.com/wiki/Patio_de_los_Leones
+- Hispanopedia, Sala de los Reyes: https://es.hispanopedia.com/wiki/Sala_de_los_Reyes_(Alhambra)
+- Hispanopedia, Edicto de la Alhambra: https://es.hispanopedia.com/wiki/Edicto_de_la_Alhambra
+- Wikipedia, Court of the Myrtles: https://en.wikipedia.org/wiki/Court_of_the_Myrtles
+- Wikipedia, Court of the Lions: https://en.wikipedia.org/wiki/Court_of_the_Lions
+- Madain Project, Comares Palace: https://madainproject.com/comares_palace
+- Wikipedia, Wala ghaliba illa Allah: https://en.wikipedia.org/wiki/Wala_ghaliba_illa_Allah
+- Smarthistory, The Alhambra: https://smarthistory.org/?p=1294
+- Columbus journal extracts: https://www.let.rug.nl/usa/documents/before-1600/extracts-from-the-journal-of-columbus.php</p>
+<p><strong>Partal, towers and Generalife</strong>
+- Patronato, The Partal: https://alhambra-patronato.es/en?p=10144
+- Wikipedia, Partal Palace: https://en.wikipedia.org/wiki/Partal_Palace
+- Wikipedia, Palacio del Partal Alto: https://en.wikipedia.org/wiki/Palacio_del_Partal_Alto
+- Patronato, Palace of Yusuf III: https://www.alhambra-patronato.es/en/edificios-lugares/the-palace-off-yusuf-iii
+- Patronato, The Rauda: https://www.alhambra-patronato.es/en/the-rauda-at-the-alhambra-royal-cemetery
+- Patronato, Torre de los Picos: https://www.alhambra-patronato.es/en/elemento-del-mes/tower-of-the-pointed-embattlements
+- Patronato, Torre de la Cautiva: https://alhambra-patronato.es/en?p=24837
+- Wikipedia, Torre de la Cautiva: https://en.wikipedia.org/wiki/Torre_de_la_Cautiva
+- Wikipedia, Generalife: https://en.wikipedia.org/wiki/Generalife
+- alhambradegranada.org, Patio of the Cypresses: https://alhambradegranada.org/en/info/generalife/generalifepatioofthecypresses.asp</p>
+<p><strong>Charles V, museum, gates and Alcazaba</strong>
+- Patronato, Palace of Charles V: https://www.alhambra-patronato.es/en/edificios-lugares/palace-of-charles-v
+- Wikipedia, Palace of Charles V: https://en.wikipedia.org/wiki/Palace_of_Charles_V
+- Patronato, Gazelle Vase: https://www.alhambra-patronato.es/en?p=25644
+- Hispanopedia, Jarrones de la Alhambra: https://es.hispanopedia.com/wiki/Jarrones_de_la_Alhambra
+- Patronato, Puerta de la Justicia restoration: https://www.alhambra-patronato.es/en/notas-prensa/the-restoration-of-the-puerta-de-la-justicia-reveals-decorative-details-and-craft-techniques-used-in-the-mediaeval-alhambra
+- alhambradegranada.org, Wine Gate: https://alhambradegranada.org/en/info/charlesvpalaceandsurroundingareas/winegate.asp
+- alhambradegranada.org, Square of the Cisterns: https://www.alhambradegranada.org/en/info/charlesvpalaceandsurroundingareas/squareofthecisterns.asp
+- Baro Cortijo, "Architecture and Music around the Alhambra" (Debussy and Falla): https://riunet.upv.es/bitstream/10251/201010/1/BaroCortijo%20-%20Architecture%20and%20Music%20around%20the%20Alhambra%20Reminiscences%20of%20a%20dreamlike%20world%20La%20Pu....pdf
+- alhambradegranada.org, Watchtower: https://alhambradegranada.org/en/info/alcazaba/watchtower.asp
+- alhambradegranada.org, Garden of the Ramparts: https://alhambradegranada.org/en/info/alcazaba/gardenoftheramparts.asp
+- Granada Direct, Alcazaba: https://www.granadadirect.com/alhambra/alcazaba/
+- Patronato, Washington Irving monument: https://www.alhambra-patronato.es/en/edificios-lugares/washington-irving-monument
+- Patronato, Puerta de Bibarrambla: https://www.alhambra-patronato.es/en/la-puerta-de-bibarrambla2</p>
+<p><strong>The lions and the stories</strong>
+- Patronato, Fountain of the Lions restoration: https://www.alhambra-patronato.es/en/disfrutar/fountain-of-the-lions-methodology-of-a-restoration
+- Patronato, Fountain of the Lions: https://alhambra-patronato.es/en?p=27732
+- Patronato, The lions from the Maristán: https://www.alhambra-patronato.es/en/elemento-del-mes/the-lions-from-the-maristan
+- AramcoWorld, Madinat al-Zahra: https://archive.aramcoworld.com/issue/197605/the.city.of.al-zahra.htm
+- alhambradegranada.org, epigraphic poems: https://www.alhambradegranada.org/en/info/epigraphicpoems.asp
+- Wikipedia, Muhammad V of Granada: https://en.wikipedia.org/wiki/Muhammad_V_of_Granada
+- Wikipedia, Ibn al-Khatib: https://en.wikipedia.org/wiki/Ibn_al-Khatib
+- Patronato, Puerta de los Siete Suelos: https://alhambra-patronato.es/en?p=25399
+- José García plaque: https://www.waymarking.com/waymarks/WM13M12_Jos_Garca_Alhambra_Granada_ES
+- El Orden Mundial, the surrender of Granada: https://elordenmundial.com/hoy-en-la-historia/2-enero/2-de-enero-de-1492-el-reino-de-granada-se-rinde-ante-los-reyes-catolicos-que-ponen-fin-a-la-reconquista/
+- AramcoWorld, Escher and the Alhambra: https://www.aramcoworld.com/articles/2023/escher-alhambra-infinity
+- El Debate, the 1922 Concurso de Cante Jondo: https://www.eldebate.com/cultura/20260314/concurso-cante-jondo_394356.html
+- Manuel de Falla Archive, Cante Jondo: https://www.manueldefalla.com/en/cante-jondo-puppets-and-don-quixote
+- Easy Documentary Knowledge, "The Alhambra: Inside the Most Sophisticated Palace of the Middle Ages" (YouTube, February 2026). Used only for flagged details and attributed interpretations.</p></details></section>
+  <p style="font-size:.82rem;color:var(--muted);margin-top:28px">Illustrations are drawn for this guide and are schematic. Photo links open Wikimedia Commons in your browser.</p>
+</main>
+<div class="drawer" id="dr" role="dialog" aria-modal="true" aria-label="All stops">
+  <div class="sc" data-close></div>
+  <nav><div class="dh"><b>Stops</b><button data-close aria-label="Close">×</button></div><ul><li><a data-go="before">Before you go</a></li>
+<li><a data-go="getting">Getting to your slot</a></li>
+<li><a data-go="nasrids">The Nasrids in two minutes</a></li>
+<li><a data-go="reading">How to read a Nasrid wall</a></li>
+<li class="ng">Nasrid Palaces</li>
+<li><a data-go="stop-1" data-n="1"><b>1</b>The Mexuar and the Oratory</a></li>
+<li><a data-go="stop-2" data-n="2"><b>2</b>Patio del Cuarto Dorado and the Comares facade</a></li>
+<li><a data-go="stop-3" data-n="3"><b>3</b>The Court of the Myrtles</a></li>
+<li><a data-go="stop-4" data-n="4"><b>4</b>Sala de la Barca and Salón de Embajadores</a></li>
+<li><a data-go="stop-5" data-n="5"><b>5</b>Sala de los Mocárabes and the Court of the Lions</a></li>
+<li><a data-go="stop-6" data-n="6"><b>6</b>Sala de los Abencerrajes</a></li>
+<li><a data-go="stop-7" data-n="7"><b>7</b>Sala de los Reyes</a></li>
+<li><a data-go="stop-8" data-n="8"><b>8</b>Dos Hermanas, Ajimeces and the Mirador de Lindaraja</a></li>
+<li><a data-go="stop-9" data-n="9"><b>9</b>Patio de la Reja, Patio de Lindaraja and the exit</a></li>
+<li class="ng">Partal</li>
+<li><a data-go="stop-10" data-n="10"><b>10</b>The Partal: Torre de las Damas, houses, oratory, Partal Alto and the Rauda</a></li>
+<li class="ng">Towers</li>
+<li><a data-go="stop-11" data-n="11"><b>11</b>Paseo de las Torres</a></li>
+<li class="ng">Generalife</li>
+<li><a data-go="stop-12" data-n="12"><b>12</b>The gardens and the water</a></li>
+<li><a data-go="stop-13" data-n="13"><b>13</b>Patio de la Acequia and the Sala Regia</a></li>
+<li><a data-go="stop-14" data-n="14"><b>14</b>Patio del Ciprés de la Sultana, the Water Stairway and the Mirador Romántico</a></li>
+<li class="ng">Calle Real</li>
+<li><a data-go="stop-15" data-n="15"><b>15</b>Along the Calle Real</a></li>
+<li class="ng">Charles V</li>
+<li><a data-go="stop-16" data-n="16"><b>16</b>Palace of Charles V</a></li>
+<li><a data-go="stop-17" data-n="17"><b>17</b>The Alhambra Museum and the Vase of the Gazelles</a></li>
+<li class="ng">Puerta del Vino & Alcazaba</li>
+<li><a data-go="stop-18" data-n="18"><b>18</b>Puerta del Vino and the Plaza de los Aljibes</a></li>
+<li><a data-go="stop-19" data-n="19"><b>19</b>The Alcazaba</a></li>
+<li class="ng">Finale</li>
+<li><a data-go="stop-20" data-n="20"><b>★</b>Out by the Puerta de la Justicia</a></li>
+<li class="ng">End</li>
+<li><a data-go="more">If you have more time</a></li>
+<li><a data-go="closing">Closing</a></li>
+<li><a data-go="sources">Sources</a></li></ul></nav>
+</div>
+<script>
+{
+const N=+document.querySelectorAll('.stop').length, KEY='alh-seen-v1', FK='alh-fs';
+let seen=new Set();
+try{seen=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...seen]))}catch(e){}};
+const paint=()=>{
+  document.querySelectorAll('.stop').forEach(s=>{const n=s.dataset.n,on=seen.has(n);s.classList.toggle('done',on);
+    const b=s.querySelector('.seen');b.setAttribute('aria-pressed',on);b.querySelector('.sl').textContent=on?'Seen':'Mark as seen'});
+  document.querySelectorAll('.drawer a[data-n]').forEach(a=>a.classList.toggle('done',seen.has(a.dataset.n)));
+  document.getElementById('pc').textContent=seen.size+' of '+N+' stops seen';
+  document.getElementById('pb').style.width=(100*seen.size/N)+'%';
+};
+const go=id=>{const el=document.getElementById(id);if(!el)return;
+  const d=el.querySelector('details');if(d)d.open=true;
+  el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})};
+const dr=document.getElementById('dr');
+const close=()=>{dr.classList.remove('open');document.getElementById('ob').focus()};
+document.getElementById('ob').addEventListener('click',()=>{dr.classList.add('open');
+  const cur=[...document.querySelectorAll('.stop')].find(s=>s.getBoundingClientRect().bottom>80);
+  document.querySelectorAll('.drawer a').forEach(a=>a.classList.toggle('here',!!cur&&a.dataset.go===cur.id));
+  const h=dr.querySelector('a.here')||dr.querySelector('a');h&&h.scrollIntoView({block:'center'});dr.querySelector('.dh button').focus()});
+dr.addEventListener('click',e=>{if(e.target.closest('[data-close]'))close();const a=e.target.closest('a[data-go]');if(a){dr.classList.remove('open');go(a.dataset.go)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dr.classList.contains('open'))close()});
+document.addEventListener('click',e=>{
+  const s=e.target.closest('.seen');if(s){const n=s.dataset.n;seen.has(n)?seen.delete(n):seen.add(n);save();paint();return}
+  const g=e.target.closest('.next');if(g){const n=g.closest('.stop');if(n&&!seen.has(n.dataset.n)){seen.add(n.dataset.n);save();paint()}go(g.dataset.go)}
+});
+const sizes=['16px','17px','19px','21px'];let fi=1;
+try{const v=localStorage.getItem(FK);if(v!==null)fi=+v}catch(e){}
+const setF=()=>{document.documentElement.style.setProperty('--fs',sizes[fi])};setF();
+document.getElementById('fz').addEventListener('click',()=>{fi=(fi+1)%sizes.length;setF();try{localStorage.setItem(FK,fi)}catch(e){}});
+paint();
+}
+</script>
+</body>
+</html>

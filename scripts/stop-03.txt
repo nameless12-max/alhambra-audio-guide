@@ -1,0 +1,29 @@
+# Stop 3. The Court of the Myrtles
+# Lines starting with N: are the narrator. Lines starting with A: are the aside voice.
+# A line with only "..." is a longer pause.
+
+N: Stop three. The Court of the Myrtles.
+
+N: The bent passage lets you out into light. You are in a long, open courtyard. A narrow pool runs down the middle, with a clipped green hedge along each side. Those hedges are myrtle, and they give the court its Spanish name, the Patio de los Arrayanes.
+
+N: Walk to the south end, the end with the wall behind you, and turn around to face north.
+
+...
+
+N: Now look up. The heavy square tower over the far arcade is the Comares Tower. It is forty-five metres tall, and its walls are thicker than you are tall. It is a fortress with a throne room inside.
+
+N: Now look down, at the water. The tower is there again, upside down. Crouch near the edge and the whole of it fits in the pool.
+
+N: That is the trick of this court. The water is not a fountain. It is kept almost still, so that it works as a mirror. It doubles the tower, and it pulls your eye straight down the pool to the place where the sultan sat.
+
+N: This was the heart of the official palace. It was built mainly under Yusuf the First, in the middle of the thirteen hundreds, and redecorated by his son, Muhammad the Fifth.
+
+...
+
+A: Two things you will hear here. First, that the name Comares comes from comaraxía, the coloured glass that once filled the tower windows. That is one theory among several. Nobody knows.
+
+A: Second, that a nineteenth-century restorer, Rafael Contreras, put Persian-style domes on these arcades, and that Leopoldo Torres Balbás took them off again. We could not confirm the detail for this court. But the argument behind it is real. Contreras filled gaps with romantic invention. Torres Balbás repaired only where he had evidence. Much of what you see today is the result of that argument.
+
+...
+
+N: When you are ready, walk the length of the pool to the north arcade, under the tower. That is stop four.
