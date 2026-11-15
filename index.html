@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alhambra Audio Guide</title>
+<meta name="description" content="Offline audio walking tour of the Alhambra.">
+<meta name="theme-color" content="#1f5641" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#173a2d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Alhambra">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+:root {
+  --page: #fbfaf7;
+  --paper: #ffffff;
+  --ink: #1b1f1d;
+  --muted: #5b635e;
+  --line: #e3ded3;
+  --green: #1f5641;
+  --green-ink: #1f5641;
+  --on-green: #ffffff;
+  --on-green-muted: rgba(255,255,255,.78);
+  --accent: #1d5a9e;
+  --red: #ad4a2f;
+  --aside: #fff4dc;
+  --aside-ink: #7a5300;
+  --hl: #dce8f6;
+  --hl-ink: #10335c;
+  --fs: 17px;
+  --player-h: 200px;
+  --gutter: 16px;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0e1412;
+    --paper: #141c19;
+    --ink: #ebeae4;
+    --muted: #a4aba6;
+    --line: #2a3531;
+    --green: #173a2d;
+    --green-ink: #7cc2a0;
+    --on-green: #ebeae4;
+    --on-green-muted: rgba(235,234,228,.75);
+    --accent: #86b6ee;
+    --red: #e08a6c;
+    --aside: #2e2717;
+    --aside-ink: #e8c372;
+    --hl: rgba(134,182,238,.22);
+    --hl-ink: #ffffff;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { font-size: var(--fs); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-bottom: calc(var(--player-h) + env(safe-area-inset-bottom) + 24px);
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
+.hidden { display: none !important; }
+
+/* Header */
+header.top {
+  background: var(--green);
+  color: var(--on-green);
+  padding-top: env(safe-area-inset-top);
+  position: sticky; top: 0; z-index: 20;
+}
+header.top .wrap { display: flex; align-items: center; gap: 8px; min-height: 56px; }
+header.top h1 { font-family: var(--serif); font-weight: normal; font-size: 1.15rem; margin: 0; flex: 1; letter-spacing: .02em; }
+.hbtn {
+  min-width: 48px; min-height: 48px; padding: 0 12px;
+  background: transparent; border: 1px solid rgba(255,255,255,.28); border-radius: 10px;
+  color: var(--on-green); font-size: .95rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+}
+.hbtn svg { width: 22px; height: 22px; }
+
+/* Notices */
+.note {
+  margin: 14px 0 0; padding: 12px 14px; border-radius: 10px;
+  background: var(--paper); border: 1px solid var(--line); font-size: .9rem;
+}
+.note.warn { border-color: var(--red); color: var(--red); }
+.note .row { display: flex; gap: 10px; align-items: flex-start; }
+.note .row > div { flex: 1; }
+.x { min-width: 48px; min-height: 48px; margin: -12px -12px -12px 0; border: 0; background: transparent; color: var(--muted); font-size: 1.3rem; }
+
+/* Download card */
+.dl { margin: 14px 0 0; padding: 14px; border-radius: 12px; background: var(--paper); border: 1px solid var(--line); }
+.dl h3 { margin: 0 0 2px; font-family: var(--serif); font-weight: normal; font-size: 1.05rem; }
+.dl p { margin: 0 0 10px; color: var(--muted); font-size: .88rem; }
+.dl .bigbtn { width: 100%; }
+.dl.ready { border-color: var(--green-ink); }
+.dl.ready h3 { color: var(--green-ink); }
+.bar { height: 10px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 10px 0 6px; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+.bigbtn {
+  min-height: 52px; padding: 10px 18px; border-radius: 12px; border: 0;
+  background: var(--accent); color: var(--paper); font-weight: 600; font-size: 1rem;
+}
+@media (prefers-color-scheme: dark) { .bigbtn { color: #0e1412; } }
+.bigbtn:disabled { opacity: .55; cursor: default; }
+
+/* Now playing */
+.kicker { margin: 22px 0 0; color: var(--red); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+h2.title { font-family: var(--serif); font-weight: normal; font-size: 1.7rem; line-height: 1.2; margin: 4px 0 6px; overflow-wrap: anywhere; }
+.meta { color: var(--muted); font-size: .85rem; margin: 0 0 8px; }
+.transcript { margin-top: 10px; }
+.transcript p { margin: 0 0 1em; overflow-wrap: break-word; }
+.seg { border-radius: 4px; padding: 1px 0; cursor: pointer; transition: background-color .2s; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seg.cur { background: var(--hl); color: var(--hl-ink); box-shadow: 0 0 0 3px var(--hl); }
+.aside { background: var(--aside); color: var(--aside-ink); border-left: 4px solid var(--aside-ink); border-radius: 10px; padding: 12px 14px 2px; margin: 0 0 1em; }
+.aside .lbl { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; opacity: .9; }
+.aside .seg.cur { color: var(--ink); }
+.endcap { text-align: center; color: var(--muted); margin: 24px 0; font-family: var(--serif); }
+
+.backcur {
+  position: fixed; right: 16px; z-index: 25;
+  bottom: calc(var(--player-h) + env(safe-area-inset-bottom) + 12px);
+  min-height: 44px; padding: 8px 16px; border-radius: 22px; border: 0;
+  background: var(--accent); color: var(--paper); font-size: .88rem; font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: dark) { .backcur { color: #0e1412; } }
+
+/* Player */
+.player {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  background: var(--green); color: var(--on-green);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -2px 12px rgba(0,0,0,.18);
+}
+.player .wrap { padding-top: 8px; padding-bottom: 10px; }
+.pnext { width: 100%; margin: 4px 0 8px; min-height: 56px; background: var(--paper); color: var(--green-ink); font-family: var(--serif); font-size: 1.05rem; font-weight: normal; text-align: left; display: flex; align-items: center; gap: 10px; }
+.pnext span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pnext svg { width: 26px; height: 26px; flex: none; }
+.pmsg { font-size: .85rem; color: var(--on-green); background: rgba(0,0,0,.22); border-radius: 8px; padding: 6px 10px; margin: 2px 0 6px; }
+.ptitle { font-size: .8rem; color: var(--on-green-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0 0 2px; }
+.scrub { display: flex; align-items: center; gap: 10px; font-size: .78rem; font-variant-numeric: tabular-nums; color: var(--on-green-muted); }
+.scrub span { min-width: 3.2em; }
+.scrub span:last-child { text-align: right; }
+input[type=range] { flex: 1; min-width: 0; height: 48px; margin: 0; background: transparent; accent-color: var(--on-green); -webkit-appearance: none; appearance: none; }
+input[type=range]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--on-green) var(--pct, 0%), rgba(255,255,255,.28) var(--pct, 0%)); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--on-green); margin-top: -8px; border: 0; }
+input[type=range]::-moz-range-track { height: 6px; border-radius: 3px; background: rgba(255,255,255,.28); }
+input[type=range]::-moz-range-progress { height: 6px; border-radius: 3px; background: var(--on-green); }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--on-green); border: 0; }
+.ctrls { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.cb {
+  width: 48px; height: 48px; flex: none; border-radius: 50%; border: 0; background: transparent; color: var(--on-green);
+  display: inline-flex; align-items: center; justify-content: center; padding: 0;
+}
+.cb svg { width: 28px; height: 28px; }
+.cb:disabled { opacity: .35; cursor: default; }
+.cb.play { width: 68px; height: 68px; background: var(--on-green); color: var(--green); }
+.cb.play svg { width: 34px; height: 34px; }
+.cb.txt { width: auto; min-width: 56px; border-radius: 24px; border: 1px solid rgba(255,255,255,.3); font-size: .85rem; font-weight: 600; font-variant-numeric: tabular-nums; padding: 0 8px; }
+.cb:focus-visible, .hbtn:focus-visible, .bigbtn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Stops panel */
+.panel { position: fixed; inset: 0; z-index: 40; background: var(--page); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.panel header.top { position: sticky; }
+.panel .inner { padding-bottom: calc(env(safe-area-inset-bottom) + 32px); }
+.grp { font-family: var(--serif); font-weight: normal; font-size: 1.1rem; color: var(--green-ink); margin: 22px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+ul.tl { list-style: none; margin: 0; padding: 0; }
+.ti {
+  width: 100%; min-height: 60px; display: flex; align-items: center; gap: 12px; text-align: left;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 0 0 8px;
+}
+.ti.cur { border-color: var(--red); box-shadow: inset 4px 0 0 var(--red); }
+.ti .num { flex: none; width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--page); border: 1px solid var(--line); font-size: .85rem; font-weight: 600; color: var(--green-ink); }
+.ti .tt { flex: 1; min-width: 0; }
+.ti .tn { display: block; font-family: var(--serif); font-size: 1rem; line-height: 1.3; overflow-wrap: anywhere; }
+.ti .td { display: block; font-size: .78rem; color: var(--muted); }
+.ti .td .now { color: var(--red); font-weight: 700; }
+.ti .tick { flex: none; width: 28px; height: 28px; color: var(--green-ink); }
+.ti .tick.off { visibility: hidden; }
+.opt { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; margin: 14px 0 0; padding: 4px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+.opt label { flex: 1; }
+.opt small { display: block; color: var(--muted); font-size: .8rem; }
+.switch { appearance: none; -webkit-appearance: none; width: 52px; height: 30px; border-radius: 15px; background: var(--line); position: relative; flex: none; margin: 0; cursor: pointer; transition: background .2s; }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.switch:checked { background: var(--accent); }
+.switch:checked::after { transform: translateX(22px); }
+.switch:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.small { color: var(--muted); font-size: .8rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect fill="currentColor" x="6" y="5" width="4.5" height="14" rx="1"/><rect fill="currentColor" x="13.5" y="5" width="4.5" height="14" rx="1"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path fill="currentColor" d="M6 5h2v14H6zM19 6.2v11.6a.8.8 0 0 1-1.2.7L9.5 12.7a.8.8 0 0 1 0-1.4l8.3-5.8a.8.8 0 0 1 1.2.7z"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path fill="currentColor" d="M16 5h2v14h-2zM5 6.2v11.6a.8.8 0 0 0 1.2.7l8.3-5.8a.8.8 0 0 0 0-1.4L6.2 5.5A.8.8 0 0 0 5 6.2z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4 3.5v3.7h3.7"/><text x="12.3" y="15.2" text-anchor="middle" font-size="7.5" font-family="Arial,sans-serif" font-weight="700" fill="currentColor">15</text></symbol>
+  <symbol id="i-fwd" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M20 3.5v3.7h-3.7"/><text x="11.7" y="15.2" text-anchor="middle" font-size="7.5" font-family="Arial,sans-serif" font-weight="700" fill="currentColor">15</text></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".14"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M7 12.5l3.2 3.2L17 9"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h13M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Alhambra</h1>
+    <button class="hbtn" id="btnSize" aria-label="Text size">Aa</button>
+    <button class="hbtn" id="btnStops" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-list"/></svg>Stops</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="note hidden" id="hint">
+    <div class="row">
+      <div><strong>Use it offline:</strong> on iPhone, tap Share, then “Add to Home Screen”. Open it from the Home Screen and tap Download.</div>
+      <button class="x" id="hintX" aria-label="Dismiss hint">×</button>
+    </div>
+  </div>
+  <div id="dlMain"></div>
+  <div class="note warn hidden" id="offNote" role="status"></div>
+  <p class="kicker" id="kicker"></p>
+  <h2 class="title" id="title">Loading…</h2>
+  <p class="meta" id="meta"></p>
+  <div class="transcript" id="transcript" aria-live="off"></div>
+</main>
+
+<button class="backcur hidden" id="backCur">Back to current</button>
+
+<div class="player" id="player">
+  <div class="wrap">
+    <button class="bigbtn pnext hidden" id="nextBig"><span id="nextBigTxt"></span><svg aria-hidden="true"><use href="#i-walk"/></svg></button>
+    <div class="pmsg hidden" id="pmsg" role="alert"></div>
+    <p class="ptitle" id="ptitle"></p>
+    <div class="scrub">
+      <span id="tCur">0:00</span>
+      <input type="range" id="seek" min="0" max="100" step="0.1" value="0" aria-label="Seek">
+      <span id="tDur">0:00</span>
+    </div>
+    <div class="ctrls">
+      <button class="cb" id="bPrev" aria-label="Previous stop"><svg aria-hidden="true"><use href="#i-prev"/></svg></button>
+      <button class="cb" id="bBack" aria-label="Back 15 seconds"><svg aria-hidden="true"><use href="#i-back"/></svg></button>
+      <button class="cb play" id="bPlay" aria-label="Play"><svg aria-hidden="true"><use href="#i-play" id="playIcon"/></svg></button>
+      <button class="cb" id="bFwd" aria-label="Forward 15 seconds"><svg aria-hidden="true"><use href="#i-fwd"/></svg></button>
+      <button class="cb" id="bNext" aria-label="Next stop"><svg aria-hidden="true"><use href="#i-next"/></svg></button>
+      <button class="cb txt" id="bSpeed" aria-label="Playback speed">1×</button>
+    </div>
+  </div>
+</div>
+
+<div class="panel hidden" id="panel" role="dialog" aria-modal="true" aria-label="Stops">
+  <header class="top">
+    <div class="wrap">
+      <h1>Stops</h1>
+      <button class="hbtn" id="btnClose">Close</button>
+    </div>
+  </header>
+  <div class="wrap inner">
+    <div id="dlPanel"></div>
+    <div class="opt">
+      <label for="autoNext">Auto-play next stop<small>Off: stop at the end of each stop so you can walk on.</small></label>
+      <input type="checkbox" class="switch" id="autoNext">
+    </div>
+    <div id="list"></div>
+    <p class="small" id="totals"></p>
+  </div>
+</div>
+
+<audio id="audio" preload="metadata"></audio>
+
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var audio = $('audio');
+  var AUDIO_CACHE = 'alh-audio-v1';
+  var STORE_KEY = 'alhambra-guide-v1';
+  var SPEEDS = [0.85, 1, 1.15, 1.3];
+  var SIZES = [17, 19, 22];
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var tracks = [];
+  var cur = -1;
+  var segEls = [];
+  var curSeg = -1;
+  var userScrolled = false;
+  var pendingSeek = null;
+  var endedState = false;
+  var lastSave = 0;
+  var cached = {}; // file url -> true
+  var dl = { running: false, done: 0, bytesDone: 0, error: '' };
+  var seeking = false;
+  var audioError = '';
+
+  /* ---------- storage ---------- */
+  var state = { id: null, pos: 0, heard: [], speed: 1, auto: false, size: 0, hint: false };
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) {
+        var s = JSON.parse(raw);
+        if (s && typeof s === 'object') {
+          for (var k in state) if (Object.prototype.hasOwnProperty.call(s, k)) state[k] = s[k];
+        }
+      }
+    } catch (e) { /* storage unavailable */ }
+    if (!Array.isArray(state.heard)) state.heard = [];
+    if (SPEEDS.indexOf(state.speed) < 0) state.speed = 1;
+    if (!(state.size >= 0 && state.size < SIZES.length)) state.size = 0;
+    if (!(state.pos >= 0)) state.pos = 0;
+  }
+  function save() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
+  }
+  function savePos() {
+    if (cur < 0) return;
+    state.id = tracks[cur].id;
+    state.pos = pendingSeek != null ? pendingSeek : (audio.currentTime || 0);
+    lastSave = Date.now();
+    save();
+  }
+
+  /* ---------- helpers ---------- */
+  function fmt(s) {
+    if (!isFinite(s) || s < 0) s = 0;
+    s = Math.floor(s);
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? (m < 10 ? '0' + m : m) : m;
+    return (h ? h + ':' : '') + mm + ':' + (x < 10 ? '0' + x : x);
+  }
+  function mins(s) { return Math.max(1, Math.round(s / 60)) + ' min'; }
+  function mb(b) { return (b / 1048576).toFixed(b < 10485760 ? 1 : 0) + ' MB'; }
+  function absUrl(f) { return new URL(f, location.href).href; }
+  function group(t) {
+    var c = (t.id || '').charAt(0).toLowerCase();
+    return c === 'i' ? 'intro' : c === 'z' ? 'closing' : 'stops';
+  }
+  function stopNum(t) {
+    if (t.stop) return t.stop;
+    var m = /^s(\d+)/i.exec(t.id || '');
+    return m ? parseInt(m[1], 10) : 0;
+  }
+  function stopLabel(t) {
+    var g = group(t);
+    if (g === 'intro') return 'Introduction';
+    if (g === 'closing') return 'Closing';
+    var n = stopNum(t);
+    return n ? 'Stop ' + n : 'Stop';
+  }
+  function niceTitle(t) {
+    var title = t.title || t.id || 'Untitled';
+    if (title === t.id) { // renderer fell back to the id: make it readable
+      title = title.replace(/^[a-z]\d*[a-z]?-/i, '').replace(/-/g, ' ');
+      title = title.charAt(0).toUpperCase() + title.slice(1);
+    }
+    // The stop number is shown separately, so drop it from the title.
+    title = title.replace(/^Stop \d+, continued\.\s*(.+)$/i, '$1 (continued)')
+                 .replace(/^Stop \d+\.\s*/i, '');
+    return title.charAt(0).toUpperCase() + title.slice(1);
+  }
+  function trackDur(t) { return (t && t.duration) || 0; }
+  function isHeard(id) { return state.heard.indexOf(id) >= 0; }
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt != null) e.textContent = txt;
+    return e;
+  }
+
+  /* ---------- text size ---------- */
+  function applySize() { document.documentElement.style.setProperty('--fs', SIZES[state.size] + 'px'); measurePlayer(); }
+  $('btnSize').addEventListener('click', function () {
+    state.size = (state.size + 1) % SIZES.length; save(); applySize();
+    if (curSeg >= 0 && !userScrolled) scrollToCur(true);
+  });
+
+  /* ---------- player height ---------- */
+  function measurePlayer() {
+    var h = $('player').getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--player-h', Math.ceil(h) + 'px');
+  }
+  if (window.ResizeObserver) new ResizeObserver(measurePlayer).observe($('player'));
+  window.addEventListener('resize', measurePlayer);
+
+  /* ---------- tracks ---------- */
+  function normalise(data) {
+    var list = (data && Array.isArray(data.tracks)) ? data.tracks : [];
+    list = list.filter(function (t) { return t && t.id && t.file; });
+    list.forEach(function (t) { if (!Array.isArray(t.segments)) t.segments = []; });
+    list.sort(function (a, b) {
+      var ga = { intro: 0, stops: 1, closing: 2 }[group(a)], gb = { intro: 0, stops: 1, closing: 2 }[group(b)];
+      if (ga !== gb) return ga - gb;
+      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+    });
+    return list;
+  }
+  function fetchTracks() {
+    return fetch('tracks.json').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(normalise);
+  }
+
+  /* ---------- transcript ---------- */
+  function renderTranscript() {
+    var t = tracks[cur];
+    var box = $('transcript');
+    box.textContent = '';
+    segEls = [];
+    curSeg = -1;
+    $('kicker').textContent = stopLabel(t);
+    $('title').textContent = niceTitle(t);
+    $('meta').textContent = mins(trackDur(t)) + (isHeard(t.id) ? ' · heard' : '');
+    document.title = niceTitle(t) + ' · Alhambra';
+
+    var para = null, key = null;
+    t.segments.forEach(function (s, i) {
+      var k = s.p + '|' + s.who;
+      if (k !== key) {
+        key = k;
+        if (s.who === 'A') {
+          var wrap = el('div', 'aside');
+          wrap.appendChild(el('span', 'lbl', 'Story, not confirmed'));
+          para = el('p');
+          wrap.appendChild(para);
+          box.appendChild(wrap);
+        } else {
+          para = el('p');
+          box.appendChild(para);
+        }
+      } else {
+        para.appendChild(document.createTextNode(' '));
+      }
+      var sp = el('span', 'seg', s.text);
+      sp.dataset.i = i;
+      sp.tabIndex = 0;
+      sp.setAttribute('role', 'button');
+      para.appendChild(sp);
+      segEls.push(sp);
+    });
+    if (!t.segments.length) box.appendChild(el('p', 'small', 'No transcript for this stop.'));
+    box.appendChild(el('p', 'endcap', '· · ·'));
+  }
+
+  function seekSeg(i) {
+    var t = tracks[cur];
+    var s = t && t.segments[i];
+    if (!s) return;
+    userScrolled = false;
+    $('backCur').classList.add('hidden');
+    endedState = false;
+    seekTo(s.start);
+    play();
+  }
+  $('transcript').addEventListener('click', function (e) {
+    var sp = e.target.closest && e.target.closest('.seg');
+    if (sp) seekSeg(+sp.dataset.i);
+  });
+  $('transcript').addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seg')) {
+      e.preventDefault(); seekSeg(+e.target.dataset.i);
+    }
+  });
+
+  function segAt(t) {
+    var segs = tracks[cur] ? tracks[cur].segments : [];
+    var lo = 0, hi = segs.length - 1, ans = -1;
+    while (lo <= hi) {
+      var mid = (lo + hi) >> 1;
+      if (segs[mid].start <= t + 0.05) { ans = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    return ans;
+  }
+
+  function scrollToCur(instant) {
+    var e = segEls[curSeg];
+    if (!e) return;
+    var r = e.getBoundingClientRect();
+    var headerH = document.querySelector('header.top').getBoundingClientRect().height;
+    var playerH = $('player').getBoundingClientRect().height;
+    var viewTop = headerH, viewBot = window.innerHeight - playerH;
+    var target = window.scrollY + r.top - (viewTop + (viewBot - viewTop) * 0.35);
+    window.scrollTo({ top: Math.max(0, target), behavior: (reduceMotion || instant) ? 'auto' : 'smooth' });
+  }
+
+  function updateHighlight() {
+    if (cur < 0) return;
+    var t = pendingSeek != null ? pendingSeek : audio.currentTime;
+    var i = segAt(t);
+    if (i === curSeg) return;
+    if (segEls[curSeg]) segEls[curSeg].classList.remove('cur');
+    curSeg = i;
+    if (segEls[i]) {
+      segEls[i].classList.add('cur');
+      if (!userScrolled) scrollToCur(false);
+    }
+  }
+
+  // Manual scroll detection: only real user gestures disable auto-scroll.
+  function onUserScroll() {
+    if (curSeg < 0 || !$('panel').classList.contains('hidden')) return;
+    if (!userScrolled) { userScrolled = true; $('backCur').classList.remove('hidden'); }
+  }
+  window.addEventListener('wheel', onUserScroll, { passive: true });
+  window.addEventListener('touchmove', function (e) {
+    if (e.target.closest && (e.target.closest('.player') || e.target.closest('.panel'))) return;
+    onUserScroll();
+  }, { passive: true });
+  window.addEventListener('keydown', function (e) {
+    if (['PageUp', 'PageDown', 'ArrowUp', 'ArrowDown', 'Home', 'End'].indexOf(e.key) >= 0 && e.target === document.body) onUserScroll();
+  });
+  $('backCur').addEventListener('click', function () {
+    userScrolled = false; $('backCur').classList.add('hidden'); scrollToCur(false);
+  });
+
+  /* ---------- open / play ---------- */
+  function openTrack(i, opts) {
+    opts = opts || {};
+    if (i < 0 || i >= tracks.length) return;
+    if (cur >= 0 && cur !== i) savePos();
+    cur = i;
+    var t = tracks[i];
+    endedState = false;
+    audioError = '';
+    userScrolled = false;
+    $('backCur').classList.add('hidden');
+    renderTranscript();
+    pendingSeek = opts.pos > 0 ? opts.pos : 0;
+    audio.src = t.file;
+    audio.defaultPlaybackRate = state.speed;
+    audio.playbackRate = state.speed;
+    try { audio.load(); } catch (e) { /* ignore */ }
+    state.id = t.id; state.pos = pendingSeek; save();
+    updateMeta();
+    updateUI();
+    updateOffNote();
+    updateHighlight();
+    if (curSeg >= 0) scrollToCur(true); else window.scrollTo(0, 0);
+    if (opts.play) play();
+  }
+
+  function play() {
+    if (cur < 0) return;
+    if (audio.error || audioError) {
+      // retry the load (e.g. connection came back)
+      audioError = '';
+      var p = pendingSeek != null ? pendingSeek : audio.currentTime;
+      audio.src = tracks[cur].file; audio.load(); pendingSeek = p;
+    }
+    endedState = false;
+    audio.playbackRate = state.speed;
+    var pr = audio.play();
+    if (pr && pr.catch) pr.catch(function (err) {
+      if (err && err.name === 'NotAllowedError') return; // needs a tap
+      if (err && err.name === 'AbortError') return;
+      showAudioError();
+    });
+    updateUI();
+  }
+  function pause() { audio.pause(); }
+  function toggle() { if (audio.paused) play(); else pause(); }
+
+  function seekTo(t) {
+    var d = isFinite(audio.duration) && audio.duration > 0 ? audio.duration : trackDur(tracks[cur]);
+    t = Math.max(0, Math.min(t, Math.max(0, d - 0.05)));
+    if (audio.readyState >= 1) {
+      pendingSeek = null;
+      try { audio.currentTime = t; } catch (e) { pendingSeek = t; }
+    } else {
+      pendingSeek = t;
+    }
+    endedState = false;
+    updateHighlight(); updateTime(); updatePosState();
+  }
+  function skip(d) { seekTo((pendingSeek != null ? pendingSeek : audio.currentTime) + d); savePos(); }
+
+  function goNext(playIt) { if (cur < tracks.length - 1) openTrack(cur + 1, { play: playIt }); }
+  function goPrev(playIt) { if (cur > 0) openTrack(cur - 1, { play: playIt }); }
+
+  /* ---------- audio events ---------- */
+  audio.addEventListener('loadedmetadata', function () {
+    if (pendingSeek != null) {
+      var p = pendingSeek; pendingSeek = null;
+      try { audio.currentTime = Math.min(p, Math.max(0, audio.duration - 0.05)); } catch (e) { pendingSeek = p; }
+    }
+    audio.playbackRate = state.speed;
+    hideAudioError();
+    updateTime(); updatePosState();
+  });
+  audio.addEventListener('play', function () { updateUI(); startLoop(); updatePosState(); });
+  audio.addEventListener('pause', function () { updateUI(); savePos(); updatePosState(); });
+  audio.addEventListener('seeked', function () { updateHighlight(); updateTime(); updatePosState(); });
+  audio.addEventListener('ratechange', updatePosState);
+  audio.addEventListener('playing', hideAudioError);
+  audio.addEventListener('timeupdate', function () {
+    if (!loopOn) { updateHighlight(); updateTime(); }
+    if (Date.now() - lastSave > 4000 && !audio.paused) savePos();
+  });
+  audio.addEventListener('ended', function () {
+    var t = tracks[cur];
+    if (!isHeard(t.id)) state.heard.push(t.id);
+    endedState = true;
+    state.pos = 0; save();
+    $('meta').textContent = mins(trackDur(t)) + ' · heard';
+    renderList();
+    if (state.auto && cur < tracks.length - 1) { openTrack(cur + 1, { play: true }); return; }
+    updateUI();
+  });
+  audio.addEventListener('error', function () {
+    if (!audio.getAttribute('src')) return;
+    showAudioError();
+  });
+
+  function showAudioError() {
+    var t = tracks[cur];
+    if (!t) return;
+    var offline = navigator.onLine === false && !cached[absUrl(t.file)];
+    audioError = offline
+      ? 'This stop isn’t downloaded and you’re offline. Its audio can’t play until you have signal.'
+      : 'Couldn’t load the audio for this stop (' + t.file + '). The file may be missing. Tap play to retry.';
+    $('pmsg').textContent = audioError;
+    $('pmsg').classList.remove('hidden');
+    updateUI();
+  }
+  function hideAudioError() { audioError = ''; $('pmsg').classList.add('hidden'); }
+
+  var loopOn = false;
+  function startLoop() {
+    if (loopOn) return;
+    loopOn = true;
+    (function tick() {
+      if (audio.paused || document.hidden) { loopOn = false; updateHighlight(); updateTime(); return; }
+      updateHighlight(); updateTime();
+      requestAnimationFrame(tick);
+    })();
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) savePos();
+    else if (!audio.paused) startLoop();
+    else { updateHighlight(); updateTime(); }
+  });
+  window.addEventListener('pagehide', savePos);
+
+  /* ---------- UI ---------- */
+  function updateTime() {
+    if (cur < 0) return;
+    var d = isFinite(audio.duration) && audio.duration > 0 ? audio.duration : trackDur(tracks[cur]);
+    var t = pendingSeek != null ? pendingSeek : audio.currentTime;
+    if (endedState) t = d;
+    var s = $('seek');
+    s.max = d || 1;
+    if (!seeking) {
+      s.value = t;
+      $('tCur').textContent = fmt(t);
+    }
+    s.style.setProperty('--pct', (d ? (+s.value / d) * 100 : 0) + '%');
+    $('tDur').textContent = fmt(d);
+  }
+
+  function updateUI() {
+    var t = tracks[cur];
+    var playing = !audio.paused;
+    $('playIcon').setAttribute('href', playing ? '#i-pause' : '#i-play');
+    $('bPlay').setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    $('bPrev').disabled = cur <= 0;
+    $('bNext').disabled = cur < 0 || cur >= tracks.length - 1;
+    $('bSpeed').textContent = (state.speed === 1 ? '1' : String(state.speed)) + '×';
+    $('ptitle').textContent = t ? stopLabel(t) + ' · ' + niceTitle(t) : '';
+    var nb = $('nextBig');
+    if (endedState && t) {
+      if (cur < tracks.length - 1) {
+        $('nextBigTxt').textContent = 'Next: ' + niceTitle(tracks[cur + 1]);
+        nb.disabled = false;
+      } else {
+        $('nextBigTxt').textContent = 'Tour complete. Thank you for listening.';
+        nb.disabled = true;
+      }
+      nb.classList.remove('hidden');
+    } else nb.classList.add('hidden');
+    updateTime();
+    if ('mediaSession' in navigator) {
+      try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'; } catch (e) { /* ignore */ }
+    }
+    measurePlayer();
+  }
+
+  $('bPlay').addEventListener('click', toggle);
+  $('bBack').addEventListener('click', function () { skip(-15); });
+  $('bFwd').addEventListener('click', function () { skip(15); });
+  $('bPrev').addEventListener('click', function () { goPrev(!audio.paused); });
+  $('bNext').addEventListener('click', function () { goNext(!audio.paused); });
+  $('nextBig').addEventListener('click', function () { goNext(true); });
+  $('bSpeed').addEventListener('click', function () {
+    state.speed = SPEEDS[(SPEEDS.indexOf(state.speed) + 1) % SPEEDS.length];
+    audio.defaultPlaybackRate = state.speed;
+    audio.playbackRate = state.speed;
+    save(); updateUI();
+  });
+  var seekEl = $('seek');
+  seekEl.addEventListener('input', function () {
+    seeking = true;
+    $('tCur').textContent = fmt(+seekEl.value);
+    seekEl.style.setProperty('--pct', (+seekEl.value / (+seekEl.max || 1)) * 100 + '%');
+  });
+  seekEl.addEventListener('change', function () {
+    seeking = false;
+    userScrolled = false; $('backCur').classList.add('hidden');
+    seekTo(+seekEl.value); savePos();
+  });
+
+  /* ---------- Media Session ---------- */
+  function updateMeta() {
+    if (!('mediaSession' in navigator) || cur < 0) return;
+    var t = tracks[cur];
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: stopLabel(t) + ': ' + niceTitle(t),
+        artist: 'Alhambra audio guide',
+        album: 'Alhambra audio guide',
+        artwork: [
+          { src: absUrl('icon-180.png'), sizes: '180x180', type: 'image/png' },
+          { src: absUrl('icon-512.png'), sizes: '512x512', type: 'image/png' }
+        ]
+      });
+    } catch (e) { /* ignore */ }
+  }
+  function updatePosState() {
+    if (!('mediaSession' in navigator) || !navigator.mediaSession.setPositionState) return;
+    var d = audio.duration;
+    if (!isFinite(d) || d <= 0) return;
+    try {
+      navigator.mediaSession.setPositionState({
+        duration: d,
+        playbackRate: audio.playbackRate || 1,
+        position: Math.min(Math.max(0, audio.currentTime || 0), d)
+      });
+    } catch (e) { /* ignore */ }
+  }
+  if ('mediaSession' in navigator) {
+    var h = function (a, f) { try { navigator.mediaSession.setActionHandler(a, f); } catch (e) { /* unsupported */ } };
+    h('play', play);
+    h('pause', pause);
+    h('seekbackward', function (d) { skip(-((d && d.seekOffset) || 15)); });
+    h('seekforward', function (d) { skip((d && d.seekOffset) || 15); });
+    h('previoustrack', function () { goPrev(!audio.paused); });
+    h('nexttrack', function () { goNext(true); });
+    h('seekto', function (d) {
+      if (!d || d.seekTime == null) return;
+      if (d.fastSeek && audio.fastSeek) { try { audio.fastSeek(d.seekTime); return; } catch (e) { /* fall through */ } }
+      seekTo(d.seekTime); savePos();
+    });
+  }
+
+  /* ---------- Stops list ---------- */
+  function renderList() {
+    var box = $('list');
+    box.textContent = '';
+    var groups = [['intro', 'Introduction'], ['stops', 'Stops'], ['closing', 'Closing']];
+    var total = 0, heardN = 0;
+    groups.forEach(function (g) {
+      var items = [];
+      tracks.forEach(function (t, i) { if (group(t) === g[0]) items.push(i); });
+      if (!items.length) return;
+      box.appendChild(el('h2', 'grp', g[1]));
+      var ul = el('ul', 'tl');
+      items.forEach(function (i) {
+        var t = tracks[i];
+        total += trackDur(t);
+        if (isHeard(t.id)) heardN++;
+        var li = el('li');
+        var b = el('button', 'ti' + (i === cur ? ' cur' : ''));
+        var n = stopNum(t);
+        b.appendChild(el('span', 'num', g[0] === 'intro' ? 'In' : g[0] === 'closing' ? 'End' : (n || '·')));
+        var tt = el('span', 'tt');
+        tt.appendChild(el('span', 'tn', niceTitle(t)));
+        var td = el('span', 'td');
+        if (i === cur) td.appendChild(el('span', 'now', 'Now playing · '));
+        td.appendChild(document.createTextNode(fmt(trackDur(t)) + (isHeard(t.id) ? ' · heard' : '')));
+        tt.appendChild(td);
+        b.appendChild(tt);
+        var svgNS = 'http://www.w3.org/2000/svg';
+        var tick = document.createElementNS(svgNS, 'svg');
+        tick.setAttribute('class', 'tick' + (isHeard(t.id) ? '' : ' off'));
+        tick.setAttribute('aria-hidden', 'true');
+        var use = document.createElementNS(svgNS, 'use');
+        use.setAttribute('href', '#i-tick');
+        tick.appendChild(use);
+        b.appendChild(tick);
+        b.setAttribute('aria-label', stopLabel(t) + ', ' + niceTitle(t) + ', ' + mins(trackDur(t)) + (isHeard(t.id) ? ', heard' : '') + (i === cur ? ', current' : ''));
+        if (i === cur) b.setAttribute('aria-current', 'true');
+        b.addEventListener('click', function () {
+          closePanel();
+          if (i === cur) { if (audio.paused) play(); return; }
+          openTrack(i, { play: true });
+        });
+        li.appendChild(b);
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+    });
+    $('totals').textContent = tracks.length + (tracks.length === 1 ? ' track' : ' tracks') + ' · ' + fmt(total) + ' of audio · ' + heardN + ' heard';
+  }
+
+  function openPanel() {
+    renderList();
+    $('panel').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    var c = $('list').querySelector('.ti.cur');
+    if (c) c.scrollIntoView({ block: 'center' });
+    $('btnClose').focus();
+  }
+  function closePanel() {
+    $('panel').classList.add('hidden');
+    document.body.style.overflow = '';
+    $('btnStops').focus();
+  }
+  $('btnStops').addEventListener('click', openPanel);
+  $('btnClose').addEventListener('click', closePanel);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('panel').classList.contains('hidden')) closePanel();
+  });
+  $('autoNext').addEventListener('change', function () { state.auto = $('autoNext').checked; save(); });
+
+  /* ---------- Offline download ---------- */
+  var hasCaches = 'caches' in window;
+  var hasSW = 'serviceWorker' in navigator;
+  function totalBytes() { return tracks.reduce(function (a, t) { return a + (t.bytes || 0); }, 0); }
+  function cachedCount() { return tracks.filter(function (t) { return cached[absUrl(t.file)]; }).length; }
+  function cachedBytes() { return tracks.reduce(function (a, t) { return a + (cached[absUrl(t.file)] ? (t.bytes || 0) : 0); }, 0); }
+
+  function checkCache() {
+    if (!hasCaches) return Promise.resolve();
+    return caches.open(AUDIO_CACHE).then(function (c) {
+      return Promise.all(tracks.map(function (t) {
+        var u = absUrl(t.file);
+        return c.match(u).then(function (r) { if (r) cached[u] = true; else delete cached[u]; });
+      }));
+    }).catch(function () { /* ignore */ }).then(function () { renderDl(); updateOffNote(); });
+  }
+
+  function renderDl() {
+    ['dlMain', 'dlPanel'].forEach(function (slot) {
+      var host = $(slot);
+      host.textContent = '';
+      var n = tracks.length;
+      if (!n) return;
+      var have = cachedCount();
+      var ready = have === n;
+      if (slot === 'dlMain' && ready) return; // the panel still shows the status
+      var card = el('div', 'dl' + (ready ? ' ready' : ''));
+      var tb = totalBytes();
+      if (!hasCaches || !hasSW) {
+        card.appendChild(el('h3', null, 'Offline not available'));
+        card.appendChild(el('p', null, 'This browser cannot store the tour for offline use. Audio will stream while you have signal.'));
+        host.appendChild(card);
+        return;
+      }
+      if (ready) {
+        card.appendChild(el('h3', null, '✓ Ready offline'));
+        card.appendChild(el('p', null, 'All ' + n + ' tracks (' + mb(tb) + ') are saved on this device. You can walk without signal.'));
+        host.appendChild(card);
+        return;
+      }
+      card.appendChild(el('h3', null, 'Download for offline'));
+      var desc;
+      if (dl.running) desc = 'Downloading ' + (have + 1 > n ? n : have + 1) + ' of ' + n + '… keep this screen open.';
+      else if (dl.error) desc = dl.error;
+      else if (have > 0) desc = have + ' of ' + n + ' saved. Resume to save the rest (' + mb(tb - cachedBytes()) + ' left).';
+      else desc = 'Save ' + (n === 1 ? 'the 1 track' : 'all ' + n + ' tracks') + ' (' + mb(tb) + ') so the tour works with no signal. Best on Wi-Fi.';
+      card.appendChild(el('p', null, desc));
+      if (dl.running || have > 0) {
+        var bar = el('div', 'bar');
+        var fill = el('i');
+        var pct = tb ? ((cachedBytes() + (dl.running ? dl.bytesDone : 0)) / tb) * 100 : (have / n) * 100;
+        fill.style.width = Math.min(100, pct).toFixed(1) + '%';
+        bar.appendChild(fill);
+        bar.setAttribute('role', 'progressbar');
+        bar.setAttribute('aria-valuemin', '0');
+        bar.setAttribute('aria-valuemax', '100');
+        bar.setAttribute('aria-valuenow', Math.round(pct));
+        card.appendChild(bar);
+        card.appendChild(el('p', 'small', have + ' of ' + n + ' files · ' + mb(cachedBytes() + (dl.running ? dl.bytesDone : 0)) + ' of ' + mb(tb)));
+      }
+      var btn = el('button', 'bigbtn', dl.running ? 'Downloading…' : (have > 0 ? 'Resume download' : 'Download for offline (' + mb(tb) + ')'));
+      btn.disabled = dl.running;
+      btn.addEventListener('click', startDownload);
+      card.appendChild(btn);
+      host.appendChild(card);
+    });
+  }
+
+  var dlTimer = 0;
+  function renderDlSoon() {
+    if (dlTimer) return;
+    dlTimer = setTimeout(function () { dlTimer = 0; renderDl(); }, 250);
+  }
+
+  function startDownload() {
+    if (dl.running || !hasCaches) return;
+    dl.running = true; dl.error = ''; dl.bytesDone = 0;
+    try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {}); } catch (e) { /* ignore */ }
+    renderDl();
+    var cacheP = caches.open(AUDIO_CACHE);
+    var queue = tracks.slice();
+    var failed = [];
+    function next() {
+      var t = queue.shift();
+      if (!t) return Promise.resolve();
+      var u = absUrl(t.file);
+      if (cached[u]) return next();
+      dl.bytesDone = 0;
+      return cacheP.then(function (c) {
+        return c.match(u).then(function (hit) {
+          if (hit) { cached[u] = true; return; }
+          return fetchWithProgress(u).then(function (blob) {
+            var res = new Response(blob, { status: 200, headers: { 'Content-Type': blob.type || 'audio/mpeg', 'Content-Length': String(blob.size) } });
+            return c.put(u, res).then(function () { cached[u] = true; });
+          });
+        });
+      }).catch(function (err) {
+        failed.push(t);
+        if (!dl.firstErr) dl.firstErr = err;
+      }).then(function () { dl.bytesDone = 0; renderDl(); return next(); });
+    }
+    next().then(function () {
+      dl.running = false;
+      if (failed.length) {
+        var offline = navigator.onLine === false;
+        dl.error = (offline ? 'Download paused: no connection. ' : failed.length + ' file' + (failed.length > 1 ? 's' : '') + ' failed (' + ((dl.firstErr && dl.firstErr.message) || 'error') + '). ') + cachedCount() + ' of ' + tracks.length + ' saved. ' + (offline ? 'Tap Resume when you have signal.' : 'Tap Resume to retry.');
+      }
+      dl.firstErr = null;
+      return checkCache();
+    });
+  }
+
+  function fetchWithProgress(u) {
+    return fetch(u, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + u.split('/').pop());
+      var type = r.headers.get('Content-Type') || 'audio/mpeg';
+      if (!r.body || !r.body.getReader) return r.blob();
+      var reader = r.body.getReader();
+      var chunks = [];
+      function pump() {
+        return reader.read().then(function (x) {
+          if (x.done) return new Blob(chunks, { type: type });
+          chunks.push(x.value);
+          dl.bytesDone += x.value.byteLength;
+          renderDlSoon();
+          return pump();
+        });
+      }
+      return pump();
+    });
+  }
+
+  function updateOffNote() {
+    var n = $('offNote');
+    var t = tracks[cur];
+    if (t && navigator.onLine === false && hasCaches && !cached[absUrl(t.file)]) {
+      n.textContent = 'You’re offline and this stop isn’t downloaded, so its audio won’t play until you have signal. You can still read the text.';
+      n.classList.remove('hidden');
+    } else n.classList.add('hidden');
+  }
+  window.addEventListener('online', function () { updateOffNote(); if (dl.error) { dl.error = ''; renderDl(); } });
+  window.addEventListener('offline', updateOffNote);
+
+  /* ---------- install hint ---------- */
+  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  if (!standalone && !state.hint) $('hint').classList.remove('hidden');
+  $('hintX').addEventListener('click', function () { state.hint = true; save(); $('hint').classList.add('hidden'); });
+
+  /* ---------- service worker ---------- */
+  if (hasSW) {
+    navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () { /* e.g. insecure origin */ });
+    navigator.serviceWorker.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'tracks-updated') {
+        fetchTracks().then(function (list) {
+          if (!list.length) return;
+          var id = cur >= 0 ? tracks[cur].id : null;
+          tracks = list;
+          var ni = tracks.findIndex(function (t) { return t.id === id; });
+          if (ni >= 0) {
+            cur = ni;
+            renderTranscript(); // resets curSeg
+            updateHighlight();
+          } else if (cur >= tracks.length) {
+            openTrack(0, { play: false });
+          }
+          renderList(); updateUI(); checkCache();
+        }).catch(function () { /* ignore */ });
+      }
+    });
+  }
+
+  /* ---------- boot ---------- */
+  load();
+  applySize();
+  $('autoNext').checked = !!state.auto;
+  fetchTracks().then(function (list) {
+    tracks = list;
+    if (!tracks.length) throw new Error('no tracks');
+    var i = tracks.findIndex(function (t) { return t.id === state.id; });
+    var pos = 0;
+    if (i < 0) i = 0; else pos = state.pos || 0;
+    if (pos >= trackDur(tracks[i]) - 0.5) pos = 0;
+    openTrack(i, { pos: pos, play: false });
+    renderList();
+    checkCache();
+  }).catch(function (err) {
+    $('title').textContent = 'Couldn’t load the tour';
+    $('meta').textContent = '';
+    var n = $('offNote');
+    n.textContent = 'The track list (tracks.json) could not be loaded' + (err && err.message ? ' (' + err.message + ')' : '') + '. Check your connection and reopen the app.';
+    n.classList.remove('hidden');
+    ['bPlay', 'bBack', 'bFwd', 'bPrev', 'bNext', 'bSpeed'].forEach(function (id) { $(id).disabled = true; });
+  });
+})();
+</script>
+</body>
+</html>
