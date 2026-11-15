@@ -1,6 +1,5 @@
-# Stop 3. The Court of the Myrtles
-# Lines starting with N: are the narrator. Lines starting with A: are the aside voice.
-# A line with only "..." is a longer pause.
+# title: Stop 3. The Court of the Myrtles
+# stop: 3
 
 N: Stop three. The Court of the Myrtles.
 
@@ -12,17 +11,33 @@ N: Walk to the south end, the end with the wall behind you, and turn around to f
 
 N: Now look up. The heavy square tower over the far arcade is the Comares Tower. It is forty-five metres tall, and its walls are thicker than you are tall. It is a fortress with a throne room inside.
 
+...
+
 N: Now look down, at the water. The tower is there again, upside down. Crouch near the edge and the whole of it fits in the pool.
-
-N: That is the trick of this court. The water is not a fountain. It is kept almost still, so that it works as a mirror. It doubles the tower, and it pulls your eye straight down the pool to the place where the sultan sat.
-
-N: This was the heart of the official palace. It was built mainly under Yusuf the First, in the middle of the thirteen hundreds, and redecorated by his son, Muhammad the Fifth.
 
 ...
 
-A: Two things you will hear here. First, that the name Comares comes from comaraxía, the coloured glass that once filled the tower windows. That is one theory among several. Nobody knows.
+N: That is the trick of this court. The water is not a fountain. It is kept almost still, so that it works as a mirror. It doubles the tower, and it pulls your eye straight down the pool to the place where the sultan sat.
 
-A: Second, that a nineteenth-century restorer, Rafael Contreras, put Persian-style domes on these arcades, and that Leopoldo Torres Balbás took them off again. We could not confirm the detail for this court. But the argument behind it is real. Contreras filled gaps with romantic invention. Torres Balbás repaired only where he had evidence. Much of what you see today is the result of that argument.
+N: The pool fills almost the whole length of the court, about thirty-four metres. Walk a few steps beside it and watch the reflection. It barely trembles.
+
+...
+
+N: This was the heart of the official palace. Here the sultan held court and received foreign envoys. It was built mainly under Yusuf the First, in the middle of the thirteen hundreds, and redecorated by his son, Muhammad the Fifth.
+
+N: Yusuf the First died violently. In thirteen fifty-four, on the feast day of Eid al-Fitr, a madman stabbed him to death while he was at prayer. Sources differ on where. Some place it in the Alhambra's own mosque, others in the Great Mosque of the city below.
+
+...
+
+A: Two things you will hear in this court. First, that the name Comares comes from comaraxía, the coloured glass that once filled the tower windows. That is one theory among several. The origin of the name is still debated.
+
+A: Second, and thinly sourced, a story about two restorers. Rafael Contreras, in the nineteenth century, is said to have put Persian-style domes on these arcades. Leopoldo Torres Balbás is said to have taken them off again. We could not confirm that detail for this court.
+
+...
+
+N: The argument behind that story is real, and you will meet both names again. Contreras and his family restored the Alhambra through much of the eighteen hundreds. They filled gaps with romantic, sometimes invented decoration in what they took to be the Moorish style.
+
+N: Torres Balbás was the conservation architect from nineteen twenty-three to nineteen thirty-six. He took a stricter line. Repair only where there is evidence, and keep new work recognisable. Much of what you see today is the result of that argument.
 
 ...
 

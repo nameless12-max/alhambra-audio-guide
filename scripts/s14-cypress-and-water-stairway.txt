@@ -1,0 +1,49 @@
+# title: Stop 14. Patio del Ciprés de la Sultana, the Water Stairway and the Mirador Romántico
+# stop: 14
+N: Stop fourteen. The Patio del Ciprés de la Sultana, the Water Stairway, and the Mirador Romántico.
+
+N: You are above the Patio de la Acequia, in a courtyard of pools and clipped hedges. This is the Court of the Sultana's Cypress. Paths lead on from here, up to the upper gardens.
+
+N: Find the arcade on the north side. It was built between fifteen eighty-four and fifteen eighty-six. This whole courtyard was designed after the Nasrids had gone.
+
+...
+
+N: The courtyard takes its name from a legend.
+
+...
+
+A: The story goes that a sultana was caught here, meeting a knight of the Abencerraje family under a cypress. The discovery led to the downfall of that family. It is the same family as in the palace legend.
+
+A: Whose wife was she? In most tellings she is Morayma, the wife of Boabdil. Other tellings make her the wife of Muley Hacén. Versions differ. Treat all of it as legend.
+
+A: You will also hear that the famous cypress itself is long dead, and that its trunk is kept as a relic of the story. That too is often told and thinly sourced.
+
+...
+
+N: Now leave the courtyard and follow the paths uphill to the Water Stairway, the Escalera del Agua. It climbs the slope under a canopy of laurels.
+
+...
+
+N: At the foot of the stairs, stop. Put your hand on the handrail and feel along the top. It is an open channel. Water is running down it, right beside your fingers.
+
+N: Now stand still and listen. On both sides of you, the rails are running. As you climb, the water slides down past you toward the palace.
+
+N: Start to climb. The flights break at small round landings, each with a fountain. Pause at each one and listen to the change in sound.
+
+...
+
+N: This stairway existed in the Muslim period, and it is reputedly the oldest stair in these gardens. Its water comes from the higher channel, the Acequia del Tercio, the branch that splits off far up the valley. Here, at last, you can put your hand in it.
+
+...
+
+A: Often told, thinly sourced. The stairway is often linked to the poet Juan Ramón Jiménez, who is said to have written about its running handrails.
+
+...
+
+N: At the top stands the Mirador Romántico, the Romantic Lookout, built in eighteen thirty-six. It probably stands on the site of a former prayer hall.
+
+N: Go to the edge and look out. From here you can read the whole water system. Below you runs the channel. Then come the palace and its courtyards, and the orchards on the slope. Across the ravine is the Alhambra, where all this water is heading.
+
+...
+
+N: When you are ready, follow the signed exit route out of the Generalife. Cross back over the bridge by the Torre del Agua, the Water Tower, into the Alhambra, and stop at the start of the main street. That is stop fifteen.

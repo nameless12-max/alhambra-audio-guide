@@ -5,9 +5,12 @@ Turns the Alhambra walking guide (`guide/alhambra-guide.html`) into a free, offl
 ## Layout
 
 - `guide/` snapshot of the written guide, the source for the scripts
-- `scripts/` one spoken script per stop
-- `render.py` renders a script to audio with two voices and a name lexicon
-- `out/` rendered audio, not tracked
+- `scripts/` one spoken script per track, plus `STYLE.md`, the writing rules
+- `names/` plain respellings of Spanish and Arabic names, and `overrides.json`
+- `lexicon_build.py` turns the respellings into `lexicon.json`
+- `render.py` renders scripts to `app/audio/*.mp3` and `app/tracks.json`
+- `app/` the offline web player: synced transcript, skip, speed, download for offline
+- `out/` scratch output and the audiobook file, not tracked
 
 ## Setup
 
@@ -16,16 +19,17 @@ Turns the Alhambra walking guide (`guide/alhambra-guide.html`) into a free, offl
 
 Keep the project at a short path. The speech engine fails to find its data when the path to `.venv` is very long.
 
-## Render
+## Build
 
-    .venv/bin/python render.py scripts/stop-03.txt out/stop-03.wav
-    ffmpeg -i out/stop-03.wav -ac 1 -b:a 64k out/stop-03.mp3
+    .venv/bin/python lexicon_build.py     # after editing names/
+    .venv/bin/python render.py            # renders only scripts that changed
+    .venv/bin/python render.py s03        # one track
+    .venv/bin/python render.py --force    # everything
 
-## Script format
+Pacing (speed and pause lengths) is set at the top of `render.py`.
 
-- `N: text` narrator voice
-- `A: text` aside voice, for legends and thinly sourced details
-- `...` on its own line is a long pause
-- `#` starts a comment
+## Try the player
 
-Spanish and Arabic names go in `LEXICON` in `render.py` as Kokoro phoneme strings.
+    python3 -m http.server 8765 --directory app
+
+Open http://localhost:8765. This test server cannot seek reliably and offline install needs HTTPS, so host `app/` on any static HTTPS host to use it on a phone.

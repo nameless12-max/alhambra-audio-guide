@@ -1,0 +1,50 @@
+# title: Stop 18. Puerta del Vino and the Plaza de los Aljibes
+# stop: 18
+
+N: Stop eighteen. Puerta del Vino and the Plaza de los Aljibes.
+
+N: This begins the last part of the walk, the Wine Gate and the fortress. Allow most of an hour for it.
+
+N: The Palace of Charles the Fifth is behind you. Ahead, a gate stands on its own at the edge of a wide open square. This is the Puerta del Vino, the Wine Gate. You are looking at its east face. Later you will walk around to the other side.
+
+...
+
+N: Take in the gate as a whole first. It has two levels. Below is a stone passage under a horseshoe arch. Above it sits a room built of brick.
+
+N: Now look at the curved spaces on either side of the arch. They are filled with tiles. Leaves and branches in green, blue and yellow wind across a white ground. Above them, a stucco frame surrounds the upper window. Look for traces of old paint, and for the reddish brickwork.
+
+...
+
+N: This decoration is later than the gate itself. It was added about half a century after the gate was built. The gate dates from the early thirteen hundreds. It is usually credited to Muhammad the Third, though some sources point to Muhammad the Second.
+
+N: This was the main entrance to the Medina, the town on the hill. Today the gate stands alone, but it may once have stood among buildings that have since gone.
+
+N: Now walk through the passage to the west face, and turn around to look at it.
+
+...
+
+N: Look just above the arch. A key is carved there, hanging from a cord. Keep it in mind. You will meet the same key again at the end of the walk, on the Gate of Justice.
+
+N: Nobody is sure what the key meant. It may be a sign of power, to open and to close. It may stand for faith as the key to paradise. Or it may simply be a Nasrid emblem. Whatever it meant, it marked an official gateway.
+
+N: Now find the Arabic plaque on this face. It honours the sultan Muhammad the Fifth.
+
+...
+
+N: Now turn to the square. You are standing on water. Plaza de los Aljibes means the Square of the Cisterns. This was once a gully between the fortress and the palaces. In fourteen ninety-four, two years after the conquest, the Count of Tendilla built cisterns in it. They are thirty-four metres long and eight metres deep. Later the gully was filled in, and the square was laid on top.
+
+N: Flamenco history was made on this square. On the thirteenth and fourteenth of June, nineteen twenty-two, it hosted the Concurso de Cante Jondo, a contest of deep song. Deep song is the oldest layer of flamenco singing. The contest was organised by the composer Manuel de Falla and the young poet Federico García Lorca. They feared the old style was dying out.
+
+N: Falla has another link to this gate. In late nineteen oh nine, he sent the French composer Debussy a postcard of it.
+
+...
+
+A: Myth check, on two points. First, the name. You will hear that it is the Wine Gate because residents could bring wine in here without paying tax. That right is recorded in the middle of the fifteen hundreds, though accounts disagree on the exact year. Or the name may be a garbling of an older Arabic one. Nobody knows which.
+
+A: Second, Debussy. You will hear that he wrote his piano prelude, La Puerta del Vino, after seeing this gate. He never saw it. The prelude, from nineteen thirteen, was sparked by that postcard from Falla.
+
+...
+
+N: If you need them, toilets, lockers and first aid are close to this gate.
+
+N: When you are ready, cross the square to the fortress walls. The entrance to the Alcazaba is from this square. That is stop nineteen.

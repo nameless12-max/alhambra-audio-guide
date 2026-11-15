@@ -1,0 +1,46 @@
+# title: Stop 6. The Sala de los Abencerrajes
+# stop: 6
+
+N: Stop six. The Sala de los Abencerrajes.
+
+N: You are in a square hall on the south side of the Court of the Lions. In the centre is a small marble fountain. Walk to it and stand beside it. Now look straight up.
+
+...
+
+N: Above you is a dome in the shape of an eight-pointed star. It is made of muqarnas, honeycomb cells of carved plaster. The star opens out into eight clusters of hanging points, like stalactites, each one shaped like a tree trunk.
+
+...
+
+N: Now find the windows. There are sixteen, one in each side of the drum that holds up the dome. They light the honeycomb from within. The light breaks across the plaster facets, so the ceiling seems to weigh nothing. Most of this plasterwork was restored in the fifteen hundreds.
+
+...
+
+N: Now look down, into the fountain. It has twelve sides, like the basin outside. When the water is still, it holds a picture of the dome.
+
+...
+
+N: Turn around and find the door you came through. It is the original wood. The tiles along the lower walls are later, made in Seville in the fifteen hundreds.
+
+...
+
+N: The hall takes its name from the Abencerrajes, a powerful noble family of Nasrid Granada. And the name comes with a famous legend.
+
+...
+
+A: The story goes that the Abencerrajes were invited to a banquet in this hall, and massacred. The best-known telling is a novel by Pérez de Hita, published in fifteen ninety-five. In it, a rival clan, the Zegríes, falsely accuse one of the Abencerrajes of an affair with the sultana, Boabdil's wife.
+
+A: The sultan believes them. He has the Abencerrajes beheaded here, thirty-six of them in one version. Versions differ, on the woman, the sultan and the number of the dead. Some tellings add that the blood still stains the fountain. It is good storytelling, first written down long after the fall of Granada. It is not documented history.
+
+A: Look into the fountain for a reddish stain. You will hear that it is the blood of the Abencerrajes. It is usually explained as rust, or iron in the stone. That is plausible, but we found no study of it.
+
+...
+
+N: Behind the legend lies a real feud. The sultan Muley Hacén, known in Arabic as Abu l-Hasan Ali, fell for Isabel de Solís. She was a Christian captive who took the name Zoraya. His passion split the court.
+
+N: His first wife, Aixa, fled with her sons in fourteen eighty-two. One of them, Boabdil, rose against his father. Boabdil would become Muhammad the Twelfth, the last sultan of Granada.
+
+N: In fourteen eighty-three, Castile captured Boabdil in battle at Lucena, then released him as its vassal. The civil war that followed, between father, son and uncle, did much to doom the kingdom.
+
+...
+
+N: When you are ready, walk back out into the court and turn right. Follow the arcade to the long hall across the east end. That is stop seven.

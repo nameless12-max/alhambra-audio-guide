@@ -1,0 +1,58 @@
+# title: Stop 4. The Sala de la Barca and the Salón de Embajadores
+# stop: 4
+
+N: Stop four. The Sala de la Barca and the Salón de Embajadores, the Hall of the Ambassadors.
+
+N: You are under the north arcade, at the foot of the Comares Tower. Ahead of you, a double archway leads into a long, narrow room. That is the Sala de la Barca. Beyond it, inside the tower itself, is the square throne room.
+
+N: The throne room may be closed, so follow the signs and go as far as they allow. Either way, here is what is inside.
+
+...
+
+N: Step through the archway into the Sala de la Barca. It is about twenty-four metres long, and barely wider than a corridor. Now look up.
+
+...
+
+N: The ceiling is curved wood, shaped like the hull of a boat turned upside down. It is a replica. The original burned in eighteen ninety, and the replacement was finished in nineteen sixty-four.
+
+...
+
+A: You will hear two explanations for the name. One is that it comes from the Arabic word baraka, meaning blessing, which Castilian ears heard as barca, meaning boat. The other is that it simply describes the ceiling. Both are current.
+
+...
+
+N: Now walk to the far end, and stand in the doorway of the throne room if you can.
+
+...
+
+N: The room is a perfect square. Look up. The wooden dome is eighteen metres above you. It is built from eight thousand and seventeen interlocking pieces of wood. They form tiers of stars that rise to a single point.
+
+...
+
+N: Now find the band of writing at the base of the dome. These are verses from the Qur'an, from the Surah al-Mulk, the chapter of Sovereignty. They speak of God who created seven heavens, one above another, and adorned the lowest of them with lamps, the stars.
+
+N: So the dome is read as an image of those seven heavens. It is a wooden sky over a fortress room.
+
+...
+
+N: Now look at the walls. There are nine alcoves, three in each side wall. The middle alcove of the north wall, straight ahead of you, is where the throne stood.
+
+N: Picture an envoy arriving. He crossed the bright court, passed through the long Barca, and found the sultan facing him under that sky. The message was plain. This throne stands within God's order of the universe, and draws its authority from it.
+
+N: This hall too was built under Yusuf the First. A poem in the throne alcove is attributed to one of two court poets, Ibn al-Jayyab or Ibn al-Khatib. Coloured glass once filled the windows. Most of it was blown out by an explosion in the Darro valley below, in fifteen ninety.
+
+...
+
+N: The Alhambra has a darker place in history. On the thirty-first of March, fourteen ninety-two, Ferdinand and Isabella signed a decree here. It expelled Spain's Jews. It is known as the Alhambra Decree. An earlier version was dated on the twentieth of March at Santa Fe. That was the camp-town the monarchs built for the siege of Granada.
+
+N: The decree gave Spain's Jews until the end of July to convert or leave. Many tens of thousands left, though the totals are much disputed. It ended one of the great Jewish communities of medieval Europe. Granada's Muslims had been promised their faith in the surrender terms. Within a decade, they too were forced to convert.
+
+...
+
+A: You will hear that the decree was signed in this very hall. That is tradition only. The documents say simply that it was signed in the Alhambra, and no record names the room.
+
+A: Often told, though we could not confirm it, is that the dome was once painted, with lapis lazuli among the colours. We found no technical study to support it.
+
+...
+
+N: When you are ready, go back through the Barca into the Court of the Myrtles. Follow the signs for the route into the Sala de los Mocárabes, the long hall that opens onto the Court of the Lions. That is stop five.

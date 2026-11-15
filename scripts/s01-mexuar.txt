@@ -1,0 +1,65 @@
+# title: Stop 1. The Mexuar and the Oratory
+# stop: 1
+N: Stop one. The Mexuar and the Oratory.
+
+N: You are past the ticket check, inside a long, low hall. In the middle stand four columns. At the far end, a small room opens off the hall. That is the Oratory, the prayer room. You will end there.
+
+...
+
+N: This hall is the Mexuar. The name comes from the Arabic maswar. Here the Council of Ministers met, and the sultan gave judgement.
+
+N: It was built under Isma'il the First, who came to the throne in thirteen fourteen. In thirteen twenty-five he was murdered by a cousin, inside the palace. His son, Yusuf the First, and his grandson, Muhammad the Fifth, later redecorated the hall. It is probably the oldest room in the palaces.
+
+...
+
+N: Walk to the four columns in the centre and stand between them. Look up.
+
+...
+
+N: These columns, and the beam they carry, are all that survives of a raised lantern. It once let light fall into the room from above.
+
+N: After fourteen ninety-two, the conquerors turned this hall into a chapel. In the sixteenth century they added an upper floor, and the lantern was lost. The area behind the balustrade became the choir.
+
+...
+
+A: You will read two versions of who lost the lantern. Some sources say it went under the Catholic Monarchs, Ferdinand and Isabella. Others blame their grandson, Charles the Fifth. The sources disagree.
+
+...
+
+N: Now look down at the tiles along the walls. Most of the pieces are Nasrid, but Christian tiles are mixed in among them. Find the eagle with two heads.
+
+...
+
+N: That double-headed eagle is the emblem of Charles the Fifth as Holy Roman Emperor. There it sits, among the Nasrid stars. It is the first of many places today where the conquerors wrote themselves into the sultans' rooms.
+
+N: Now raise your eyes to the band of carved plaster just above the tiles. It reads, The Kingdom is God's, Power is God's, Glory is God's.
+
+...
+
+N: This frieze did not start here. It was salvaged from a lost portico in the courtyard next door, the Court of Machuca. That court is named after Pedro Machuca, the architect of Charles the Fifth's palace. He lived there while he built it.
+
+...
+
+A: Often told, though we could not find it in a primary source. Some guides describe another inscription, near the south entrance of this hall. They say it praises Muhammad the Fifth as the shadow of God over his people.
+
+A: You will also hear about the excavated foundations you passed on your way in. They belong to two lost courtyards, thought to have held the chancery and the treasury. That too is widely repeated, but thinly sourced.
+
+...
+
+N: Now walk to the far end of the hall and step into the Oratory.
+
+...
+
+N: This small room does not line up with the city wall it sits on. It is turned toward the qibla, the direction of Mecca. Ahead of you is the mihrab, the prayer niche.
+
+N: Now look at the windows. They sit low. Worshippers knelt here, so the view of the valley was framed for eyes close to the floor. The floor itself was lowered in the twentieth century.
+
+N: Find the inscription that calls out to the passer-by. It says, Come to pray. Do not be one of the negligent people.
+
+...
+
+N: Much of this room is rebuilt. In fifteen ninety, a gunpowder store down in the Darro valley exploded. The blast wrecked the Oratory, which was restored in nineteen seventeen. You will hear about the same explosion at three more stops.
+
+...
+
+N: When you are ready, follow the route out of the Mexuar into a small courtyard with a low fountain. That is stop two.

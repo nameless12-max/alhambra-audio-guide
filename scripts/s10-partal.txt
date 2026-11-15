@@ -1,0 +1,68 @@
+# title: Stop 10. The Partal: Torre de las Damas, houses, oratory, Partal Alto and the Rauda
+# stop: 10
+
+N: Stop ten. The Partal.
+
+N: This is the start of part two of the tour. You are in terraced gardens on the north side of the hill. Below you is a long pool. Beyond it stands a portico of five arches, and behind that a tower, the Torre de las Damas.
+
+N: Walk to the far end of the pool, and turn to face the arches.
+
+...
+
+N: Look down. The five arches are reflected in the water. It is the idea of the Court of the Myrtles, at an earlier, simpler stage.
+
+N: This is the oldest palace still standing in the Alhambra, though only part of it stands. Its style suggests it was built under Muhammad the Third, early in the thirteen hundreds.
+
+N: Partal comes from the Arabic al-Bartal, from the Latin for portico. The palace is named after the very thing in front of you.
+
+...
+
+N: Now look at the arches. Above them, the stucco forms a lattice, a net of interlacing lines. Below, slender marble columns hold them up.
+
+N: Those columns date only from nineteen sixty-five. They are the work of Francisco Prieto-Moreno, who succeeded Torres Balbás. Brick pillars first held up these arches.
+
+...
+
+A: Some sources go further, and say that only the central arch of the portico is original. We could not confirm it.
+
+...
+
+N: If you go into the tower, look up at where the ceiling should be. The original carved wooden dome is in Berlin.
+
+N: The Tower of the Ladies is only a nineteenth-century nickname. Its last private owner was the German banker Arthur von Gwinner. He removed the dome before giving the building to the Spanish state in eighteen ninety-one. Since nineteen seventy-seven it has belonged to Berlin's Museum of Islamic Art.
+
+N: Next to the tower, raised on the wall, is a small oratory, a prayer room. Its prayer niche, the mihrab, faces the correct direction.
+
+N: The oratory is usually credited to Yusuf the First. But its timber has been tree-ring dated to thirteen thirty-two or thirty-three. That suggests Ismail the First may have begun it.
+
+...
+
+N: Along the wall runs a row of small Nasrid houses. Look in if any are open.
+
+N: One of them, the House of the Paintings, keeps rare wall paintings from the thirteen hundreds. Found in nineteen oh seven, they show rows of horsemen, and tents with musicians, servants and women of the Nasrid court.
+
+...
+
+N: Now look uphill, above the gardens. There is the excavated outline of another palace. Find the long pool, the footings of rooms, and the remains of a bath.
+
+N: This is the Partal Alto, the upper Partal. It was long called the Palace of Yusuf the Third. Current scholarship gives it to an earlier sultan, Muhammad the Second, in the late twelve hundreds.
+
+N: After the conquest of fourteen ninety-two, it became the home of the Count of Tendilla, the Christian governor of the Alhambra. His descendants, the Marquises of Mondéjar, held the governorship almost as an inheritance for two centuries.
+
+N: Then they backed the losing side in the War of the Spanish Succession. In seventeen seventeen the winner, Philip the Fifth, stripped them of office.
+
+N: The Marquis then pulled the palace down and sold off pieces. Sources differ on whether that was in seventeen eighteen or in the seventeen thirties. The site was excavated in nineteen twenty-four. About a third of it is still buried.
+
+...
+
+N: One more place belongs to this story, though you cannot see it from here. The sultans were buried in a royal cemetery called the Rauda. It lay just across the lower street, the Calle Real Baja, from the royal palaces. You will pass close to its site later.
+
+N: Ismail the First, Muhammad the Fourth, Yusuf the First and Yusuf the Third were buried there, and probably Muhammad the Fifth.
+
+N: After the conquest, Boabdil dug up his ancestors and took them with him into exile. They probably went to a burial ground his wife owned, at Mondújar.
+
+N: When the Rauda was excavated in nineteen twenty-five, about seventy tombs were found. All but one were empty. No remains of the dynasty survive.
+
+...
+
+N: When you are ready, walk east along the path inside the northern wall, with the wall on your left. That is stop eleven.

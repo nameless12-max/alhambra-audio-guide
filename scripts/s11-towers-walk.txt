@@ -1,0 +1,58 @@
+# title: Stop 11. Paseo de las Torres
+# stop: 11
+
+N: Stop eleven. The Paseo de las Torres, the walk of the towers.
+
+N: This begins part three of the tour. You are on the path that runs east from the Partal, just inside the northern wall. Keep the wall on your left. At intervals, towers jut out from it. You will pass them one by one on your way toward the Generalife.
+
+N: Start walking, and listen as you go.
+
+...
+
+N: These towers were homes as well as defences. A military tower fitted out as a home had its own name in Arabic, qalahurra, a tower-palace. In Spanish it became calahorra.
+
+N: The first you come to is the Torre de los Picos. Look up at its pointed battlements. It guarded the Puerta del Arrabal, a gate leading down toward the Albaicín.
+
+N: Inside, it has three vaulted levels, decorated with stucco and paintings. Its date is disputed. The first tower may go back to around thirteen hundred, with later work under Yusuf the First and Muhammad the Fifth.
+
+...
+
+N: Walk on. Next comes the Torre del Cadí, and after it the Torre de la Cautiva. From outside, the Cautiva looks like any other tower. Inside, it is second only to the Comares Tower in richness.
+
+N: It is credited to Yusuf the First, who made it a home. It was finished before thirteen forty-nine, possibly on top of an earlier tower. Its tile poems are by Ibn al-Jayyab.
+
+N: One inscription sums up the whole idea. It calls the tower a calahorra with a palace within, a fortress and a mansion to be enjoyed.
+
+...
+
+A: About that name. Cautiva means captive, and you will hear it called the Tower of the Captive. It is a fanciful name with no historical basis. The story that links it to Isabel de Solís is legend.
+
+...
+
+N: The Cautiva and the Picos open from time to time as the Space of the Month. If you find a door open, go in.
+
+N: Now walk on, farther east, to the Torre de las Infantas, the Tower of the Princesses. It was built, or rebuilt, by Muhammad the Seventh toward the end of the thirteen hundreds.
+
+...
+
+N: This tower shows how such homes stayed bearable in a Granada summer. The main rooms face north, away from the sun. The earthen walls are so thick that the day's heat takes hours to get through.
+
+N: The windows are small and screened with lattices. High openings let rising hot air escape. Water in the central basin cools the air as it evaporates.
+
+N: Along this stretch, the defensive wall became a string of private apartments with views. It is the idea of the Comares Tower, on a smaller scale.
+
+...
+
+A: A few things you will hear along this wall. First, that the Infantas is the setting of Washington Irving's Legend of the Three Beautiful Princesses, in his Tales of the Alhambra.
+
+A: Second, a recent documentary claims that rooms like these stayed around twenty-five degrees while it was forty outside. It also says Nasrid watchtowers across the kingdom passed warnings to the Alhambra by smoke and mirror signals. Both are plausible, but we could not check either.
+
+A: Third, the Torre del Agua, the Water Tower, farther on, is a ruin. The story goes that Napoleon's troops blew it up as they withdrew in eighteen twelve.
+
+A: Guides also say that the royal water channel, the Acequia Real, crosses into the Alhambra there on a small aqueduct, and that the tower was built to guard it. And the path outside the wall, the Camino de Ronda, is often called a patrol path or a moat. None of this is firmly sourced.
+
+...
+
+N: Your next stop is the Generalife. The old way in was near the Torre del Agua, across the ravine of the Cuesta del Rey Chico. Rey Chico means the little king. It is what the Castilians called Boabdil.
+
+N: Today, follow the signs across the bridge by that tower. Allow roughly ten to fifteen minutes. That is stop twelve.

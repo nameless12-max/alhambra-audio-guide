@@ -1,0 +1,40 @@
+# title: Stop 17. The Alhambra Museum and the Vase of the Gazelles
+# stop: 17
+
+N: Stop seventeen. The Alhambra Museum and the Vase of the Gazelles.
+
+N: You are on the ground floor of the Palace of Charles the Fifth, inside the Alhambra Museum. This floor holds the Nasrid collection, the objects made and used by the sultans' court. The Fine Arts Museum, the Museo de Bellas Artes, is on the floor above you.
+
+N: Make your way through the galleries to room five. It is the room with the low lights.
+
+...
+
+N: Find the tall jar in blue and gold. Follow its outline with your eyes, from the foot, up the swelling body, to the neck. This is the Vase of the Gazelles.
+
+N: It was made under Muhammad the Fifth, a sultan you have met many times on this walk. Many large jars of this kind once stood in the palaces. This is the only one that keeps its full curved outline. It is also the only one that has never left the Alhambra.
+
+N: Now look for the gazelles that give the jar its name. They are picked out in gold, among the blue.
+
+...
+
+N: The gold is not paint and it is not metal leaf. It is lustre, a glaze that shines like metal. Lustre takes three firings in the kiln. The last firing is done with the air starved of oxygen. That turns a thin coating of copper and silver into a metallic sheen that sits on the surface of the glaze.
+
+N: Golden lustreware like this was a prized product of Nasrid Granada. It was exported from Málaga, the kingdom's port on the coast.
+
+N: The jar has moved around the Alhambra for centuries. It stood in the Jardín de los Adarves, in the Court of the Myrtles, in the Hall of the Kings, and in the Hall of the Two Sisters. Then it came here. You will walk through that first garden later, in the fortress.
+
+...
+
+A: Two things guides often tell you about this jar. First, a tip. The room is kept dim on purpose. Stand still, and move your head slowly from side to side. The lustre catches the light, and the gazelles come up in gold. It costs nothing to try.
+
+A: Second, you will often hear that the vase is about one metre thirty-five tall, and that it was made in Málaga. Both are plausible. But the museum itself does not confirm either one, so treat them as likely, not certain.
+
+...
+
+N: Before you leave, look for the royal tombstones. They come from the Rauda, the royal burial ground of the Nasrid sultans. Find the carved Arabic writing on their faces. These stones once marked the graves of the men who built the palaces you have just walked through.
+
+...
+
+N: One more thing for later. At the end of the walk, on the Gate of Justice, you will see a carved Virgin and Child. That one is a copy. The original is upstairs, in the Fine Arts Museum.
+
+N: When you are ready, leave the palace and walk west. Ahead, at the edge of a wide open square, a gate stands on its own. That is stop eighteen.

@@ -1,0 +1,55 @@
+# title: Stop 15. Along the Calle Real
+# stop: 15
+N: Stop fifteen. Along the Calle Real.
+
+N: You are back inside the walls of the Alhambra. Behind you is the bridge by the Torre del Agua, where the royal channel enters. Ahead of you, running west, is the Calle Real, the Royal Street. It was the main street of the old palace town, the Medina.
+
+N: At the far end, ahead, is the great square block of the Palace of Charles the Fifth. Start walking toward it, at your own pace.
+
+...
+
+N: This was a town serving a court, not just a palace. It had its own mosque, its own baths, and its own royal cemetery.
+
+N: Partway along, you reach the Church of Santa María de la Alhambra. It was built between fifteen eighty-one and sixteen eighteen, on the site of the Alhambra's main mosque.
+
+N: Muhammad the Third commissioned that mosque, and it was finished in thirteen oh five. It was pulled down in fifteen seventy-six.
+
+N: Yusuf the First, builder of the Comares palace, was stabbed to death at prayer on the feast of Eid al-Fitr in thirteen fifty-four. Sources differ on whether it happened in the mosque that stood here, or in the Great Mosque down in the city.
+
+...
+
+N: Now look to your right, down the lower street. That is the Calle Real Baja. Near it lay the Rauda, the royal cemetery. The sultans' tombs lay just north-west of the mosque.
+
+...
+
+A: Often told, thinly sourced. Near the church is a small Nasrid bathhouse, the Baño de la Mezquita, the Bath of the Mosque. It is listed as free to enter when it is open.
+
+...
+
+N: The Catholic Monarchs were first buried on this hill. Queen Isabella died in fifteen oh four and was laid to rest in the convent of San Francisco, just off this street. That building is now the Parador hotel.
+
+N: Ferdinand joined her there in fifteen sixteen. In fifteen twenty-one, both were moved down to the Royal Chapel in the city.
+
+...
+
+N: If you have five minutes, there is a detour. From the Calle Real, walk a short way downhill to the southern wall. There stands the Puerta de los Siete Suelos, the Gate of the Seven Floors.
+
+N: It is a gate of Yusuf the First, from the thirteen hundreds. It has a bent entrance, and a bastion added after the conquest. Despite the name, excavations have found only two levels below ground.
+
+...
+
+A: The legend says Boabdil rode out through this gate in fourteen ninety-two. He begged that no one ever pass through it again, and so it was walled up.
+
+...
+
+N: History adds a darker chapter. In September eighteen twelve, Napoleon's troops were abandoning Granada. As they left, they blew up this gate, along with other towers on the south wall. It was later rebuilt.
+
+N: Worse was planned. A plaque honours José García, a corporal of the invalid soldiers' corps. In that same year he risked his life to save the palaces and towers from ruin.
+
+...
+
+A: The usual telling has him cutting the burning fuses. The plaque itself gives no details.
+
+...
+
+N: When you are ready, return to the Calle Real and keep walking west. Go around the palace to the open esplanade in front of its west front. That is stop sixteen.

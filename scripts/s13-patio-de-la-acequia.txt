@@ -1,0 +1,51 @@
+# title: Stop 13. Patio de la Acequia and the Sala Regia
+# stop: 13
+N: Stop thirteen. Patio de la Acequia and the Sala Regia.
+
+N: You have come through the palace entrance into a long, narrow courtyard. A channel of water runs down its whole length, with planted beds on either side and a pavilion at each end. This is the Patio de la Acequia, the Court of the Water Channel.
+
+N: Walk to the south end and turn to face north, toward the taller pavilion.
+
+...
+
+N: Now stand still and listen. Under the splash of the fountains there is a lower, steadier sound. It is the channel itself, running past your feet. This is the royal channel from the last stop. The same water goes on to feed the whole Alhambra.
+
+N: The arcing jets are pretty, but they were added in the eighteen hundreds. Picture the court the Nasrid way. No jets. Plants at the level of your feet. Only that quiet running sound down the middle.
+
+...
+
+N: How do we know? After a fire in nineteen fifty-eight, excavations found the Nasrid garden about seventy centimetres below today's beds. The original beds were sunken below the paths. They were planted low, with plants like myrtle, and had deeper pits for orange trees. The old level was then covered over and replanted.
+
+N: Garden historians read all this water as a statement of royal power and good stewardship. There may be no water on this hill, but the sultan has it. He uses it to make the land fruitful, as a good Muslim ruler should.
+
+N: Unlike the palaces across the ravine, the Generalife had no grand state rooms. It was a place for the court's pleasure, close enough for a day trip.
+
+...
+
+N: Now turn to your left, to the western wall. Halfway along, a small room juts out. That is a mirador, a room built to frame a view. It is probably the earliest known mirador in Nasrid architecture.
+
+N: Step inside and look back across the ravine. The Alhambra is in front of you. Rooms like this one are the forerunners of the Mirador de Lindaraja in the palaces.
+
+...
+
+N: Now walk to the north pavilion and look up. The upper gallery was added by the Catholic Monarchs in fourteen ninety-four, two years after the conquest.
+
+...
+
+N: Below it, find the entrance with three arches in carved stucco. It leads into the Sala Regia, the royal hall. The inscriptions around it are by Ibn al-Jayyab.
+
+N: Go in and look up, at the wooden ceiling and the frieze of muqarnas, the honeycomb carving. Another mirador projects from this hall, looking toward the Albaicín. Isma'il the First added it in thirteen nineteen.
+
+...
+
+N: The estate outlived the sultans. After the conquest, the Generalife passed to the Granada-Venegas family, descendants of a Nasrid prince who had converted. They and their heirs held it for about four centuries.
+
+N: Then came a long lawsuit. It ended in a settlement, and in nineteen twenty-one the estate was handed to the Spanish state.
+
+...
+
+A: You will hear this about the north portico. Beside its entrance are two small wall niches, called tacas. They are said to have held jars of cool water. An inscription attributed to Isma'il the First is said to compare them to maidens greeting guests. We could not confirm its wording.
+
+...
+
+N: When you are ready, follow the route up from this court to the next courtyard, the Court of the Sultana's Cypress. That is stop fourteen.

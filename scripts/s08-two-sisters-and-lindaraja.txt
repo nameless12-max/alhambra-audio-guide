@@ -1,0 +1,68 @@
+# title: Stop 8. Dos Hermanas, Ajimeces and the Mirador de Lindaraja
+# stop: 8
+
+N: Stop eight. The Hall of the Two Sisters, and the Mirador de Lindaraja.
+
+N: This is a quiet room. If you have not gone in yet, you may prefer to hear this track just outside, then step in and look in silence.
+
+N: You are on the north side of the Court of the Lions, at the door of the Sala de las Dos Hermanas, the Hall of the Two Sisters. A small fountain sits in the middle of its floor. Beyond it, a second room, the Sala de los Ajimeces, leads to a little window bay at the far end.
+
+...
+
+N: Go in and stand near the fountain. First, look down.
+
+...
+
+N: On either side of the fountain lies a great slab of white marble. The two slabs match in size and in colour. They are the two sisters of the name.
+
+N: Now look up. Take your time.
+
+...
+
+N: The dome above you is muqarnas, a honeycomb of small carved cells. There are at least five thousand pieces. The cells cascade from the top in tier after tier, down to an eight-sided drum.
+
+N: Each side of that drum has two windows. Sixteen windows in all, letting the light fall through the honeycomb.
+
+N: Across the court, the Hall of the Abencerrajes has a dome of the same kind. The two face each other over the Lions. Together they are the summit of this art.
+
+N: Now find the bands of writing on the walls. These are poems, and the room speaks in them for itself. Here it boasts of its peerless, radiant dome.
+
+...
+
+A: You will often hear the opening of this poem translated as, I am a garden graced by every beauty. It goes on to bring the stars, the moon and Gemini down to touch the dome. Translations vary, though, and none we found is authoritative.
+
+...
+
+N: The poet was Ibn Zamrak. His verses fill this room and the Lions fountain. The walls are serene. His life was not.
+
+N: Ibn Zamrak was the pupil of the great vizier and historian Ibn al-Khatib. In thirteen seventy-one, Ibn al-Khatib fled to Morocco. In Granada his writings were condemned and burned.
+
+N: In thirteen seventy-four he was put on trial in Fez. Ibn Zamrak was in the delegation sent from Granada. Ibn al-Khatib was strangled in prison.
+
+N: Ibn Zamrak rose to become vizier himself. In thirteen ninety-three, he too was murdered. These calm walls were written by men who lived dangerously.
+
+...
+
+N: This hall belongs to the private palace of Muhammad the Fifth. Now walk on through the next room, the Sala de los Ajimeces, to the small window bay at the end.
+
+...
+
+N: This is the Mirador de Lindaraja. Mirador means a place to look out from. Lindaraja comes from the Arabic ayn dar Aisha, the eye of the house of Aisha.
+
+N: The window agrees. Its poem calls it the fresh eye of this garden.
+
+N: Notice how low the windows sit. Crouch down, to the height of someone seated on floor cushions. Now look out.
+
+...
+
+N: At this height, the view frames itself. The room was built for people sitting, not standing.
+
+N: This bay was the jewel of the private palace. It once looked out over the Darro valley. After the Christian conquest, rooms built for Charles the Fifth went up in front of it. They closed off the view and enclosed the garden below.
+
+...
+
+A: One more story about this hall. A recent documentary says Charles the Fifth dined here during his long honeymoon stay in fifteen twenty-six. It adds that Pedro Machuca labelled the room His Majesty the Emperor's dining room. Often told, though we could not confirm it.
+
+...
+
+N: When you are ready, follow the route out of these rooms. It runs along a corridor and down into the garden you just saw below the window. That is stop nine.

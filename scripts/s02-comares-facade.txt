@@ -1,0 +1,65 @@
+# title: Stop 2. Patio del Cuarto Dorado and the Comares facade
+# stop: 2
+N: Stop two. The Patio del Cuarto Dorado and the Comares facade.
+
+N: You are in a small courtyard, with a low fountain in the middle. Facing you is a tall wall, carved from top to bottom. It has two doorways, and a deep wooden eave at the top. A room called the Cuarto Dorado, the Golden Room, opens off the courtyard.
+
+...
+
+N: This wall is the Comares facade. It is a political statement in stucco. Muhammad the Fifth ordered it in thirteen seventy, to celebrate a victory the year before.
+
+N: Here the public world of the Mexuar met the sultan's private palace. The sultan sat here, on a raised seat, to receive people.
+
+N: Look up at the eave. It is cedar, and it juts out over the courtyard. It shaded the raised seat below.
+
+...
+
+N: Muhammad the Fifth had reason to celebrate. In thirteen fifty-nine a palace coup drove him from the throne. He spent nearly three years in exile in Fez, in Morocco. His vizier, the poet Ibn al-Khatib, stayed beside him.
+
+N: In thirteen sixty-two he won his kingdom back, with help from Castile. In the thirteen sixties his court sent the historian Ibn Khaldun as its envoy to Peter the First of Castile, in Seville.
+
+...
+
+A: The story goes that Peter the First did more than help. In thirteen sixty-two he killed the usurper who had driven Muhammad the Fifth out, and he took the usurper's jewels.
+
+A: One of those jewels, it is said, is the stone called the Black Prince's Ruby. It now sits in Britain's Imperial State Crown. That part is legend.
+
+...
+
+N: In thirteen sixty-nine Muhammad the Fifth took Algeciras, the port on the Strait of Gibraltar. That is the victory this wall celebrates.
+
+N: This facade belongs to his second reign. So does the redecorated Mexuar behind you, and so does the whole Palace of the Lions. This is a restored king, building to be seen.
+
+...
+
+N: Now find the bands of writing across the facade. One is a poem by Ibn Zamrak. Another is the Throne Verse from the Qur'an.
+
+N: The Throne Verse is among the best-known passages of the Qur'an. It describes God, ever-living and never sleeping, whose throne extends over the heavens and the earth. It has long been used as a verse of protection.
+
+N: Over a ruler's door, it says two things at once. This house is protected. And the sultan sits under a far greater throne.
+
+...
+
+A: You will often hear the poem quoted as opening, I am a crown on the front of my door. The gateway speaks for itself. But the full translation comes only from secondary sites, so treat the wording with care.
+
+...
+
+N: Now look at the two doorways, each framed in tile. They are a lesson in Nasrid privacy.
+
+...
+
+N: The right-hand door led to other quarters, possibly a treasury tied to the Mexuar. The left-hand door leads to the Court of the Myrtles, but not directly. Its passage bends, so no one standing in this courtyard can see into the palace beyond.
+
+...
+
+N: Before you go through, step into the Cuarto Dorado and look up at the cedar ceiling. Find the pine cones and shells in its pattern.
+
+...
+
+A: You will hear two accounts of this ceiling. It is often credited to the reign of Muhammad the Fifth. Others say it was repainted and gilded under the Catholic Monarchs.
+
+A: You will also hear that the low fountain in the courtyard is a copy of one moved here from the Patio de Lindaraja. Often told, though we could not confirm it.
+
+...
+
+N: When you are ready, go through the left-hand door. Count the turns as the passage bends. It lets you out into a long courtyard with a pool. That is stop three.

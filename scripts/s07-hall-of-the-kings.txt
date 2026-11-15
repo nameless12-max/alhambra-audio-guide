@@ -1,0 +1,52 @@
+# title: Stop 7. Sala de los Reyes
+# stop: 7
+
+N: Stop seven. The Hall of the Kings, the Sala de los Reyes.
+
+N: You are at the east end of the Court of the Lions. The long hall in front of you runs behind the arcade and closes this end of the court. Step inside and walk slowly along it.
+
+...
+
+N: As you walk, look up. Deep alcoves open above you, one after another. Three of them have curved ceilings, each shaped like a flattened oval. Stop under the middle one.
+
+...
+
+N: These ceilings are not plaster, and they are not wood. They are leather. Wet hides were stretched over planed wooden boards shaped into an oval. Then they were glued, nailed and painted.
+
+N: In this centre vault, find the ten seated figures. They are Muslim men, sitting on cushions against a gold ground.
+
+N: Now look to each end of the same vault. At each end there are two shields. They carry the arms of the Order of the Band, a Castilian order of knights.
+
+...
+
+N: Now move to one of the side vaults and look up again. The scene changes completely. Here are knights and ladies. Here are hunts, a game of chess, and jousting. A whole romance of chivalry is painted over your head.
+
+...
+
+N: This hall is your proof that the Nasrids were not against images. In the heart of a Muslim palace, the ceilings are full of human figures.
+
+N: Who are the ten men in the centre? Nobody is sure. The traditional reading is that they are the first ten Nasrid kings, and that reading gave the room its name.
+
+N: Others see a council, or nobles of the Order of the Band, or Muhammad the Fifth and his court. If they are kings, the paintings date from about thirteen ninety-six to fourteen oh eight.
+
+N: The shields are a clue to how tangled the two worlds were. The Order of the Band was founded by Alfonso the Eleventh of Castile, in the thirteen thirties. Yet its arms hang over a sultan's hall.
+
+N: Muhammad the Fifth was a close ally of Peter the First of Castile. Peter had helped him back to his throne.
+
+N: In the same years, the thirteen sixties, Peter was building his own palace in the Alcázar of Seville. He used craftsmen from Granada and from Toledo.
+
+N: That palace in Seville looks so Nasrid that its plasterwork carries Arabic inscriptions. They praise a Christian king.
+
+N: So here you have Christian painters working for a sultan. In Seville you have Granadan plasterers working for a king. The frontier was a war zone. It was also a shared workshop.
+
+...
+
+N: Go back to the centre vault and look up once more at the ten figures. The subjects are Muslim. But most of the figures, and the buildings painted behind them, look Christian in style.
+
+N: The painters were probably Christians. They seem to have had links to a workshop in Toledo, and their work shows touches of Italian painting from the thirteen hundreds. They were working for a Muslim patron.
+
+N: Who exactly they were is still debated. What is certain is what you see. A Nasrid sultan sat under ceilings full of Muslim figures, painted in the manner of his Christian neighbours.
+
+...
+
+N: When you are ready, walk back out into the Court of the Lions. Cross it to the north side, and go into the hall that opens there, the Hall of the Two Sisters. That is stop eight.
