@@ -4,6 +4,10 @@ Usage:
     python render.py              render every script that changed
     python render.py s03 s05a     render only tracks whose id starts with these
     python render.py --force      re-render everything
+    python render.py --tour prado render another tour (prado/scripts,
+                                  prado/lexicon.json -> app/prado/)
+    python render.py --tour madrid  render a combined tour: scripts from every
+                                  part in TOURS (prado/, reina/) -> app/madrid/
 
 Reads scripts/*.txt and lexicon.json. Writes app/audio/<id>.mp3 and
 app/tracks.json, which holds sections and per-sentence timings for the player.
@@ -21,17 +25,33 @@ import numpy as np
 import soundfile as sf
 
 ROOT = Path(__file__).parent
-SCRIPTS = ROOT / "scripts"
-AUDIO = ROOT / "app" / "audio"
-CACHE = ROOT / "out" / "timings"
-TRACKS = ROOT / "app" / "tracks.json"
-LEXICON_FILE = ROOT / "lexicon.json"
+TOUR = sys.argv[sys.argv.index("--tour") + 1] if "--tour" in sys.argv else None
+# A combined tour reads several parts; each part's tracks are tagged with its group.
+TOURS = {"madrid": ["prado", "reina"]}
+GROUPS = {"prado": "Prado", "reina": "Reina Sofía"}
+if TOUR:
+    PARTS = TOURS.get(TOUR, [TOUR])
+    SCRIPT_DIRS = [ROOT / p / "scripts" for p in PARTS]
+    LEXICON_FILES = [ROOT / p / "lexicon.json" for p in PARTS]
+    AUDIO = ROOT / "app" / TOUR / "audio"
+    CACHE = ROOT / "out" / TOUR / "timings"
+    TRACKS = ROOT / "app" / TOUR / "tracks.json"
+else:
+    PARTS = []
+    SCRIPT_DIRS = [ROOT / "scripts"]
+    LEXICON_FILES = [ROOT / "lexicon.json"]
+    AUDIO = ROOT / "app" / "audio"
+    CACHE = ROOT / "out" / "timings"
+    TRACKS = ROOT / "app" / "tracks.json"
+# Group label per script folder, only for combined tours.
+GROUP_OF = {ROOT / p / "scripts": GROUPS.get(p, p) for p in PARTS} if TOUR in TOURS else {}
 
 MODEL = "mlx-community/Kokoro-82M-bf16"
 SR = 24000
 # voice, language code, speed. Each paragraph is spoken in one pass so the
 # voice keeps its natural melody across sentences.
-VOICES = {"N": ("af_bella", "b", 0.97), "A": ("bm_george", "b", 0.95)}
+BEAT_QUESTION, BEAT_SHORT = 0.6, 0.4
+VOICES = {"N": ("af_bella", "b", 0.94), "A": ("bm_george", "b", 0.95)}
 # Seconds of silence. Pacing lives here.
 GAP_PARAGRAPH = 1.2
 GAP_SPEAKER = 1.5
@@ -40,7 +60,10 @@ LEAD_IN, LEAD_OUT = 0.4, 1.0
 
 
 def load_lexicon():
-    lex = json.loads(LEXICON_FILE.read_text(encoding="utf-8")) if LEXICON_FILE.exists() else {}
+    lex = {}
+    for f in LEXICON_FILES:
+        if f.exists():
+            lex.update(json.loads(f.read_text(encoding="utf-8")))
     return sorted(lex.items(), key=lambda kv: -len(kv[0]))
 
 
@@ -51,11 +74,11 @@ def apply_lexicon(text, lexicon):
 
 
 def parse(path):
-    """Return (title, stop, items).
+    """Return (title, stop, room, items).
 
     Items are ("pause",), ("section", heading) or (who, text).
     """
-    title, stop, items = path.stem, 0, []
+    title, stop, room, items = path.stem, 0, "", []
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
         if not line:
@@ -64,9 +87,11 @@ def parse(path):
             items.append(("section", line.lstrip("#").strip()))
             continue
         if line.startswith("#"):
-            m = re.match(r"#\s*(title|stop):\s*(.+)", line)
+            m = re.match(r"#\s*(title|stop|room):\s*(.+)", line)
             if m and m.group(1) == "title":
                 title = m.group(2).strip()
+            elif m and m.group(1) == "room":
+                room = m.group(2).strip()
             elif m:
                 stop = int(m.group(2))
             continue
@@ -77,11 +102,27 @@ def parse(path):
         if not m:
             raise ValueError(f"{path.name}: bad line: {line[:60]}")
         items.append((m.group(1), m.group(2)))
-    return title, stop, items
+    return title, stop, room, items
 
 
 def sentences(text):
     return [s for s in re.split(r"(?<=[.!?])[\"”’']?\s+", text) if s.strip()]
+
+
+def beat_groups(sents):
+    """Split a paragraph into groups spoken in one breath, with the pause after each."""
+    groups, cur = [], []
+    for i, s in enumerate(sents):
+        cur.append(s)
+        if i == len(sents) - 1:
+            groups.append((cur, 0.0))
+            break
+        short = len(s.split()) <= 3 or len(sents[i + 1].split()) <= 3
+        if s.rstrip("\"”’'").endswith(("?", "!")):
+            groups.append((cur, BEAT_QUESTION)); cur = []
+        elif short:
+            groups.append((cur, BEAT_SHORT)); cur = []
+    return groups
 
 
 def silence(seconds):
@@ -117,7 +158,7 @@ def sentence_bounds(audio, sents):
 
 
 def render(path, model, lexicon):
-    title, stop, items = parse(path)
+    title, stop, room, items = parse(path)
     parts, segments, sections, t = [silence(LEAD_IN)], [], [], LEAD_IN
     last_who, pending, para, new_section = None, 0.0, -1, None
     for item in items:
@@ -138,13 +179,24 @@ def render(path, model, lexicon):
         if new_section is not None or not sections:
             sections.append({"title": new_section or "Start", "start": round(max(0.0, t - 0.3), 2)})
             new_section = None
-        chunks = [np.asarray(r.audio, dtype=np.float32).reshape(-1)
-                  for r in model.generate(text=apply_lexicon(text, lexicon),
-                                          voice=voice, speed=speed, lang_code=lang)]
-        audio = np.concatenate(chunks)
-        parts.append(audio)
+        # Speak the paragraph in beats: a breath after a question and around a
+        # short punchy sentence, so dramatic lines are not rushed.
         sents = sentences(text)
-        bounds = sentence_bounds(audio, sents)
+        pieces, bounds, off = [], [], 0.0
+        for group, gap in beat_groups(sents):
+            chunks = [np.asarray(r.audio, dtype=np.float32).reshape(-1)
+                      for r in model.generate(text=apply_lexicon(" ".join(group), lexicon),
+                                              voice=voice, speed=speed, lang_code=lang)]
+            a = np.concatenate(chunks)
+            bounds += [off + b for b in sentence_bounds(a, group)[:-1]]
+            pieces.append(a)
+            off += len(a) / SR
+            if gap:
+                pieces.append(silence(gap))
+                off += gap
+        bounds.append(off)
+        audio = np.concatenate(pieces)
+        parts.append(audio)
         for i, sent in enumerate(sents):
             segments.append({"p": para, "s": len(sections) - 1, "who": who, "text": sent,
                              "start": round(t + bounds[i], 2), "end": round(t + bounds[i + 1], 2)})
@@ -165,17 +217,23 @@ def render(path, model, lexicon):
             "file": f"audio/{path.stem}.mp3?v={version}",
             "duration": round(len(audio) / SR, 2), "bytes": mp3.stat().st_size,
             "sections": sections, "segments": segments}
+    if path.parent in GROUP_OF:
+        meta["group"], meta["room"] = GROUP_OF[path.parent], room
     (CACHE / f"{path.stem}.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
     return meta
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    argv = sys.argv[1:]
+    if "--tour" in argv:
+        i = argv.index("--tour")
+        argv = argv[:i] + argv[i + 2:]
+    args = [a for a in argv if not a.startswith("--")]
     force = "--force" in sys.argv
     lexicon = load_lexicon()
-    lex_mtime = LEXICON_FILE.stat().st_mtime if LEXICON_FILE.exists() else 0
+    lex_mtime = max([f.stat().st_mtime for f in LEXICON_FILES if f.exists()], default=0)
     model, tracks = None, []
-    for path in sorted(SCRIPTS.glob("*.txt")):
+    for path in [p for d in SCRIPT_DIRS for p in sorted(d.glob("*.txt"))]:
         cached = CACHE / f"{path.stem}.json"
         mp3 = AUDIO / f"{path.stem}.mp3"
         wanted = not args or any(path.stem.startswith(a) for a in args)
@@ -192,6 +250,7 @@ def main():
         else:
             continue
         tracks.append(meta)
+    TRACKS.parent.mkdir(parents=True, exist_ok=True)
     TRACKS.write_text(json.dumps({"tracks": tracks}, ensure_ascii=False, indent=1), encoding="utf-8")
     total = sum(t["duration"] for t in tracks)
     size = sum(t["bytes"] for t in tracks)

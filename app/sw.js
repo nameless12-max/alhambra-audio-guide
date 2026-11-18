@@ -3,7 +3,7 @@
    Audio: cache keyed by the exact URL (including ?v= version), with HTTP Range support, else network. */
 'use strict';
 
-const SHELL_CACHE = 'alh-shell-v2';
+const SHELL_CACHE = 'alh-shell-v4';
 const AUDIO_CACHE = 'alh-audio-v1'; // kept across shell versions
 const SHELL_FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg', 'icon-180.png', 'icon-512.png', 'tracks.json'];
 
@@ -55,7 +55,13 @@ self.addEventListener('fetch', (event) => {
   }
 
   let key = stripSearch(url);
-  if (req.mode === 'navigate') key = scopeUrl('index.html');
+  // Other tours (madrid/) live in sub-folders of this scope: never answer
+  // their pages with this tour's index.html; only the root page maps to it.
+  const rel = key.slice(self.registration.scope.length);
+  if (req.mode === 'navigate') {
+    if (rel !== '' && rel !== 'index.html') return;
+    key = scopeUrl('index.html');
+  }
   const shellSet = new Set(SHELL_FILES.map(scopeUrl));
   if (!shellSet.has(key)) return; // not part of the shell: plain network
 

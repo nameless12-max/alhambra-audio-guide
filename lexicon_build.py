@@ -8,7 +8,12 @@ alphabet Kokoro's British voices use, word by word.
 names/overrides.json holds hand-written phonemes that win over the
 converter. SKIP lists names the engine already says acceptably.
 
-Usage: python lexicon_build.py [--show]
+Usage: python lexicon_build.py [--show] [--tour NAME]
+
+With --tour NAME it reads NAME/names/*.txt and NAME/names/overrides.json,
+keeps the Spanish particles from the root names/overrides.json, and writes
+NAME/lexicon.json. A combined tour in TOURS (madrid) builds the lexicon of
+each of its parts (prado/, reina/); render.py merges them.
 """
 import json
 import re
@@ -24,7 +29,14 @@ SKIP = {
     "Ferdinand", "Charles", "Peter", "Catherine", "Irving", "Washington",
     "Columbus", "Escher", "Islam", "Islamic", "sultan", "sultana", "vizier",
     "emir", "Allah", "Renaissance", "Moorish",
+    # Madrid tours
+    "Prado", "Picasso", "Spain", "Spanish", "Madrid", "Paris", "Rome",
+    "Italy", "Italian", "Flemish", "Baroque", "Napoleon", "Franco",
 }
+# Combined tours: keep in step with TOURS in render.py.
+TOURS = {"madrid": ["prado", "reina"]}
+# Root overrides that every tour shares (Spanish particles and common names).
+SHARED = {"de", "del", "la", "los", "las", "Dos", "Juan", "Rey", "Reyes"}
 
 # Longest match first. Vowel patterns carry a leading "V" tag.
 RULES = [
@@ -84,9 +96,16 @@ def word(resp):
     return "".join(syllable(s, s.isupper() and any(c.isalpha() for c in s)) for s in syls)
 
 
-def build():
+def tour_arg():
+    if "--tour" in sys.argv:
+        return sys.argv[sys.argv.index("--tour") + 1]
+    return None
+
+
+def build(tour=None):
+    base = ROOT / tour if tour else ROOT
     lex = {}
-    for f in sorted((ROOT / "names").glob("*.txt")):
+    for f in sorted((base / "names").glob("*.txt")):
         for line in f.read_text(encoding="utf-8").splitlines():
             if "|" not in line:
                 continue
@@ -99,16 +118,21 @@ def build():
                 if n in SKIP or n in lex or not r:
                     continue
                 lex[n] = " ".join(word(w) for w in r.split())
-    over = ROOT / "names" / "overrides.json"
+    if tour:
+        root_over = json.loads((ROOT / "names" / "overrides.json").read_text(encoding="utf-8"))
+        lex.update({k: v for k, v in root_over.items() if k in SHARED})
+    over = base / "names" / "overrides.json"
     if over.exists():
         lex.update(json.loads(over.read_text(encoding="utf-8")))
     return lex
 
 
 if __name__ == "__main__":
-    lex = build()
-    (ROOT / "lexicon.json").write_text(json.dumps(lex, ensure_ascii=False, indent=1), encoding="utf-8")
-    if "--show" in sys.argv:
-        for k, v in sorted(lex.items()):
-            print(f"{k} -> {v}")
-    print(f"{len(lex)} entries")
+    tour = tour_arg()
+    for part in TOURS.get(tour, [tour]):
+        lex = build(part)
+        ((ROOT / part) if part else ROOT).joinpath("lexicon.json").write_text(json.dumps(lex, ensure_ascii=False, indent=1), encoding="utf-8")
+        if "--show" in sys.argv:
+            for k, v in sorted(lex.items()):
+                print(f"{k} -> {v}")
+        print(f"{part or 'alhambra'}: {len(lex)} entries")

@@ -1,0 +1,69 @@
+# title: Stop 7. El Greco: The Nobleman with his Hand on his Chest
+# stop: 7
+# room: 8B
+
+## A stranger is watching you
+
+N: Stop seven. First floor, room eight B, in the El Greco rooms. Look for a small portrait of a man in black, a white ruff at his throat, his right hand pressed flat on his chest.
+
+...
+
+N: Stand in front of him. Wait a moment. Notice that he does not look at you. He looks just past you, as if someone has asked him a question and he is deciding whether to tell the truth.
+
+N: Now look at the hand. The two middle fingers are pressed together. The outer ones spread. It is the gesture of a man swearing an oath. I give you my word.
+
+N: Hold on to that question. What is he swearing to? We will come back to him.
+
+## The painter who bet everything on a king
+
+N: Picture a man in his late thirties, stepping off the road into Spain. He is Greek, from the island of Crete. He has painted in Venice and in Rome, and he has not been made famous by either. He comes to Spain for one reason. The king.
+
+N: Philip the Second is building El Escorial, a monastery and palace in the hills outside Madrid. It is the biggest commission in Europe. Every painter wants a wall there. The Greek wants an altar.
+
+N: He gets his chance. The king orders a great altarpiece, the martyrdom of a Roman saint and his soldiers. The Greek pours everything into it. Strange acid colours. Long bodies. Saints who seem to float.
+
+N: In fifteen eighty-two, he delivers it. The king looks. And the king does not like it.
+
+...
+
+N: The picture is not hung on the altar it was made for. Another painter is hired to do it again, plainly. The Greek is never asked back to court. His one great bet has failed.
+
+## The city that took him in
+
+N: So he goes to Toledo, an old city on a rock above a river, full of priests and scholars and money. And there, the rejected foreigner becomes somebody. They call him El Greco, the Greek.
+
+N: He is proud. He lives in style, beyond his means. And when the churches will not pay his price, he takes them to court. Again and again. He never lets anyone tell him what his work is worth.
+
+N: Now turn back to the man in black.
+
+...
+
+N: This is one of the people of Toledo who did take him seriously. A nobleman, around the time the king turned the painter away. Look at the face again. Thin. Grey. Serious. Look at the gold hilt of the sword, just showing at his side. A gentleman's oath, sworn on his honour.
+
+A: Who is he? Nobody knows. The legend most often told is that he is a nobleman named Juan de Silva, who held an office in the city. Others have other names. The painting keeps its secret.
+
+## Three hundred years of silence
+
+N: El Greco dies in Toledo in sixteen fourteen. Almost at once, the world forgets him. For two centuries his saints are dismissed as the work of a madman. His pictures hang in dark chapels and nobody comes.
+
+...
+
+A: And people needed a reason for the strangeness. So the story grew that his eyes were faulty. In the early nineteen hundreds, doctors claimed he had astigmatism, that he painted long bodies because he saw them long. It is a myth. A painter who saw everything stretched would see his canvas stretched too. And this man, look at him, is not stretched at all.
+
+...
+
+N: Then, at the end of the eighteen hundreds, young painters begin to walk into these rooms and stop dead. A young Picasso studies him. The madman becomes a prophet of modern art.
+
+## The oath
+
+N: If you have time, find his last great altarpiece in these rooms, the Adoration of the Shepherds. Check the map. He painted it to hang over his own grave.
+
+...
+
+N: Now one last look at the nobleman. Four hundred years, and his hand is still on his heart. The king did not believe in this painter. This man did. Stand with him for a moment. Do you believe him?
+
+...
+
+## Walk on
+
+N: When you are ready, follow the signs for Titian, to room twenty-seven. That is stop eight.
