@@ -1294,6 +1294,24 @@ ul.sl { list-style: none; margin: -2px 0 14px 18px; padding: 0; border-left: 2px
   }
 
   /* ---------- boot ---------- */
+  // An old service worker may answer another tour's page (madrid/) with this
+  // one. Then touch nothing (storage, audio cache); wait for that tour's own worker
+  // (registered above with this folder's sw.js) and reload once.
+  if (/\/madrid\/(index\.html)?$/.test(location.pathname)) {
+    $('title').textContent = 'Loading the tour…';
+    $('hint').classList.add('hidden');
+    var reloadOnce = function () {
+      try { if (sessionStorage.getItem('tour-reload')) { $('title').textContent = 'Close and reopen this page'; return; } sessionStorage.setItem('tour-reload', '1'); } catch (e) { return; }
+      location.reload();
+    };
+    if (hasSW) navigator.serviceWorker.register('sw.js', { scope: './' }).then(function (reg) {
+      var w = reg.installing || reg.waiting || reg.active;
+      if (!w || w.state === 'activated') return reloadOnce();
+      w.addEventListener('statechange', function () { if (w.state === 'activated') reloadOnce(); });
+    }).catch(function () {});
+    setTimeout(reloadOnce, 6000);
+    return;
+  }
   load();
   applySize();
   $('autoNext').checked = !!state.auto;
