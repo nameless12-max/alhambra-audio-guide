@@ -15,6 +15,36 @@
   - The key is kept only in localStorage ('toledoListen.apiKey'). A one-time setup link
     index.html#k=<key> (or the older listen.html#k=<key>) stores it and removes it from the address bar.
     The key is never put in a query string and never logged.
+
+  Live mode (Live tab; docs checked 2026-11-19)
+  - Speech: Deepgram streaming, wss://api.deepgram.com/v1/listen, model=nova-3 language=es (nova-3 lists
+    es/es-419 as monolingual; `multi` is listed for nova-2, not general nova-3), interim_results,
+    punctuate, smart_format, endpointing (ms of silence -> speech_final), utterance_end_ms (>= 1000, needs
+    interim_results; sends {type:"UtteranceEnd"}). Browser auth: Sec-WebSocket-Protocol "token, <key>",
+    i.e. new WebSocket(url, ['token', key]). Containerized audio (WebM/Ogg Opus) is sent without encoding
+    or sample_rate; raw audio needs both. MP4/AAC streaming is not documented, so browsers without WebM/Ogg
+    MediaRecorder (older iOS Safari) send raw linear16 16 kHz PCM instead. No audio for 10 s closes the
+    socket (NET-0001): send the text frame {"type":"KeepAlive"} every 3-5 s of silence; {"type":"CloseStream"}
+    flushes and closes. Results: is_final, speech_final, channel.alternatives[0].transcript.
+    New accounts: $200 free credit; pay-as-you-go allows well over one concurrent stream.
+      https://developers.deepgram.com/reference/speech-to-text/listen-streaming
+      https://developers.deepgram.com/docs/models-languages-overview
+      https://developers.deepgram.com/docs/using-the-sec-websocket-protocol
+      https://developers.deepgram.com/docs/determining-your-audio-format-for-live-streaming-audio
+      https://developers.deepgram.com/docs/encoding
+      https://developers.deepgram.com/docs/audio-keep-alive
+      https://developers.deepgram.com/docs/understanding-end-of-speech-detection
+      https://deepgram.com/pricing
+  - Translation: Groq chat completions. First qwen/qwen3.8-27b with reasoning_effort "none" (no
+    reasoning tokens; a preview model), then openai/gpt-oss-20b and gpt-oss-120b with "low" (they have no
+    "none") when one is rate limited or gone. Limits per model: 30 RPM, 1K RPD, 8K TPM, 200K TPD.
+    Requests are at least 4 s apart (sentences that finish meanwhile go in one request), so two hours
+    of non-stop speech is at most 1800 requests: about 1000 on qwen (~200K tokens) and the rest split
+    over the two gpt-oss models (~140K tokens each). The Translate tab draws on the same daily quotas.
+      https://console.groq.com/docs/rate-limits  https://console.groq.com/docs/models
+      https://console.groq.com/docs/reasoning
+  - Deepgram key: localStorage 'toledoListen.dgKey'. Setup link: index.html#k=<groqKey>&dg=<deepgramKey>
+    (either part optional).
 -->
 <html lang="en">
 <head>
@@ -167,6 +197,21 @@
   #mSeek { width:100%; margin:0; height:28px; accent-color:var(--gold); }
   #mTime { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
   .mb { flex:0 0 48px; height:48px; border-radius:50%; border:1px solid var(--line); background:var(--panel); font-size:15px; }
+  /* live */
+  #p-live .head { display:flex; align-items:center; gap:10px; padding:8px 16px; }
+  #lvStatus { flex:1; min-width:0; font-size:15px; color:var(--muted); }
+  #lvStatus.live { color:var(--ok); }
+  #lvStatus.connecting, #lvStatus.reconnecting, #lvStatus.held, #lvStatus.missing { color:var(--warn); }
+  #lvStatus.rejected, #lvStatus.error { color:var(--err); }
+  .lvwrap { position:relative; flex:1; min-height:0; display:flex; flex-direction:column; }
+  #lvTranscript { flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:4px 16px 24px; border-top:1px solid var(--line); }
+  .chunk p.es { font-size:15px; color:var(--muted); }
+  .chunk p.es::after { content:" · translating…"; font-style:italic; }
+  .chunk p.es.failed { font-size:22px; color:var(--text); }
+  .chunk p.es.failed::after { content:" (not translated)"; color:var(--muted); font-size:14px; }
+  #lvInterim { margin:12px 0; font-size:15px; color:var(--muted); font-style:italic; }
+  #lvJump { position:absolute; right:16px; bottom:12px; min-height:44px; padding:0 16px; border-radius:22px; border:1px solid var(--gold); background:var(--panel); color:var(--gold); font-size:15px; box-shadow:0 4px 14px rgba(0,0,0,.5); }
+
   #tabs { flex:0 0 auto; display:flex; border-top:1px solid var(--line); background:var(--bg); padding-bottom:env(safe-area-inset-bottom); }
   #tabs button { flex:1; min-height:64px; border:0; background:none; color:var(--muted); font-size:13px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
   #tabs button span { font-size:22px; line-height:1; }
@@ -215,6 +260,7 @@
     <details id="settingsPanel">
       <summary>Translation settings</summary>
       <div class="settings">
+        <label>Deepgram key (Live tab) <input id="dgKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
         <label>API key <input id="apiKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gsk_..."></label>
         <label>Endpoint <input id="endpoint" type="url" autocapitalize="off" spellcheck="false"></label>
         <label>Model <input id="model" type="text" autocapitalize="off" spellcheck="false"></label>
@@ -224,10 +270,28 @@
         <div class="rowb">
           <button id="saveBtn" class="btn" type="button">Save</button>
           <button id="resetBtn" class="btn" type="button">Reset defaults</button>
-          <button id="forgetKeyBtn" class="btn" type="button">Forget key</button>
+          <button id="forgetKeyBtn" class="btn" type="button">Forget keys</button>
         </div>
       </div>
     </details>
+  </section>
+
+  <section id="p-live" class="panel">
+    <div class="head">
+      <div id="lvStatus">Live is off.</div>
+      <button id="lvSwitch" class="switch" type="button" role="switch" aria-checked="false">
+        <span>Live<span class="st" id="lvSwitchSt">off</span></span><span class="trk"></span>
+      </button>
+    </div>
+    <div class="lvwrap">
+      <div id="lvTranscript" aria-live="polite"><div id="lvEmpty" class="empty">Turn Live on when the guide speaks. Her Spanish shows in small grey text as it is heard, then each sentence turns into English, 1 to 3 seconds behind. Keys are under Translate → Translation settings.</div><p id="lvInterim" hidden></p></div>
+      <button id="lvJump" type="button" hidden>↓ Jump to latest</button>
+    </div>
+    <div class="tools">
+      <button id="lvMark" class="btn big" type="button">Mark new stop</button>
+      <button id="lvCopy" class="btn" type="button">Copy</button>
+      <button id="lvClear" class="btn" type="button">Clear</button>
+    </div>
   </section>
 
   <div id="story" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle">
@@ -256,6 +320,7 @@
   <button type="button" role="tab" data-tab="map"><span>◉</span>Map</button>
   <button type="button" role="tab" data-tab="stories"><span>♪</span>Stories</button>
   <button type="button" role="tab" data-tab="translate"><span>文A</span>Translate</button>
+  <button type="button" role="tab" data-tab="live"><span>≋</span>Live</button>
 </nav>
 
 <audio id="player" preload="metadata"></audio>
@@ -270,23 +335,29 @@ const LS = {
   key: 'toledoListen.apiKey', settings: 'toledoListen.settings5', transcript: 'toledoListen.transcript',
   tab: 'toledoNight.tab', heard: 'toledoNight.heard', now: 'toledoNight.nowPlaying', pos: 'toledoNight.positions'
 };
+LS.dgKey = 'toledoListen.dgKey'; LS.live = 'toledoListen.liveTranscript'; // Live mode
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } },
   del(k) { try { localStorage.removeItem(k); } catch {} }
 };
 
-// ---------- one-time setup link (#k=<key>) and #translate ----------
-let startTab = store.get(LS.tab, 'map');
+// ---------- one-time setup link (#k=<groqKey>&dg=<deepgramKey>, either part optional), #translate, #live ----------
+let startTab = store.get(LS.tab, 'map'), fromLink = false;
 try {
-  const h = location.hash;
-  const m = h.match(/^#k=(.+)$/);
-  if (m) { const k = decodeURIComponent(m[1]).trim(); if (k) store.set(LS.key, k); startTab = 'translate'; }
+  const h = location.hash, f = {};
+  for (const part of h.replace(/^#/, '').split('&')) {
+    const i = part.indexOf('=');
+    if (i > 0) { try { f[part.slice(0, i).trim().toLowerCase()] = decodeURIComponent(part.slice(i + 1)).trim(); } catch {} }
+  }
+  if (f.k) { store.set(LS.key, f.k); startTab = 'translate'; fromLink = true; }
+  if (f.dg) { store.set(LS.dgKey, f.dg); startTab = 'live'; fromLink = true; }
   if (h === '#translate') startTab = 'translate';
+  if (h === '#live') startTab = 'live';
   if (h) history.replaceState(null, '', location.pathname + location.search);
   else if (history.state && history.state.sheet) history.replaceState(null, '');
 } catch {}
-if (!['map', 'stories', 'translate'].includes(startTab)) startTab = 'map';
+if (!['map', 'stories', 'translate', 'live'].includes(startTab)) startTab = 'map';
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmtDist = m => m < 1000 ? Math.round(m) + ' m' : (m / 1000).toFixed(1) + ' km';
@@ -301,8 +372,9 @@ function showTab(t) {
   if (sheet) closeSheet();
   tab = t; store.set(LS.tab, t);
   for (const b of tabBtns) b.setAttribute('aria-selected', String(b.dataset.tab === t));
-  for (const p of ['map', 'stories', 'translate']) $('p-' + p).classList.toggle('on', p === t);
+  for (const p of ['map', 'stories', 'translate', 'live']) $('p-' + p).classList.toggle('on', p === t);
   if (t === 'translate') { $('txPanelHost').appendChild(el.transcript); scrollTranscript(); }
+  if (t === 'live') lvScroll(true);
   if (t === 'map') mapShown();
 }
 tabBtns.forEach(b => b.onclick = () => showTab(b.dataset.tab));
@@ -724,19 +796,21 @@ const el = {
   sw: $('txSwitch'), swSt: $('txSwitchSt'), bar: $('txbar'), state: $('txState'), note: $('txnote'),
   status: $('txStatus'), level: $('level'), threshMark: $('threshMark'), hint: $('hint'),
   transcript: $('transcript'), empty: $('txEmpty'), peek: $('peek'), peekText: $('peekText'),
-  apiKey: $('apiKey'), endpoint: $('endpoint'), model: $('model'), chunkSec: $('chunkSec'), chunkVal: $('chunkVal'),
+  apiKey: $('apiKey'), dgKey: $('dgKey'), endpoint: $('endpoint'), model: $('model'), chunkSec: $('chunkSec'), chunkVal: $('chunkVal'),
   thresh: $('thresh'), threshVal: $('threshVal'), prompt: $('prompt')
 };
 
 let settings = Object.assign({}, DEFAULTS, store.get(LS.settings, {}));
 let apiKey = store.get(LS.key, '');
 if (typeof apiKey !== 'string') apiKey = '';
+let dgKey = store.get(LS.dgKey, '');
+if (typeof dgKey !== 'string') dgKey = '';
 let entries = store.get(LS.transcript, []);
 if (!Array.isArray(entries)) entries = [];
 
 // ---------- settings ----------
 function fillSettings() {
-  el.apiKey.value = apiKey;
+  el.apiKey.value = apiKey; el.dgKey.value = dgKey;
   el.endpoint.value = settings.endpoint;
   el.model.value = settings.model;
   el.chunkSec.value = settings.chunkSec; el.chunkVal.textContent = settings.chunkSec;
@@ -756,13 +830,21 @@ function readSettings() {
   store.set(LS.settings, settings);
   if (apiKey) store.set(LS.key, apiKey); else store.del(LS.key);
   if (apiKey && !el.note.classList.contains('err')) showNote('');
+  dgKey = el.dgKey.value.trim();
+  if (dgKey) store.set(LS.dgKey, dgKey); else store.del(LS.dgKey);
+  if (!lv.on) lvIdle();
+  lvPump(); // a new Groq key restarts waiting translations
 }
 el.chunkSec.addEventListener('input', () => { el.chunkVal.textContent = el.chunkSec.value; readSettings(); });
 el.thresh.addEventListener('input', () => { el.threshVal.textContent = (+el.thresh.value).toFixed(3); readSettings(); placeThreshMark(); });
-[el.apiKey, el.endpoint, el.model, el.prompt].forEach(i => i.addEventListener('change', readSettings));
+[el.apiKey, el.dgKey, el.endpoint, el.model, el.prompt].forEach(i => i.addEventListener('change', readSettings));
 $('saveBtn').onclick = () => { readSettings(); setStatus('Settings saved.', 'ok'); };
 $('resetBtn').onclick = () => { const k = apiKey; settings = Object.assign({}, DEFAULTS); fillSettings(); el.apiKey.value = k; readSettings(); setStatus('Defaults restored (key kept).', 'ok'); };
-$('forgetKeyBtn').onclick = () => { el.apiKey.value = ''; readSettings(); if (enabled) turnOff(); setStatus('Key removed from this phone.', 'ok'); };
+$('forgetKeyBtn').onclick = () => {
+  el.apiKey.value = ''; el.dgKey.value = '';
+  if (enabled) turnOff(); if (lv.on) liveOff();
+  readSettings(); setStatus('Keys removed from this phone.', 'ok');
+};
 
 // ---------- transcript ----------
 const fmtTime = ts => new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -874,6 +956,7 @@ async function turnOn() {
     return;
   }
   if (!window.isSecureContext) { showNote('Translation needs the secure (https) version of this page.', true); return; }
+  if (lv.on) liveOff('Live is off · the Translate switch at the top is on (one microphone mode at a time).');
   showNote('');
   enabled = true; held = false; lastErr = 0; rejectedKey = '';
   renderSwitch(); refreshStatus();
@@ -888,6 +971,7 @@ function turnOff(msg, cls) {
 }
 // Story audio: the mic would only hear the phone, so close it while a story plays.
 function holdTranslation() {
+  liveHold();
   if (!enabled || held) return;
   held = true;
   stopMic(false);
@@ -895,6 +979,7 @@ function holdTranslation() {
   refreshStatus();
 }
 function releaseTranslation() {
+  liveRelease();
   if (!enabled || !held) return;
   if (current && !player.paused) return;
   held = false;
@@ -905,7 +990,7 @@ function releaseTranslation() {
 // ---------- audio capture ----------
 let stream = null, srcNode = null, audioCtx = null, analyser = null, meterTimer = null, statusTimer = null;
 let recorder = null, chunkTimer = null, chunkEndsAt = 0, running = false, wakeLock = null, starting = false;
-let quietRun = 0, speechLevel = 0, chunkStats = null, mime = '';
+let quietRun = 0, speechLevel = 0, chunkStats = null, mime = '', chainOut = null;
 const buf = new Float32Array(2048);
 const recentPeaks = [];
 
@@ -951,7 +1036,7 @@ async function acquireWakeLock() {
   } catch { /* not fatal */ }
 }
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible' && running) {
+  if (document.visibilityState === 'visible' && (running || (lv.on && stream))) {
     acquireWakeLock();
     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
   }
@@ -967,7 +1052,7 @@ async function startMic() {
   starting = true;
   let s;
   try {
-    s = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: true, channelCount: 1 } });
+    s = await getMic();
   } catch (err) {
     starting = false;
     const resumed = !!audioCtx; // an automatic restart after a story may need a fresh tap
@@ -979,6 +1064,22 @@ async function startMic() {
   // The switch may have been turned off, or a story started, while the browser was asking.
   if (!enabled || held) { s.getTracks().forEach(t => t.stop()); return; }
   stream = s;
+  await buildChain();
+  running = true;
+  clearInterval(meterTimer); clearInterval(statusTimer);
+  meterTimer = setInterval(sampleLevel, 100);
+  statusTimer = setInterval(refreshStatus, 1000);
+  acquireWakeLock();
+  beginChunk();
+  refreshStatus();
+}
+
+// Shared by Translate and Live (only one runs at a time).
+function getMic() {
+  return navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: true, channelCount: 1 } });
+}
+// Builds the boost chain on `stream`; sets recStream (for MediaRecorder) and chainOut (for raw PCM).
+async function buildChain() {
   try {
     if (!audioCtx) { const AC = window.AudioContext || window.webkitAudioContext; audioCtx = new AC(); }
     if (audioCtx.state === 'suspended') await audioCtx.resume();
@@ -992,15 +1093,8 @@ async function startMic() {
     const comp = audioCtx.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 6; comp.attack.value = 0.005; comp.release.value = 0.2;
     const dest = audioCtx.createMediaStreamDestination();
     srcNode.connect(hp); hp.connect(gain); gain.connect(comp); comp.connect(analyser); comp.connect(dest);
-    recStream = dest.stream;
-  } catch { analyser = null; recStream = null; }
-  running = true;
-  clearInterval(meterTimer); clearInterval(statusTimer);
-  meterTimer = setInterval(sampleLevel, 100);
-  statusTimer = setInterval(refreshStatus, 1000);
-  acquireWakeLock();
-  beginChunk();
-  refreshStatus();
+    recStream = dest.stream; chainOut = comp;
+  } catch { analyser = null; recStream = null; chainOut = null; }
 }
 
 function beginChunk() {
@@ -1028,12 +1122,15 @@ function stopMic(full) {
   clearTimeout(chunkTimer); clearInterval(meterTimer); clearInterval(statusTimer);
   if (recorder && recorder.state !== 'inactive') recorder.stop(); // the last partial chunk is still sent
   recorder = null; chunkStats = null;
+  el.level.style.width = '0'; el.hint.textContent = ''; recentPeaks.length = 0;
+  releaseMic(full);
+}
+function releaseMic(full) {
   if (srcNode) { try { srcNode.disconnect(); } catch {} srcNode = null; }
   if (stream) stream.getTracks().forEach(t => t.stop());
-  stream = null;
+  stream = null; recStream = null; chainOut = null;
   if (wakeLock) wakeLock.release().catch(() => {});
   wakeLock = null;
-  el.level.style.width = '0'; el.hint.textContent = ''; recentPeaks.length = 0;
   if (full) {
     if (audioCtx) audioCtx.close().catch(() => {});
     audioCtx = null; analyser = null;
@@ -1201,6 +1298,417 @@ async function pump() {
 }
 
 // =====================================================================
+// Live mode: Deepgram streaming speech-to-text, then Groq text translation
+// (sources and limits are in the comment at the top of this file)
+// =====================================================================
+const DG_URL = 'wss://api.deepgram.com/v1/listen';
+const DG_PARAMS = { model: 'nova-3', language: 'es', interim_results: 'true', punctuate: 'true', smart_format: 'true', endpointing: '300', utterance_end_ms: '1000' };
+// Tried in this order; a model that answers 429 rests (retry-after, at least 20 s) and the next one is used.
+// Each model has its own free quota (1K requests, 200K tokens a day; 30 requests, 8K tokens a minute).
+const LV_MODELS = [
+  { model: 'qwen/qwen3.8-27b', reasoning_effort: 'none' },   // no reasoning tokens: about 200 tokens a call
+  { model: 'openai/gpt-oss-20b', reasoning_effort: 'low' },  // "low" is its lowest: about 350 tokens a call
+  { model: 'openai/gpt-oss-120b', reasoning_effort: 'low' }
+];
+const LV_GAP = 4000;      // ms between translation requests: 2 h non-stop is at most 1800 requests
+const LV_MAX_MS = 8000;   // a sentence is cut after this long ...
+const LV_MAX_CH = 220;    // ... or this many characters, even without punctuation
+const LV_BATCH_CH = 600;  // waiting sentences sent together, up to this length
+const LV_BUF_MS = 10000;  // audio kept while the socket reconnects
+const LV_SLICE = 250;     // MediaRecorder timeslice
+const LV_SYSTEM = 'You translate a Spanish tour guide (a night walk about the legends of Toledo, Spain) into natural English. ' +
+  'The Spanish comes from live speech recognition: fix obvious mis-hearings from context. Reply with the English of the text after "Translate:" only, ' +
+  'with no notes or quotes. Never translate or repeat the earlier context. Keep names of people and places.';
+
+const lv = {
+  on: false, held: false, starting: false, state: 'off', msg: '', ws: null, everOpened: false, fails: 0, attempt: 0,
+  retryTimer: null, tick: null, rec: null, pcm: null, mode: '', mime: '', buf: [], bufStart: 0, lastSent: 0,
+  cur: { text: '', start: 0 }, interim: ''
+};
+const lvEl = {
+  sw: $('lvSwitch'), swSt: $('lvSwitchSt'), status: $('lvStatus'), list: $('lvTranscript'), empty: $('lvEmpty'),
+  interim: $('lvInterim'), jump: $('lvJump')
+};
+let lvEntries = store.get(LS.live, []);
+if (!Array.isArray(lvEntries)) lvEntries = [];
+const lvNodes = new WeakMap();
+const lvModelState = LV_MODELS.map(() => ({ until: 0, dead: false }));
+let lvModel = 0, lvBusy = false, lvLastReq = 0, lvWaitTimer = null, lvTries = 0, lvBlocked = '', lvNote = '';
+
+// ---------- status ----------
+function lvSetState(state, msg) { lv.state = state; lv.msg = msg; lvRefresh(); }
+function lvRefresh() {
+  lvEl.sw.setAttribute('aria-checked', String(lv.on));
+  lvEl.swSt.textContent = lv.on ? ({ live: 'on', held: 'paused' }[lv.state] || lv.state) : 'off';
+  const pend = lvEntries.filter(e => e.type === 'text' && e.en == null).length;
+  let msg = lv.msg;
+  if (pend && apiKey && apiKey !== lvBlocked) msg += ' · ' + (lvNote || 'translating ' + pend);
+  lvEl.status.textContent = msg;
+  lvEl.status.className = lv.state;
+}
+function lvMissing() {
+  const miss = [];
+  if (!dgKey) miss.push('Deepgram (speech)');
+  if (!apiKey) miss.push('Groq (translation)');
+  return miss.length ? 'Live needs the ' + miss.join(' and ') + ' key' + (miss.length > 1 ? 's' : '') + ' on this phone. Ask the app’s owner to send you the setup link.' : '';
+}
+function lvIdle() {
+  const miss = lvMissing();
+  if (miss) lvSetState('missing', miss);
+  else if (lv.state === 'missing' || lv.state === 'off') lvSetState('off', 'Live is off. Turn it on when the guide starts talking.');
+}
+
+// ---------- switch, story hold ----------
+lvEl.sw.onclick = () => lv.on ? liveOff() : liveOn();
+
+async function liveOn() {
+  readSettings();
+  const miss = lvMissing();
+  if (miss) { lvSetState('missing', miss); return; }
+  if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof WebSocket === 'undefined') {
+    lvSetState('error', 'Live needs the secure (https) page and a recent browser.'); return;
+  }
+  if (enabled) turnOff('Off · Live mode is on (one microphone mode at a time).');
+  lv.on = true; lv.held = false; lv.everOpened = false; lv.fails = 0; lv.attempt = 0;
+  if (lvBlocked === apiKey) lvBlocked = '';
+  if (current && !player.paused) { lv.held = true; lvSetState('held', 'Paused while the story plays · Live resumes after it.'); return; }
+  await liveStartMic();
+}
+function liveOff(msg, state) {
+  lv.on = false; lv.held = false;
+  lvClose();
+  lvCut();
+  releaseMic(true);
+  lvSetState(state || 'off', msg || 'Live is off. The microphone is closed.');
+}
+function liveHold() {
+  if (!lv.on || lv.held) return;
+  lv.held = true;
+  lvClose(); lvCut(); releaseMic(false);
+  lvSetState('held', 'Paused while the story plays · Live resumes after it.');
+}
+function liveRelease() {
+  if (!lv.on || !lv.held || (current && !player.paused)) return;
+  lv.held = false; lv.attempt = 0;
+  liveStartMic();
+}
+
+async function liveStartMic() {
+  if (!lv.on || lv.held || lv.starting || stream) return;
+  lv.mime = '';
+  if (typeof MediaRecorder !== 'undefined') {
+    for (const m of ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus']) { try { if (MediaRecorder.isTypeSupported(m)) { lv.mime = m; break; } } catch {} }
+  }
+  lvSetState('connecting', 'Starting the microphone…');
+  lv.starting = true;
+  let s;
+  try { s = await getMic(); }
+  catch {
+    lv.starting = false;
+    liveOff(lv.everOpened ? 'The microphone did not restart. Tap Live to listen again.' : 'Microphone blocked: allow it for this site, then turn Live on again.', 'error');
+    return;
+  }
+  lv.starting = false;
+  if (!lv.on || lv.held || enabled) { s.getTracks().forEach(t => t.stop()); return; }
+  stream = s;
+  await buildChain();
+  // WebM/Ogg Opus goes as-is; otherwise (no documented MP4 streaming) raw 16 kHz PCM from the boost chain.
+  lv.mode = lv.mime ? 'rec' : (audioCtx && chainOut && audioCtx.createScriptProcessor ? 'pcm' : '');
+  if (!lv.mode) { liveOff('This browser cannot stream the microphone. Use the Translate switch instead.', 'error'); return; }
+  acquireWakeLock();
+  clearInterval(lv.tick); lv.tick = setInterval(lvTick, 1000);
+  lvConnect();
+}
+
+// ---------- socket ----------
+function lvConnect() {
+  clearTimeout(lv.retryTimer); lv.retryTimer = null;
+  if (!lv.on || lv.held || !stream) return;
+  if (lv.everOpened) lvSetState('reconnecting', 'Connection lost · reconnecting…');
+  else lvSetState('connecting', 'Connecting to the speech service…');
+  // A recorder started after the last socket closed: its first blob carries the container header.
+  if (!lv.rec && !lv.pcm) lvStartRecorder();
+  const q = new URLSearchParams(DG_PARAMS);
+  if (lv.mode === 'pcm') { q.set('encoding', 'linear16'); q.set('sample_rate', '16000'); q.set('channels', '1'); }
+  let ws;
+  try { ws = new WebSocket(DG_URL + '?' + q, ['token', dgKey]); }
+  catch { lvRetry(); return; }
+  ws.binaryType = 'arraybuffer';
+  lv.ws = ws;
+  let opened = false;
+  ws.onopen = () => {
+    if (lv.ws !== ws) return;
+    opened = true; lv.everOpened = true; lv.fails = 0; lv.attempt = 0;
+    const buf = lv.buf; lv.buf = [];
+    for (const b of buf) ws.send(b);
+    lv.lastSent = Date.now();
+    lvSetState('live', 'Live · listening to the guide');
+  };
+  ws.onmessage = ev => { if (typeof ev.data === 'string') lvMessage(ev.data); };
+  ws.onerror = () => {}; // onclose follows with the details
+  ws.onclose = ev => {
+    if (lv.ws !== ws) { if (!lv.on || lv.held) { lvCut(); lvShowInterim(); } return; } // an old socket after CloseStream
+    lv.ws = null;
+    lv.interim = ''; lvShowInterim(); // that guess will not be finished
+    if (!lv.on || lv.held) return;
+    // A browser never sees the HTTP 401 of a refused handshake (it reports 1006), so a key that has
+    // never connected and keeps failing while online is treated as rejected.
+    const authClose = ev.code === 1008 || ev.code === 4001 || ev.code === 4003 || /auth|credential|unauthori[sz]ed|forbidden/i.test(ev.reason || '');
+    if (!opened && !lv.everOpened && navigator.onLine !== false) lv.fails++;
+    if (authClose || lv.fails >= 4) {
+      liveOff('Deepgram did not accept the key' + (authClose ? '' : ' (or cannot be reached)') + '. Ask the app’s owner for a new setup link.', 'rejected');
+      return;
+    }
+    lvRetry();
+  };
+}
+function lvRetry() {
+  if (!lv.on || lv.held) return;
+  const wait = Math.min(15000, 500 * 2 ** Math.min(lv.attempt++, 5)) + Math.random() * 300;
+  lvSetState(lv.everOpened ? 'reconnecting' : 'connecting', (lv.everOpened ? 'Connection lost' : 'Cannot reach the speech service') + ' · trying again in ' + Math.ceil(wait / 1000) + ' s');
+  clearTimeout(lv.retryTimer);
+  lv.retryTimer = setTimeout(lvConnect, wait);
+  // Keep recording meanwhile so up to 10 s of speech is sent once the socket is back.
+  lvStartRecorder();
+}
+function lvClose() {
+  clearTimeout(lv.retryTimer); lv.retryTimer = null;
+  clearInterval(lv.tick); lv.tick = null;
+  lvStopRecorder(); lv.buf = [];
+  const ws = lv.ws; lv.ws = null;
+  if (!ws) return;
+  // CloseStream makes Deepgram send the last results and close; force it after 3 s.
+  try { if (ws.readyState === 1) ws.send(JSON.stringify({ type: 'CloseStream' })); else ws.close(); } catch {}
+  setTimeout(() => { try { ws.close(); } catch {} }, 3000);
+}
+function lvTick() {
+  const ws = lv.ws;
+  if (ws && ws.readyState === 1 && Date.now() - lv.lastSent > 4000) { ws.send(JSON.stringify({ type: 'KeepAlive' })); lv.lastSent = Date.now(); }
+  if (lv.cur.text && Date.now() - lv.cur.start > LV_MAX_MS) { lvCut(); lvShowInterim(); }
+}
+
+// ---------- audio ----------
+function lvStartRecorder() {
+  lvStopRecorder();
+  lv.buf = [];
+  if (lv.mode === 'pcm') { lvStartPcm(); return; }
+  let rec;
+  try { rec = new MediaRecorder(recStream || stream, { mimeType: lv.mime, audioBitsPerSecond: 32000 }); }
+  catch { liveOff('The recorder failed to start.', 'error'); return; }
+  rec.ondataavailable = ev => { if (lv.rec === rec && ev.data && ev.data.size) lvSend(ev.data); };
+  rec.start(LV_SLICE);
+  lv.rec = rec;
+}
+function lvStartPcm() {
+  const ratio = audioCtx.sampleRate / 16000, node = audioCtx.createScriptProcessor(4096, 1, 1);
+  node.onaudioprocess = e => {
+    const inp = e.inputBuffer.getChannelData(0), n = Math.floor(inp.length / ratio), out = new Int16Array(n);
+    for (let i = 0; i < n; i++) {
+      const a = Math.floor(i * ratio), b = Math.max(a + 1, Math.floor((i + 1) * ratio));
+      let sum = 0; for (let j = a; j < b; j++) sum += inp[j];
+      out[i] = Math.max(-1, Math.min(1, sum / (b - a))) * 0x7fff;
+    }
+    lvSend(out.buffer);
+  };
+  chainOut.connect(node); node.connect(audioCtx.destination); // output stays silent
+  lv.pcm = node;
+}
+function lvStopRecorder() {
+  const r = lv.rec; lv.rec = null;
+  if (r) { try { if (r.state !== 'inactive') r.stop(); } catch {} }
+  if (lv.pcm) { try { lv.pcm.disconnect(); if (chainOut) chainOut.disconnect(lv.pcm); } catch {} lv.pcm = null; }
+}
+function lvSend(data) {
+  const ws = lv.ws;
+  if (ws && ws.readyState === 1) { ws.send(data); lv.lastSent = Date.now(); return; }
+  if (!lv.buf.length) lv.bufStart = Date.now();
+  lv.buf.push(data);
+  if (Date.now() - lv.bufStart <= LV_BUF_MS) return;
+  if (lv.mode === 'pcm') { lv.buf.shift(); lv.bufStart += 4096 / audioCtx.sampleRate * 1000; }
+  else lvStartRecorder(); // older audio is dropped; the new recorder starts with a fresh header
+}
+
+// ---------- transcripts into sentences ----------
+function lvMessage(raw) {
+  let m; try { m = JSON.parse(raw); } catch { return; }
+  if (m.type === 'Results') {
+    const alt = m.channel && m.channel.alternatives && m.channel.alternatives[0];
+    const t = ((alt && alt.transcript) || '').trim();
+    if (m.is_final) {
+      lv.interim = '';
+      if (t) {
+        if (!lv.cur.text) lv.cur.start = Date.now();
+        lv.cur.text = lv.cur.text ? lv.cur.text + ' ' + t : t;
+        lvCutAtPunct();
+      }
+      if (m.speech_final || lv.cur.text.length >= LV_MAX_CH || (lv.cur.text && Date.now() - lv.cur.start > LV_MAX_MS)) lvCut();
+    } else lv.interim = t;
+    lvShowInterim();
+  } else if (m.type === 'UtteranceEnd') { lvCut(); lvShowInterim(); }
+}
+// Cut every complete sentence (ending in . ! ? …) and keep the rest for the next final result.
+function lvCutAtPunct() {
+  const s = lv.cur.text, re = /[.!?…]+["'»”)]*(?=\s|$)/g;
+  let end = -1, mm;
+  while ((mm = re.exec(s))) end = mm.index + mm[0].length;
+  if (end <= 0) return;
+  const done = s.slice(0, end).trim(), rest = s.slice(end).trim();
+  lv.cur = { text: rest, start: rest ? Date.now() : 0 };
+  if (done) lvAdd({ type: 'text', t: Date.now(), es: done });
+}
+function lvCut() {
+  const t = lv.cur.text.trim();
+  lv.cur = { text: '', start: 0 };
+  if (t) lvAdd({ type: 'text', t: Date.now(), es: t });
+}
+
+// ---------- transcript view ----------
+function lvNearBottom() { const t = lvEl.list; return t.scrollHeight - t.scrollTop - t.clientHeight < 120; }
+function lvScroll(force) {
+  if (force) { lvEl.list.scrollTop = lvEl.list.scrollHeight; lvEl.jump.hidden = true; }
+}
+lvEl.list.addEventListener('scroll', () => { if (lvNearBottom()) lvEl.jump.hidden = true; }, { passive: true });
+lvEl.jump.onclick = () => lvScroll(true);
+// Runs a DOM change, then follows the newest line unless she has scrolled up.
+function lvChange(fn) {
+  const stick = lvNearBottom();
+  fn();
+  if (stick) lvEl.list.scrollTop = lvEl.list.scrollHeight;
+  else lvEl.jump.hidden = false;
+}
+function lvNode(e) {
+  const d = document.createElement('div');
+  if (e.type === 'mark') { d.className = 'mark'; d.textContent = 'New stop · ' + fmtTime(e.t); return d; }
+  d.className = 'chunk';
+  const tm = document.createElement('time'); tm.textContent = fmtTime(e.t);
+  const p = document.createElement('p');
+  if (e.en) p.textContent = e.en;
+  else { p.className = 'es' + (e.en === '' ? ' failed' : ''); p.textContent = e.es; }
+  d.append(tm, p);
+  return d;
+}
+function lvRender(e) {
+  const old = lvNodes.get(e), n = lvNode(e);
+  lvNodes.set(e, n);
+  lvChange(() => { if (old && old.parentNode) old.replaceWith(n); else lvEl.list.insertBefore(n, lvEl.interim); });
+}
+function lvRenderAll() {
+  lvEl.list.textContent = '';
+  if (!lvEntries.length) lvEl.list.appendChild(lvEl.empty);
+  for (const e of lvEntries) { const n = lvNode(e); lvNodes.set(e, n); lvEl.list.appendChild(n); }
+  lvEl.list.appendChild(lvEl.interim);
+  lvScroll(true);
+}
+function lvShowInterim() {
+  const t = (lv.cur.text + ' ' + lv.interim).trim();
+  lvChange(() => { lvEl.interim.hidden = !t; lvEl.interim.textContent = t; });
+}
+function lvSave() {
+  if (!store.set(LS.live, lvEntries)) lvSetState(lv.state, 'Phone storage is full: copy the transcript soon.');
+}
+function lvAdd(e) {
+  lvEntries.push(e); lvSave();
+  if (lvEl.empty.parentNode) lvEl.empty.remove();
+  lvRender(e);
+  if (e.type === 'text') lvPump();
+}
+$('lvMark').onclick = () => { lvCut(); lvShowInterim(); lvAdd({ type: 'mark', t: Date.now() }); };
+$('lvCopy').onclick = async () => {
+  const txt = lvEntries.map(e => e.type === 'mark' ? '\n--- New stop ' + fmtTime(e.t) + ' ---\n'
+    : '[' + fmtTime(e.t) + '] ' + (e.en || e.es + (e.en === '' ? ' (not translated)' : ' (Spanish, translation pending)'))).join('\n');
+  let ok = false;
+  try { await navigator.clipboard.writeText(txt); ok = true; }
+  catch {
+    const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+    ok = !!(document.execCommand && document.execCommand('copy')); ta.remove();
+  }
+  lvEl.status.textContent = ok ? 'Transcript copied.' : 'Copy failed.';
+  setTimeout(lvRefresh, 2500);
+};
+$('lvClear').onclick = () => {
+  if (!confirm('Delete the whole Live transcript from this phone?')) return;
+  lvEntries = []; store.del(LS.live); lvRenderAll(); lvRefresh();
+};
+
+// ---------- translation ----------
+// Waiting sentences go out in order, at most one request every LV_GAP ms; sentences that finish
+// in between are merged into one request. Failures wait and retry; nothing is dropped.
+function lvPump() {
+  if (lvBusy || lvWaitTimer) { lvRefresh(); return; }
+  if (!lvEntries.some(e => e.type === 'text' && e.en == null) || !apiKey || apiKey === lvBlocked) { lvRefresh(); return; }
+  const live = lvModelState.map((m, i) => ({ m, i })).filter(x => !x.m.dead);
+  if (!live.length) { lvNote = 'no translation model is available'; lvRefresh(); return; }
+  const ready = live.find(x => x.m.until <= Date.now());
+  lvModel = ready ? ready.i : live.reduce((a, b) => (b.m.until < a.m.until ? b : a)).i;
+  const wait = Math.max(lvLastReq + LV_GAP, lvModelState[lvModel].until) - Date.now();
+  if (!ready) lvNote = 'translation rate-limited · retrying in ' + Math.ceil(wait / 1000) + ' s';
+  if (wait > 0) { lvWaitTimer = setTimeout(() => { lvWaitTimer = null; lvNote = ''; lvPump(); }, wait); lvRefresh(); return; }
+  lvTranslateNext();
+}
+async function lvTranslateNext() {
+  const i0 = lvEntries.findIndex(e => e.type === 'text' && e.en == null);
+  const first = lvEntries[i0];
+  let j = i0 + 1;
+  while (j < lvEntries.length && lvEntries[j].type === 'text' && lvEntries[j].en == null && first.es.length + lvEntries[j].es.length < LV_BATCH_CH) {
+    first.es += ' ' + lvEntries[j].es;
+    const n = lvNodes.get(lvEntries[j]); if (n) n.remove();
+    j++;
+  }
+  if (j > i0 + 1) { lvEntries.splice(i0 + 1, j - i0 - 1); lvRender(first); lvSave(); }
+  const context = lvEntries.slice(0, i0).filter(e => e.type === 'text').slice(-2).map(e => e.es.slice(-200));
+  lvBusy = true; lvLastReq = Date.now(); lvRefresh();
+  try {
+    const en = await liveInterpret(first.es, context);
+    lvTries = 0; lvNote = '';
+    if (lvEntries.includes(first)) { first.en = en; lvSave(); lvRender(first); }
+  } catch (err) {
+    lvBusy = false;
+    const st = err.status || 0;
+    if (st === 401 || st === 403) {
+      lvBlocked = apiKey; lvNote = '';
+      if (lv.on) liveOff('The Groq (translation) key was rejected. Ask the app’s owner for a new setup link.', 'rejected');
+      else lvSetState('rejected', 'The Groq (translation) key was rejected. Ask the app’s owner for a new setup link.');
+      return;
+    }
+    if (st === 404 || (st === 400 && /model/i.test(err.message))) { lvModelState[lvModel].dead = true; lvLastReq = 0; lvPump(); return; }
+    if (st === 429) { lvModelState[lvModel].until = Date.now() + Math.max(20, err.retryAfter || 0) * 1000; lvLastReq = 0; lvPump(); return; }
+    lvTries++;
+    if (st === 400 && lvTries >= 3) { first.en = ''; lvSave(); lvRender(first); lvTries = 0; lvNote = ''; lvPump(); return; } // keep the Spanish
+    const back = Math.min(60, 2 ** Math.min(lvTries, 6));
+    const wait = back;
+    lvNote = 'translation failed · retrying in ' + Math.round(wait) + ' s';
+    lvRefresh();
+    lvWaitTimer = setTimeout(() => { lvWaitTimer = null; lvNote = ''; lvPump(); }, wait * 1000);
+    return;
+  }
+  lvBusy = false;
+  lvPump();
+}
+async function liveInterpret(es, context) {
+  const url = settings.endpoint.replace(/\/audio\/.*$/, '/chat/completions');
+  const m = LV_MODELS[lvModel];
+  const user = (context.length ? 'Earlier (context only, do not translate): ' + context.join(' ') + '\n\n' : '') + 'Translate: ' + es;
+  const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 20000);
+  let res;
+  try {
+    res = await fetch(url, { method: 'POST', signal: ctl.signal,
+      headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: m.model, reasoning_effort: m.reasoning_effort, temperature: 0, max_completion_tokens: 500,
+        messages: [{ role: 'system', content: LV_SYSTEM }, { role: 'user', content: user }] }) });
+  } finally { clearTimeout(to); }
+  if (!res.ok) {
+    let msg = ''; try { const j = await res.json(); msg = (j.error && (j.error.message + ' ' + (j.error.code || ''))) || ''; } catch {}
+    const e = new Error(msg || 'HTTP ' + res.status); e.status = res.status;
+    e.retryAfter = parseFloat(res.headers.get('retry-after')) || 0; throw e;
+  }
+  const j = await res.json();
+  let out = (j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '';
+  out = out.replace(/<think>[\s\S]*?<\/think>/g, '').replace(/^\s*(english|translation)\s*:\s*/i, '').trim().replace(/^"(.*)"$/s, '$1');
+  if (!out) throw new Error('empty reply');
+  return out;
+}
+
+// =====================================================================
 // Start
 // =====================================================================
 fillSettings();
@@ -1208,6 +1716,10 @@ renderAll();
 renderSwitch();
 if (!apiKey) setStatus('No translation key on this phone yet. Open the setup link from the app’s owner.', 'warn');
 else if (startTab === 'translate' && location.hash === '') setStatus('Ready. Turn on the switch at the top to translate the guide.', 'ok');
+lvRenderAll();
+lvIdle();
+if (fromLink && startTab === 'live' && !lvMissing()) lvSetState('off', 'Setup done. Turn Live on when the guide starts talking.');
+lvPump(); // sentences left untranslated last time
 showTab(startTab);
 startWatch();
 loadData();

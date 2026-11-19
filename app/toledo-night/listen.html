@@ -1,9 +1,10 @@
 <!doctype html>
 <!--
-  Old address of the live translator. Translation now lives in index.html (switch at the top).
-  The setup link listen.html#k=<key> still works: the key is stored on this device, then the page
-  forwards to index.html#translate with the history entry replaced, so the key leaves the address bar
-  and the back history. The microphone is not started until the user taps the switch.
+  Old address of the live translator. Translation now lives in index.html.
+  The setup link listen.html#k=<groqKey>&dg=<deepgramKey> (either part optional) still works: the keys
+  are stored on this device, then the page forwards to index.html#live (or #translate without a
+  Deepgram key) with the history entry replaced, so the keys leave the address bar and the back history.
+  The microphone is not started until the user taps a switch.
 -->
 <html lang="en">
 <head>
@@ -13,17 +14,23 @@
 <title>Toledo Night Legends</title>
 <style>html,body{margin:0;background:#0d1117;color:#e6edf3;font:17px/1.45 system-ui,sans-serif}p{padding:24px 16px}a{color:#e3b341}</style>
 <script>
+var dest = 'translate';
 try {
-  var m = location.hash.match(/^#k=(.+)$/);
-  if (m) {
-    var k = decodeURIComponent(m[1]).trim();
-    if (k) localStorage.setItem('toledoListen.apiKey', JSON.stringify(k));
+  var parts = location.hash.replace(/^#/, '').split('&');
+  for (var i = 0; i < parts.length; i++) {
+    var j = parts[i].indexOf('=');
+    if (j < 1) continue;
+    var name = parts[i].slice(0, j).trim().toLowerCase(), val = '';
+    try { val = decodeURIComponent(parts[i].slice(j + 1)).trim(); } catch (e) {}
+    if (!val) continue;
+    if (name === 'k') localStorage.setItem('toledoListen.apiKey', JSON.stringify(val));
+    if (name === 'dg') { localStorage.setItem('toledoListen.dgKey', JSON.stringify(val)); dest = 'live'; }
   }
 } catch (e) {}
-location.replace('index.html#translate');
+location.replace('index.html#' + dest);
 </script>
 </head>
 <body>
-<p>Opening the app… <a href="index.html#translate">Tap here if nothing happens.</a></p>
+<p>Opening the app… <a href="index.html">Tap here if nothing happens.</a></p>
 </body>
 </html>
