@@ -1039,7 +1039,34 @@ function onChunk(blob, stats, type) {
   queue.push({ blob, type, t: stats.start, voicedFrac, tries: 0 });
   pump();
 }
+// Second step: Whisper sometimes returns the Spanish untranslated (a prompt, or a
+// chunk that starts in English, triggers it). If the text still looks Spanish,
+// translate the text itself with a small chat model on the same service.
+const ES_WORDS = /\b(el|la|los|las|de|del|que|y|en|un|una|es|por|con|para|se|su|al|lo|como|pero|muy|esta|este|aquí|cuando|había|era|fue|dice|leyenda|noche|rey|calle|iglesia|vamos|tenemos|hola|soy|estáis|sí)\b/gi;
+function looksSpanish(t) {
+  const words = (t.match(/[\p{L}]+/gu) || []).length;
+  if (words < 3) return /[¿¡ñ]/i.test(t);
+  const hits = (t.match(ES_WORDS) || []).length;
+  return /[¿¡]/.test(t) || hits / words > 0.18;
+}
+async function translateText(t) {
+  const url = settings.endpoint.replace(/\/audio\/.*$/, '/chat/completions');
+  const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 20000);
+  try {
+    const res = await fetch(url, { method: 'POST', signal: ctl.signal,
+      headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'openai/gpt-oss-20b', temperature: 0, reasoning_effort: 'low', max_completion_tokens: 600,
+        messages: [
+          { role: 'system', content: 'You translate a Spanish tour guide\'s speech into natural English. The text is machine-transcribed from a night legends tour of Toledo, Spain; fix obvious mis-hearings from context. Reply with the English translation only. Keep names of people and places. Parts already in English stay as they are.' },
+          { role: 'user', content: 'Translate this:\n\n' + t }] }) });
+    if (!res.ok) return t;
+    const j = await res.json();
+    const out = j && j.choices && j.choices[0] && j.choices[0].message && (j.choices[0].message.content || '').trim();
+    return out || t;
+  } catch { return t; } finally { clearTimeout(to); }
+}
 function buildPrompt() {
+  return ''; // a prompt makes Whisper skip the translation, so none is sent
   let p = settings.prompt || '';
   // Append the tail of the previous chunk for continuity, staying well under 224 tokens.
   if (lastText) { const room = Math.max(0, 700 - p.length); if (room > 40) p += ' ' + lastText.slice(-Math.min(room, 200)); }
@@ -1080,7 +1107,8 @@ async function pump() {
       e.retryAfter = parseFloat(res.headers.get('retry-after')) || 0; throw e;
     }
     const data = await res.json();
-    const text = cleanText(data, item.voicedFrac);
+    let text = cleanText(data, item.voicedFrac);
+    if (text && looksSpanish(text)) text = await translateText(text);
     if (text) { lastText = text; const g = guessLegend(text); addEntry({ type: 'text', t: item.t, text, legend: g && g.name, ref: g && g.ref }); }
   } catch (err) {
     const status = err.status || 0;
