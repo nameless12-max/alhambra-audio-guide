@@ -1,4 +1,21 @@
 <!doctype html>
+<!--
+  Toledo Night Legends: map, audio stories and live guide translation in one page.
+
+  Data
+  - spots.json: map pins [{id, name, where, lat, lon, track, text, approx}]. `track` is a track id in
+    ../toledo/tracks.json (title, text and audio come from there); `text` is for spots without audio.
+  - ../toledo/tracks.json: every track with group "Legends" is listed under Stories, with or without a spot.
+
+  Translation (ported from the earlier listen.html; provider checked 2026-11-19)
+  - Groq, OpenAI-compatible POST https://api.groq.com/openai/v1/audio/translations, multipart:
+    file, model (whisper-large-v3; the turbo model cannot translate), prompt (English, max 224 tokens),
+    response_format verbose_json, temperature 0. Minimum billed length 10 s per request; free plan
+    20 requests/min. CORS allows any origin. Docs: https://console.groq.com/docs/speech-to-text
+  - The key is kept only in localStorage ('toledoListen.apiKey'). A one-time setup link
+    index.html#k=<key> (or the older listen.html#k=<key>) stores it and removes it from the address bar.
+    The key is never put in a query string and never logged.
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -7,217 +24,1101 @@
 <title>Toledo Night Legends</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="../toledo/icon.svg">
+<link rel="apple-touch-icon" href="../toledo/icon-180.png">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-  :root { --bg:#0d1117; --panel:#161b22; --line:#30363d; --text:#e6edf3; --muted:#8b949e; --gold:#e3b341; --blue:#2f81f7; --legend:#f0c987; }
-  * { box-sizing: border-box; }
-  html, body { margin:0; height:100%; background:var(--bg); color:var(--text); font:16px/1.45 system-ui, -apple-system, Roboto, sans-serif; }
-  #map { position:fixed; inset:0 0 42vh 0; background:#111; }
-  .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9); }
-  .leaflet-container { background:#111; }
-  .leaflet-control-attribution { background:rgba(13,17,23,.8)!important; color:var(--muted)!important; }
+  :root {
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#30363d; --text:#e6edf3; --muted:#9aa4b0;
+    --gold:#e3b341; --legend:#f0c987; --blue:#2f81f7; --ok:#3fb950; --warn:#f0b35a; --err:#ff7a7a; --mark:#7aa7ff;
+  }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--text); overflow:hidden; overscroll-behavior:none; }
+  body {
+    font:17px/1.45 system-ui, -apple-system, Roboto, sans-serif;
+    display:flex; flex-direction:column; height:100vh; height:100dvh;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  }
+  button { font:inherit; color:inherit; touch-action:manipulation; cursor:pointer; }
+  [hidden] { display:none !important; }
+
+  /* ---------- top bar ---------- */
+  #top { flex:0 0 auto; display:flex; align-items:center; gap:10px; padding:6px 8px 6px 16px; border-bottom:1px solid var(--line); background:var(--bg); }
+  #top h1 { flex:1; min-width:0; margin:0; font-size:18px; font-weight:650; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .switch { display:flex; align-items:center; gap:10px; min-height:52px; padding:0 10px 0 14px; border-radius:26px; border:1px solid var(--line); background:var(--panel); font-size:16px; font-weight:600; }
+  .switch .trk { position:relative; width:54px; height:32px; border-radius:16px; background:#3a414b; transition:background .15s; flex:0 0 auto; }
+  .switch .trk::after { content:""; position:absolute; top:3px; left:3px; width:26px; height:26px; border-radius:50%; background:#c9d1d9; transition:transform .15s; }
+  .switch[aria-checked="true"] { border-color:var(--ok); }
+  .switch[aria-checked="true"] .trk { background:var(--ok); }
+  .switch[aria-checked="true"] .trk::after { transform:translateX(22px); background:#fff; }
+  .switch .st { font-size:12px; font-weight:500; color:var(--muted); display:block; line-height:1.1; }
+
+  #txbar { flex:0 0 auto; display:flex; align-items:center; gap:10px; width:100%; min-height:40px; padding:4px 16px; border:0; border-bottom:1px solid var(--line); background:var(--panel); text-align:left; font-size:15px; }
+  #txbar .dot { flex:0 0 12px; height:12px; border-radius:50%; background:var(--ok); }
+  #txbar[data-s="sending"] .dot { background:var(--blue); animation:pulse 1s infinite; }
+  #txbar[data-s="error"] .dot { background:var(--err); }
+  #txbar[data-s="held"] .dot, #txbar[data-s="starting"] .dot { background:var(--warn); }
+  @keyframes pulse { 50% { opacity:.3; } }
+  #txState { flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .meter { position:relative; flex:0 0 96px; height:10px; border-radius:5px; background:#0b0f14; overflow:hidden; }
+  .meter i { display:block; height:100%; width:0; background:var(--muted); transition:width .08s linear; }
+  .meter b { position:absolute; top:0; bottom:0; width:2px; background:#6e7681; }
+  #txnote { flex:0 0 auto; width:100%; padding:10px 16px; border:0; border-bottom:1px solid var(--line); background:#2a2210; color:var(--legend); text-align:left; font-size:15px; }
+  #txnote.err { background:#2d1517; color:#ffb4b4; }
+
+  /* ---------- panels ---------- */
+  main { flex:1 1 auto; position:relative; min-height:0; }
+  .panel { position:absolute; inset:0; display:none; }
+  .panel.on { display:flex; flex-direction:column; }
+  .scroll { overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; }
+
+  /* map */
+  #p-map { isolation:isolate; }
+  #map { position:absolute; inset:0; z-index:0; background:#111; }
+  .leaflet-tile-pane { filter:invert(1) hue-rotate(180deg) brightness(.8) contrast(.9); }
+  .leaflet-container { background:#111; font:inherit; }
+  .leaflet-control-attribution { background:rgba(13,17,23,.8)!important; color:var(--muted)!important; font-size:10px!important; }
   .leaflet-control-attribution a { color:#9cc3ff!important; }
-  .pin { width:34px; height:34px; border-radius:50%; background:var(--gold); color:#000; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid #000; box-shadow:0 0 0 2px var(--gold); font-size:15px; }
+  .pin { width:36px; height:36px; border-radius:50%; background:var(--gold); color:#000; font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:center; border:2px solid #000; box-shadow:0 0 0 2px var(--gold); }
   .pin.extra { background:#6e7681; color:#fff; box-shadow:0 0 0 2px #6e7681; }
-  .pin.here { background:#3fb950; box-shadow:0 0 0 3px #3fb950, 0 0 14px #3fb950; }
-  .me { width:18px; height:18px; border-radius:50%; background:var(--blue); border:3px solid #fff; box-shadow:0 0 10px var(--blue); }
-  #locate { position:fixed; right:12px; bottom:calc(42vh + 12px); z-index:1000; height:48px; padding:0 16px; border-radius:24px; border:1px solid var(--line); background:var(--panel); color:var(--text); font-size:16px; }
-  #sheet { position:fixed; left:0; right:0; bottom:0; height:42vh; background:var(--panel); border-top:1px solid var(--line); overflow-y:auto; z-index:1000; padding-bottom:env(safe-area-inset-bottom); }
-  #status { padding:8px 16px; font-size:14px; color:var(--muted); border-bottom:1px solid var(--line); }
-  #status.warn { color:#ffa198; }
-  .row { display:flex; align-items:center; gap:12px; min-height:60px; padding:8px 16px; border-bottom:1px solid var(--line); cursor:pointer; }
-  .row:active { background:#1f2630; }
-  .row .num { flex:0 0 34px; }
-  .row .name { flex:1; }
-  .row .name small { display:block; color:var(--muted); font-size:13px; }
-  .row .dist { color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
-  .row.here { background:#12321c; }
-  .row.here .dist { color:#3fb950; font-weight:700; }
-  .row.start .num { background:var(--blue); color:#fff; box-shadow:0 0 0 2px var(--blue); }
-  #story { position:fixed; inset:0; background:var(--bg); z-index:2000; overflow-y:auto; display:none; padding:0 18px 40px; }
-  #story.open { display:block; }
-  #story header { position:sticky; top:0; background:var(--bg); padding:12px 0; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:flex-start; }
-  #story h1 { font-size:20px; margin:0; flex:1; }
-  #close { flex:0 0 48px; height:48px; border-radius:24px; border:1px solid var(--line); background:var(--panel); color:var(--text); font-size:22px; }
-  .where { color:var(--muted); margin:12px 0; }
-  audio { width:100%; margin:8px 0 16px; }
-  .p { margin:0 0 14px; }
+  .pin.heard { opacity:.7; }
+  .pin.near { box-shadow:0 0 0 3px var(--ok), 0 0 14px var(--ok); opacity:1; }
+  .pin.here { background:var(--ok); color:#000; }
+  .me { width:20px; height:20px; border-radius:50%; background:var(--blue); border:3px solid #fff; box-shadow:0 0 10px var(--blue); }
+  #locate { position:absolute; right:12px; top:12px; z-index:2; width:56px; height:56px; border-radius:50%; border:1px solid var(--line); background:var(--panel); font-size:26px; }
+  #mapcards { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:0 10px 10px; display:flex; flex-direction:column; gap:8px; pointer-events:none; }
+  .card { pointer-events:auto; width:100%; min-height:56px; padding:10px 14px; border-radius:14px; border:1px solid var(--line); background:rgba(22,27,34,.96); text-align:left; font-size:16px; }
+  .card small { display:block; color:var(--muted); font-size:13px; }
+  #geo { color:var(--warn); }
+  #nearest.here { border-color:var(--ok); }
+  #nearest b { color:var(--ok); font-weight:600; }
+  #peek { border-color:#2b4a2f; }
+  #peek span { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:18px; }
+
+  /* stories */
+  .prog { position:sticky; top:0; z-index:1; padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--line); font-size:15px; color:var(--muted); }
+  .bar { height:6px; border-radius:3px; background:var(--panel2); margin-top:6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:var(--ok); width:0; }
+  .group { padding:14px 16px 6px; color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.06em; }
+  .row { display:flex; align-items:center; gap:12px; min-height:72px; padding:8px 8px 8px 16px; border-bottom:1px solid var(--line); }
+  .row.now { background:#1a2333; }
+  .badge { flex:0 0 36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; background:var(--gold); color:#000; }
+  .badge.extra { background:#6e7681; color:#fff; }
+  .badge.done { background:var(--ok); color:#000; }
+  .row .name { flex:1; min-width:0; border:0; background:none; text-align:left; padding:6px 0; font-size:17px; }
+  .row .name small { display:block; color:var(--muted); font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .play { flex:0 0 56px; height:56px; border-radius:50%; border:1px solid var(--line); background:var(--panel); font-size:22px; }
+  .play.on { background:var(--gold); color:#000; border-color:var(--gold); }
+  .chip { flex:0 0 auto; padding:0 12px; height:40px; border-radius:20px; border:1px solid var(--line); background:none; color:var(--muted); font-size:14px; }
+  .empty { padding:24px 16px; color:var(--muted); }
+
+  /* translate */
+  #p-translate .head { padding:10px 16px 4px; }
+  #txStatus { font-size:15px; color:var(--muted); min-height:1.4em; }
+  #txStatus.ok { color:var(--ok); } #txStatus.warn { color:var(--warn); } #txStatus.err { color:var(--err); }
+  #hint { font-size:14px; color:var(--warn); min-height:1.2em; }
+  .txhost { flex:1; min-height:0; display:flex; flex-direction:column; }
+  #transcript { flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:4px 16px 24px; border-top:1px solid var(--line); }
+  .chunk { margin:14px 0; }
+  .chunk time { display:block; font-size:12px; color:var(--muted); }
+  .chunk p { margin:2px 0 0; font-size:22px; line-height:1.4; }
+  .chunk .lg { margin-top:4px; border:0; background:none; padding:6px 0; color:var(--gold); font-size:14px; text-align:left; }
+  .chunk.note p { font-size:14px; color:var(--muted); font-style:italic; }
+  .mark { margin:20px 0; display:flex; align-items:center; gap:10px; color:var(--mark); font-size:14px; }
+  .mark::before, .mark::after { content:""; flex:1; height:1px; background:var(--mark); opacity:.5; }
+  #txEmpty { color:var(--muted); font-size:15px; margin-top:20px; }
+  .tools { flex:0 0 auto; display:flex; gap:8px; padding:8px 16px; border-top:1px solid var(--line); }
+  .btn { min-height:52px; padding:0 16px; border-radius:12px; border:1px solid var(--line); background:var(--panel); font-size:16px; }
+  .btn.big { flex:1; font-weight:700; }
+  details { flex:0 0 auto; margin:0 16px 10px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+  details[open] { max-height:55%; overflow-y:auto; overscroll-behavior:contain; }
+  summary { padding:14px; color:var(--muted); font-size:15px; }
+  .settings { padding:0 14px 14px; display:grid; gap:10px; }
+  .settings label { display:grid; gap:4px; font-size:13px; color:var(--muted); }
+  .settings input, .settings textarea { width:100%; font:16px/1.3 system-ui, sans-serif; color:var(--text); background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px; }
+  .settings input[type=range] { padding:0; height:32px; }
+  .settings textarea { min-height:90px; resize:vertical; }
+  .settings .rowb { display:flex; gap:8px; flex-wrap:wrap; }
+
+  /* sheets */
+  .sheet { position:absolute; left:0; right:0; bottom:0; z-index:20; display:none; flex-direction:column; background:var(--bg); }
+  .sheet.on { display:flex; }
+  #story { top:0; }
+  #txsheet { height:72%; border-top:1px solid var(--line); border-radius:16px 16px 0 0; background:var(--panel); box-shadow:0 -10px 30px rgba(0,0,0,.6); }
+  .shead { flex:0 0 auto; display:flex; align-items:center; gap:12px; padding:8px 8px 8px 16px; border-bottom:1px solid var(--line); }
+  .shead h2 { flex:1; min-width:0; margin:0; font-size:19px; line-height:1.3; }
+  .x { flex:0 0 52px; height:52px; border-radius:50%; border:1px solid var(--line); background:var(--panel); font-size:22px; }
+  #sBody { flex:1; padding:12px 18px 40px; }
+  .where { color:var(--muted); margin:0 0 10px; }
+  .nav { display:inline-block; margin:0 0 14px; color:#9cc3ff; padding:6px 0; }
+  .sctl { display:flex; gap:10px; margin:0 0 18px; }
+  .sctl .btn { flex:1; }
+  #sPlay { background:var(--gold); color:#000; border-color:var(--gold); font-weight:700; }
+  #sHeard[aria-pressed="true"] { border-color:var(--ok); color:var(--ok); }
+  .p { margin:0 0 14px; font-size:18px; }
   .p.A { color:var(--legend); font-style:italic; border-left:3px solid var(--legend); padding-left:12px; }
   .tag { display:inline-block; font-size:12px; padding:2px 8px; border-radius:10px; background:#3d2f00; color:var(--gold); margin-bottom:8px; }
-  .nav { display:inline-block; margin:4px 0 14px; color:#9cc3ff; }
+
+  /* mini-player + tabs */
+  #mini { flex:0 0 auto; display:flex; align-items:center; gap:6px; padding:6px 6px 6px 8px; border-top:1px solid var(--line); background:var(--panel2); }
+  #mPlay { flex:0 0 56px; height:56px; border-radius:50%; border:0; background:var(--gold); color:#000; font-size:22px; }
+  #mInfo { flex:1; min-width:0; }
+  #mTitle { display:block; width:100%; border:0; background:none; padding:2px 0; text-align:left; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #mSeek { width:100%; margin:0; height:28px; accent-color:var(--gold); }
+  #mTime { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .mb { flex:0 0 48px; height:48px; border-radius:50%; border:1px solid var(--line); background:var(--panel); font-size:15px; }
+  #tabs { flex:0 0 auto; display:flex; border-top:1px solid var(--line); background:var(--bg); padding-bottom:env(safe-area-inset-bottom); }
+  #tabs button { flex:1; min-height:64px; border:0; background:none; color:var(--muted); font-size:13px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
+  #tabs button span { font-size:22px; line-height:1; }
+  #tabs button[aria-selected="true"] { color:var(--gold); box-shadow:inset 0 3px 0 var(--gold); }
 </style>
 </head>
 <body>
-<div id="map"></div>
-<button id="locate" type="button">◎ Locate me</button>
-<div id="sheet">
-  <div id="status">Finding your position…</div>
-  <div id="list"></div>
+<header id="top">
+  <h1>Toledo Night</h1>
+  <button id="txSwitch" class="switch" type="button" role="switch" aria-checked="false">
+    <span>Translate<span class="st" id="txSwitchSt">off</span></span><span class="trk"></span>
+  </button>
+</header>
+<button id="txbar" type="button" hidden data-s="listening" aria-label="Translation status">
+  <span class="dot"></span><span id="txState">Listening</span>
+  <span class="meter" aria-hidden="true"><i id="level"></i><b id="threshMark"></b></span>
+</button>
+<button id="txnote" type="button" hidden></button>
+
+<main>
+  <section id="p-map" class="panel">
+    <div id="map"></div>
+    <button id="locate" type="button" aria-label="Show my position">◎</button>
+    <div id="mapcards">
+      <button id="peek" class="card" type="button" hidden><small>Guide in English · tap to read</small><span id="peekText"></span></button>
+      <button id="geo" class="card" type="button">Finding your position…</button>
+      <button id="nearest" class="card" type="button" hidden></button>
+    </div>
+  </section>
+
+  <section id="p-stories" class="panel scroll">
+    <div class="prog"><span id="progText">Loading stories…</span><div class="bar"><i id="progBar"></i></div></div>
+    <div id="list"></div>
+  </section>
+
+  <section id="p-translate" class="panel">
+    <div class="head"><div id="txStatus">Translation is off. Use the switch at the top.</div><div id="hint"></div></div>
+    <div class="txhost" id="txPanelHost">
+      <div id="transcript" aria-live="polite"><div id="txEmpty">When the switch is on, the guide's words appear here in English, newest at the bottom.</div></div>
+    </div>
+    <div class="tools">
+      <button id="markBtn" class="btn big" type="button">Mark new stop</button>
+      <button id="copyBtn" class="btn" type="button">Copy</button>
+      <button id="clearBtn" class="btn" type="button">Clear</button>
+    </div>
+    <details id="settingsPanel">
+      <summary>Translation settings</summary>
+      <div class="settings">
+        <label>API key <input id="apiKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gsk_..."></label>
+        <label>Endpoint <input id="endpoint" type="url" autocapitalize="off" spellcheck="false"></label>
+        <label>Model <input id="model" type="text" autocapitalize="off" spellcheck="false"></label>
+        <label>Chunk length: <span id="chunkVal"></span> s <input id="chunkSec" type="range" min="10" max="30" step="1"></label>
+        <label>Silence threshold: <span id="threshVal"></span> <input id="thresh" type="range" min="0.005" max="0.08" step="0.001"></label>
+        <label>Vocabulary prompt (English, max about 224 tokens) <textarea id="prompt"></textarea></label>
+        <div class="rowb">
+          <button id="saveBtn" class="btn" type="button">Save</button>
+          <button id="resetBtn" class="btn" type="button">Reset defaults</button>
+          <button id="forgetKeyBtn" class="btn" type="button">Forget key</button>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <div id="story" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle">
+    <div class="shead"><h2 id="sTitle"></h2><button class="x" type="button" data-close aria-label="Close">✕</button></div>
+    <div id="sBody" class="scroll"></div>
+  </div>
+
+  <div id="txsheet" class="sheet" role="dialog" aria-label="Guide in English">
+    <div class="shead"><h2>Guide in English</h2><button class="x" type="button" data-close aria-label="Close">✕</button></div>
+    <div class="txhost" id="txSheetHost"></div>
+  </div>
+</main>
+
+<div id="mini" hidden>
+  <button id="mPlay" type="button" aria-label="Play">▶</button>
+  <div id="mInfo">
+    <button id="mTitle" type="button"></button>
+    <input id="mSeek" type="range" min="0" max="1000" value="0" step="1" aria-label="Position">
+    <div id="mTime">0:00</div>
+  </div>
+  <button id="mBack" class="mb" type="button" aria-label="Back 15 seconds">−15</button>
+  <button id="mClose" class="mb" type="button" aria-label="Stop and close">✕</button>
 </div>
-<div id="story" role="dialog" aria-modal="true">
-  <header><h1 id="s-title"></h1><button id="close" type="button" aria-label="Close">✕</button></header>
-  <div id="s-body"></div>
-</div>
+
+<nav id="tabs" role="tablist">
+  <button type="button" role="tab" data-tab="map"><span>◉</span>Map</button>
+  <button type="button" role="tab" data-tab="stories"><span>♪</span>Stories</button>
+  <button type="button" role="tab" data-tab="translate"><span>文A</span>Translate</button>
+</nav>
+
+<audio id="player" preload="metadata"></audio>
 
 <script>
-// ---- Audio legend pins (stories come from ../toledo/tracks.json). Sources: COORDS.md ----
-const AUDIO_PINS = {
-  'l01-cristo-de-la-luz':    { lat: 39.86060, lon: -4.02418, where: 'Mezquita del Cristo de la Luz, Calle Cristo de la Luz, by the Puerta del Sol gate' },
-  'l02-cave-of-hercules':    { lat: 39.85865, lon: -4.02430, where: 'Cuevas de Hércules, Callejón de San Ginés' },
-  'l03-school-of-magic':     { lat: 39.85663, lon: -4.02401, where: 'Approximate: outside the cathedral, Calle Cardenal Cisneros (the tale has no fixed spot)' },
-  'l04-bitter-well':         { lat: 39.85502, lon: -4.02352, where: 'Approximate: Calle del Pozo Amargo (lane midpoint)' },
-  'l05-cristo-de-la-vega':   { lat: 39.86094, lon: -4.03422, where: 'Ermita del Cristo de la Vega, Paseo Cristo de la Vega, outside the walls' },
-  'l06-becquer-the-kiss':    { lat: 39.85796, lon: -4.02725, where: 'Church of San Pedro Mártir, Calle San Román (San Clemente is next door)' },
-  'l07-hombre-de-palo':      { lat: 39.85793, lon: -4.02398, where: 'Approximate: Calle del Hombre de Palo (lane midpoint)' },
-  'l08-christ-of-the-skull': { lat: 39.85683, lon: -4.02153, where: 'Approximate: Calle del Cristo de la Calavera (lane midpoint)' }
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+
+// ---------- storage ----------
+const LS = {
+  key: 'toledoListen.apiKey', settings: 'toledoListen.settings2', transcript: 'toledoListen.transcript',
+  tab: 'toledoNight.tab', heard: 'toledoNight.heard', now: 'toledoNight.nowPlaying', pos: 'toledoNight.positions'
+};
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } },
+  del(k) { try { localStorage.removeItem(k); } catch {} }
 };
 
-// ---- Extra text-only legend pins. Edit freely. ----
-const EXTRAS = [
-  { id: 'x1', title: 'Plaza de Zocodover: market and fire', lat: 39.85948, lon: -4.02142,
-    where: 'Plaza de Zocodover, the main square',
-    text: 'The name comes from the Arabic for "market of the beasts", and for centuries this was where Toledo bought its horses, bread and gossip. But the square had a darker trade. Here the Inquisition staged its autos-da-fé: crowds packed the balconies, the condemned walked in yellow penitent robes, and sentences were read aloud before the city. Bullfights, executions and fairs all shared these same stones. Legend says that on quiet nights you can still hear the murmur of a crowd that is no longer there.' },
-  { id: 'x2', title: 'The Virgin of the Little Pins', lat: 39.85983, lon: -4.02324,
-    where: 'Virgen de los Alfileritos, a niche on Calle Alfileritos',
-    text: 'In a glass niche on this narrow lane, a few steps from Zocodover, stands a small Virgin among candles and flowers. The best-loved version of her legend tells of Doña Soledad de Vargas, a young woman who came here to pray for love. Each time she prayed, she pushed a pin through the little grille as her offering. Others say the pins were meant to bring an absent lover home. Either way, the custom never died: Toledans still leave a pin here when they ask for a sweetheart. Look closely and you will see them, bright in the candlelight.' },
-  { id: 'x3', title: 'The Cobertizos: lanes under houses', lat: 39.86055, lon: -4.02571,
-    where: 'Approximate: Cobertizo de Santo Domingo el Real (lane midpoint)',
-    text: 'A cobertizo is a lane that runs under the houses, roofed over by rooms built across the street. These tunnels were the darkest places in the old city, and Toledans filled them with stories. Night walkers spoke of footsteps that followed and then stopped, of cloaked figures that vanished at the far arch, and of lovers who met here because no window could see them. Walk through slowly. At night the vaults swallow sound, and every footstep seems to arrive a little late.' },
-  { id: 'x4', title: 'Santo Domingo el Real: Bécquer\'s square', lat: 39.86048, lon: -4.02632,
-    where: 'Plaza de Santo Domingo el Real, in front of the convent',
-    text: 'The Romantic poet Gustavo Adolfo Bécquer came to Toledo in the 1850s and walked its lanes at night, and this small, silent square below the enclosed convent of Santo Domingo el Real was one of his haunts. High blind walls, barred windows, a bell, and nuns who are heard but never seen: it is the stage set of his legends. In them, a stranger glimpses a pale hand behind a convent grille, or follows a woman into a lane that ends in nothing. Stand still here after dark. The square has hardly changed since he stood in it.' },
-  { id: 'x5', title: 'The Baño de la Cava: La Cava\'s bath', lat: 39.85809, lon: -4.03466,
-    where: 'Torreón del Baño de la Cava, by the river near the San Martín bridge',
-    text: 'This ruined tower by the Tagus is tied to the last Visigothic king, Rodrigo. Legend says he watched from a window as Florinda, called La Cava, bathed in the river here, and he took her by force. Her father, Count Julián, governor of Ceuta, swore revenge and opened the straits to the Muslim armies in 711. So, the story goes, Spain was lost for a bath. Historians doubt every word, and the tower is really part of an old bridge. But the name has stuck for a thousand years, and on dark nights the river here is very loud.' }
-];
+// ---------- one-time setup link (#k=<key>) and #translate ----------
+let startTab = store.get(LS.tab, 'map');
+try {
+  const h = location.hash;
+  const m = h.match(/^#k=(.+)$/);
+  if (m) { const k = decodeURIComponent(m[1]).trim(); if (k) store.set(LS.key, k); startTab = 'translate'; }
+  if (h === '#translate') startTab = 'translate';
+  if (h) history.replaceState(null, '', location.pathname + location.search);
+  else if (history.state && history.state.sheet) history.replaceState(null, '');
+} catch {}
+if (!['map', 'stories', 'translate'].includes(startTab)) startTab = 'map';
 
-const map = L.map('map', { zoomControl: false });
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtDist = m => m < 1000 ? Math.round(m) + ' m' : (m / 1000).toFixed(1) + ' km';
+const fmtDur = s => { s = Math.max(0, Math.round(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
 
-let spots = [], intro = null, me = null, meMarker = null, meCircle = null, follow = true;
-
-const pinIcon = (label, cls) => L.divIcon({ className: '', html: `<div class="pin ${cls}">${label}</div>`, iconSize: [34, 34], iconAnchor: [17, 17] });
-
-function distM(a, b) {
-  const R = 6371000, r = Math.PI / 180;
-  const dLat = (b.lat - a.lat) * r, dLon = (b.lon - a.lon) * r;
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLon / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(h));
+// =====================================================================
+// Tabs and sheets
+// =====================================================================
+let tab = null, sheet = null;
+const tabBtns = [...document.querySelectorAll('#tabs button')];
+function showTab(t) {
+  if (sheet) closeSheet();
+  tab = t; store.set(LS.tab, t);
+  for (const b of tabBtns) b.setAttribute('aria-selected', String(b.dataset.tab === t));
+  for (const p of ['map', 'stories', 'translate']) $('p-' + p).classList.toggle('on', p === t);
+  if (t === 'translate') { $('txPanelHost').appendChild(el.transcript); scrollTranscript(); }
+  if (t === 'map') mapShown();
 }
-const fmt = m => m < 1000 ? Math.round(m) + ' m' : (m / 1000).toFixed(1) + ' km';
-const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+tabBtns.forEach(b => b.onclick = () => showTab(b.dataset.tab));
+
+// Sheets add one history entry so the back gesture closes them instead of leaving the app.
+function openSheet(id) {
+  if (!sheet) { try { history.pushState({ sheet: true }, ''); } catch {} }
+  for (const s of document.querySelectorAll('.sheet')) s.classList.toggle('on', s.id === id);
+  sheet = id;
+}
+function hideSheets() { document.querySelectorAll('.sheet').forEach(s => s.classList.remove('on')); sheet = null; }
+function closeSheet() {
+  if (history.state && history.state.sheet) history.back(); // popstate hides it
+  hideSheets();
+}
+window.addEventListener('popstate', hideSheets);
+document.querySelectorAll('[data-close]').forEach(b => b.onclick = closeSheet);
+
+// =====================================================================
+// Stories (data)
+// =====================================================================
+let items = [];          // tour order: Legends tracks, then spots without audio
+let pins = [];           // { spot, item, marker }
+let heard = new Set(store.get(LS.heard, []));
+let positions = store.get(LS.pos, {});
+if (!positions || typeof positions !== 'object') positions = {};
 
 function paragraphs(segments) {
   const out = [];
-  for (const s of segments) {
+  for (const s of segments || []) {
     const last = out[out.length - 1];
     if (last && last.p === s.p) last.text += ' ' + s.text;
     else out.push({ p: s.p, who: s.who, text: s.text });
   }
   return out;
 }
+const isNum = v => typeof v === 'number' && isFinite(v);
 
-function openStory(s) {
-  document.getElementById('s-title').textContent = s.title;
-  let html = `<span class="tag">${s.extra ? 'Legend · text only' : 'Legend · audio'}</span>`;
-  html += `<div class="where">📍 ${esc(s.where)}</div>`;
-  if (s.lat) {
-    const d = me ? ' (' + fmt(distM(me, s)) + ' away)' : '';
-    html += `<a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${s.lat},${s.lon}" target="_blank" rel="noopener">Walking directions${d}</a>`;
-  }
-  if (s.audio) html += `<audio controls preload="none" src="${esc(s.audio)}"></audio>`;
-  if (s.paras) html += s.paras.map(p => `<p class="p ${p.who === 'A' ? 'A' : ''}">${esc(p.text)}</p>`).join('');
-  else html += `<p class="p A">${esc(s.text)}</p>`;
-  document.getElementById('s-body').innerHTML = html;
-  document.getElementById('story').classList.add('open');
-  document.getElementById('story').scrollTop = 0;
+async function getJSON(url) {
+  const r = await fetch(url, { cache: 'no-cache' });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
 }
-document.getElementById('close').onclick = () => {
-  const a = document.querySelector('#s-body audio'); if (a) a.pause();
-  document.getElementById('story').classList.remove('open');
-};
 
-function render() {
-  let nearest = null;
+async function loadData() {
+  const [sp, tr] = await Promise.allSettled([getJSON('spots.json'), getJSON('../toledo/tracks.json')]);
+  const spots = sp.status === 'fulfilled' && Array.isArray(sp.value) ? sp.value.filter(s => s && typeof s === 'object') : [];
+  const tracks = tr.status === 'fulfilled' && tr.value && Array.isArray(tr.value.tracks)
+    ? tr.value.tracks.map((t, i) => ({ t, i })).filter(x => x.t && x.t.group === 'Legends' && x.t.id)
+      .sort((a, b) => (isNum(a.t.stop) ? a.t.stop : 1e9) - (isNum(b.t.stop) ? b.t.stop : 1e9) || a.i - b.i).map(x => x.t)
+    : [];
+  const byTrack = new Map(tracks.map(t => [t.id, t]));
+  const spotsFor = id => spots.filter(s => s.track === id);
+
+  items = tracks.map((t, i) => {
+    const sps = spotsFor(t.id);
+    return {
+      key: t.id, kind: 'audio', title: String(t.title || t.id).replace(/^Stop\s+\d+\.\s*/i, ''),
+      label: isNum(t.stop) ? (t.stop === 0 ? '✦' : String(t.stop)) : String(i + 1),
+      where: (sps[0] && sps[0].where) || t.room || '', spots: sps,
+      audio: t.file ? '../toledo/' + t.file : null, duration: t.duration || 0, paras: paragraphs(t.segments)
+    };
+  });
+  let letter = 0;
   for (const s of spots) {
-    s.d = me ? distM(me, s) : null;
-    if (me && (!nearest || s.d < nearest.d)) nearest = s;
+    if (s.track && byTrack.has(s.track)) continue;
+    items.push({
+      key: 'spot:' + (s.id || s.name), kind: 'text', title: s.name || 'Legend', label: String.fromCharCode(65 + (letter++ % 26)),
+      where: s.where || '', spots: [s], text: s.text || ''
+    });
   }
-  const here = nearest && nearest.d <= 40 ? nearest : null;
-  const sorted = me ? [...spots].sort((a, b) => a.d - b.d) : spots;
-  const list = document.getElementById('list');
-  list.innerHTML = '';
-  const row = (s, num, cls, sub, dist) => {
-    const el = document.createElement('div');
-    el.className = 'row ' + cls;
-    el.innerHTML = `<div class="pin num ${s.extra ? 'extra' : ''} ${cls === 'here' ? 'here' : ''}">${num}</div><div class="name">${esc(s.title)}<small>${esc(sub)}</small></div><div class="dist">${dist}</div>`;
-    el.onclick = () => openStory(s);
-    list.appendChild(el);
-  };
-  if (intro) row(intro, '▶', 'start', 'Start here: introduction, listen anywhere', '');
-  for (const s of sorted) {
-    const isHere = s === here;
-    row(s, s.label, isHere ? 'here' : '', isHere ? 'You are here' : s.where, s.d == null ? '' : fmt(s.d));
-    s.marker.setIcon(pinIcon(s.label, (s.extra ? 'extra ' : '') + (isHere ? 'here' : '')));
+
+  for (const p of pins) p.marker.remove();
+  pins = [];
+  for (const it of items) for (const s of it.spots) {
+    if (!isNum(s.lat) || !isNum(s.lon)) continue;
+    const marker = L.marker([s.lat, s.lon], { icon: pinIcon(it, '') }).addTo(map).on('click', () => openStory(it));
+    pins.push({ spot: s, item: it, marker, cls: '' });
   }
+  const problems = [];
+  if (sp.status !== 'fulfilled') problems.push('map spots');
+  if (tr.status !== 'fulfilled') problems.push('audio stories');
+  if (problems.length) $('progText').textContent = 'Could not load the ' + problems.join(' and ') + '. Check the connection and reload.';
+  fitDone = false; mapShown();
+  renderStories(); updatePins(); restorePlayer();
 }
 
-function setStatus(msg, warn) {
-  const el = document.getElementById('status');
-  el.textContent = msg; el.className = warn ? 'warn' : '';
+// =====================================================================
+// Map and position
+// =====================================================================
+const map = L.map('map', { zoomControl: false, zoomSnap: 0.25, center: [39.8578, -4.0245], zoom: 15 });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+let me = null, meMarker = null, meCircle = null, follow = true, fitDone = false, watchId = null;
+
+function mapShown() {
+  if (tab !== 'map') return;
+  requestAnimationFrame(() => {
+    map.invalidateSize();
+    if (!fitDone && pins.length) { map.fitBounds(L.latLngBounds(pins.map(p => [p.spot.lat, p.spot.lon])), { padding: [40, 40] }); fitDone = true; }
+  });
+}
+window.addEventListener('resize', () => { if (tab === 'map') map.invalidateSize(); });
+
+function pinIcon(it, cls) {
+  const c = (it.kind === 'text' ? 'extra ' : '') + (heard.has(it.key) ? 'heard ' : '') + cls;
+  return L.divIcon({ className: '', html: `<div class="pin ${c}">${esc(it.label)}</div>`, iconSize: [36, 36], iconAnchor: [18, 18] });
+}
+function distM(a, b) {
+  const R = 6371000, r = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * r, dLon = (b.lon - a.lon) * r;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+function itemDist(it) {
+  if (!me) return null;
+  let d = null;
+  for (const s of it.spots) if (isNum(s.lat) && isNum(s.lon)) { const x = distM(me, s); if (d == null || x < d) d = x; }
+  return d;
 }
 
+let nearestPin = null;
+function updatePins() {
+  nearestPin = null;
+  if (me) for (const p of pins) { p.d = distM(me, p.spot); if (!nearestPin || p.d < nearestPin.d) nearestPin = p; }
+  for (const p of pins) {
+    const cls = p === nearestPin ? (p.d <= 40 ? 'near here' : 'near') : '';
+    const sig = cls + heard.has(p.item.key);
+    if (sig !== p.cls) { p.cls = sig; p.marker.setIcon(pinIcon(p.item, cls)); p.marker.setZIndexOffset(cls ? 500 : 0); }
+  }
+  const n = $('nearest');
+  if (nearestPin) {
+    const here = nearestPin.d <= 40;
+    n.hidden = false; n.classList.toggle('here', here);
+    n.innerHTML = `<small>${here ? '<b>You are here</b>' : 'Nearest legend · ' + fmtDist(nearestPin.d)}</small>${esc(nearestPin.spot.name || nearestPin.item.title)}`;
+  } else n.hidden = true;
+  if (tab === 'stories') updateDistances();
+}
+$('nearest').onclick = () => { if (nearestPin) openStory(nearestPin.item); };
+
+function geoMsg(msg) { const g = $('geo'); g.hidden = !msg; g.textContent = msg || ''; }
 function onPos(p) {
   me = { lat: p.coords.latitude, lon: p.coords.longitude };
   const ll = [me.lat, me.lon];
   if (!meMarker) {
-    meMarker = L.marker(ll, { icon: L.divIcon({ className: '', html: '<div class="me"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1000 }).addTo(map);
-    meCircle = L.circle(ll, { radius: p.coords.accuracy, color: '#2f81f7', weight: 1, fillOpacity: .12 }).addTo(map);
+    meMarker = L.marker(ll, { icon: L.divIcon({ className: '', html: '<div class="me"></div>', iconSize: [20, 20], iconAnchor: [10, 10] }), zIndexOffset: 1000, interactive: false }).addTo(map);
+    meCircle = L.circle(ll, { radius: p.coords.accuracy, color: '#2f81f7', weight: 1, fillOpacity: .12, interactive: false }).addTo(map);
   } else { meMarker.setLatLng(ll); meCircle.setLatLng(ll).setRadius(p.coords.accuracy); }
-  if (follow) { map.setView(ll, Math.max(map.getZoom(), 16)); follow = false; }
-  setStatus(`Your position: ±${Math.round(p.coords.accuracy)} m. Nearest legends first.`);
-  render();
+  if (follow) { map.setView(ll, Math.max(map.getZoom(), 16)); follow = false; fitDone = true; }
+  geoMsg(p.coords.accuracy > 150 ? 'Position is rough (±' + Math.round(p.coords.accuracy) + ' m). Step into the open for a better fix.' : '');
+  updatePins();
 }
 function onErr(e) {
-  if (e.code === 1) setStatus('Location permission denied. Allow location for this site in Chrome settings (lock icon › Permissions), then tap Locate me.', true);
-  else setStatus('Cannot get your position yet (' + e.message + '). Keep the screen on and try Locate me.', true);
+  if (e.code === 1) geoMsg('Location is blocked for this page. Allow it in the browser settings, then tap ◎. Stories still work without it.');
+  else geoMsg('Cannot find your position yet. Tap ◎ to try again. Stories still work without it.');
 }
-let watchId = null;
 function startWatch() {
-  if (!navigator.geolocation) { setStatus('This browser has no geolocation.', true); return; }
+  if (!navigator.geolocation || !window.isSecureContext) { geoMsg('Location is not available in this browser. Stories still work.'); return; }
   if (watchId !== null) navigator.geolocation.clearWatch(watchId);
   watchId = navigator.geolocation.watchPosition(onPos, onErr, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
 }
-document.getElementById('locate').onclick = () => { follow = true; if (me) map.setView([me.lat, me.lon], 17); startWatch(); };
+$('locate').onclick = () => { follow = true; if (me) map.setView([me.lat, me.lon], 17); geoMsg(me ? '' : 'Finding your position…'); startWatch(); };
+$('geo').onclick = () => $('locate').onclick();
 
-function addSpot(s) {
-  s.marker = L.marker([s.lat, s.lon], { icon: pinIcon(s.label, s.extra ? 'extra' : '') }).addTo(map).on('click', () => openStory(s));
-  spots.push(s);
-}
-
-async function init() {
-  let tracks = [];
-  try {
-    const r = await fetch('../toledo/tracks.json');
-    tracks = (await r.json()).tracks.filter(t => t.group === 'Legends');
-  } catch (e) { setStatus('Could not load the audio stories. Text-only legends still work.', true); }
-  for (const t of tracks) {
-    const s = { title: t.title, audio: '../toledo/' + t.file, paras: paragraphs(t.segments) };
-    if (t.id.startsWith('l00')) { intro = Object.assign(s, { where: t.room }); continue; }
-    const pin = AUDIO_PINS[t.id];
-    if (!pin) continue;
-    addSpot(Object.assign(s, pin, { label: t.id.slice(2, 3) }));
+// =====================================================================
+// Stories (UI)
+// =====================================================================
+function renderStories() {
+  const list = $('list');
+  list.textContent = '';
+  if (!items.length) { list.innerHTML = '<div class="empty">No stories yet.</div>'; updateProgress(); return; }
+  let group = null;
+  for (const it of items) {
+    if (it.kind !== group) {
+      group = it.kind;
+      const g = document.createElement('div'); g.className = 'group';
+      g.textContent = group === 'audio' ? 'Audio tour · in walking order' : 'More legends to read';
+      list.appendChild(g);
+    }
+    const row = document.createElement('div'); row.className = 'row'; row.dataset.key = it.key;
+    const badge = document.createElement('div'); badge.className = 'badge' + (it.kind === 'text' ? ' extra' : '');
+    const name = document.createElement('button'); name.type = 'button'; name.className = 'name';
+    name.innerHTML = `${esc(it.title)}<small></small>`;
+    name.onclick = () => openStory(it);
+    row.append(badge, name);
+    if (it.audio) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'play'; b.setAttribute('aria-label', 'Play ' + it.title);
+      b.onclick = () => togglePlay(it);
+      row.appendChild(b);
+    } else {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = 'Read';
+      b.onclick = () => openStory(it);
+      row.appendChild(b);
+    }
+    it.row = row;
+    list.appendChild(row);
   }
-  EXTRAS.forEach((x, i) => addSpot(Object.assign({}, x, { extra: true, label: String.fromCharCode(65 + i) })));
-  map.fitBounds(L.latLngBounds(spots.map(s => [s.lat, s.lon])), { padding: [30, 30] });
-  render();
-  startWatch();
+  refreshRows(); updateProgress();
 }
-window.addEventListener('resize', () => map.invalidateSize());
-init();
+function rowSub(it) {
+  const d = itemDist(it);
+  const bits = [];
+  if (d != null) bits.push(fmtDist(d));
+  if (it.duration) bits.push(fmtDur(it.duration));
+  if (it.kind === 'text') bits.push(it.text ? it.where : 'story coming');
+  else if (it.spots[0] && it.spots[0].name) bits.push(it.spots[0].name);
+  else if (it.where) bits.push(it.where);
+  return bits.join(' · ');
+}
+function updateDistances() { for (const it of items) if (it.row) it.row.querySelector('small').textContent = rowSub(it); }
+function refreshRows() {
+  for (const it of items) {
+    if (!it.row) continue;
+    const done = heard.has(it.key), now = current === it, playing = now && !player.paused;
+    const b = it.row.querySelector('.badge');
+    b.textContent = done ? '✓' : it.label; b.classList.toggle('done', done);
+    b.setAttribute('aria-label', done ? 'Heard' : 'Not heard yet');
+    it.row.classList.toggle('now', now);
+    const pb = it.row.querySelector('.play');
+    if (pb) { pb.textContent = playing ? '❚❚' : '▶'; pb.classList.toggle('on', playing); }
+    it.row.querySelector('small').textContent = rowSub(it);
+  }
+}
+function updateProgress() {
+  const n = items.length, h = items.filter(i => heard.has(i.key)).length;
+  if (n) $('progText').textContent = h + ' of ' + n + ' stories heard';
+  $('progBar').style.width = (n ? h / n * 100 : 0) + '%';
+}
+function setHeard(it, on) {
+  if (on) heard.add(it.key); else heard.delete(it.key);
+  store.set(LS.heard, [...heard]);
+  refreshRows(); updateProgress(); updatePins(); if (storyItem === it) renderStoryCtl();
+}
+
+let storyItem = null;
+function openStory(it) {
+  storyItem = it;
+  $('sTitle').textContent = it.title;
+  const s = it.spots.find(x => isNum(x.lat) && isNum(x.lon));
+  let html = `<span class="tag">${it.kind === 'audio' ? 'Legend · audio' : 'Legend · to read'}</span>`;
+  if (it.where) html += `<p class="where">📍 ${esc(it.where)}${s && s.approx ? ' (approximate)' : ''}</p>`;
+  if (s) {
+    const d = itemDist(it);
+    html += `<a class="nav" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${s.lat},${s.lon}" target="_blank" rel="noopener">Walking directions${d != null ? ' (' + fmtDist(d) + ')' : ''} ↗</a>`;
+  }
+  html += '<div class="sctl">' + (it.audio ? '<button id="sPlay" class="btn" type="button"></button>' : '') +
+    '<button id="sHeard" class="btn" type="button"></button></div>';
+  if (it.paras && it.paras.length) html += it.paras.map(p => `<p class="p ${p.who === 'A' ? 'A' : ''}">${esc(p.text)}</p>`).join('');
+  else if (it.text) html += `<p class="p A">${esc(it.text)}</p>`;
+  else html += '<p class="p" style="color:var(--muted)">This story is coming soon.</p>';
+  $('sBody').innerHTML = html;
+  if ($('sPlay')) $('sPlay').onclick = () => togglePlay(it);
+  $('sHeard').onclick = () => setHeard(it, !heard.has(it.key));
+  renderStoryCtl();
+  openSheet('story');
+  $('sBody').scrollTop = 0;
+}
+function renderStoryCtl() {
+  if (!storyItem || !$('sHeard')) return;
+  const it = storyItem, done = heard.has(it.key);
+  $('sHeard').textContent = done ? '✓ Heard' : (it.kind === 'audio' ? 'Mark as heard' : 'Mark as read');
+  $('sHeard').setAttribute('aria-pressed', String(done));
+  if ($('sPlay')) {
+    const playing = current === it && !player.paused;
+    const resume = current === it ? player.currentTime : (positions[it.key] || 0);
+    $('sPlay').textContent = playing ? '❚❚ Pause' : (resume > 5 ? '▶ Resume ' : '▶ Play ') + fmtDur(it.duration);
+  }
+}
+
+// =====================================================================
+// Audio player (one element: mini-player, lock screen, Media Session)
+// =====================================================================
+const player = $('player');
+let current = null, lastSave = 0;
+const audioItems = () => items.filter(i => i.audio);
+
+function load(it, autoplay) {
+  if (current && current !== it) savePos(true);
+  current = it;
+  store.set(LS.now, it.key);
+  player.src = it.audio;
+  const at = positions[it.key] || 0;
+  if (at > 5 && (!it.duration || at < it.duration - 5)) {
+    player.addEventListener('loadedmetadata', () => { try { player.currentTime = at; } catch {} }, { once: true });
+  }
+  setMeta(it);
+  $('mTitle').textContent = it.title;
+  $('mini').hidden = false;
+  if (autoplay) playNow();
+  updateUI();
+}
+function playNow() {
+  // Mute the microphone before sound starts, so the guide's translation never hears the story.
+  holdTranslation();
+  const p = player.play();
+  if (p && p.catch) p.catch(() => { releaseTranslation(); updateUI(); });
+}
+function togglePlay(it) {
+  if (current !== it) load(it, true);
+  else if (player.paused) playNow();
+  else player.pause();
+}
+function savePos(force) {
+  if (!current || !isFinite(player.currentTime)) return;
+  if (!force && Date.now() - lastSave < 5000) return;
+  lastSave = Date.now();
+  positions[current.key] = player.currentTime;
+  store.set(LS.pos, positions);
+}
+function updateUI() {
+  const playing = current && !player.paused;
+  $('mPlay').textContent = playing ? '❚❚' : '▶';
+  $('mPlay').setAttribute('aria-label', playing ? 'Pause' : 'Play');
+  refreshRows(); renderStoryCtl();
+  if ('mediaSession' in navigator) navigator.mediaSession.playbackState = current ? (playing ? 'playing' : 'paused') : 'none';
+}
+function updateTime() {
+  const d = player.duration || (current && current.duration) || 0;
+  if (!seeking) $('mSeek').value = d ? Math.round(player.currentTime / d * 1000) : 0;
+  $('mTime').textContent = fmtDur(player.currentTime) + ' / ' + fmtDur(d);
+  if ('mediaSession' in navigator && navigator.mediaSession.setPositionState && isFinite(player.duration) && player.duration > 0) {
+    try { navigator.mediaSession.setPositionState({ duration: player.duration, position: Math.min(player.currentTime, player.duration), playbackRate: player.playbackRate }); } catch {}
+  }
+}
+player.addEventListener('play', () => { holdTranslation(); updateUI(); });
+player.addEventListener('pause', () => { savePos(true); releaseTranslation(); updateUI(); });
+player.addEventListener('timeupdate', () => { updateTime(); savePos(false); });
+player.addEventListener('loadedmetadata', updateTime);
+player.addEventListener('ended', () => {
+  if (current) { positions[current.key] = 0; store.set(LS.pos, positions); setHeard(current, true); }
+  releaseTranslation(); updateUI();
+});
+player.addEventListener('error', () => { if (current) $('mTime').textContent = 'Audio could not load. Check the connection.'; releaseTranslation(); updateUI(); });
+
+let seeking = false;
+$('mSeek').addEventListener('input', () => { seeking = true; });
+$('mSeek').addEventListener('change', () => {
+  const d = player.duration; if (d) player.currentTime = $('mSeek').value / 1000 * d; seeking = false;
+});
+$('mPlay').onclick = () => { if (current) togglePlay(current); };
+$('mBack').onclick = () => { player.currentTime = Math.max(0, player.currentTime - 15); };
+$('mTitle').onclick = () => { if (current) openStory(current); };
+$('mClose').onclick = () => {
+  savePos(true); player.pause(); player.removeAttribute('src'); player.load();
+  current = null; store.del(LS.now); $('mini').hidden = true; updateUI();
+};
+
+function setMeta(it) {
+  if (!('mediaSession' in navigator)) return;
+  try {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: it.title, artist: 'Toledo Night Legends', album: 'Toledo after dark',
+      artwork: [{ src: '../toledo/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '../toledo/icon-180.png', sizes: '180x180', type: 'image/png' }]
+    });
+  } catch {}
+}
+function step(dir) {
+  const list = audioItems(), i = list.indexOf(current), n = list[i + dir];
+  if (n) load(n, true);
+}
+if ('mediaSession' in navigator) {
+  const h = {
+    play: () => current && playNow(), pause: () => player.pause(),
+    seekbackward: e => { player.currentTime = Math.max(0, player.currentTime - ((e && e.seekOffset) || 15)); },
+    seekforward: e => { player.currentTime = Math.min(player.duration || 0, player.currentTime + ((e && e.seekOffset) || 15)); },
+    seekto: e => { if (e && isNum(e.seekTime)) player.currentTime = e.seekTime; },
+    previoustrack: () => step(-1), nexttrack: () => step(1)
+  };
+  for (const k in h) { try { navigator.mediaSession.setActionHandler(k, h[k]); } catch {} }
+}
+function restorePlayer() {
+  if (current) return;
+  const key = store.get(LS.now, null);
+  const it = key && items.find(i => i.key === key && i.audio);
+  if (it) load(it, false);
+}
+window.addEventListener('pagehide', () => savePos(true));
+
+// =====================================================================
+// Translation (ported from listen.html)
+// =====================================================================
+const DEFAULTS = {
+  endpoint: 'https://api.groq.com/openai/v1/audio/translations',
+  model: 'whisper-large-v3',
+  chunkSec: 10,
+  thresh: 0.02,
+  prompt: 'A night walking tour of Toledo, Spain, about its legends. Names: Toledo, Zocodover, Cristo de la Luz, ' +
+    'Cueva de Hércules, rey Rodrigo, Florinda la Cava, Pozo Amargo, Raquel, Fernando, Cristo de la Vega, Bécquer, ' +
+    'El beso, San Pedro Mártir, Hombre de Palo, Juanelo Turriano, Alfileritos, Inquisición, judería, Alcázar, Tajo, ' +
+    'catedral, Cisneros, alfaquí, mozárabe, Santo Domingo el Real, cobertizos.'
+};
+// Lines Whisper invents on silence or noise.
+const HALLUCINATION = [
+  /thank(s| you) for watching/i, /subtit(le|les|led) by/i, /amara\.org/i, /please subscribe/i,
+  /like and subscribe/i, /see you (in the )?next (video|time)/i, /(translated|transcribed|captions?) by/i,
+  /^\W*(\[?music\]?|♪+)\W*$/i, /www\.\S+/i, /don't forget to subscribe/i
+];
+const WEAK_LINES = /^\W*(thank you( very much)?|thanks|you|bye( bye)?|okay|ok|so|yeah|hmm+)\W*$/i;
+// Legend guesser on accent-stripped lowercase text. `ref` is a track id or spot id that opens the story.
+const LEGENDS = [
+  { name: 'The Bitter Well (Pozo Amargo)', ref: 'l04-bitter-well', all: [/pozo|well/, /amargo|bitter/] },
+  { name: 'The Cave of Hercules', ref: 'l02-cave-of-hercules', any: [/hercules/, /cueva de/] },
+  { name: 'King Rodrigo and Florinda la Cava', ref: 'x5', any: [/rodrigo/, /florinda/, /la cava/] },
+  { name: 'Cristo de la Vega', ref: 'l05-cristo-de-la-vega', any: [/cristo de la vega/, /christ of (the )?vega/, /\bvega\b.*(hand|arm)|(hand|arm).*\bvega\b/] },
+  { name: 'Cristo de la Luz', ref: 'l01-cristo-de-la-luz', any: [/cristo de la luz/, /christ of (the )?light/] },
+  { name: 'Bécquer and El Beso (The Kiss)', ref: 'l06-becquer-the-kiss', any: [/becquer/, /el beso/, /\bkiss\b/] },
+  { name: 'The Wooden Man (Hombre de Palo)', ref: 'l07-hombre-de-palo', any: [/hombre de palo/, /wooden man/, /man of wood/, /juanelo/, /turriano/] },
+  { name: 'Alfileritos', ref: 'x2', any: [/alfilerit/, /\bpins\b/] },
+  { name: 'The Inquisition', any: [/inquisi/, /san pedro martir/, /heretic/, /auto de fe/] },
+  { name: 'Santo Domingo el Real and the cobertizos', ref: 'x4', any: [/santo domingo/, /cobertizo/] },
+  { name: 'Raquel and King Fernando', ref: 'l04-bitter-well', all: [/raquel|rachel/] },
+  { name: 'The Cathedral', any: [/cathedral|catedral/, /cisneros/, /mozarab/] }
+];
+
+const el = {
+  sw: $('txSwitch'), swSt: $('txSwitchSt'), bar: $('txbar'), state: $('txState'), note: $('txnote'),
+  status: $('txStatus'), level: $('level'), threshMark: $('threshMark'), hint: $('hint'),
+  transcript: $('transcript'), empty: $('txEmpty'), peek: $('peek'), peekText: $('peekText'),
+  apiKey: $('apiKey'), endpoint: $('endpoint'), model: $('model'), chunkSec: $('chunkSec'), chunkVal: $('chunkVal'),
+  thresh: $('thresh'), threshVal: $('threshVal'), prompt: $('prompt')
+};
+
+let settings = Object.assign({}, DEFAULTS, store.get(LS.settings, {}));
+let apiKey = store.get(LS.key, '');
+if (typeof apiKey !== 'string') apiKey = '';
+let entries = store.get(LS.transcript, []);
+if (!Array.isArray(entries)) entries = [];
+
+// ---------- settings ----------
+function fillSettings() {
+  el.apiKey.value = apiKey;
+  el.endpoint.value = settings.endpoint;
+  el.model.value = settings.model;
+  el.chunkSec.value = settings.chunkSec; el.chunkVal.textContent = settings.chunkSec;
+  el.thresh.value = settings.thresh; el.threshVal.textContent = (+settings.thresh).toFixed(3);
+  el.prompt.value = settings.prompt;
+  placeThreshMark();
+}
+function readSettings() {
+  settings = {
+    endpoint: el.endpoint.value.trim() || DEFAULTS.endpoint,
+    model: el.model.value.trim() || DEFAULTS.model,
+    chunkSec: Math.min(30, Math.max(10, parseInt(el.chunkSec.value, 10) || DEFAULTS.chunkSec)),
+    thresh: Math.min(0.08, Math.max(0.005, parseFloat(el.thresh.value) || DEFAULTS.thresh)),
+    prompt: el.prompt.value.trim()
+  };
+  apiKey = el.apiKey.value.trim();
+  store.set(LS.settings, settings);
+  if (apiKey) store.set(LS.key, apiKey); else store.del(LS.key);
+  if (apiKey && !el.note.classList.contains('err')) showNote('');
+}
+el.chunkSec.addEventListener('input', () => { el.chunkVal.textContent = el.chunkSec.value; readSettings(); });
+el.thresh.addEventListener('input', () => { el.threshVal.textContent = (+el.thresh.value).toFixed(3); readSettings(); placeThreshMark(); });
+[el.apiKey, el.endpoint, el.model, el.prompt].forEach(i => i.addEventListener('change', readSettings));
+$('saveBtn').onclick = () => { readSettings(); setStatus('Settings saved.', 'ok'); };
+$('resetBtn').onclick = () => { const k = apiKey; settings = Object.assign({}, DEFAULTS); fillSettings(); el.apiKey.value = k; readSettings(); setStatus('Defaults restored (key kept).', 'ok'); };
+$('forgetKeyBtn').onclick = () => { el.apiKey.value = ''; readSettings(); if (enabled) turnOff(); setStatus('Key removed from this phone.', 'ok'); };
+
+// ---------- transcript ----------
+const fmtTime = ts => new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+function guessLegend(text) {
+  const t = norm(text);
+  for (const g of LEGENDS) {
+    if ((g.all && g.all.every(r => r.test(t))) || (g.any && g.any.some(r => r.test(t)))) return g;
+  }
+  return null;
+}
+function openRef(ref) {
+  const it = ref && items.find(i => i.key === ref || i.spots.some(s => s.id === ref));
+  if (it) openStory(it); else showTab('stories');
+}
+function renderEntry(e) {
+  if (e.type === 'mark') {
+    const d = document.createElement('div'); d.className = 'mark'; d.textContent = 'New stop · ' + fmtTime(e.t); return d;
+  }
+  const d = document.createElement('div'); d.className = 'chunk' + (e.type === 'note' ? ' note' : '');
+  const tm = document.createElement('time'); tm.textContent = fmtTime(e.t); d.appendChild(tm);
+  const p = document.createElement('p'); p.textContent = e.text; d.appendChild(p);
+  if (e.legend) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'lg';
+    b.textContent = 'Maybe: ' + e.legend + ' →';
+    b.onclick = () => openRef(e.ref);
+    d.appendChild(b);
+  }
+  return d;
+}
+function nearBottom() { const t = el.transcript; return t.scrollHeight - t.scrollTop - t.clientHeight < 120; }
+function scrollTranscript() { requestAnimationFrame(() => { el.transcript.scrollTop = el.transcript.scrollHeight; }); }
+function renderAll() {
+  el.transcript.textContent = '';
+  if (!entries.length) el.transcript.appendChild(el.empty);
+  else entries.forEach(e => el.transcript.appendChild(renderEntry(e)));
+  scrollTranscript(); updatePeek();
+}
+function addEntry(e) {
+  const stick = nearBottom();
+  entries.push(e);
+  if (!store.set(LS.transcript, entries)) setStatus('Phone storage is full: copy the transcript soon.', 'warn');
+  if (el.empty.parentNode) el.empty.remove();
+  el.transcript.appendChild(renderEntry(e));
+  if (stick) el.transcript.scrollTop = el.transcript.scrollHeight;
+  updatePeek();
+}
+function updatePeek() {
+  el.peek.hidden = !enabled;
+  const last = [...entries].reverse().find(e => e.type === 'text');
+  el.peekText.textContent = last ? last.text : 'Listening… the English text will appear here.';
+}
+el.peek.onclick = openTxSheet;
+function openTxSheet() { $('txSheetHost').appendChild(el.transcript); openSheet('txsheet'); scrollTranscript(); }
+$('markBtn').onclick = () => addEntry({ type: 'mark', t: Date.now() });
+$('copyBtn').onclick = async () => {
+  const txt = entries.map(e => e.type === 'mark' ? '\n--- New stop ' + fmtTime(e.t) + ' ---\n' : '[' + fmtTime(e.t) + '] ' + e.text).join('\n');
+  try { await navigator.clipboard.writeText(txt); setStatus('Transcript copied.', 'ok'); }
+  catch {
+    const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand && document.execCommand('copy'); ta.remove();
+    setStatus(ok ? 'Transcript copied.' : 'Copy failed.', ok ? 'ok' : 'err');
+  }
+};
+$('clearBtn').onclick = () => {
+  if (!confirm('Delete the whole transcript from this phone?')) return;
+  entries = []; store.del(LS.transcript); renderAll(); setStatus('Transcript cleared.', 'ok');
+};
+
+// ---------- status ----------
+// The status line (Translate tab) has the full text; the bar under the top bar has the short state and mic level.
+function setStatus(msg, cls) { el.status.textContent = msg; el.status.className = cls || ''; }
+function showNote(msg, err) { el.note.hidden = !msg; el.note.textContent = msg || ''; el.note.classList.toggle('err', !!err); }
+el.note.onclick = () => showNote('');
+let lastErr = 0, lastErrMsg = '';
+function setBar(s, text) {
+  el.bar.dataset.s = s; el.state.textContent = text;
+  el.swSt.textContent = !enabled ? 'off' : s === 'held' ? 'paused' : s === 'error' ? 'problem' : 'on';
+}
+function refreshStatus() {
+  if (!enabled) return;
+  if (held) { setBar('held', 'Paused while the story plays'); return; }
+  if (Date.now() - lastErr < 6000) { setBar('error', lastErrMsg); return; }
+  if (!running) { setBar('starting', 'Starting the microphone…'); return; }
+  const left = Math.max(0, Math.ceil((chunkEndsAt - Date.now()) / 1000));
+  const q = queue.length + (busy ? 1 : 0);
+  if (q) setBar('sending', 'Translating' + (q > 1 ? ' (' + q + ' waiting)' : '') + '…');
+  else setBar('listening', 'Listening');
+  setStatus('Listening · next chunk in ' + left + ' s' + (q ? ' · sending ' + q : ''), 'ok');
+}
+function error(msg) { lastErr = Date.now(); lastErrMsg = msg; setStatus(msg, 'err'); refreshStatus(); }
+
+// ---------- switch ----------
+let enabled = false, held = false, wantHold = false;
+function renderSwitch() {
+  el.sw.setAttribute('aria-checked', String(enabled));
+  el.bar.hidden = !enabled;
+  if (!enabled) { el.swSt.textContent = 'off'; el.level.style.width = '0'; }
+  updatePeek();
+}
+el.sw.onclick = () => enabled ? turnOff() : turnOn();
+el.bar.onclick = () => { if (tab === 'map') openTxSheet(); else showTab('translate'); };
+
+async function turnOn() {
+  readSettings();
+  if (!apiKey) {
+    showNote('Translation is not set up on this phone yet. Ask the app’s owner to send you the setup link.');
+    setStatus('No translation key on this phone yet. Open the setup link from the app’s owner.', 'warn');
+    return;
+  }
+  if (!window.isSecureContext) { showNote('Translation needs the secure (https) version of this page.', true); return; }
+  showNote('');
+  enabled = true; held = false; lastErr = 0; rejectedKey = '';
+  renderSwitch(); refreshStatus();
+  if (current && !player.paused) { held = true; setStatus('Paused while the story plays · listening resumes after it.', 'warn'); refreshStatus(); return; }
+  await startMic();
+}
+function turnOff(msg, cls) {
+  enabled = false; held = false;
+  stopMic(true);
+  renderSwitch();
+  setStatus(msg || (queue.length || busy ? 'Off · finishing the last translation…' : 'Translation is off. The microphone is closed.'), cls || '');
+}
+// Story audio: the mic would only hear the phone, so close it while a story plays.
+function holdTranslation() {
+  if (!enabled || held) return;
+  held = true;
+  stopMic(false);
+  setStatus('Paused while the story plays · listening resumes after it.', 'warn');
+  refreshStatus();
+}
+function releaseTranslation() {
+  if (!enabled || !held) return;
+  if (current && !player.paused) return;
+  held = false;
+  setStatus('Story stopped · listening again.', 'ok');
+  startMic();
+}
+
+// ---------- audio capture ----------
+let stream = null, srcNode = null, audioCtx = null, analyser = null, meterTimer = null, statusTimer = null;
+let recorder = null, chunkTimer = null, chunkEndsAt = 0, running = false, wakeLock = null, starting = false;
+let quietRun = 0, chunkStats = null, mime = '';
+const buf = new Float32Array(2048);
+const recentPeaks = [];
+
+function pickMime() {
+  if (typeof MediaRecorder === 'undefined') return null;
+  const opts = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4;codecs=mp4a.40.2', 'audio/mp4', 'audio/ogg;codecs=opus'];
+  for (const m of opts) { try { if (MediaRecorder.isTypeSupported(m)) return m; } catch {} }
+  return '';
+}
+function extFor(m) { return /webm/.test(m) ? 'webm' : /mp4|aac|m4a/.test(m) ? 'm4a' : /ogg/.test(m) ? 'ogg' : 'webm'; }
+// RMS 0..~0.5 mapped to a log-ish meter so quiet speech is visible.
+function levelToPct(rms) { return Math.max(0, Math.min(100, (Math.log10(rms + 1e-4) + 4) / 3.7 * 100)); }
+function placeThreshMark() { el.threshMark.style.left = Math.min(98, levelToPct(settings.thresh)) + '%'; }
+
+function sampleLevel() {
+  if (!analyser) return;
+  analyser.getFloatTimeDomainData(buf);
+  let s = 0; for (let i = 0; i < buf.length; i++) s += buf[i] * buf[i];
+  const rms = Math.sqrt(s / buf.length);
+  el.level.style.width = levelToPct(rms) + '%';
+  el.level.style.background = rms >= settings.thresh ? 'var(--ok)' : 'var(--muted)';
+  if (chunkStats) {
+    chunkStats.frames++; if (rms >= settings.thresh) chunkStats.voiced++;
+    if (rms > chunkStats.peak) chunkStats.peak = rms;
+    // Cut at a breath: once the chunk has its minimum length, end it at the first short pause.
+    quietRun = rms < settings.thresh ? quietRun + 1 : 0;
+    if (running && quietRun >= 3 && Date.now() - chunkStats.start >= settings.chunkSec * 1000) { quietRun = 0; beginChunk(); }
+  }
+  recentPeaks.push(rms); if (recentPeaks.length > 50) recentPeaks.shift();
+  const loud = recentPeaks.filter(r => r >= settings.thresh).length;
+  el.hint.textContent = running && recentPeaks.length >= 50 && loud < 3 ? 'Guide sounds faint: move closer, or point the phone toward her.' : '';
+}
+
+async function acquireWakeLock() {
+  try {
+    if (!wakeLock && 'wakeLock' in navigator && document.visibilityState === 'visible') {
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => { wakeLock = null; });
+    }
+  } catch { /* not fatal */ }
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && running) {
+    acquireWakeLock();
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+  }
+});
+
+async function startMic() {
+  if (running || starting || !enabled || held) return;
+  mime = pickMime();
+  if (mime === null || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    turnOff('This browser cannot record audio here (it needs https and a recent browser).', 'err');
+    showNote('This browser cannot use the microphone for translation.', true); return;
+  }
+  starting = true;
+  let s;
+  try {
+    s = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, channelCount: 1 } });
+  } catch (err) {
+    starting = false;
+    const resumed = !!audioCtx; // an automatic restart after a story may need a fresh tap
+    turnOff(resumed ? 'Microphone did not restart. Tap the switch to listen again.' : 'Microphone blocked: allow it for this site, then turn the switch on again.', 'err');
+    showNote(resumed ? 'Translation stopped: tap the switch to listen again.' : 'The microphone is blocked. Allow it for this site, then try again.', true);
+    return;
+  }
+  starting = false;
+  // The switch may have been turned off, or a story started, while the browser was asking.
+  if (!enabled || held) { s.getTracks().forEach(t => t.stop()); return; }
+  stream = s;
+  try {
+    if (!audioCtx) { const AC = window.AudioContext || window.webkitAudioContext; audioCtx = new AC(); }
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    srcNode = audioCtx.createMediaStreamSource(stream);
+    if (!analyser) { analyser = audioCtx.createAnalyser(); analyser.fftSize = 2048; }
+    srcNode.connect(analyser);
+  } catch { analyser = null; }
+  running = true;
+  clearInterval(meterTimer); clearInterval(statusTimer);
+  meterTimer = setInterval(sampleLevel, 100);
+  statusTimer = setInterval(refreshStatus, 1000);
+  acquireWakeLock();
+  beginChunk();
+  refreshStatus();
+}
+
+function beginChunk() {
+  let rec;
+  try { rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream); }
+  catch { turnOff('Recorder failed to start.', 'err'); return; }
+  const parts = [];
+  const stats = { frames: 0, voiced: 0, peak: 0, start: Date.now() };
+  rec.ondataavailable = ev => { if (ev.data && ev.data.size) parts.push(ev.data); };
+  rec.onstop = () => { const type = rec.mimeType || mime || 'audio/webm'; onChunk(new Blob(parts, { type }), stats, type); };
+  rec.start();
+  // The old recorder stops only after the new one runs, so no audio is lost between chunks.
+  const prev = recorder;
+  recorder = rec; chunkStats = stats;
+  if (prev && prev.state !== 'inactive') prev.stop();
+  // settings.chunkSec is the minimum; with no pause, force a cut 6 s later.
+  chunkEndsAt = Date.now() + (settings.chunkSec + 6) * 1000;
+  clearTimeout(chunkTimer);
+  chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 6) * 1000);
+}
+
+// full = switch off (also close the audio context and wake lock); otherwise a hold for story audio.
+function stopMic(full) {
+  running = false;
+  clearTimeout(chunkTimer); clearInterval(meterTimer); clearInterval(statusTimer);
+  if (recorder && recorder.state !== 'inactive') recorder.stop(); // the last partial chunk is still sent
+  recorder = null; chunkStats = null;
+  if (srcNode) { try { srcNode.disconnect(); } catch {} srcNode = null; }
+  if (stream) stream.getTracks().forEach(t => t.stop());
+  stream = null;
+  if (wakeLock) wakeLock.release().catch(() => {});
+  wakeLock = null;
+  el.level.style.width = '0'; el.hint.textContent = ''; recentPeaks.length = 0;
+  if (full) {
+    if (audioCtx) audioCtx.close().catch(() => {});
+    audioCtx = null; analyser = null;
+  }
+}
+
+// ---------- sending ----------
+const queue = []; let busy = false, lastText = '', rejectedKey = '';
+
+function onChunk(blob, stats, type) {
+  const dur = (Date.now() - stats.start) / 1000;
+  const voicedFrac = stats.frames ? stats.voiced / stats.frames : 1; // no analyser: send everything
+  if (dur < 1.5 || blob.size < 1000 || apiKey === rejectedKey) return;
+  if (stats.frames && (voicedFrac < 0.03 || stats.peak < settings.thresh)) return; // silent: skip
+  if (blob.size > 24 * 1024 * 1024) { addEntry({ type: 'note', t: stats.start, text: '[chunk too large, skipped]' }); return; }
+  queue.push({ blob, type, t: stats.start, voicedFrac, tries: 0 });
+  pump();
+}
+function buildPrompt() {
+  let p = settings.prompt || '';
+  // Append the tail of the previous chunk for continuity, staying well under 224 tokens.
+  if (lastText) { const room = Math.max(0, 700 - p.length); if (room > 40) p += ' ' + lastText.slice(-Math.min(room, 200)); }
+  return p.slice(0, 700);
+}
+function cleanText(data, voicedFrac) {
+  let text;
+  if (data && Array.isArray(data.segments) && data.segments.length) {
+    text = data.segments
+      .filter(s => !(typeof s.no_speech_prob === 'number' && s.no_speech_prob > 0.6 && typeof s.avg_logprob === 'number' && s.avg_logprob < -0.7))
+      .map(s => (s.text || '').trim()).join(' ');
+  } else text = (data && data.text) || '';
+  text = (text.match(/[^.!?]+[.!?]*/g) || []).map(s => s.trim()).filter(s => s && !HALLUCINATION.some(r => r.test(s))).join(' ').trim();
+  if (WEAK_LINES.test(text) && voicedFrac < 0.2) return '';
+  return text;
+}
+async function pump() {
+  if (busy) return;
+  const item = queue.shift();
+  if (!item) { if (!enabled && /finishing/.test(el.status.textContent)) setStatus('Translation is off. The microphone is closed.', ''); refreshStatus(); return; }
+  if (!apiKey) { queue.length = 0; return; }
+  busy = true;
+  refreshStatus();
+  try {
+    const fd = new FormData();
+    fd.append('file', item.blob, 'chunk.' + extFor(item.type));
+    fd.append('model', settings.model);
+    const pr = buildPrompt(); if (pr) fd.append('prompt', pr);
+    fd.append('response_format', 'verbose_json');
+    fd.append('temperature', '0');
+    const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 45000);
+    let res;
+    try { res = await fetch(settings.endpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + apiKey }, body: fd, signal: ctl.signal }); }
+    finally { clearTimeout(to); }
+    if (!res.ok) {
+      let msg = ''; try { const j = await res.json(); msg = (j.error && j.error.message) || ''; } catch {}
+      const e = new Error(msg || ('HTTP ' + res.status)); e.status = res.status;
+      e.retryAfter = parseFloat(res.headers.get('retry-after')) || 0; throw e;
+    }
+    const data = await res.json();
+    const text = cleanText(data, item.voicedFrac);
+    if (text) { lastText = text; const g = guessLegend(text); addEntry({ type: 'text', t: item.t, text, legend: g && g.name, ref: g && g.ref }); }
+  } catch (err) {
+    const status = err.status || 0;
+    if (status === 401 || status === 403) {
+      // Every later chunk would fail too: switch off and close the microphone.
+      queue.length = 0; busy = false; rejectedKey = apiKey;
+      addEntry({ type: 'note', t: item.t, text: '[not translated: key rejected]' });
+      if (enabled) turnOff('Key rejected (' + status + '). Ask the app’s owner for a new setup link.', 'err');
+      showNote('Translation stopped: the key was rejected. Ask the app’s owner for a new setup link.', true);
+      return;
+    } else if (item.tries < 1 && status !== 400 && status !== 413) {
+      item.tries++;
+      const wait = status === 429 ? Math.min(30, Math.max(3, err.retryAfter || 5)) : 3;
+      error((status === 429 ? 'Too many requests' : 'Send failed') + ' · retrying in ' + Math.round(wait) + ' s');
+      busy = false;
+      setTimeout(() => { queue.unshift(item); pump(); }, wait * 1000);
+      return;
+    } else {
+      error('A piece was not translated (' + (status ? 'HTTP ' + status : 'no connection') + '). Still listening.');
+      addEntry({ type: 'note', t: item.t, text: '[chunk skipped: ' + (status || 'network') + ']' });
+    }
+  }
+  busy = false;
+  pump();
+}
+
+// =====================================================================
+// Start
+// =====================================================================
+fillSettings();
+renderAll();
+renderSwitch();
+if (!apiKey) setStatus('No translation key on this phone yet. Open the setup link from the app’s owner.', 'warn');
+else if (startTab === 'translate' && location.hash === '') setStatus('Ready. Turn on the switch at the top to translate the guide.', 'ok');
+showTab(startTab);
+startWatch();
+loadData();
+})();
 </script>
 </body>
 </html>

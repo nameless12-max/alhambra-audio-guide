@@ -1,0 +1,132 @@
+[
+ {
+  "id": "l01",
+  "name": "Cristo de la Luz",
+  "where": "Mezquita del Cristo de la Luz, Calle Cristo de la Luz, by the Puerta del Sol gate",
+  "lat": 39.8606,
+  "lon": -4.02418,
+  "track": "l01-cristo-de-la-luz",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "l02",
+  "name": "Cave of Hercules",
+  "where": "Cuevas de Hércules, Callejón de San Ginés",
+  "lat": 39.85865,
+  "lon": -4.0243,
+  "track": "l02-cave-of-hercules",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "l03",
+  "name": "School of Magic (cathedral)",
+  "where": "Outside the cathedral, Calle Cardenal Cisneros (the tale has no fixed spot)",
+  "lat": 39.85663,
+  "lon": -4.02401,
+  "track": "l03-school-of-magic",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "l04",
+  "name": "The Bitter Well",
+  "where": "Calle del Pozo Amargo (lane midpoint)",
+  "lat": 39.85502,
+  "lon": -4.02352,
+  "track": "l04-bitter-well",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "l05",
+  "name": "Cristo de la Vega",
+  "where": "Ermita del Cristo de la Vega, Paseo Cristo de la Vega, outside the walls",
+  "lat": 39.86094,
+  "lon": -4.03422,
+  "track": "l05-cristo-de-la-vega",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "l06",
+  "name": "Bécquer: The Kiss",
+  "where": "Church of San Pedro Mártir, Calle San Román (San Clemente is next door)",
+  "lat": 39.85796,
+  "lon": -4.02725,
+  "track": "l06-becquer-the-kiss",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "l07",
+  "name": "Street of the Wooden Man",
+  "where": "Calle del Hombre de Palo (lane midpoint)",
+  "lat": 39.85793,
+  "lon": -4.02398,
+  "track": "l07-hombre-de-palo",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "l08",
+  "name": "Christ of the Skull",
+  "where": "Calle del Cristo de la Calavera (lane midpoint)",
+  "lat": 39.85683,
+  "lon": -4.02153,
+  "track": "l08-christ-of-the-skull",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "x1",
+  "name": "Plaza de Zocodover: market and fire",
+  "where": "Plaza de Zocodover, the main square",
+  "lat": 39.85948,
+  "lon": -4.02142,
+  "track": null,
+  "text": "The name comes from the Arabic for \"market of the beasts\", and for centuries this was where Toledo bought its horses, bread and gossip. But the square had a darker trade. Here the Inquisition staged its autos-da-fé: crowds packed the balconies, the condemned walked in yellow penitent robes, and sentences were read aloud before the city. Bullfights, executions and fairs all shared these same stones. Legend says that on quiet nights you can still hear the murmur of a crowd that is no longer there.",
+  "approx": false
+ },
+ {
+  "id": "x2",
+  "name": "The Virgin of the Little Pins",
+  "where": "Virgen de los Alfileritos, a niche on Calle Alfileritos",
+  "lat": 39.85983,
+  "lon": -4.02324,
+  "track": null,
+  "text": "In a glass niche on this narrow lane, a few steps from Zocodover, stands a small Virgin among candles and flowers. The best-loved version of her legend tells of Doña Soledad de Vargas, a young woman who came here to pray for love. Each time she prayed, she pushed a pin through the little grille as her offering. Others say the pins were meant to bring an absent lover home. Either way, the custom never died: Toledans still leave a pin here when they ask for a sweetheart. Look closely and you will see them, bright in the candlelight.",
+  "approx": false
+ },
+ {
+  "id": "x3",
+  "name": "The Cobertizos: lanes under houses",
+  "where": "Cobertizo de Santo Domingo el Real (lane midpoint)",
+  "lat": 39.86055,
+  "lon": -4.02571,
+  "track": null,
+  "text": "A cobertizo is a lane that runs under the houses, roofed over by rooms built across the street. These tunnels were the darkest places in the old city, and Toledans filled them with stories. Night walkers spoke of footsteps that followed and then stopped, of cloaked figures that vanished at the far arch, and of lovers who met here because no window could see them. Walk through slowly. At night the vaults swallow sound, and every footstep seems to arrive a little late.",
+  "approx": true
+ },
+ {
+  "id": "x4",
+  "name": "Santo Domingo el Real: Bécquer's square",
+  "where": "Plaza de Santo Domingo el Real, in front of the convent",
+  "lat": 39.86048,
+  "lon": -4.02632,
+  "track": null,
+  "text": "The Romantic poet Gustavo Adolfo Bécquer came to Toledo in the 1850s and walked its lanes at night, and this small, silent square below the enclosed convent of Santo Domingo el Real was one of his haunts. High blind walls, barred windows, a bell, and nuns who are heard but never seen: it is the stage set of his legends. In them, a stranger glimpses a pale hand behind a convent grille, or follows a woman into a lane that ends in nothing. Stand still here after dark. The square has hardly changed since he stood in it.",
+  "approx": false
+ },
+ {
+  "id": "x5",
+  "name": "The Baño de la Cava: La Cava's bath",
+  "where": "Torreón del Baño de la Cava, by the river near the San Martín bridge",
+  "lat": 39.85809,
+  "lon": -4.03466,
+  "track": null,
+  "text": "This ruined tower by the Tagus is tied to the last Visigothic king, Rodrigo. Legend says he watched from a window as Florinda, called La Cava, bathed in the river here, and he took her by force. Her father, Count Julián, governor of Ceuta, swore revenge and opened the straits to the Muslim armies in 711. So, the story goes, Spain was lost for a bath. Historians doubt every word, and the tower is really part of an old bridge. But the name has stuck for a thousand years, and on dark nights the river here is very loud.",
+  "approx": false
+ }
+]
