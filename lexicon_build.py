@@ -34,7 +34,7 @@ SKIP = {
     "Italy", "Italian", "Flemish", "Baroque", "Napoleon", "Franco",
 }
 # Combined tours: keep in step with TOURS in render.py.
-TOURS = {"madrid": ["prado", "reina"]}
+TOURS = {"madrid": ["prado", "reina"], "toledo": ["toledo_sights", "toledo_cathedral", "toledo_legends", "toledo_dark"]}
 # Root overrides that every tour shares (Spanish particles and common names).
 SHARED = {"de", "del", "la", "los", "las", "Dos", "Juan", "Rey", "Reyes"}
 

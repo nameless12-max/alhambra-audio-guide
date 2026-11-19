@@ -7,7 +7,7 @@ from pathlib import Path
 tour = sys.argv[1]
 root = Path(__file__).parent / tour
 out, total = [f"# {tour.title()} tour: full text\n"], 0
-for p in sorted((root / "scripts").glob("*.txt")):
+for p in [q for q in sorted((root / "scripts").glob("*.txt")) if not q.name.startswith("_")]:
     words = 0
     body = []
     title = p.stem

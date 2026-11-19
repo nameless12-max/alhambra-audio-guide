@@ -27,8 +27,8 @@ import soundfile as sf
 ROOT = Path(__file__).parent
 TOUR = sys.argv[sys.argv.index("--tour") + 1] if "--tour" in sys.argv else None
 # A combined tour reads several parts; each part's tracks are tagged with its group.
-TOURS = {"madrid": ["prado", "reina"]}
-GROUPS = {"prado": "Prado", "reina": "Reina Sofía"}
+TOURS = {"madrid": ["prado", "reina"], "toledo": ["toledo_sights", "toledo_cathedral", "toledo_legends", "toledo_dark"]}
+GROUPS = {"prado": "Prado", "reina": "Reina Sofía", "toledo_legends": "Legends", "toledo_sights": "Sights", "toledo_cathedral": "Cathedral", "toledo_dark": "Inquisition"}
 if TOUR:
     PARTS = TOURS.get(TOUR, [TOUR])
     SCRIPT_DIRS = [ROOT / p / "scripts" for p in PARTS]
@@ -233,7 +233,7 @@ def main():
     lexicon = load_lexicon()
     lex_mtime = max([f.stat().st_mtime for f in LEXICON_FILES if f.exists()], default=0)
     model, tracks = None, []
-    for path in [p for d in SCRIPT_DIRS for p in sorted(d.glob("*.txt"))]:
+    for path in [p for d in SCRIPT_DIRS for p in sorted(d.glob("*.txt")) if not p.name.startswith("_")]:
         cached = CACHE / f"{path.stem}.json"
         mp3 = AUDIO / f"{path.stem}.mp3"
         wanted = not args or any(path.stem.startswith(a) for a in args)
