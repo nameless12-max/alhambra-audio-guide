@@ -1,5 +1,7 @@
 # Toledo night legends map: coordinate sources
 
+The pins live in `spots.json` (ids below: l01 to l08 link to tracks in ../toledo/tracks.json, x1 to x5 are text-only).
+
 Looked up 2026-11-19. OSM = OpenStreetMap via Nominatim (nominatim.openstreetmap.org), Wiki = es.wikipedia.org coordinates API.
 
 | Pin | Lat, Lon | Source |
