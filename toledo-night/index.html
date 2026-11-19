@@ -218,7 +218,7 @@
         <label>API key <input id="apiKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gsk_..."></label>
         <label>Endpoint <input id="endpoint" type="url" autocapitalize="off" spellcheck="false"></label>
         <label>Model <input id="model" type="text" autocapitalize="off" spellcheck="false"></label>
-        <label>Chunk length: <span id="chunkVal"></span> s <input id="chunkSec" type="range" min="10" max="30" step="1"></label>
+        <label>Chunk length: <span id="chunkVal"></span> s <input id="chunkSec" type="range" min="6" max="30" step="1"></label>
         <label>Silence threshold: <span id="threshVal"></span> <input id="thresh" type="range" min="0.005" max="0.08" step="0.001"></label>
         <label>Vocabulary prompt (English, max about 224 tokens) <textarea id="prompt"></textarea></label>
         <div class="rowb">
@@ -267,7 +267,7 @@ const $ = id => document.getElementById(id);
 
 // ---------- storage ----------
 const LS = {
-  key: 'toledoListen.apiKey', settings: 'toledoListen.settings2', transcript: 'toledoListen.transcript',
+  key: 'toledoListen.apiKey', settings: 'toledoListen.settings3', transcript: 'toledoListen.transcript',
   tab: 'toledoNight.tab', heard: 'toledoNight.heard', now: 'toledoNight.nowPlaying', pos: 'toledoNight.positions'
 };
 const store = {
@@ -688,7 +688,7 @@ window.addEventListener('pagehide', () => savePos(true));
 const DEFAULTS = {
   endpoint: 'https://api.groq.com/openai/v1/audio/translations',
   model: 'whisper-large-v3',
-  chunkSec: 10,
+  chunkSec: 6,
   thresh: 0.02,
   prompt: 'A night walking tour of Toledo, Spain, about its legends. Names: Toledo, Zocodover, Cristo de la Luz, ' +
     'Cueva de Hércules, rey Rodrigo, Florinda la Cava, Pozo Amargo, Raquel, Fernando, Cristo de la Vega, Bécquer, ' +
@@ -747,7 +747,7 @@ function readSettings() {
   settings = {
     endpoint: el.endpoint.value.trim() || DEFAULTS.endpoint,
     model: el.model.value.trim() || DEFAULTS.model,
-    chunkSec: Math.min(30, Math.max(10, parseInt(el.chunkSec.value, 10) || DEFAULTS.chunkSec)),
+    chunkSec: Math.min(30, Math.max(6, parseInt(el.chunkSec.value, 10) || DEFAULTS.chunkSec)),
     thresh: Math.min(0.08, Math.max(0.005, parseFloat(el.thresh.value) || DEFAULTS.thresh)),
     prompt: el.prompt.value.trim()
   };
@@ -1013,9 +1013,9 @@ function beginChunk() {
   recorder = rec; chunkStats = stats;
   if (prev && prev.state !== 'inactive') prev.stop();
   // settings.chunkSec is the minimum; with no pause, force a cut 6 s later.
-  chunkEndsAt = Date.now() + (settings.chunkSec + 6) * 1000;
+  chunkEndsAt = Date.now() + (settings.chunkSec + 4) * 1000;
   clearTimeout(chunkTimer);
-  chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 6) * 1000);
+  chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 4) * 1000);
 }
 
 // full = switch off (also close the audio context and wake lock); otherwise a hold for story audio.
