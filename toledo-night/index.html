@@ -267,7 +267,7 @@ const $ = id => document.getElementById(id);
 
 // ---------- storage ----------
 const LS = {
-  key: 'toledoListen.apiKey', settings: 'toledoListen.settings4', transcript: 'toledoListen.transcript',
+  key: 'toledoListen.apiKey', settings: 'toledoListen.settings5', transcript: 'toledoListen.transcript',
   tab: 'toledoNight.tab', heard: 'toledoNight.heard', now: 'toledoNight.nowPlaying', pos: 'toledoNight.positions'
 };
 const store = {
@@ -688,7 +688,7 @@ window.addEventListener('pagehide', () => savePos(true));
 const DEFAULTS = {
   endpoint: 'https://api.groq.com/openai/v1/audio/translations',
   model: 'whisper-large-v3',
-  chunkSec: 5,
+  chunkSec: 8,
   thresh: 0.02,
   prompt: 'A night walking tour of Toledo, Spain, about its legends. Names: Toledo, Zocodover, Cristo de la Luz, ' +
     'Cueva de Hércules, rey Rodrigo, Florinda la Cava, Pozo Amargo, Raquel, Fernando, Cristo de la Vega, Bécquer, ' +
@@ -699,7 +699,8 @@ const DEFAULTS = {
 const HALLUCINATION = [
   /thank(s| you) for watching/i, /subtit(le|les|led) by/i, /amara\.org/i, /please subscribe/i,
   /like and subscribe/i, /see you (in the )?next (video|time)/i, /(translated|transcribed|captions?) by/i,
-  /^\W*(\[?music\]?|♪+)\W*$/i, /www\.\S+/i, /don't forget to subscribe/i
+  /^\W*(\[?music\]?|♪+)\W*$/i, /www\.\S+/i, /don't forget to subscribe/i,
+  /subt[ií]tulos? (realizados|creados|hechos)? ?por/i, /gracias por ver/i, /suscr[ií]bete/i, /^\W*(\[?m[uú]sica\]?)\W*$/i
 ];
 let recStream = null;
 const WEAK_LINES = /^\W*(thank you( very much)?|thanks|you|bye( bye)?|okay|ok|so|yeah|hmm+|um+|uh+|i don'?t know|it'?s very different|that'?s it)\W*$/i;
@@ -904,7 +905,7 @@ function releaseTranslation() {
 // ---------- audio capture ----------
 let stream = null, srcNode = null, audioCtx = null, analyser = null, meterTimer = null, statusTimer = null;
 let recorder = null, chunkTimer = null, chunkEndsAt = 0, running = false, wakeLock = null, starting = false;
-let quietRun = 0, chunkStats = null, mime = '';
+let quietRun = 0, speechLevel = 0, chunkStats = null, mime = '';
 const buf = new Float32Array(2048);
 const recentPeaks = [];
 
@@ -930,7 +931,10 @@ function sampleLevel() {
     chunkStats.frames++; if (rms >= settings.thresh) chunkStats.voiced++;
     if (rms > chunkStats.peak) chunkStats.peak = rms;
     // Cut at a breath: once the chunk has its minimum length, end it at the first short pause.
-    quietRun = rms < settings.thresh ? quietRun + 1 : 0;
+    // A pause is a drop well below the recent speech level (the boosted signal
+    // rarely falls under the fixed threshold in a street).
+    if (rms >= settings.thresh) speechLevel = speechLevel ? speechLevel * 0.97 + rms * 0.03 : rms;
+    quietRun = rms < Math.max(settings.thresh, speechLevel * 0.3) ? quietRun + 1 : 0;
     if (running && quietRun >= 3 && Date.now() - chunkStats.start >= settings.chunkSec * 1000) { quietRun = 0; beginChunk(); }
   }
   recentPeaks.push(rms); if (recentPeaks.length > 50) recentPeaks.shift();
@@ -1013,9 +1017,9 @@ function beginChunk() {
   recorder = rec; chunkStats = stats;
   if (prev && prev.state !== 'inactive') prev.stop();
   // settings.chunkSec is the minimum; with no pause, force a cut 6 s later.
-  chunkEndsAt = Date.now() + (settings.chunkSec + 4) * 1000;
+  chunkEndsAt = Date.now() + (settings.chunkSec + 5) * 1000;
   clearTimeout(chunkTimer);
-  chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 4) * 1000);
+  chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 5) * 1000);
 }
 
 // full = switch off (also close the audio context and wake lock); otherwise a hold for story audio.
@@ -1074,6 +1078,43 @@ async function translateText(t) {
     return out || t;
   } catch { return t; } finally { clearTimeout(to); }
 }
+let lastEs = '', lastEn = '';
+function audioUrl(kind) { return settings.endpoint.replace(/\/audio\/.*$/, '/audio/' + kind); }
+const CHAT_MODELS = ['openai/gpt-oss-20b', 'openai/gpt-oss-120b', 'qwen/qwen3.8-27b'];
+let chatIdx = 0;
+const INTERPRET_SYS = 'You are a live interpreter on a night legends tour of Toledo, Spain. You get the previous lines for context and one NEW piece of machine-transcribed Spanish. It was cut by the clock, so it may start or end mid-sentence. Reply with natural, clear English for the NEW piece only, continuing smoothly from the previous English. The stories are set in past centuries (a carro is a cart). Fix obvious mis-hearings using the context; likely names include Zocodover, Arco de la Sangre, Cristo de la Luz, Cueva de Hércules, rey Rodrigo, Pozo Amargo, Bécquer, Alcázar, Tajo, Inquisición. If the NEW piece is already English, return it unchanged. No notes, no quotes, no Spanish.';
+async function interpret(es) {
+  const url = settings.endpoint.replace(/\/audio\/.*$/, '/chat/completions');
+  const user = (lastEs ? 'Previous Spanish: ' + lastEs.slice(-350) + '\nPrevious English: ' + lastEn.slice(-350) + '\n' : '') + 'NEW: ' + es;
+  for (let attempt = 0; attempt < CHAT_MODELS.length; attempt++) {
+    const model = CHAT_MODELS[(chatIdx + attempt) % CHAT_MODELS.length];
+    const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 12000);
+    try {
+      const res = await fetch(url, { method: 'POST', signal: ctl.signal,
+        headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, temperature: 0, reasoning_effort: 'low', max_completion_tokens: 500,
+          messages: [{ role: 'system', content: INTERPRET_SYS }, { role: 'user', content: user }] }) });
+      if (res.status === 401 || res.status === 403) return '';
+      if (!res.ok) continue;                       // rate limit or outage: try the next model
+      const j = await res.json();
+      const out = j && j.choices && j.choices[0] && j.choices[0].message && (j.choices[0].message.content || '').trim();
+      if (out) { chatIdx = (chatIdx + attempt) % CHAT_MODELS.length; return out; }
+    } catch { /* try the next model */ } finally { clearTimeout(to); }
+  }
+  return '';
+}
+async function directTranslate(item) {
+  try {
+    const fd = new FormData();
+    fd.append('file', item.blob, 'chunk.' + extFor(item.type));
+    fd.append('model', settings.model); fd.append('response_format', 'verbose_json'); fd.append('temperature', '0');
+    const res = await fetch(audioUrl('translations'), { method: 'POST', headers: { Authorization: 'Bearer ' + apiKey }, body: fd });
+    if (!res.ok) return '';
+    let t = cleanText(await res.json(), item.voicedFrac);
+    if (t && looksSpanish(t)) t = await translateText(t);
+    return t;
+  } catch { return ''; }
+}
 function buildPrompt() {
   return ''; // a prompt makes Whisper skip the translation, so none is sent
   let p = settings.prompt || '';
@@ -1106,12 +1147,13 @@ async function pump() {
     const fd = new FormData();
     fd.append('file', item.blob, 'chunk.' + extFor(item.type));
     fd.append('model', settings.model);
-    const pr = buildPrompt(); if (pr) fd.append('prompt', pr);
+    fd.append('language', 'es');
+    if (lastEs) fd.append('prompt', lastEs.slice(-200));
     fd.append('response_format', 'verbose_json');
     fd.append('temperature', '0');
     const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 45000);
     let res;
-    try { res = await fetch(settings.endpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + apiKey }, body: fd, signal: ctl.signal }); }
+    try { res = await fetch(audioUrl('transcriptions'), { method: 'POST', headers: { Authorization: 'Bearer ' + apiKey }, body: fd, signal: ctl.signal }); }
     finally { clearTimeout(to); }
     if (!res.ok) {
       let msg = ''; try { const j = await res.json(); msg = (j.error && j.error.message) || ''; } catch {}
@@ -1119,8 +1161,17 @@ async function pump() {
       e.retryAfter = parseFloat(res.headers.get('retry-after')) || 0; throw e;
     }
     const data = await res.json();
-    let text = cleanText(data, item.voicedFrac);
-    if (text && looksSpanish(text)) text = await translateText(text);
+    // Step 1 gave the guide's Spanish. Step 2 interprets it with the lines before
+    // it as context, so a sentence cut by the clock still reads as one thought.
+    const es = cleanText(data, item.voicedFrac);
+    let text = '';
+    if (es) {
+      text = await interpret(es);
+      if (!text) text = await directTranslate(item);   // fallback: the old one-step way
+      if (!text) text = es;                            // last resort: show the Spanish
+      lastEs = (lastEs + ' ' + es).trim().slice(-500);
+      lastEn = (lastEn + ' ' + text).trim().slice(-500);
+    }
     if (text) { lastText = text; const g = guessLegend(text); addEntry({ type: 'text', t: item.t, text, legend: g && g.name, ref: g && g.ref }); }
   } catch (err) {
     const status = err.status || 0;
