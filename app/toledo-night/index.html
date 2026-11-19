@@ -1043,7 +1043,7 @@ function onChunk(blob, stats, type) {
   const dur = (Date.now() - stats.start) / 1000;
   const voicedFrac = stats.frames ? stats.voiced / stats.frames : 1; // no analyser: send everything
   if (dur < 1.5 || blob.size < 1000 || apiKey === rejectedKey) return;
-  if (stats.frames && (voicedFrac < 0.03 || stats.peak < settings.thresh)) return; // silent: skip
+  if (stats.frames && (voicedFrac < 0.01 || stats.peak < settings.thresh * 0.7)) return; // only true silence is skipped
   if (blob.size > 24 * 1024 * 1024) { addEntry({ type: 'note', t: stats.start, text: '[chunk too large, skipped]' }); return; }
   queue.push({ blob, type, t: stats.start, voicedFrac, tries: 0 });
   pump();
@@ -1131,12 +1131,14 @@ async function pump() {
       if (enabled) turnOff('Key rejected (' + status + '). Ask the app’s owner for a new setup link.', 'err');
       showNote('Translation stopped: the key was rejected. Ask the app’s owner for a new setup link.', true);
       return;
-    } else if (item.tries < 1 && status !== 400 && status !== 413) {
+    } else if (item.tries < 12 && status !== 400 && status !== 413) {
+      // Nothing is dropped: the chunk waits and is sent again, and later chunks
+      // queue up behind it in order (busy stays true while waiting).
       item.tries++;
-      const wait = status === 429 ? Math.min(30, Math.max(3, err.retryAfter || 5)) : 3;
-      error((status === 429 ? 'Too many requests' : 'Send failed') + ' · retrying in ' + Math.round(wait) + ' s');
-      busy = false;
-      setTimeout(() => { queue.unshift(item); pump(); }, wait * 1000);
+      const back = Math.min(30, 2 + item.tries * 3);
+      const wait = status === 429 ? Math.min(40, Math.max(back, err.retryAfter || 0)) : back;
+      error((status === 429 ? 'Too many requests' : 'Send failed') + ' · retrying in ' + Math.round(wait) + ' s · ' + (queue.length + 1) + ' waiting');
+      setTimeout(() => { busy = false; queue.unshift(item); pump(); }, wait * 1000);
       return;
     } else {
       error('A piece was not translated (' + (status ? 'HTTP ' + status : 'no connection') + '). Still listening.');
