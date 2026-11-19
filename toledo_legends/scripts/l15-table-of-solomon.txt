@@ -1,0 +1,47 @@
+# title: Stop 15. San Román: the Table of Solomon
+# stop: 15
+# room: Church of San Román, now the museum of the Visigoths, on high ground west of the cathedral
+
+## A treasure that travels
+
+N: Stop fifteen. The church of San Román stands on one of the highest points of the old town, a few minutes west of the cathedral. Today it is a museum of the Goths, closed at night. Look for its tall tower above a small square.
+
+N: The Goths ruled Spain from this city. And they were said to keep here a treasure that had already been stolen twice.
+
+...
+
+A: It begins in Jerusalem. King Solomon has a table made for his temple. Gold, set with jewels. And on it, some say, he wrote the secret name of God. The name that made the world. Whoever holds the table holds all knowledge.
+
+A: The Romans destroy the temple and carry its treasures to Rome. Centuries later, the Goths sack Rome, and carry them off again. And at last the table comes here, to Toledo, the royal city of the Goths.
+
+N: Then comes the most famous quarrel in the story. Keep your eye on one table leg.
+
+## The missing leg
+
+A: Seven hundred and eleven. The Muslim armies cross from Africa. Their general, Tariq, reaches Toledo, and the table falls into his hands. Emerald, one chronicler says, with three hundred and sixty-five legs.
+
+A: Then his commander, Musa, arrives. Jealous. He wants the glory, and he wants the table. Tariq has to hand it over. But first, quietly, he breaks off one leg, and hides it.
+
+...
+
+A: Both men are summoned to the caliph in far-off Damascus. Musa lays the table at the caliph's feet. My prize, he says. The caliph looks at it and asks: where is the missing leg? Musa says it was like that when he found it.
+
+A: And Tariq steps forward, with the leg in his hand.
+
+N: Neither general ever came back to Spain.
+
+## What is true
+
+N: Some of this is history. The Romans really did carry off the treasures of the temple in Jerusalem, and a triumphal arch in Rome still shows soldiers carrying them away, a table among them. The Goths really did sack Rome. And Arab chroniclers wrote of a table in Toledo, though no two describe it alike. Gold, silver, pearls, emerald.
+
+N: The rest is legend, and versions differ. Some say Tariq found it in Toledo, others in a town further north. After the quarrel, it vanishes.
+
+...
+
+N: People have looked for it ever since. In castles near Toledo. In the mountains of the north. In a village in France. It has never been found.
+
+N: This church now keeps what the Goths left behind in Toledo. The table is not among it. Somewhere, perhaps, a table is still missing a leg. If you found it, would you dare to read what is written on it?
+
+## Walk on
+
+N: Next, north to a quiet square below a convent, and a poet who saw a hand at a window. That is stop sixteen.

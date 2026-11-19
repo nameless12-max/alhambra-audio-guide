@@ -1,7 +1,7 @@
 # Toledo_Legends tour: full text
 
 
-4215 words, about 35 minutes with pauses.
+8735 words, about 72 minutes with pauses.
 
 
 ## Toledo after dark: the legends · Room Anywhere in the old town, before the tour
@@ -331,7 +331,7 @@ Next, a short street, a clockmaker, and a man made of wood. That is stop seven.
 
 ## Stop 7. Street of the Wooden Man: Juanelo's automaton · Room Calle del Hombre de Palo, a short street near the cathedral
 
-*474 words, about 3.4 min*
+*481 words, about 3.4 min*
 
 
 ### A man who was not a man
@@ -374,17 +374,479 @@ Think of the old man. A genius, forgotten. And his last invention is a servant w
 
 ### Walk on
 
-One more story for the walk home. That is stop eight.
+There are more stories waiting on the map. Next is Zocodover, and its fires. That is stop nine.
 
 
-## Stop 8. The Christ of the Skull: a walk home, and goodnight · Room Any dark lane on the way home; Toledans place it near Calle de las Bulas
+## Stop 9. Plaza de Zocodover: the Inquisition's stage · Room Plaza de Zocodover, the main square at the top of the old town, by the Arco de la Sangre
 
-*456 words, about 3.3 min*
+*457 words, about 3.3 min*
+
+
+### The square that watched
+
+Stop nine. Plaza de Zocodover is the main square of the old town, a lopsided triangle of arcades and cafés where most night tours begin. At this hour it is lit and busy. On its east side is an arch, the Arco de la Sangre, with a statue of Cervantes at its foot.
+
+Now take the cafés away. Picture a wooden stage, built for one day. Balconies rented out like boxes at a theatre. And a procession climbing the hill with candles.
+
+In fourteen eighty-five, the Spanish Inquisition moved its court for this region to Toledo. It stayed for more than three hundred years. Its great public ceremonies were called autos de fe. Acts of faith. And many of Toledo's were held here, in this square.
+
+At the first one, a year later, about seven hundred and fifty penitents walked through the streets, bareheaded, carrying candles, in front of the whole city.
+
+
+### The devil's lanes
+
+> *Legend voice:* Toledo's witches, the old stories say, did not meet in forests. They met in the city. Just south of here, behind the Alcázar, two narrow lanes still carry their names. The Alley of the Devil. The Alley of Hell.
+
+> *Legend voice:* They say a student once sold his soul in one of them, in exchange for forbidden knowledge. When the devil came to collect, the student tried to trick him. The devil left. But he left the marks of his fire on the walls.
+
+> *Legend voice:* And they say that on quiet nights, here in Zocodover, you can still hear the murmur of a crowd that is no longer there.
+
+The Inquisition treated witchcraft as heresy, and Toledo's court did try women for it. But Spanish judges were often more doubtful about witches than judges in northern Europe. The real terror here fell on other people.
+
+
+### A crime that never happened
+
+Here is a story the guide may mention. It is not a legend. It is a lie that killed people.
+
+In fourteen ninety-one, in La Guardia, a village of this province, a group of Jews and converted Jews were accused of killing a Christian child in a secret ritual. There was no body. No child was ever reported missing. The confessions were forced out under torture. The accused were burned, in the city of Ávila.
+
+A few months later, every Jew in Spain was ordered to convert or leave. And for centuries afterwards, people prayed to the little saint who had never existed.
+
+Historians agree today. There was no crime. Only a story told to make hatred look like justice.
+
+Stand in the middle of the square and look up at the balconies. If you had lived here then, would you have watched?
+
+
+### Walk on
+
+Next, through the arch, to the gardens of a Moorish princess and a prince from France. That is stop ten.
+
+
+## Stop 10. Galiana: the princess and the prince from France · Room Museo de Santa Cruz and the Miradero viewpoint, just below Zocodover through the Arco de la Sangre
+
+*454 words, about 3.2 min*
+
+
+### A garden above the river
+
+Stop ten. Walk from Zocodover through the Arco de la Sangre and down the slope. Here is the Museo de Santa Cruz, an old hospital with a great carved stone doorway, lit at night. A little further on is the Miradero, a terrace that looks north over the dark plain.
+
+Toledans say the palaces of a princess stood right here, in the old fortress quarter that ran from the arch to this viewpoint.
+
+> *Legend voice:* Long ago, a Moorish king ruled Toledo. Galafre. He had one daughter, Galiana, the most beautiful woman in Spain. She lived among gardens and fountains, with everything a princess could want. Except love.
+
+> *Legend voice:* A suitor came often from Guadalajara, a powerful lord. In the old French poem he is a giant called Bramante. Toledans call him Abenzaide. He was proud and cruel, and she could not bear him. One version says he loved her so much that he dug a tunnel all the way from his city to hers, to see her every day.
+
+And at her father's court there was a guest nobody paid much attention to. Hold on to him.
+
+
+### The stranger in the garden
+
+> *Legend voice:* He is a young prince of the Franks, far from home, sheltering with the Moorish king. One summer night, in the palace garden, Galiana tells her maid a secret. She does not love Abenzaide. And the young stranger, hidden among the trees, hears every word.
+
+> *Legend voice:* He steps out. He tells her he loves her. And she finds that she loves him.
+
+> *Legend voice:* The rejected suitor swears revenge. The king's astrologers advise a duel to the death. The whole city comes to watch. And the young prince drives his sword into his rival's heart.
+
+> *Legend voice:* Galiana leaves with him for France. She is baptised. They marry. And the young prince's name? Charles. One day the world will call him Charlemagne.
+
+
+### What is true
+
+Charlemagne never lived in Toledo. The story comes from a French poem of the Middle Ages about his youth, and versions differ. In some, she becomes his queen. In others, he steals away with her by night, and her father's horsemen ride after them.
+
+Across the river, in the gardens of the plain, there is a real building called the Palace of Galiana. It was built for a Muslim king of Toledo in the eleventh century, long after Charlemagne, and it only took her name about five hundred years ago.
+
+Look out from the Miradero into the dark. Somewhere out there is the palace that borrowed her name. Up here, the story says, is the garden where she heard a stranger speak. Would you have stepped out from the trees?
+
+
+### Walk on
+
+Next, up behind the Alcázar, to the knights of the Temple and a font that filled with blood. That is stop eleven.
+
+
+## Stop 11. San Miguel el Alto: the Templars' baptism of blood · Room Church of San Miguel el Alto and Calle de la Soledad, on the high ground just south-east of the Alcázar
+
+*464 words, about 3.3 min*
+
+
+### The knights on the hill
+
+Stop eleven. The church of San Miguel el Alto, Saint Michael on High, stands on the highest ground of the old town, a few minutes' walk south of the Alcázar. It is shut at night. Look up for its tall square tower.
+
+Just beside it, on Calle de la Soledad, is a long, plain house called the Casa del Temple. The House of the Temple. Toledans have always said the Knights Templar lived here.
+
+The Templars were warrior monks who grew rich, until their order was dissolved and its leaders burned. Wherever they had lived, people whispered about treasure.
+
+> *Legend voice:* In Toledo the whispers reached the archbishop himself. They say that, some sixty years later, Archbishop Tenorio sent men down into the tunnels under this church and the Templar houses, to find the gold. They found no gold. They found a cross. And they found the bodies of knights, dried and whole, laid out in the dark.
+
+Where did the dead knights come from? Here is the story.
+
+
+### The night before the battle
+
+> *Legend voice:* A Christian army has been crushed in the south. The Moors are marching on Toledo. The Templars are given this stretch of the wall. The night before the assault, their commander gathers them in this church to pray.
+
+> *Legend voice:* He looks at their faces. He cannot bear not knowing. He asks God for a sign. Show me who will die tomorrow.
+
+> *Legend voice:* And on the red crosses of some of the knights' cloaks, the figure of Christ appears.
+
+> *Legend voice:* The commander makes his choice. Better living warriors than dead saints. At dawn he sends only the unmarked knights to the wall. The marked ones stay behind, praying.
+
+> *Legend voice:* The attack is beaten back. Not one knight falls on the wall. They return to the church and find their brothers lying on the stones, dead, already dried like mummies. The water in the font has turned to blood.
+
+> *Legend voice:* Only when the commander dips his cross into the font does the water run clear again. God had chosen who would die. The commander had only changed where.
+
+
+### What is true
+
+That is legend, passed down by word of mouth. The archbishop's search and the mummies are tradition too. But Toledo's dry soil did preserve bodies in its crypts. And a Templar emblem really is carved on a capital inside this church.
+
+The Casa del Temple, when it was restored, turned out to be an Islamic house, older than the knights.
+
+Opposite the church door is the House of the Goblin, the Casa del Duende. Its cellar, they say, runs under the church and the houses around it.
+
+Stand by the tower and think of the commander, alone with his sign. Would you want to know?
+
+
+### Walk on
+
+Next, just down the hill, a Christ on a wall and the marks of a hundred swords. That is stop twelve.
+
+
+## Stop 12. Plaza de San Justo: the Christ of the Knife Cuts · Room Plaza de San Justo, a small square south of the Alcázar, between the cathedral and San Miguel el Alto
+
+*426 words, about 3.0 min*
+
+
+### The Christ on the wall
+
+Stop twelve. Plaza de San Justo is a small, sloping square a few minutes south of the Alcázar, in front of the church of the Saints Justo and Pastor. It is open at any hour. Look at the old stone wall of the church, and for a plaque in the square that tells this story.
+
+Picture this square more than five hundred years ago. Toledo is at war with itself. Two great families, the Silvas and the Ayalas, fight for the city in its streets. Swords come out at the slightest insult.
+
+> *Legend voice:* Diego de Ayala is in love with Isabel, a daughter of the enemy house. Their love is a secret. Every evening, on his way to her, Diego stops here to pray before a Christ on the church wall. The Christ of Mercy.
+
+> *Legend voice:* One night, as he prays, he hears screams. Masked men are crossing the square, dragging a woman with her hands tied. Isabel. Her own family has come to take her away from him.
+
+One man against her whole family. Hold on.
+
+
+### Ten swords against one
+
+> *Legend voice:* Diego draws his sword. He fights alone, against ten. He wounds one of them. But they drive him back, bleeding, until he is pressed against the church wall, under the very Christ he had been praying to.
+
+> *Legend voice:* He cannot win. So he asks for one thing only. Save her.
+
+> *Legend voice:* And the wall opens. The stones part behind them, draw Diego and Isabel inside the church, and close again.
+
+> *Legend voice:* The attackers hack at the wall in fury. A hundred blows of steel on stone. The wall holds. They throw themselves at the church doors. The doors hold too. And then the bells begin to ring, louder and louder, until the whole neighbourhood comes running into the square, and the masked men flee into the dark.
+
+> *Legend voice:* From that night, the Christ of Mercy had a new name. The Christ of the Knife Cuts. El Cristo de las Cuchilladas.
+
+
+### What is true
+
+This is legend, and versions differ. In some, the wall swallows the lovers. In others, it only turns every sword away. Nobody knows what became of them afterwards.
+
+But the feud was real. In those years Toledo's great families fought for control of the city, sometimes in lanes like this one.
+
+Run your eyes along the old stones in the torchlight. Every scar in them, the tellers say, is a sword that could not reach her. Who would you ask, if you had your back against a wall?
+
+
+### Walk on
+
+Next, to the cathedral, where the queen of heaven came down one night. That is stop thirteen.
+
+
+## Stop 13. The cathedral door: the night the Virgin came down · Room Plaza del Ayuntamiento, the town-hall square, in front of the cathedral's main west front
+
+*449 words, about 3.2 min*
+
+
+### A bishop on his way to prayer
+
+Stop thirteen. Stand in the Plaza del Ayuntamiento, the town-hall square, facing the great west front of the cathedral. It is lit at night. Look at the tallest of its doors, in the middle: the Door of Forgiveness, the Puerta del Perdón. Above it, carved in stone, is tonight's story.
+
+Long before this cathedral, an older church stood here. Its bishop, thirteen centuries ago, was Ildefonso, a scholar who had written a book in praise of the Virgin Mary. He is Toledo's own saint.
+
+> *Legend voice:* It is the middle of the night. Ildefonso and his clergy walk to the church for the night prayers. As they come near the doors, they see light inside. A blaze of light, brighter than any candle. The others fall back in fear. Ildefonso goes in alone.
+
+> *Legend voice:* And there, in his own bishop's chair, sits the Virgin.
+
+> *Legend voice:* She calls him to her. And she gives him a gift from heaven. A priest's vestment, a chasuble, to wear in her honour.
+
+Now look above the door. That is the scene. The Virgin, seated, handing the vestment to a kneeling bishop.
+
+
+### The stone and the veil
+
+> *Legend voice:* Where her feet touched the ground, they say, the stone became holy. That stone is still inside the cathedral, in a small chapel called the Chapel of the Descent, behind a strong grille.
+
+> *Legend voice:* And Toledo has a second wonder for Ildefonso. On the feast of Leocadia, the city's young martyr, the bishop was praying at her tomb before the king and his court. And the great stone lid lifted by itself. Leocadia rose, and spoke to him, praising his book.
+
+> *Legend voice:* Ildefonso wanted proof. He reached for her veil and called for a blade, and nobody could hear him in the uproar. Then the king himself held out his own knife. The bishop cut a piece of the veil. And the saint went back into the dark.
+
+Among the cathedral's relics there is still a piece of veil, kept with a knife.
+
+
+### What is true
+
+These are legends. Ildefonso was real, a bishop of Toledo in the six hundreds, and his book on the Virgin is real. The first written account of the vision comes about eighty years after his death. One historian thinks the veil was simply a relic he once cut and kept, and that the miracle grew around it.
+
+But Toledo has never let the story go. His feast, every January, is one of the great days of the city.
+
+Look up at the carving one more time. A man who spent his life writing about someone he had never seen. And one night, the story says, she came.
+
+
+### Walk on
+
+Next, round the side of the cathedral, a thief locked inside it after dark. That is stop fourteen.
+
+
+## Stop 14. The cathedral at night: Bécquer's golden bracelet · Room Outside the cathedral, along its north side under the bell tower, on Calle Cardenal Cisneros
+
+*458 words, about 3.3 min*
+
+
+### A woman in tears
+
+Stop fourteen. Walk from the town-hall square along the north side of the cathedral, under the great bell tower. At night the doors are shut and the walls climb into the dark. Somewhere behind them, in her own chapel, is the Virgin of the Sagrario, the patroness of Toledo.
+
+This is Bécquer again, the poet of stop six. And it is his most frightening tale.
+
+> *Legend voice:* Down by the Tagus, a young man finds the woman he loves in tears. María Antúnez. Beautiful, spoilt, used to having whatever she wants. Pedro Alfonso de Orellana is brave, and superstitious, and he would do anything for her.
+
+> *Legend voice:* At the great feast of the Virgin, she tells him, she saw a bracelet. A golden band set with diamonds, on the arm of the Virgin of the Sagrario. And since that day she can think of nothing else.
+
+He tells her it is impossible. Then he goes away and thinks about it. What would you do for someone you love? Hold that question.
+
+
+### Alone in the dark
+
+> *Legend voice:* Pedro hides in the cathedral as the doors are locked. Night falls. He creeps towards the high altar. He feels the tombstones under his feet holding him back, as if the dead were gripping his ankles. He goes on.
+
+> *Legend voice:* He climbs the altar. He reaches the image. He tears the bracelet from the Virgin's arm.
+
+> *Legend voice:* Then he opens his eyes.
+
+> *Legend voice:* The cathedral is full. Every statue has stepped down from its tomb and its niche. Saints and nuns, angels and demons, warriors and peasants, crowding the aisles. Marble archbishops kneel. Stone monsters crawl over the pillars and the vaults. And every one of them is looking at him.
+
+> *Legend voice:* He screams. And falls.
+
+> *Legend voice:* In the morning they find him at the foot of the altar, the bracelet still in his fist. He is laughing and crying at once. Hers, he says. Hers. Pedro had gone mad.
+
+
+### What is true
+
+The thief and his lady are Bécquer's invention. The Virgin of the Sagrario is real, and so are her jewels. Bécquer never tells us whether the statues really moved, or whether guilt did it all.
+
+
+### The lady with the candles
+
+> *Legend voice:* One more ghost for these walls. On foggy nights, they say, a woman in white walks around the cathedral, near its cloister doors, carrying a silver candlestick. Wind and rain never touch her flames. Some say she was betrayed in love and is still searching for him. Others say she guards something buried beneath the cathedral.
+
+That one is a modern tale, with no old book behind it. Look along the walls anyway.
+
+Look up at the tower. And remember Pedro, who got exactly what he went in for, and lost his mind.
+
+
+### Walk on
+
+Next, west across the old town, to a table made for King Solomon. That is stop fifteen.
+
+
+## Stop 15. San Román: the Table of Solomon · Room Church of San Román, now the museum of the Visigoths, on high ground west of the cathedral
+
+*461 words, about 3.3 min*
+
+
+### A treasure that travels
+
+Stop fifteen. The church of San Román stands on one of the highest points of the old town, a few minutes west of the cathedral. Today it is a museum of the Goths, closed at night. Look for its tall tower above a small square.
+
+The Goths ruled Spain from this city. And they were said to keep here a treasure that had already been stolen twice.
+
+> *Legend voice:* It begins in Jerusalem. King Solomon has a table made for his temple. Gold, set with jewels. And on it, some say, he wrote the secret name of God. The name that made the world. Whoever holds the table holds all knowledge.
+
+> *Legend voice:* The Romans destroy the temple and carry its treasures to Rome. Centuries later, the Goths sack Rome, and carry them off again. And at last the table comes here, to Toledo, the royal city of the Goths.
+
+Then comes the most famous quarrel in the story. Keep your eye on one table leg.
+
+
+### The missing leg
+
+> *Legend voice:* Seven hundred and eleven. The Muslim armies cross from Africa. Their general, Tariq, reaches Toledo, and the table falls into his hands. Emerald, one chronicler says, with three hundred and sixty-five legs.
+
+> *Legend voice:* Then his commander, Musa, arrives. Jealous. He wants the glory, and he wants the table. Tariq has to hand it over. But first, quietly, he breaks off one leg, and hides it.
+
+> *Legend voice:* Both men are summoned to the caliph in far-off Damascus. Musa lays the table at the caliph's feet. My prize, he says. The caliph looks at it and asks: where is the missing leg? Musa says it was like that when he found it.
+
+> *Legend voice:* And Tariq steps forward, with the leg in his hand.
+
+Neither general ever came back to Spain.
+
+
+### What is true
+
+Some of this is history. The Romans really did carry off the treasures of the temple in Jerusalem, and a triumphal arch in Rome still shows soldiers carrying them away, a table among them. The Goths really did sack Rome. And Arab chroniclers wrote of a table in Toledo, though no two describe it alike. Gold, silver, pearls, emerald.
+
+The rest is legend, and versions differ. Some say Tariq found it in Toledo, others in a town further north. After the quarrel, it vanishes.
+
+People have looked for it ever since. In castles near Toledo. In the mountains of the north. In a village in France. It has never been found.
+
+This church now keeps what the Goths left behind in Toledo. The table is not among it. Somewhere, perhaps, a table is still missing a leg. If you found it, would you dare to read what is written on it?
+
+
+### Walk on
+
+Next, north to a quiet square below a convent, and a poet who saw a hand at a window. That is stop sixteen.
+
+
+## Stop 16. Santo Domingo el Real: Bécquer's three dates · Room Plaza de Santo Domingo el Real, a small square below an enclosed convent in the north of the old town
+
+*460 words, about 3.3 min*
+
+
+### A window with blue flowers
+
+Stop sixteen. Plaza de Santo Domingo el Real is a small, silent square in the north of the old town, below the high blind walls of a convent of enclosed nuns. It is open at any hour. Bécquer never names the square in this story. Stand here tonight, and you will see the kind of place he meant.
+
+> *Legend voice:* A young artist comes to Toledo to draw. Every day, on his way to the monastery of San Juan de los Reyes, he takes the same narrow, crooked street. And on an old, dark house there is a window. Gothic, with a pot of blue bellflowers, and a thin curtain.
+
+> *Legend voice:* One day, as he looks back, the curtain stirs. Someone is watching him. He never sees her face. But for the rest of his stay he dreams of her. Before he leaves Toledo, he writes the date in his sketchbook. The first date.
+
+
+### A hand in the tower
+
+> *Legend voice:* Months later he is back. He wanders into a deserted square. Rubble, weeds, bits of broken pottery shining in the dust. On one side stands a strange building. A Moorish palace once, then a royal house, now a convent, with a bell gable and a latticed tower.
+
+> *Legend voice:* He leans against a wall, dreaming. And from the lattice of the tower, a white hand waves. He is alone in the square. It can only be at him.
+
+> *Legend voice:* The hand never comes back. He writes down the second date.
+
+A curtain. A hand. Are they the same woman? Hold that question.
+
+
+### The third date
+
+> *Legend voice:* A year later, on a grey day of snow, he finds himself in the square again. The convent bells are ringing. He goes into the church.
+
+> *Legend voice:* A young woman is taking the veil. They cut her hair. They take away her crown of flowers. She lies on the floor as if dead, while the prayers for the dead are sung over her. Then, in the habit, she is led through a door that closes behind her forever.
+
+> *Legend voice:* And he knows her face. It is the hand.
+
+> *Legend voice:* An old servant tells him who she was. An orphan, whose parents had died of cholera a year before. And she names the street where the girl had lived. His street. The window with the blue flowers.
+
+The third date, he says, he wrote down where only he could read it.
+
+
+### What is true
+
+Bécquer tells it as something that happened to him, on his trips to Toledo. Nobody knows if it did. He never named the street, the square or the convent.
+
+Look up at the convent windows. Did she ever think of him, behind those walls? Bécquer's own answer is the last line of the story. Who knows.
+
+
+### Walk on
+
+Next, down to the old Jewish quarter, to the cellars of a magician. That is stop seventeen.
+
+
+## Stop 17. The House of Villena: the magician in the flask · Room Museo del Greco, Paseo del Tránsito, in the old Jewish quarter in the south-west of the old town
+
+*461 words, about 3.3 min*
+
+
+### The cellars of the magician
+
+Stop seventeen. The El Greco Museum stands on the Paseo del Tránsito, in the old Jewish quarter, next to the Synagogue of El Tránsito. At night it is closed. You will see garden walls and an old house of brick and timber, rebuilt a century ago.
+
+Before it was El Greco's museum, Toledans called the houses on this spot the Houses of Villena. And they said that under them, in the cellars, a magician worked.
+
+> *Legend voice:* Enrique de Villena. A nobleman of royal blood, a scholar who read the stars and wrote about everything. And, all Spain believed, a necromancer. A master of the dark arts.
+
+> *Legend voice:* They say he learned them from the devil himself, in a cave at Salamanca. And that when the devil came to claim him, Villena slipped away, and left the devil holding only his shadow. For the rest of his life, they say, he cast none.
+
+A man who can cheat the devil once will want to cheat death too. Hold on to that.
+
+
+### The flask
+
+> *Legend voice:* He has read the day of his death in the stars. So he gives his most loyal servant a terrible order. When I die, cut my body into pieces. Put them in a great glass flask, in the liquid I have prepared. Seal it, and wait. Slowly the pieces will join. And I will live again, forever.
+
+> *Legend voice:* The servant obeys. The flask is hidden in a crypt in Toledo. Months pass.
+
+> *Legend voice:* Then two knights come upon it in the dark. As they lean close to the glass, something inside moves. A shapeless mass of flesh and bone lunges at them. They cut it down with their swords. And the floor of the crypt cracks open, and a chariot of fire rises, and carries his soul away to hell.
+
+
+### What is true
+
+Villena was real. He died of a fever, in Madrid, in fourteen thirty-four. After his death, a bishop had many of his books burned. That is how a scholar became a sorcerer. The flask is a popular tale, and versions differ.
+
+The cellars are real too. Tradition says a rich treasurer of the king, Samuel ha-Leví, who built the synagogue next door, hid his gold in them. Nobody has found it.
+
+And the painter? El Greco rented rooms in these houses when they were already half in ruins. Centuries later, romantic writers decided he too had been mad. Others blamed his eyes. Neither is true. His figures are long because he chose to paint them that way.
+
+Stand by the wall and think of the servant, alone, with the knife and the flask. What would you have done, if your master asked that of you?
+
+
+### Walk on
+
+Next, down to the river, to a bridge, and a woman who set it on fire. That is stop eighteen.
+
+
+## Stop 18. The San Martín bridge: the builder's wife · Room Puente de San Martín, the medieval bridge over the Tagus on the west side of the old town, below San Juan de los Reyes
+
+*418 words, about 3.0 min*
+
+
+### A bridge that must not fall
+
+Stop eighteen. The Puente de San Martín crosses the Tagus on the west side of the old town, downhill from San Juan de los Reyes. It is open all night, and lit. Five arches, the middle one huge, and a fortified gate tower at each end. You can walk right across it.
+
+The bridge you see was built about six hundred years ago, for an archbishop of Toledo. Its great middle arch was the boldest anyone here had tried. And there is a story about how close it came to failing.
+
+> *Legend voice:* The builder has worked for years. The great arch is finished, still resting on its wooden frame. Tomorrow the frame comes out, and the city will cross. The archbishop himself will be there.
+
+> *Legend voice:* That night, the builder checks his numbers one last time. And he goes white. There is a mistake. When the frame comes away, the arch will not hold. The bridge will fall into the river, in front of the whole city.
+
+He tells only one person. His wife. What can she possibly do? Hold that question.
+
+
+### Fire on the water
+
+> *Legend voice:* He lies awake, and at last he sleeps. His wife does not. In the middle of the night she slips out of the house, down to the river, carrying fire. She sets it to the wooden frame under the arch.
+
+> *Legend voice:* The dry timber catches. The flames climb into the night. And the unfinished arch cracks, and falls into the Tagus, in the dark, with nobody on it.
+
+> *Legend voice:* In the morning the city finds a ruin, and blames the fire. Bad luck. Nobody blames the builder. He is given the work again, and this time he builds it right.
+
+> *Legend voice:* And his wife? Some say she confessed to the archbishop, and he forgave her, and praised her. Some say a worn stone figure on the bridge is her, still watching over her husband's work.
+
+
+### What is true
+
+This is legend. No record names the builder or his wife, and versions differ. The archbishop who rebuilt the bridge was real, Pedro Tenorio, at the end of the thirteen hundreds.
+
+Walk to the middle of the bridge and lean over the parapet. Below you is the curve of the great arch. It has held for more than six centuries.
+
+She burned what her husband had made, to save him. Would you have dared?
+
+
+### Walk on
+
+Just along the river to the north is the ruined tower of the Bath of La Cava, from stop two. And when the tour ends, play stop eight for the walk home.
+
+
+## Stop 19. The Christ of the Skull: a walk home, and goodnight · Room Calle del Cristo de la Calavera, a short lane east of the cathedral
+
+*461 words, about 3.3 min*
 
 
 ### A glove on the floor
 
-Stop eight, the last one. Listen to this on the way back, in any dark lane. Toledans place the story near Calle de las Bulas, in the south-west of the old town, where a small Christ once hung under an archway, lit by a little lamp, with a skull at his feet.
+Stop nineteen, the last one. Listen to this on the way back, in any dark lane. The story belongs to a short street east of the cathedral, still called the street of the Christ of the Skull. A small Christ once hung there under an archway, lit by a little lamp, with a skull at his feet.
 
 It is Bécquer again. And it begins with a party.
 

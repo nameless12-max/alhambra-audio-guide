@@ -1,8 +1,8 @@
 [
  {
-  "id": "l01",
-  "name": "Cristo de la Luz",
-  "where": "Mezquita del Cristo de la Luz, Calle Cristo de la Luz, by the Puerta del Sol gate",
+  "id": "cristo-de-la-luz",
+  "name": "Mezquita del Cristo de la Luz",
+  "where": "Calle Cristo de la Luz, by the Puerta del Sol gate, north side of the old town",
   "lat": 39.8606,
   "lon": -4.02418,
   "track": "l01-cristo-de-la-luz",
@@ -10,9 +10,9 @@
   "approx": false
  },
  {
-  "id": "l02",
-  "name": "Cave of Hercules",
-  "where": "Cuevas de Hércules, Callejón de San Ginés",
+  "id": "cave-of-hercules",
+  "name": "Cuevas de Hércules",
+  "where": "Callejón de San Ginés, a few minutes from the cathedral",
   "lat": 39.85865,
   "lon": -4.0243,
   "track": "l02-cave-of-hercules",
@@ -20,9 +20,9 @@
   "approx": false
  },
  {
-  "id": "l03",
-  "name": "School of Magic (cathedral)",
-  "where": "Outside the cathedral, Calle Cardenal Cisneros (the tale has no fixed spot)",
+  "id": "school-of-magic",
+  "name": "Cathedral, Calle Cardenal Cisneros",
+  "where": "Outside the cathedral; the tale has no fixed spot",
   "lat": 39.85663,
   "lon": -4.02401,
   "track": "l03-school-of-magic",
@@ -30,9 +30,9 @@
   "approx": true
  },
  {
-  "id": "l04",
-  "name": "The Bitter Well",
-  "where": "Calle del Pozo Amargo (lane midpoint)",
+  "id": "bitter-well",
+  "name": "Calle del Pozo Amargo",
+  "where": "Small lane in the south of the old town, towards the river",
   "lat": 39.85502,
   "lon": -4.02352,
   "track": "l04-bitter-well",
@@ -40,9 +40,9 @@
   "approx": true
  },
  {
-  "id": "l05",
-  "name": "Cristo de la Vega",
-  "where": "Ermita del Cristo de la Vega, Paseo Cristo de la Vega, outside the walls",
+  "id": "cristo-de-la-vega",
+  "name": "Ermita del Cristo de la Vega",
+  "where": "Paseo Cristo de la Vega, outside the walls below the Cambrón gate",
   "lat": 39.86094,
   "lon": -4.03422,
   "track": "l05-cristo-de-la-vega",
@@ -50,9 +50,9 @@
   "approx": false
  },
  {
-  "id": "l06",
-  "name": "Bécquer: The Kiss",
-  "where": "Church of San Pedro Mártir, Calle San Román (San Clemente is next door)",
+  "id": "becquer-the-kiss",
+  "name": "Church of San Pedro Mártir",
+  "where": "Calle San Román; San Clemente convent is next door",
   "lat": 39.85796,
   "lon": -4.02725,
   "track": "l06-becquer-the-kiss",
@@ -60,9 +60,9 @@
   "approx": false
  },
  {
-  "id": "l07",
-  "name": "Street of the Wooden Man",
-  "where": "Calle del Hombre de Palo (lane midpoint)",
+  "id": "hombre-de-palo",
+  "name": "Calle del Hombre de Palo",
+  "where": "Short street near the cathedral",
   "lat": 39.85793,
   "lon": -4.02398,
   "track": "l07-hombre-de-palo",
@@ -70,29 +70,129 @@
   "approx": true
  },
  {
-  "id": "l08",
-  "name": "Christ of the Skull",
-  "where": "Calle del Cristo de la Calavera (lane midpoint)",
+  "id": "christ-of-the-skull",
+  "name": "Calle del Cristo de la Calavera",
+  "where": "Lane south of Zocodover, east of the cathedral, by the Callejón del Diablo",
   "lat": 39.85683,
   "lon": -4.02153,
-  "track": "l08-christ-of-the-skull",
+  "track": "l19-christ-of-the-skull",
   "text": null,
   "approx": true
  },
  {
-  "id": "x1",
-  "name": "Plaza de Zocodover: market and fire",
-  "where": "Plaza de Zocodover, the main square",
+  "id": "zocodover",
+  "name": "Plaza de Zocodover",
+  "where": "Main square at the top of the old town",
   "lat": 39.85948,
   "lon": -4.02142,
-  "track": null,
-  "text": "The name comes from the Arabic for \"market of the beasts\", and for centuries this was where Toledo bought its horses, bread and gossip. But the square had a darker trade. Here the Inquisition staged its autos-da-fé: crowds packed the balconies, the condemned walked in yellow penitent robes, and sentences were read aloud before the city. Bullfights, executions and fairs all shared these same stones. Legend says that on quiet nights you can still hear the murmur of a crowd that is no longer there.",
+  "track": "l09-zocodover-inquisition",
+  "text": null,
   "approx": false
  },
  {
-  "id": "x2",
-  "name": "The Virgin of the Little Pins",
-  "where": "Virgen de los Alfileritos, a niche on Calle Alfileritos",
+  "id": "galiana",
+  "name": "Museo de Santa Cruz and the Miradero",
+  "where": "Through the Arco de la Sangre from Zocodover, down towards the Miradero terrace",
+  "lat": 39.86025,
+  "lon": -4.02041,
+  "track": "l10-galiana-and-charlemagne",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "templars",
+  "name": "Iglesia de San Miguel el Alto and Casa del Temple",
+  "where": "High ground just south-east of the Alcázar; Casa del Temple on Calle de la Soledad beside it",
+  "lat": 39.85674,
+  "lon": -4.02003,
+  "track": "l11-templars-san-miguel",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "cuchilladas",
+  "name": "Plaza de San Justo",
+  "where": "Small square in front of the church of Santos Justo y Pastor, south of the Alcázar",
+  "lat": 39.85635,
+  "lon": -4.02178,
+  "track": "l12-cristo-de-las-cuchilladas",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "descent",
+  "name": "Plaza del Ayuntamiento, cathedral west front",
+  "where": "Town-hall square facing the cathedral's Puerta del Perdón",
+  "lat": 39.85702,
+  "lon": -4.02462,
+  "track": "l13-descent-of-the-virgin",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "golden-bracelet",
+  "name": "Cathedral, north side",
+  "where": "Along the cathedral's north side under the bell tower",
+  "lat": 39.85708,
+  "lon": -4.02389,
+  "track": "l14-becquer-golden-bracelet",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "table-of-solomon",
+  "name": "Iglesia de San Román (Museo de los Concilios y Cultura Visigoda)",
+  "where": "Calle San Román, on high ground west of the cathedral",
+  "lat": 39.85841,
+  "lon": -4.0271,
+  "track": "l15-table-of-solomon",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "three-dates",
+  "name": "Plaza de Santo Domingo el Real",
+  "where": "Small square below the enclosed convent, north of the old town",
+  "lat": 39.86048,
+  "lon": -4.02632,
+  "track": "l16-becquer-three-dates",
+  "text": null,
+  "approx": true
+ },
+ {
+  "id": "villena",
+  "name": "Museo del Greco (Casas de Villena)",
+  "where": "Paseo del Tránsito, old Jewish quarter, south-west of the old town",
+  "lat": 39.85586,
+  "lon": -4.02877,
+  "track": "l17-villena-the-necromancer",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "san-martin-bridge",
+  "name": "Puente de San Martín",
+  "where": "Medieval bridge over the Tagus, west side, below San Juan de los Reyes",
+  "lat": 39.85668,
+  "lon": -4.03413,
+  "track": "l18-san-martin-bridge",
+  "text": null,
+  "approx": false
+ },
+ {
+  "id": "devils-alley",
+  "name": "Callejón del Diablo and Callejón del Infierno",
+  "where": "Two lanes just south of the Alcázar, by Calle del Cristo de la Calavera and the Plaza del Seco",
+  "lat": 39.85712,
+  "lon": -4.02195,
+  "track": null,
+  "text": "Two lanes a few steps apart, just south of the Alcázar, carry the darkest names in Toledo: the Callejón del Diablo and the Callejón del Infierno, the Devil's Alley and Hell's Alley. Nobody knows for certain where the names came from. The stories say this corner of the city, around the little Plaza del Seco, was where witches and sorcerers met. One tale tells of a student who sold his soul here for forbidden knowledge, then tried to cheat the devil, who left the marks of his fire on the walls. On windy nights, they say, you can hear whispering between the stones.",
+  "approx": true
+ },
+ {
+  "id": "alfileritos",
+  "name": "Virgen de los Alfileritos",
+  "where": "A glass niche on Calle Alfileritos, a few steps from Zocodover",
   "lat": 39.85983,
   "lon": -4.02324,
   "track": null,
@@ -100,9 +200,9 @@
   "approx": false
  },
  {
-  "id": "x3",
-  "name": "The Cobertizos: lanes under houses",
-  "where": "Cobertizo de Santo Domingo el Real (lane midpoint)",
+  "id": "cobertizos",
+  "name": "The Cobertizos",
+  "where": "Covered lanes around Santo Domingo el Real and Santa Clara, north of the old town",
   "lat": 39.86055,
   "lon": -4.02571,
   "track": null,
@@ -110,23 +210,93 @@
   "approx": true
  },
  {
-  "id": "x4",
-  "name": "Santo Domingo el Real: Bécquer's square",
-  "where": "Plaza de Santo Domingo el Real, in front of the convent",
-  "lat": 39.86048,
-  "lon": -4.02632,
-  "track": null,
-  "text": "The Romantic poet Gustavo Adolfo Bécquer came to Toledo in the 1850s and walked its lanes at night, and this small, silent square below the enclosed convent of Santo Domingo el Real was one of his haunts. High blind walls, barred windows, a bell, and nuns who are heard but never seen: it is the stage set of his legends. In them, a stranger glimpses a pale hand behind a convent grille, or follows a woman into a lane that ends in nothing. Stand still here after dark. The square has hardly changed since he stood in it.",
-  "approx": false
- },
- {
-  "id": "x5",
-  "name": "The Baño de la Cava: La Cava's bath",
-  "where": "Torreón del Baño de la Cava, by the river near the San Martín bridge",
+  "id": "bano-de-la-cava",
+  "name": "Torreón del Baño de la Cava",
+  "where": "Ruined tower by the river, just north of the San Martín bridge",
   "lat": 39.85809,
   "lon": -4.03466,
   "track": null,
   "text": "This ruined tower by the Tagus is tied to the last Visigothic king, Rodrigo. Legend says he watched from a window as Florinda, called La Cava, bathed in the river here, and he took her by force. Her father, Count Julián, governor of Ceuta, swore revenge and opened the straits to the Muslim armies in 711. So, the story goes, Spain was lost for a bath. Historians doubt every word, and the tower is really part of an old bridge. But the name has stuck for a thousand years, and on dark nights the river here is very loud.",
+  "approx": false
+ },
+ {
+  "id": "arco-de-la-sangre",
+  "name": "Arco de la Sangre",
+  "where": "The arch on the east side of Plaza de Zocodover",
+  "lat": 39.85946,
+  "lon": -4.02096,
+  "track": null,
+  "text": "The Arch of the Blood, on the east side of Zocodover, is an old Moorish gateway through the inner walls. It takes its name from a small chapel above it that held an image called the Christ of the Blood. A popular story says the condemned prayed here on their way to execution; no record confirms it. The chapel and its Christ were destroyed in the Civil War, and the arch was rebuilt afterwards. Cervantes sits in bronze at its foot. He knew Toledo well, and the city appears in his stories.",
+  "approx": false
+ },
+ {
+  "id": "pena-rey-moro",
+  "name": "Peña del Rey Moro",
+  "where": "Granite outcrop on the hills across the river, south of the old town, near the Ermita del Valle",
+  "lat": 39.85082,
+  "lon": -4.02054,
+  "track": null,
+  "text": "Across the river, on the hills to the south, near the hermitage of the Valle, a pile of granite boulders looks, from the right angle, like the bust of a man in a turban. This is the Peña del Rey Moro, the Rock of the Moorish King. The legend says a Moorish king besieged Toledo, could not take it, and asked to be buried on that high point, so that he would face the city forever. Historians find no record of any such burial. Tonight you will see only the dark ridge across the gorge, from the viewpoints on the south side of the old town.",
+  "approx": true
+ },
+ {
+  "id": "campana-gorda",
+  "name": "La Campana Gorda",
+  "where": "In the cathedral's bell tower, at its west end",
+  "lat": 39.85691,
+  "lon": -4.02427,
+  "track": null,
+  "text": "High in the cathedral's bell tower hangs the Campana Gorda, the Fat Bell, one of the largest bells in Spain, weighing around eighteen tonnes. It was cast in the seventeen fifties, and it is famous less for its voice than for its fate: it cracked almost as soon as it was hung, within two months according to one account. Toledans have told stories about it ever since, and a nineteenth-century serial was even named after it. It still hangs in the tower. Look up at the dark belfry tonight.",
+  "approx": true
+ },
+ {
+  "id": "santa-maria-la-blanca",
+  "name": "Santa María la Blanca",
+  "where": "Calle de los Reyes Católicos, old Jewish quarter",
+  "lat": 39.85696,
+  "lon": -4.03029,
+  "track": null,
+  "text": "Behind a plain wall on Calle de los Reyes Católicos is one of the oldest synagogues still standing in Europe, a forest of white horseshoe arches built around eight hundred years ago. After violence against Toledo's Jews it became a church, and took the name it still has, Saint Mary the White. Its legend is about the ground itself: the Jews of Toledo, it is said, laid the floor with earth brought from Jerusalem, so that they would pray on holy soil. No archaeologist has found proof. Tradition keeps the story anyway. At night you see only the gate and the wall.",
+  "approx": false
+ },
+ {
+  "id": "san-juan-de-los-reyes",
+  "name": "San Juan de los Reyes",
+  "where": "Calle de los Reyes Católicos, west side of the old town above the San Martín bridge",
+  "lat": 39.85782,
+  "lon": -4.03193,
+  "track": null,
+  "text": "The monastery of San Juan de los Reyes was built by Ferdinand and Isabella as their great church in Toledo. On its outer walls hang rows of iron chains, and they are real: the chains of Christian captives freed from Moorish prisons in the war for Granada, hung here as offerings. At night, in the floodlights, they look like a warning. Bécquer came here often to draw, and in one of his tales the narrow street he took on his way here leads to a window, and a woman he never sees.",
+  "approx": false
+ },
+ {
+  "id": "posada-hermandad",
+  "name": "Posada de la Hermandad",
+  "where": "Calle de la Hermandad, just east of the cathedral",
+  "lat": 39.85723,
+  "lon": -4.02245,
+  "track": null,
+  "text": "This old building near the cathedral was the seat of the Santa Hermandad, the brotherhood that policed the roads of Castile, and its prison. The stories say its cellars held dungeons where prisoners were tortured, and that a well inside was used for executions. Visitors and staff have reported footsteps, voices and noises nobody can explain. It is closed at night, but its heavy doorway and barred windows face the street. Stand there a moment and listen.",
+  "approx": false
+ },
+ {
+  "id": "judia-de-toledo",
+  "name": "Alcázar: the Jewess of Toledo",
+  "where": "The royal fortress at the top of the old town",
+  "lat": 39.85801,
+  "lon": -4.0205,
+  "track": null,
+  "text": "The Alcázar, the royal fortress on top of the hill, was home to the kings of Castile, and one of them left Toledo a sad legend. Medieval chronicles say King Alfonso the Eighth fell so deeply in love with a Jewish woman of Toledo that he shut himself away with her and forgot his kingdom. The nobles, in some versions urged on by the queen, broke in and killed her. The chronicles call her Fermosa, the beautiful; later poets and playwrights called her Raquel. It was written down long after the king's death, perhaps to explain his defeats. Nobody knows where she lived.",
+  "approx": true
+ },
+ {
+  "id": "underground",
+  "name": "Roman baths and Toledo underground",
+  "where": "Plaza Amador de los Ríos, just off the main street between Zocodover and the cathedral",
+  "lat": 39.85842,
+  "lon": -4.02529,
+  "track": null,
+  "text": "Under Plaza Amador de los Ríos lie the remains of Roman baths, one of many spaces hidden beneath Toledo's streets. The city sits on a honeycomb of cisterns, cellars, wells and caves, and every guide has a tunnel story: a secret passage from the cathedral to the Alcázar for moving treasure in wartime, a labyrinth opening from an old river gate, cellars that join house to house. Most have never been mapped, and some night tours take you down into a private cellar to tell them. The baths, at least, are real.",
   "approx": false
  }
 ]

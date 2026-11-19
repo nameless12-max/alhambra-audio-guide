@@ -1,10 +1,10 @@
-# title: Stop 8. The Christ of the Skull: a walk home, and goodnight
-# stop: 8
-# room: Any dark lane on the way home; Toledans place it near Calle de las Bulas
+# title: Stop 19. The Christ of the Skull: a walk home, and goodnight
+# stop: 19
+# room: Calle del Cristo de la Calavera, a short lane east of the cathedral
 
 ## A glove on the floor
 
-N: Stop eight, the last one. Listen to this on the way back, in any dark lane. Toledans place the story near Calle de las Bulas, in the south-west of the old town, where a small Christ once hung under an archway, lit by a little lamp, with a skull at his feet.
+N: Stop nineteen, the last one. Listen to this on the way back, in any dark lane. The story belongs to a short street east of the cathedral, still called the street of the Christ of the Skull. A small Christ once hung there under an archway, lit by a little lamp, with a skull at his feet.
 
 ...
 

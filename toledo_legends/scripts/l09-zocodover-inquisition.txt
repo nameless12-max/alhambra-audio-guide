@@ -1,0 +1,43 @@
+# title: Stop 9. Plaza de Zocodover: the Inquisition's stage
+# stop: 9
+# room: Plaza de Zocodover, the main square at the top of the old town, by the Arco de la Sangre
+
+## The square that watched
+
+N: Stop nine. Plaza de Zocodover is the main square of the old town, a lopsided triangle of arcades and cafés where most night tours begin. At this hour it is lit and busy. On its east side is an arch, the Arco de la Sangre, with a statue of Cervantes at its foot.
+
+...
+
+N: Now take the cafés away. Picture a wooden stage, built for one day. Balconies rented out like boxes at a theatre. And a procession climbing the hill with candles.
+
+N: In fourteen eighty-five, the Spanish Inquisition moved its court for this region to Toledo. It stayed for more than three hundred years. Its great public ceremonies were called autos de fe. Acts of faith. And many of Toledo's were held here, in this square.
+
+N: At the first one, a year later, about seven hundred and fifty penitents walked through the streets, bareheaded, carrying candles, in front of the whole city.
+
+## The devil's lanes
+
+A: Toledo's witches, the old stories say, did not meet in forests. They met in the city. Just south of here, behind the Alcázar, two narrow lanes still carry their names. The Alley of the Devil. The Alley of Hell.
+
+A: They say a student once sold his soul in one of them, in exchange for forbidden knowledge. When the devil came to collect, the student tried to trick him. The devil left. But he left the marks of his fire on the walls.
+
+A: And they say that on quiet nights, here in Zocodover, you can still hear the murmur of a crowd that is no longer there.
+
+N: The Inquisition treated witchcraft as heresy, and Toledo's court did try women for it. But Spanish judges were often more doubtful about witches than judges in northern Europe. The real terror here fell on other people.
+
+## A crime that never happened
+
+N: Here is a story the guide may mention. It is not a legend. It is a lie that killed people.
+
+N: In fourteen ninety-one, in La Guardia, a village of this province, a group of Jews and converted Jews were accused of killing a Christian child in a secret ritual. There was no body. No child was ever reported missing. The confessions were forced out under torture. The accused were burned, in the city of Ávila.
+
+N: A few months later, every Jew in Spain was ordered to convert or leave. And for centuries afterwards, people prayed to the little saint who had never existed.
+
+...
+
+N: Historians agree today. There was no crime. Only a story told to make hatred look like justice.
+
+N: Stand in the middle of the square and look up at the balconies. If you had lived here then, would you have watched?
+
+## Walk on
+
+N: Next, through the arch, to the gardens of a Moorish princess and a prince from France. That is stop ten.
