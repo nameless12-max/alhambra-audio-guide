@@ -1,0 +1,73 @@
+# title: Stop 2. San Juan de los Reyes: A tomb left empty
+# stop: 2
+# room: Jewish quarter, Calle de los Reyes Católicos
+
+## The chains
+
+N: Stop two. The monastery of San Juan de los Reyes. Before you go in, stay outside. Find the long wall of pale stone facing the street, and look up.
+
+...
+
+N: Iron chains, hanging in loops high on the stone. Shackles. Manacles. From the street they look like decoration. They are not.
+
+N: These chains were worn by Christian prisoners held in the Muslim kingdom of Granada. As the armies of Isabella and Ferdinand took its towns, one by one, the captives were set free, and their chains were sent here and hung on the wall of the queen's church.
+
+A: Which prisons, exactly? The stories differ. Some say Granada itself. Others name Málaga, or Ronda, or towns further east. What they agree on is the message. Look what we did. We brought our people home.
+
+N: You have just come from Granada. Picture a man stepping out of a cell there, into the light, rubbing his wrists. His chains ended up here, as a trophy.
+
+## A battle nobody quite won
+
+N: Now hold a question as you go in. Why build a church this grand, and then not use it for the one thing it was made for?
+
+N: Go back to the beginning. When Isabella claimed the crown of Castile, her claim was not safe. Her niece said the crown was hers, and the king of Portugal married that niece and marched into Castile to take it.
+
+N: In fourteen seventy-six the two armies met near a town called Toro, on the river Duero. The fighting went on into the dark. On one side of the field the Portuguese did well. On the other, Ferdinand's men broke them. Both sides claimed the victory.
+
+N: But Isabella understood something. A battle is won by whoever tells the story. She called it a triumph, gave thanks, and vowed a monastery. Here, in Toledo, the old heart of Castile. And it would be their tomb.
+
+## The queen is not impressed
+
+N: The architect was Juan Guas, the queen's master of works.
+
+A: Now a story Toledo loves to tell. The queen came to see how her church was going. She looked around and asked whether this trifle was what they had built her. In old Spanish, "esta nonada". A nothing. It is a story, and the words differ from one telling to the next. But the building did change. It grew richer, and grander, to match her vow.
+
+## Read the walls
+
+...
+
+N: Walk up to the crossing, where the great stone arches meet. Look at the walls. They are covered in coats of arms, held up by huge stone eagles. The eagle is the sign of Saint John, whose church this is.
+
+N: Now look for two small emblems, again and again. A yoke, the wooden collar for oxen. And a bundle of arrows.
+
+N: The yoke was Ferdinand's sign. The arrows were Isabella's. The popular story says each picked the other's initial. Yugo, yoke, with a Y, the old spelling of Isabel. Flechas, arrows, with an F, for Fernando. Whether or not that is why they chose them, look how they are carved here. Side by side, again and again, like lovers' initials on a tree.
+
+...
+
+## The empty tomb
+
+N: So why are they not here?
+
+N: Because of Granada. In fourteen ninety-two the last Muslim kingdom in Spain surrendered, and the Alhambra was theirs. The queen loved that city. She decided to be buried there instead, in the place of her greatest victory.
+
+N: When she died, her body was carried south and laid first in a convent inside the Alhambra itself. If you walked past the Parador hotel up there, that old convent is where she first lay. Later she and Ferdinand were moved to the Royal Chapel, beside Granada's cathedral. They are there still.
+
+N: This church was left without its king and queen. A tomb with nobody in it.
+
+## The cloister, burned and mended
+
+...
+
+N: Before you leave, walk into the cloister. Two floors of arches around a garden. Look up at the carving, at the beasts and odd creatures sticking out from the walls.
+
+N: In eighteen hundred and eight, Napoleon's troops occupied Toledo and were quartered here. A great fire broke out. The second cloister was destroyed altogether. Much of what you see was rebuilt later, by restorers working from what survived. One wing of this cloister and the lace of stone along its top are largely theirs.
+
+N: So look closely. Some faces up there were carved five centuries ago. Some, little more than one. See if you can tell which.
+
+...
+
+N: Stand in the garden. Think of that wall outside. The chains of men set free, hung on a church built for a queen who chose to lie somewhere else.
+
+## Walk on
+
+N: Walk on, uphill, across the old town, to the little mosque of Cristo de la Luz. That is stop three.
