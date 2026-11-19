@@ -1182,10 +1182,10 @@ let lastEs = '', lastEn = '';
 function audioUrl(kind) { return settings.endpoint.replace(/\/audio\/.*$/, '/audio/' + kind); }
 const CHAT_MODELS = ['openai/gpt-oss-20b', 'openai/gpt-oss-120b', 'qwen/qwen3.8-27b'];
 let chatIdx = 0;
-const INTERPRET_SYS = 'You are a live interpreter on a night legends tour of Toledo, Spain. You get the previous lines for context and one NEW piece of machine-transcribed Spanish. It was cut by the clock, so it may start or end mid-sentence. Reply with natural, clear English for the NEW piece only, continuing smoothly from the previous English. The stories are set in past centuries (a carro is a cart). Fix obvious mis-hearings using the context; likely names include Zocodover, Arco de la Sangre, Cristo de la Luz, Cueva de Hércules, rey Rodrigo, Pozo Amargo, Bécquer, Alcázar, Tajo, Inquisición. If the NEW piece is already English, return it unchanged. No notes, no quotes, no Spanish.';
+const INTERPRET_SYS = 'You are a live interpreter on a night legends tour of Toledo, Spain. You get the previous lines for context and one NEW piece of machine-transcribed Spanish. It was cut by the clock, so it may start or end mid-sentence. Reply with natural, clear English for the NEW piece only, continuing smoothly from the previous English. The stories are set in past centuries (a carro is a cart). Fix obvious mis-hearings using the context; likely names include Zocodover, Arco de la Sangre, Cristo de la Luz, Cueva de Hércules, rey Rodrigo, Pozo Amargo, Bécquer, Alcázar, Tajo, Inquisición. If the NEW piece is already English, return it unchanged. No notes, no quotes, no Spanish. Spanish usually leaves out the subject (he, she, they), so work out who is acting from the earlier lines and keep each character\'s gender consistent: once someone is a woman or a man, they stay so. If it is truly unclear who is meant, use the name or the role (the king, the girl) instead of guessing he or she.';
 async function interpret(es) {
   const url = settings.endpoint.replace(/\/audio\/.*$/, '/chat/completions');
-  const user = (lastEs ? 'Previous Spanish: ' + lastEs.slice(-350) + '\nPrevious English: ' + lastEn.slice(-350) + '\n' : '') + 'NEW: ' + es;
+  const user = (lastEs ? 'Previous Spanish: ' + lastEs.slice(-500) + '\nPrevious English: ' + lastEn.slice(-500) + '\n' : '') + 'NEW: ' + es;
   for (let attempt = 0; attempt < CHAT_MODELS.length; attempt++) {
     const model = CHAT_MODELS[(chatIdx + attempt) % CHAT_MODELS.length];
     const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 12000);
@@ -1321,7 +1321,8 @@ const LV_BUF_MS = 10000;  // audio kept while the socket reconnects
 const LV_SLICE = 250;     // MediaRecorder timeslice
 const LV_SYSTEM = 'You translate a Spanish tour guide (a night walk about the legends of Toledo, Spain) into natural English. ' +
   'The Spanish comes from live speech recognition: fix obvious mis-hearings from context. Reply with the English of the text after "Translate:" only, ' +
-  'with no notes or quotes. Never translate or repeat the earlier context. Keep names of people and places.';
+  'with no notes or quotes. Never translate or repeat the earlier context. Keep names of people and places.' +
+  ' Spanish usually leaves out the subject (he, she, they), so work out who is acting from the earlier lines and keep each character\'s gender consistent: once someone is a woman or a man, they stay so. If it is truly unclear who is meant, use the name or the role (the king, the girl) instead of guessing he or she.';
 
 const lv = {
   on: false, held: false, starting: false, state: 'off', msg: '', ws: null, everOpened: false, fails: 0, attempt: 0,
@@ -1658,7 +1659,7 @@ async function lvTranslateNext() {
     j++;
   }
   if (j > i0 + 1) { lvEntries.splice(i0 + 1, j - i0 - 1); lvRender(first); lvSave(); }
-  const context = lvEntries.slice(0, i0).filter(e => e.type === 'text').slice(-2).map(e => e.es.slice(-200));
+  const context = lvEntries.slice(0, i0).filter(e => e.type === 'text').slice(-5).map(e => e.es.slice(-200));
   lvBusy = true; lvLastReq = Date.now(); lvRefresh();
   try {
     const en = await liveInterpret(first.es, context);
