@@ -136,14 +136,14 @@
   const DEFAULTS = {
     endpoint: 'https://api.groq.com/openai/v1/audio/translations',
     model: 'whisper-large-v3',
-    chunkSec: 20,
+    chunkSec: 10,
     thresh: 0.02,
     prompt: 'A night walking tour of Toledo, Spain, about its legends. Names: Toledo, Zocodover, Cristo de la Luz, ' +
       'Cueva de Hércules, rey Rodrigo, Florinda la Cava, Pozo Amargo, Raquel, Fernando, Cristo de la Vega, Bécquer, ' +
       'El beso, San Pedro Mártir, Hombre de Palo, Juanelo Turriano, Alfileritos, Inquisición, judería, Alcázar, Tajo, ' +
       'catedral, Cisneros, alfaquí, mozárabe, Santo Domingo el Real, cobertizos.'
   };
-  const LS_SETTINGS = 'toledoListen.settings';
+  const LS_SETTINGS = 'toledoListen.settings2';
   const LS_KEY = 'toledoListen.apiKey';
   const LS_TRANSCRIPT = 'toledoListen.transcript';
 
@@ -301,6 +301,7 @@
   // ---------- audio ----------
   let stream = null, audioCtx = null, analyser = null, meterTimer = null, statusTimer = null;
   let recorder = null, chunkTimer = null, chunkEndsAt = 0, running = false, wakeLock = null;
+  let quietRun = 0;
   let chunkStats = null; // { frames, voiced, peak, start }
   const buf = new Float32Array(2048);
 
@@ -332,6 +333,10 @@
     if (chunkStats) {
       chunkStats.frames++; if (rms >= settings.thresh) chunkStats.voiced++;
       if (rms > chunkStats.peak) chunkStats.peak = rms;
+      // Cut at a breath: once the chunk has its minimum length, end it at the
+      // first short pause so sentences are not split, and text arrives sooner.
+      quietRun = rms < settings.thresh ? quietRun + 1 : 0;
+      if (running && quietRun >= 3 && Date.now() - chunkStats.start >= settings.chunkSec * 1000) { quietRun = 0; beginChunk(); }
     }
     recentPeaks.push(rms); if (recentPeaks.length > 50) recentPeaks.shift();
     const loud = recentPeaks.filter(r => r >= settings.thresh).length;
@@ -402,9 +407,10 @@
     const prev = recorder;
     recorder = rec; chunkStats = stats;
     if (prev && prev.state !== 'inactive') prev.stop();
-    chunkEndsAt = Date.now() + settings.chunkSec * 1000;
+    // settings.chunkSec is the minimum; with no pause, force a cut 6 s later.
+    chunkEndsAt = Date.now() + (settings.chunkSec + 6) * 1000;
     clearTimeout(chunkTimer);
-    chunkTimer = setTimeout(() => { if (running) beginChunk(); }, settings.chunkSec * 1000);
+    chunkTimer = setTimeout(() => { if (running) beginChunk(); }, (settings.chunkSec + 6) * 1000);
   }
 
   function pause() {
