@@ -187,6 +187,16 @@
   };
   let settings = Object.assign({}, DEFAULTS, store.get(LS_SETTINGS, {}));
   let apiKey = store.get(LS_KEY, '');
+  // One-time setup link: listen.html#k=<key>. The part after # never reaches the
+  // server. Save it on this device, then remove it from the address bar.
+  try {
+    const m = location.hash.match(/^#k=(.+)$/);
+    if (m) {
+      apiKey = decodeURIComponent(m[1]).trim();
+      store.set(LS_KEY, apiKey);
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  } catch (e) {}
   let entries = store.get(LS_TRANSCRIPT, []);
   if (!Array.isArray(entries)) entries = [];
 
