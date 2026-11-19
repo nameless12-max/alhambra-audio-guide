@@ -358,6 +358,9 @@ try {
   else if (history.state && history.state.sheet) history.replaceState(null, '');
 } catch {}
 if (!['map', 'stories', 'translate', 'live'].includes(startTab)) startTab = 'map';
+// The setup link opened while the app is already open in this tab changes only
+// the part after #, which does not reload the page: reload so the keys are saved.
+window.addEventListener('hashchange', () => { if (/(^#|&)(k|dg)=/.test(location.hash)) location.reload(); });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmtDist = m => m < 1000 ? Math.round(m) + ' m' : (m / 1000).toFixed(1) + ' km';
