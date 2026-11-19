@@ -1,0 +1,47 @@
+# title: Stop 2. The Treasury: The queen's jewel inside the tower of silver
+# stop: 2
+# room: Treasury chapel, at the foot of the bell tower, near the main doors
+
+## A queen's things for sale
+
+N: Stop two. The treasury chapel, at the foot of the tower. In the middle, behind glass, a tower of silver taller than a man. Walk all the way round it before you listen on.
+
+...
+
+N: Begin with a death. Queen Isabella dies, and she has left orders. Her debts must be paid and her promises kept, so her possessions go up for sale. The private treasures of the most powerful woman in Europe.
+
+N: Among them is a small monstrance. A case of gold to hold the holy bread of the Mass, so that people can see it carried before them. It had been made for her, by a goldsmith in Barcelona. The canons of this cathedral buy it.
+
+N: And then the man who had been her confessor, Cardinal Cisneros, the friar you met in the last stop, has an idea. He wants a setting for the queen's jewel. Not a box. A building.
+
+## A cathedral you can carry
+
+N: He hires a German goldsmith living in Spain, Enrique de Arfe. Arfe works on it for seven years.
+
+N: Look at it now as Arfe meant it. It is a Gothic church in miniature. Buttresses, pinnacles, pointed arches, a spire. On it, they say, about two hundred and sixty tiny figures.
+
+...
+
+N: Find the heart of it. Behind the glass, in the middle of the silver tower, a smaller piece, golden. That is Isabella's monstrance. The queen's private piece, swallowed by a cathedral.
+
+A: Now the tradition. The guides of Toledo love to say that the gold of this inner piece came from the first gold Columbus brought back from the Americas, and that the queen gave it for this. Nobody has proved it. But stand here and think about it. Gold from a world the queen had never seen, melted down to hold a scrap of bread.
+
+## One day a year
+
+N: Once a year, at the feast of Corpus Christi, it comes out of this room. It is lifted onto a carriage and taken through the streets of Toledo, under awnings hung across the narrow lanes against the sun. It has made that journey for about five hundred years.
+
+...
+
+N: Arfe left it in silver. Later generations, it is said, gilded it and set it on a grander base. Everyone who looked after it wanted his share in it.
+
+## The king's picture book
+
+N: Look around the room for books in cases. If it is on show, one of them is a great treasure of the Middle Ages: a Bible in three volumes made in Paris for the French king Louis the Ninth, the crusader who became a saint. Thousands of tiny painted pictures. How it came to Toledo is not certain; the stories differ.
+
+...
+
+N: A saint king. A queen who backed Columbus. A goldsmith from Germany. All gathered in one small room, because a frugal friar wanted the holy bread to ride through the streets in a cathedral of its own.
+
+## Walk on
+
+N: Walk on. Go back toward the centre of the church, to the great enclosed choir in the middle of the nave. Find the way in, on the side that faces the high altar. Play stop three.

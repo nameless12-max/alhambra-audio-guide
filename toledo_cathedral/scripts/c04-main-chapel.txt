@@ -1,0 +1,47 @@
+# title: Stop 4. The Main Chapel: The third king of Spain
+# stop: 4
+# room: Capilla Mayor, the high altar, seen through the grille facing the choir
+
+## A wall of gold
+
+N: Stop four. Stand at the great grille of the high altar, with your back to the choir. Look.
+
+...
+
+N: A wall of carved and gilded wood, rising almost to the vault. Hundreds of figures, set in rows like the windows of a building. It tells the life of Christ, from the bottom up, and at the very top, under a painted sky of stars, the crucifixion.
+
+N: It was built about five hundred years ago, for Cardinal Cisneros, the friar you have already met twice. To make room for something this big, the chapel itself had to be enlarged, and the tombs of old kings had to be moved.
+
+N: Look up at the top of the grille in front of you. The double-headed eagle of the emperor Charles the Fifth. If you saw Titian's Charles on horseback in the Prado, this is his badge, in iron.
+
+## The cardinal who would not lie in a side chapel
+
+N: Now look to your left, inside the chapel, in the side wall. A tomb of white marble, shaped like a Roman triumphal arch.
+
+...
+
+N: This is the tomb of Cardinal Pedro González de Mendoza. In his day, people called him the third king of Spain. He was Isabella's closest adviser.
+
+A: They say that when Granada fell, it was the cardinal's silver cross that was raised first on the towers of the Alhambra. It is a story told about that day.
+
+N: He also had sons. A cardinal, with children, and nobody pretended otherwise. Isabella, it is reported, called them the cardinal's three beautiful sins.
+
+N: Now the fight. Mendoza wanted to be buried here, in the main chapel, beside the kings. The canons of the cathedral said no. This was the place of kings. Then the queen stepped in. She and the archbishop overruled the chapter. The old wall was broken through to make space for him. And look at the style. Not Gothic. A classical arch, straight out of Renaissance Italy, one of the first in all of Castile. Even in death, the cardinal arrived first.
+
+...
+
+## Two strangers on the pillars
+
+N: Now look at the pillars that frame the chapel, at the edges of the grille. Among the stone figures high up, two do not belong to any Bible story. Check the floor plan if you cannot find them.
+
+N: On one side, a figure Toledo calls the alfaquí, the jurist. Tradition says this is Abu Walid, the Muslim jurist from the opening track, who begged the king to spare the men who seized his mosque. His people lost their mosque, and he is honoured inside it.
+
+A: On another pillar, a shepherd. Toledo calls him Martín Alhaja. The legend says that before the great battle of Las Navas de Tolosa, when a Christian army was trapped in the mountains, a shepherd appeared and showed the king a secret pass. The army got through and won.
+
+N: Both are legends. But think about who is up there. The kings lie below. On the pillars, a Muslim peacemaker and a shepherd from the hills.
+
+...
+
+## Walk on
+
+N: Walk on. Go round the right-hand side of the main chapel into the curved walkway behind it, the ambulatory. On your right, look for a doorway into a hall, the chapter house. Play stop five.
