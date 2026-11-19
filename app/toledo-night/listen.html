@@ -1,0 +1,515 @@
+<!doctype html>
+<!--
+  Live English translation of a Spanish-speaking guide, in chunks.
+
+  Provider: Groq, OpenAI-compatible audio translations (verified 2026-11-19 from official docs):
+  - Docs: https://console.groq.com/docs/speech-to-text
+    Endpoint POST https://api.groq.com/openai/v1/audio/translations, multipart/form-data:
+    file (flac mp3 mp4 mpeg mpga m4a ogg wav webm), model, prompt, response_format (json | verbose_json | text),
+    temperature (0..1, default 0), language (translations only accept "en").
+    Translation is supported by whisper-large-v3 only; whisper-large-v3-turbo is transcription-only.
+    Max upload 25 MB on the free tier (100 MB dev tier). Minimum billed length 10 s per request.
+    Prompt: max 224 tokens. The API reference for /audio/translations says the prompt "should be in English"
+    (the general guide says "same language as the audio"), so the prompt is English text that carries the
+    Spanish proper names.
+  - Rate limits: https://console.groq.com/docs/rate-limits  (free plan row for whisper-large-v3):
+    20 requests/min, 2,000 requests/day, 7,200 audio seconds/hour (2 h), 28,800 audio seconds/day (8 h).
+  - CORS: checked with curl. OPTIONS preflight returns 204 with access-control-allow-origin: *,
+    allow-headers: authorization, allow-methods include POST. Unauthenticated POST returns 401 (endpoint exists).
+  - Keys: https://console.groq.com/keys
+  Hugging Face Inference Providers was not needed: Groq fits on every point.
+
+  The API key is kept only in localStorage on this device. It is never put in the URL and never logged.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f1a">
+<title>Live Guide Translation</title>
+<style>
+  :root {
+    --bg: #0b0f1a; --panel: #141a2a; --line: #26304a; --text: #eef1f7; --muted: #8e98b3;
+    --accent: #f0b35a; --ok: #6fd39a; --warn: #f0b35a; --err: #ff7a7a; --mark: #7aa7ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body {
+    font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex; flex-direction: column; height: 100vh; height: 100dvh;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  header { padding: 10px 16px 6px; display: flex; align-items: center; gap: 12px; }
+  header h1 { font-size: 17px; margin: 0; flex: 1; font-weight: 600; }
+  header a { color: var(--accent); text-decoration: none; font-size: 15px; }
+  #status { padding: 0 16px 6px; font-size: 14px; color: var(--muted); min-height: 1.4em; }
+  #status.ok { color: var(--ok); } #status.warn { color: var(--warn); } #status.err { color: var(--err); }
+  .meter-wrap { padding: 0 16px 8px; }
+  .meter { height: 10px; background: var(--panel); border-radius: 5px; overflow: hidden; position: relative; }
+  .meter i { display: block; height: 100%; width: 0; background: var(--ok); transition: width .08s linear; }
+  .meter b { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--muted); }
+  #hint { font-size: 13px; color: var(--warn); min-height: 1.3em; padding-top: 3px; }
+  #transcript {
+    flex: 1; overflow-y: auto; padding: 8px 16px 24px; border-top: 1px solid var(--line);
+    -webkit-overflow-scrolling: touch;
+  }
+  .chunk { margin: 14px 0; }
+  .chunk time { display: block; font-size: 12px; color: var(--muted); letter-spacing: .03em; }
+  .chunk p { margin: 2px 0 0; font-size: 22px; line-height: 1.4; }
+  .chunk .legend { font-size: 13px; margin-top: 4px; }
+  .chunk .legend a { color: var(--accent); text-decoration: none; }
+  .chunk.note p { font-size: 14px; color: var(--muted); font-style: italic; }
+  .mark { margin: 20px 0; display: flex; align-items: center; gap: 10px; color: var(--mark); font-size: 14px; }
+  .mark::before, .mark::after { content: ""; flex: 1; height: 1px; background: var(--mark); opacity: .5; }
+  #empty { color: var(--muted); font-size: 15px; margin-top: 20px; }
+  .controls { display: flex; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--line); background: var(--bg); }
+  button {
+    font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 10px 14px; cursor: pointer;
+  }
+  button:active { opacity: .7; }
+  #startBtn { flex: 1; font-size: 20px; font-weight: 700; padding: 16px; background: var(--accent); color: #1a1205; border: 0; }
+  #startBtn.on { background: #2a3450; color: var(--text); }
+  #markBtn { font-size: 17px; padding: 16px 18px; }
+  details { margin: 0 16px 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+  summary { padding: 10px 14px; cursor: pointer; color: var(--muted); font-size: 15px; }
+  .settings { padding: 0 14px 14px; display: grid; gap: 10px; }
+  .settings label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+  .settings input, .settings textarea {
+    font: 15px/1.3 inherit; font-family: inherit; color: var(--text); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; width: 100%;
+  }
+  .settings textarea { min-height: 90px; resize: vertical; }
+  .settings .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .note-box { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .note-box a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Live translation</h1>
+  <a href="index.html">&larr; Map</a>
+</header>
+
+<details id="settingsPanel">
+  <summary>Settings</summary>
+  <div class="settings">
+    <div class="note-box">
+      Setup: open <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>,
+      sign in (free), press "Create API Key", copy it and paste it below. The key stays only on this phone.
+    </div>
+    <label>API key <input id="apiKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gsk_..."></label>
+    <label>Endpoint <input id="endpoint" type="url" autocapitalize="off" spellcheck="false"></label>
+    <label>Model <input id="model" type="text" autocapitalize="off" spellcheck="false"></label>
+    <label>Chunk length: <span id="chunkVal"></span> s <input id="chunkSec" type="range" min="10" max="30" step="1"></label>
+    <label>Silence threshold: <span id="threshVal"></span> <input id="thresh" type="range" min="0.005" max="0.08" step="0.001"></label>
+    <label>Vocabulary prompt (English, max about 224 tokens) <textarea id="prompt"></textarea></label>
+    <div class="row">
+      <button id="saveBtn" type="button">Save</button>
+      <button id="resetBtn" type="button">Reset defaults</button>
+      <button id="forgetKeyBtn" type="button">Forget key</button>
+    </div>
+    <div class="row">
+      <button id="copyBtn" type="button">Copy transcript</button>
+      <button id="clearBtn" type="button">Clear transcript</button>
+    </div>
+  </div>
+</details>
+
+<div id="status">Ready. Press Start.</div>
+<div class="meter-wrap">
+  <div class="meter"><i id="level"></i><b id="threshMark"></b></div>
+  <div id="hint"></div>
+</div>
+
+<main id="transcript" aria-live="polite"><div id="empty">The English translation will appear here, newest at the bottom.</div></main>
+
+<div class="controls">
+  <button id="startBtn" type="button">Start</button>
+  <button id="markBtn" type="button">Mark</button>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  const DEFAULTS = {
+    endpoint: 'https://api.groq.com/openai/v1/audio/translations',
+    model: 'whisper-large-v3',
+    chunkSec: 20,
+    thresh: 0.02,
+    prompt: 'A night walking tour of Toledo, Spain, about its legends. Names: Toledo, Zocodover, Cristo de la Luz, ' +
+      'Cueva de Hércules, rey Rodrigo, Florinda la Cava, Pozo Amargo, Raquel, Fernando, Cristo de la Vega, Bécquer, ' +
+      'El beso, San Pedro Mártir, Hombre de Palo, Juanelo Turriano, Alfileritos, Inquisición, judería, Alcázar, Tajo, ' +
+      'catedral, Cisneros, alfaquí, mozárabe, Santo Domingo el Real, cobertizos.'
+  };
+  const LS_SETTINGS = 'toledoListen.settings';
+  const LS_KEY = 'toledoListen.apiKey';
+  const LS_TRANSCRIPT = 'toledoListen.transcript';
+
+  // Lines Whisper invents on silence or noise.
+  const HALLUCINATION = [
+    /thank(s| you) for watching/i, /subtit(le|les|led) by/i, /amara\.org/i, /please subscribe/i,
+    /like and subscribe/i, /see you (in the )?next (video|time)/i, /(translated|transcribed|captions?) by/i,
+    /^\W*(\[?music\]?|♪+)\W*$/i, /www\.\S+/i, /don't forget to subscribe/i
+  ];
+  const WEAK_LINES = /^\W*(thank you( very much)?|thanks|you|bye( bye)?|okay|ok|so|yeah|hmm+)\W*$/i;
+
+  // Simple legend guesser: each rule matches on accent-stripped lowercase text.
+  const LEGENDS = [
+    { name: 'The Bitter Well (Pozo Amargo)', all: [/pozo|well/, /amargo|bitter/] },
+    { name: 'The Cave of Hercules', any: [/hercules/, /cueva de/] },
+    { name: 'King Rodrigo and Florinda la Cava', any: [/rodrigo/, /florinda/, /la cava/] },
+    { name: 'Cristo de la Vega', any: [/cristo de la vega/, /christ of (the )?vega/, /\bvega\b.*(hand|arm)|(hand|arm).*\bvega\b/] },
+    { name: 'Cristo de la Luz', any: [/cristo de la luz/, /christ of (the )?light/] },
+    { name: 'Bécquer and El Beso (The Kiss)', any: [/becquer/, /el beso/, /\bkiss\b/] },
+    { name: 'The Wooden Man (Hombre de Palo)', any: [/hombre de palo/, /wooden man/, /man of wood/, /juanelo/, /turriano/] },
+    { name: 'Alfileritos', any: [/alfilerit/, /\bpins\b/] },
+    { name: 'The Inquisition', any: [/inquisi/, /san pedro martir/, /heretic/, /auto de fe/] },
+    { name: 'Santo Domingo el Real and the cobertizos', any: [/santo domingo/, /cobertizo/] },
+    { name: 'Raquel and King Fernando', all: [/raquel|rachel/] },
+    { name: 'The Cathedral', any: [/cathedral|catedral/, /cisneros/, /mozarab/] }
+  ];
+
+  const $ = id => document.getElementById(id);
+  const el = {
+    status: $('status'), level: $('level'), threshMark: $('threshMark'), hint: $('hint'),
+    transcript: $('transcript'), empty: $('empty'), start: $('startBtn'), mark: $('markBtn'),
+    apiKey: $('apiKey'), endpoint: $('endpoint'), model: $('model'), chunkSec: $('chunkSec'), chunkVal: $('chunkVal'),
+    thresh: $('thresh'), threshVal: $('threshVal'), prompt: $('prompt')
+  };
+
+  // ---------- storage ----------
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch { return false; } },
+    del(k) { try { localStorage.removeItem(k); } catch {} }
+  };
+  let settings = Object.assign({}, DEFAULTS, store.get(LS_SETTINGS, {}));
+  let apiKey = store.get(LS_KEY, '');
+  let entries = store.get(LS_TRANSCRIPT, []);
+  if (!Array.isArray(entries)) entries = [];
+
+  function fillSettings() {
+    el.apiKey.value = apiKey;
+    el.endpoint.value = settings.endpoint;
+    el.model.value = settings.model;
+    el.chunkSec.value = settings.chunkSec; el.chunkVal.textContent = settings.chunkSec;
+    el.thresh.value = settings.thresh; el.threshVal.textContent = (+settings.thresh).toFixed(3);
+    el.prompt.value = settings.prompt;
+    placeThreshMark();
+  }
+  function readSettings() {
+    settings = {
+      endpoint: el.endpoint.value.trim() || DEFAULTS.endpoint,
+      model: el.model.value.trim() || DEFAULTS.model,
+      chunkSec: Math.min(30, Math.max(10, parseInt(el.chunkSec.value, 10) || DEFAULTS.chunkSec)),
+      thresh: Math.min(0.08, Math.max(0.005, parseFloat(el.thresh.value) || DEFAULTS.thresh)),
+      prompt: el.prompt.value.trim()
+    };
+    apiKey = el.apiKey.value.trim();
+    store.set(LS_SETTINGS, settings);
+    if (apiKey) store.set(LS_KEY, apiKey); else store.del(LS_KEY);
+  }
+  el.chunkSec.addEventListener('input', () => { el.chunkVal.textContent = el.chunkSec.value; readSettings(); });
+  el.thresh.addEventListener('input', () => { el.threshVal.textContent = (+el.thresh.value).toFixed(3); readSettings(); placeThreshMark(); });
+  [el.apiKey, el.endpoint, el.model, el.prompt].forEach(i => i.addEventListener('change', readSettings));
+  $('saveBtn').onclick = () => { readSettings(); setStatus('Settings saved.', 'ok'); };
+  $('resetBtn').onclick = () => { const k = apiKey; settings = Object.assign({}, DEFAULTS); fillSettings(); el.apiKey.value = k; readSettings(); setStatus('Defaults restored (key kept).', 'ok'); };
+  $('forgetKeyBtn').onclick = () => { el.apiKey.value = ''; readSettings(); setStatus('Key removed from this device.', 'ok'); };
+
+  // ---------- transcript ----------
+  const fmtTime = ts => new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+  function guessLegend(text) {
+    const t = norm(text);
+    for (const L of LEGENDS) {
+      if (L.all && L.all.every(r => r.test(t))) return L.name;
+      if (L.any && L.any.some(r => r.test(t))) return L.name;
+    }
+    return null;
+  }
+
+  function renderEntry(e) {
+    if (e.type === 'mark') {
+      const d = document.createElement('div'); d.className = 'mark'; d.textContent = 'New stop · ' + fmtTime(e.t); return d;
+    }
+    const d = document.createElement('div'); d.className = 'chunk' + (e.type === 'note' ? ' note' : '');
+    const tm = document.createElement('time'); tm.textContent = fmtTime(e.t); d.appendChild(tm);
+    const p = document.createElement('p'); p.textContent = e.text; d.appendChild(p);
+    if (e.legend) {
+      const l = document.createElement('div'); l.className = 'legend';
+      const a = document.createElement('a'); a.href = 'index.html'; a.textContent = 'Maybe: ' + e.legend + ' →';
+      l.appendChild(a); d.appendChild(l);
+    }
+    return d;
+  }
+  function nearBottom() { const t = el.transcript; return t.scrollHeight - t.scrollTop - t.clientHeight < 120; }
+  function renderAll() {
+    el.transcript.textContent = '';
+    if (!entries.length) { el.transcript.appendChild(el.empty); return; }
+    entries.forEach(e => el.transcript.appendChild(renderEntry(e)));
+    el.transcript.scrollTop = el.transcript.scrollHeight;
+  }
+  function addEntry(e) {
+    const stick = nearBottom();
+    entries.push(e);
+    if (!store.set(LS_TRANSCRIPT, entries)) setStatus('Storage full: copy the transcript soon.', 'warn');
+    if (el.empty.parentNode) el.empty.remove();
+    el.transcript.appendChild(renderEntry(e));
+    if (stick) el.transcript.scrollTop = el.transcript.scrollHeight;
+  }
+  el.mark.onclick = () => addEntry({ type: 'mark', t: Date.now() });
+
+  $('copyBtn').onclick = async () => {
+    const txt = entries.map(e => e.type === 'mark' ? '\n--- New stop ' + fmtTime(e.t) + ' ---\n'
+      : '[' + fmtTime(e.t) + '] ' + e.text).join('\n');
+    try { await navigator.clipboard.writeText(txt); setStatus('Transcript copied.', 'ok'); }
+    catch {
+      const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand && document.execCommand('copy'); ta.remove();
+      setStatus(ok ? 'Transcript copied.' : 'Copy failed.', ok ? 'ok' : 'err');
+    }
+  };
+  $('clearBtn').onclick = () => {
+    if (!confirm('Delete the whole transcript from this phone?')) return;
+    entries = []; store.del(LS_TRANSCRIPT); renderAll(); setStatus('Transcript cleared.', 'ok');
+  };
+
+  // ---------- status ----------
+  function setStatus(msg, cls) { el.status.textContent = msg; el.status.className = cls || ''; }
+  let lastStatusErr = 0;
+  function refreshStatus() {
+    if (Date.now() - lastStatusErr < 6000) return;
+    if (!running) return;
+    const left = Math.max(0, Math.ceil((chunkEndsAt - Date.now()) / 1000));
+    const q = queue.length + (busy ? 1 : 0);
+    setStatus('Listening · next chunk in ' + left + ' s' + (q ? ' · sending ' + q : ''), 'ok');
+  }
+
+  // ---------- audio ----------
+  let stream = null, audioCtx = null, analyser = null, meterTimer = null, statusTimer = null;
+  let recorder = null, chunkTimer = null, chunkEndsAt = 0, running = false, wakeLock = null;
+  let chunkStats = null; // { frames, voiced, peak, start }
+  const buf = new Float32Array(2048);
+
+  function pickMime() {
+    if (typeof MediaRecorder === 'undefined') return null;
+    const opts = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4;codecs=mp4a.40.2', 'audio/mp4', 'audio/ogg;codecs=opus'];
+    for (const m of opts) { try { if (MediaRecorder.isTypeSupported(m)) return m; } catch {} }
+    return '';
+  }
+  function extFor(mime) {
+    if (/webm/.test(mime)) return 'webm';
+    if (/mp4|aac|m4a/.test(mime)) return 'm4a';
+    if (/ogg/.test(mime)) return 'ogg';
+    return 'webm';
+  }
+  function placeThreshMark() {
+    el.threshMark.style.left = Math.min(100, levelToPct(settings.thresh)) + '%';
+  }
+  // RMS 0..~0.5 mapped to a log-ish meter so quiet speech is visible.
+  function levelToPct(rms) { return Math.max(0, Math.min(100, (Math.log10(rms + 1e-4) + 4) / 3.7 * 100)); }
+
+  function sampleLevel() {
+    if (!analyser) return;
+    analyser.getFloatTimeDomainData(buf);
+    let s = 0; for (let i = 0; i < buf.length; i++) s += buf[i] * buf[i];
+    const rms = Math.sqrt(s / buf.length);
+    el.level.style.width = levelToPct(rms) + '%';
+    el.level.style.background = rms >= settings.thresh ? 'var(--ok)' : 'var(--muted)';
+    if (chunkStats) {
+      chunkStats.frames++; if (rms >= settings.thresh) chunkStats.voiced++;
+      if (rms > chunkStats.peak) chunkStats.peak = rms;
+    }
+    recentPeaks.push(rms); if (recentPeaks.length > 50) recentPeaks.shift();
+    const loud = recentPeaks.filter(r => r >= settings.thresh).length;
+    el.hint.textContent = running && recentPeaks.length >= 50 && loud < 3
+      ? 'Guide sounds faint: move closer, or point the phone toward her.' : '';
+  }
+  const recentPeaks = [];
+
+  async function acquireWakeLock() {
+    try { if ('wakeLock' in navigator && document.visibilityState === 'visible') {
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => { wakeLock = null; });
+    } } catch { /* not fatal */ }
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && running) {
+      if (!wakeLock) acquireWakeLock();
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+    }
+  });
+
+  let mime = '';
+  async function start() {
+    readSettings();
+    if (!apiKey) { $('settingsPanel').open = true; setStatus('Paste your Groq API key in Settings first.', 'err'); el.apiKey.focus(); return; }
+    mime = pickMime();
+    if (mime === null || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setStatus('This browser cannot record audio here (needs HTTPS and a modern browser).', 'err'); return;
+    }
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, channelCount: 1 }
+      });
+    } catch (err) {
+      setStatus('Microphone blocked: allow it for this site and try again.', 'err'); return;
+    }
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AC();
+      if (audioCtx.state === 'suspended') await audioCtx.resume();
+      const src = audioCtx.createMediaStreamSource(stream);
+      analyser = audioCtx.createAnalyser(); analyser.fftSize = 2048;
+      src.connect(analyser);
+    } catch { analyser = null; }
+    running = true;
+    el.start.textContent = 'Pause'; el.start.classList.add('on');
+    meterTimer = setInterval(sampleLevel, 100);
+    statusTimer = setInterval(refreshStatus, 1000);
+    acquireWakeLock();
+    beginChunk();
+    refreshStatus();
+  }
+
+  function beginChunk() {
+    let rec;
+    try { rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream); }
+    catch (err) { setStatus('Recorder failed to start.', 'err'); pause(); return; }
+    const parts = [];
+    const stats = { frames: 0, voiced: 0, peak: 0, start: Date.now() };
+    rec.ondataavailable = ev => { if (ev.data && ev.data.size) parts.push(ev.data); };
+    rec.onstop = () => {
+      const type = rec.mimeType || mime || 'audio/webm';
+      const blob = new Blob(parts, { type });
+      onChunk(blob, stats, type);
+    };
+    rec.start();
+    // Old recorder stops only after the new one is running, so no audio is lost between chunks.
+    const prev = recorder;
+    recorder = rec; chunkStats = stats;
+    if (prev && prev.state !== 'inactive') prev.stop();
+    chunkEndsAt = Date.now() + settings.chunkSec * 1000;
+    clearTimeout(chunkTimer);
+    chunkTimer = setTimeout(() => { if (running) beginChunk(); }, settings.chunkSec * 1000);
+  }
+
+  function pause() {
+    running = false;
+    clearTimeout(chunkTimer); clearInterval(meterTimer); clearInterval(statusTimer);
+    if (recorder && recorder.state !== 'inactive') recorder.stop(); // last partial chunk still gets sent
+    recorder = null; chunkStats = null;
+    if (stream) stream.getTracks().forEach(t => t.stop());
+    stream = null;
+    if (audioCtx) audioCtx.close().catch(() => {});
+    audioCtx = null; analyser = null;
+    if (wakeLock) wakeLock.release().catch(() => {});
+    wakeLock = null;
+    el.level.style.width = '0'; el.hint.textContent = ''; recentPeaks.length = 0;
+    el.start.textContent = 'Start'; el.start.classList.remove('on');
+    setStatus(queue.length || busy ? 'Paused · finishing sends…' : 'Paused.', '');
+  }
+  el.start.onclick = () => running ? pause() : start();
+
+  // ---------- sending ----------
+  const queue = []; let busy = false;
+
+  function onChunk(blob, stats, type) {
+    const dur = (Date.now() - stats.start) / 1000;
+    const voicedFrac = stats.frames ? stats.voiced / stats.frames : 1; // no analyser: send everything
+    if (dur < 1.5 || blob.size < 1000) return;
+    if (stats.frames && (voicedFrac < 0.03 || stats.peak < settings.thresh)) return; // silent: skip
+    if (blob.size > 24 * 1024 * 1024) { addEntry({ type: 'note', t: stats.start, text: '[chunk too large, skipped]' }); return; }
+    queue.push({ blob, type, t: stats.start, voicedFrac, tries: 0 });
+    pump();
+  }
+
+  let lastText = '';
+  function buildPrompt() {
+    let p = settings.prompt || '';
+    // Append the tail of the previous chunk for continuity, staying well under 224 tokens.
+    if (lastText) {
+      const room = Math.max(0, 700 - p.length);
+      if (room > 40) p += ' ' + lastText.slice(-Math.min(room, 200));
+    }
+    return p.slice(0, 700); // about 224 tokens is the documented maximum
+  }
+
+  function cleanText(data, voicedFrac) {
+    let text;
+    if (data && Array.isArray(data.segments) && data.segments.length) {
+      text = data.segments
+        .filter(s => !(typeof s.no_speech_prob === 'number' && s.no_speech_prob > 0.6 &&
+                      typeof s.avg_logprob === 'number' && s.avg_logprob < -0.7))
+        .map(s => (s.text || '').trim()).join(' ');
+    } else {
+      text = (data && data.text) || '';
+    }
+    text = (text.match(/[^.!?]+[.!?]*/g) || []).map(s => s.trim())
+      .filter(s => s && !HALLUCINATION.some(r => r.test(s))).join(' ').trim();
+    if (WEAK_LINES.test(text) && voicedFrac < 0.2) return '';
+    return text;
+  }
+
+  async function pump() {
+    if (busy) return;
+    const item = queue.shift();
+    if (!item) { if (!running) setStatus('Paused.', ''); return; }
+    busy = true;
+    refreshStatus();
+    try {
+      const fd = new FormData();
+      fd.append('file', item.blob, 'chunk.' + extFor(item.type));
+      fd.append('model', settings.model);
+      const pr = buildPrompt(); if (pr) fd.append('prompt', pr);
+      fd.append('response_format', 'verbose_json');
+      fd.append('temperature', '0');
+      const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 45000);
+      let res;
+      try {
+        res = await fetch(settings.endpoint, {
+          method: 'POST', headers: { Authorization: 'Bearer ' + apiKey }, body: fd, signal: ctl.signal
+        });
+      } finally { clearTimeout(to); }
+      if (!res.ok) {
+        let msg = ''; try { const j = await res.json(); msg = (j.error && j.error.message) || ''; } catch {}
+        const e = new Error(msg || ('HTTP ' + res.status)); e.status = res.status;
+        e.retryAfter = parseFloat(res.headers.get('retry-after')) || 0; throw e;
+      }
+      const data = await res.json();
+      const text = cleanText(data, item.voicedFrac);
+      if (text) { lastText = text; addEntry({ type: 'text', t: item.t, text, legend: guessLegend(text) }); }
+    } catch (err) {
+      const status = err.status || 0;
+      lastStatusErr = Date.now();
+      if (status === 401 || status === 403) {
+        setStatus('Key rejected (' + status + '). Check the key in Settings.', 'err');
+        addEntry({ type: 'note', t: item.t, text: '[not translated: key rejected]' });
+      } else if (item.tries < 1 && status !== 400 && status !== 413) {
+        item.tries++;
+        const wait = status === 429 ? Math.min(30, Math.max(3, err.retryAfter || 5)) : 3;
+        setStatus((status === 429 ? 'Rate limited' : 'Send failed') + ' · retrying in ' + Math.round(wait) + ' s', 'warn');
+        busy = false;
+        setTimeout(() => { queue.unshift(item); pump(); }, wait * 1000);
+        return;
+      } else {
+        setStatus('Chunk skipped: ' + (status ? 'HTTP ' + status : 'network error') + '. Still listening.', 'err');
+        addEntry({ type: 'note', t: item.t, text: '[chunk skipped: ' + (status || 'network') + ']' });
+      }
+    }
+    busy = false;
+    pump();
+  }
+
+  // ---------- init ----------
+  fillSettings();
+  renderAll();
+  if (!apiKey) { $('settingsPanel').open = true; setStatus('First paste your free Groq API key in Settings.', 'warn'); }
+  if (!window.isSecureContext) setStatus('Needs HTTPS (or localhost) for the microphone.', 'err');
+})();
+</script>
+</body>
+</html>
