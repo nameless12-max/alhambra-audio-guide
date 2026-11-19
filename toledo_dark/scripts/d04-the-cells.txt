@@ -1,4 +1,4 @@
-# title: Toledo's dark side 4. The cells: the brotherhood's prison, and what remains
+# title: Stop 4. The cells: the brotherhood's prison, and what remains
 # stop: 4
 # room: Posada de la Hermandad, Calle de la Hermandad, near the cathedral, or anywhere
 

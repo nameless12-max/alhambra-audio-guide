@@ -1,4 +1,4 @@
-# title: Toledo's dark side 2. Zocodover: the theatre of faith
+# title: Stop 2. Zocodover: the theatre of faith
 # stop: 2
 # room: Plaza de Zocodover, or anywhere
 

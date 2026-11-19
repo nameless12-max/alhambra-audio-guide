@@ -1,4 +1,4 @@
-# title: Toledo's dark side 0. The day the inquisitors came
+# title: The day the inquisitors came
 # stop: 0
 # room: Anywhere
 
