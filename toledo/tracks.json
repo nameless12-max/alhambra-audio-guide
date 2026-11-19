@@ -1,0 +1,7952 @@
+{
+ "tracks": [
+  {
+   "id": "s00-welcome-history",
+   "title": "Toledo in five minutes: the city on the rock",
+   "stop": 0,
+   "file": "audio/s00-welcome-history.mp3?v=2d98931b",
+   "duration": 278.98,
+   "bytes": 1674380,
+   "sections": [
+    {
+     "title": "The rock",
+     "start": 0.1
+    },
+    {
+     "title": "Four owners",
+     "start": 30.73
+    },
+    {
+     "title": "The city that translated the world",
+     "start": 115.18
+    },
+    {
+     "title": "The end, and the freeze",
+     "start": 188.9
+    },
+    {
+     "title": "Walk on",
+     "start": 262.15
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Welcome to Toledo, Monica.",
+     "start": 0.4,
+     "end": 3.2
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Before any church or painting, here is the story of the city itself.",
+     "start": 3.2,
+     "end": 7.86
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "It takes five minutes, and everything else today will make more sense.",
+     "start": 7.86,
+     "end": 12.15
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Start with the ground under your feet.",
+     "start": 13.35,
+     "end": 16.09
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Toledo sits on a hill of granite, and the river Tagus wraps around it on three sides, in a deep gorge.",
+     "start": 16.09,
+     "end": 22.89
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Only one side is open.",
+     "start": 22.89,
+     "end": 24.93
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Whoever held this rock was very hard to remove.",
+     "start": 24.93,
+     "end": 27.97
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "So everyone wanted it.",
+     "start": 27.97,
+     "end": 29.83
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "The Romans took it first, about two hundred years before Christ.",
+     "start": 31.03,
+     "end": 35.89
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "One of their historians called it a small city, but strong because of its position.",
+     "start": 35.89,
+     "end": 41.25
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "They built baths, a circus for chariot races, and the water tanks you can still visit underground.",
+     "start": 41.25,
+     "end": 48.1
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "When Rome collapsed, a people from the north moved in.",
+     "start": 49.3,
+     "end": 53.75
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "The Visigoths.",
+     "start": 53.75,
+     "end": 55.9
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "They made Toledo the capital of all Spain.",
+     "start": 55.9,
+     "end": 59.34
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Their kings were crowned here, and their bishops met here to decide what the country would believe.",
+     "start": 59.34,
+     "end": 65.35
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Remember them.",
+     "start": 65.35,
+     "end": 67.53
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Their last king, Rodrigo, is waiting for you in tonight's legends.",
+     "start": 67.53,
+     "end": 72.55
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Then, in seven hundred and eleven, an army crossed from Africa.",
+     "start": 74.95,
+     "end": 79.85
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Within a few years, Toledo was a Muslim city, and it stayed one for nearly four hundred years.",
+     "start": 79.85,
+     "end": 86.43
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "The narrow twisting lanes you keep getting lost in are their street plan.",
+     "start": 86.43,
+     "end": 90.93
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "The little mosque by the city gate is theirs.",
+     "start": 90.93,
+     "end": 94.0
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "You have just come from Granada, the last Muslim kingdom in Spain.",
+     "start": 95.2,
+     "end": 100.0
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Granada fell in fourteen ninety-two.",
+     "start": 100.0,
+     "end": 102.84
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Toledo was taken by a Christian king four centuries earlier, in ten eighty-five.",
+     "start": 102.84,
+     "end": 108.56
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "It was the first great Muslim city to fall.",
+     "start": 108.56,
+     "end": 111.44
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "And that is the reason it matters so much.",
+     "start": 111.44,
+     "end": 114.28
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Because the new Christian king did something unusual.",
+     "start": 115.48,
+     "end": 119.36
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "He did not empty the city.",
+     "start": 119.36,
+     "end": 121.8
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Muslims stayed.",
+     "start": 121.8,
+     "end": 124.15
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Jews stayed.",
+     "start": 124.15,
+     "end": 126.3
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "And so did their libraries.",
+     "start": 126.3,
+     "end": 128.55
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "Those libraries held books Europe had lost.",
+     "start": 129.75,
+     "end": 132.95
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "Greek medicine, astronomy, mathematics, Aristotle.",
+     "start": 132.95,
+     "end": 137.01
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "All of it kept alive in Arabic.",
+     "start": 137.01,
+     "end": 139.35
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "So scholars came to Toledo from England, Italy and Germany, and sat down with Jewish and Muslim translators.",
+     "start": 139.35,
+     "end": 146.57
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "A book would go from Arabic into Spanish, spoken aloud, and from Spanish into Latin, written down.",
+     "start": 146.57,
+     "end": 153.32
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Think about that, with your own story.",
+     "start": 155.72,
+     "end": 158.75
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Knowledge passing from one language to the next, across a table, between people who prayed differently.",
+     "start": 158.75,
+     "end": 165.16
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Much of what Europe later called its Renaissance came through rooms in this town.",
+     "start": 165.16,
+     "end": 170.15
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "It was not paradise.",
+     "start": 171.35,
+     "end": 173.25
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "There were taxes, quarrels, and massacres.",
+     "start": 173.25,
+     "end": 176.21
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "But for a few centuries, three faiths shared this small rock, and built in each other's styles.",
+     "start": 176.21,
+     "end": 182.27
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "You will see churches that look like mosques, built by Muslim craftsmen for Christian priests.",
+     "start": 182.27,
+     "end": 188.0
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "It ended badly.",
+     "start": 189.2,
+     "end": 191.55
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "In fourteen ninety-two, the Jews of Spain were told to convert or leave.",
+     "start": 191.55,
+     "end": 197.09
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "Ten years later, the Muslims were told the same.",
+     "start": 197.09,
+     "end": 200.57
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "The city of three faiths became a city of one.",
+     "start": 200.57,
+     "end": 203.88
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "For a while Toledo was still the heart of an empire.",
+     "start": 205.07,
+     "end": 208.73
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "The emperor Charles the Fifth, the one you saw on horseback in the Prado, held court here.",
+     "start": 208.73,
+     "end": 214.69
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Then his son moved the capital to a small town in the middle of nowhere, called Madrid.",
+     "start": 214.69,
+     "end": 220.35
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "The court left.",
+     "start": 222.75,
+     "end": 224.9
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "The money left.",
+     "start": 224.9,
+     "end": 227.03
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "And Toledo simply stopped.",
+     "start": 227.03,
+     "end": 229.59
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Nobody could afford to knock it down and build it again.",
+     "start": 229.59,
+     "end": 232.75
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "That is why you are walking through a medieval city today.",
+     "start": 232.75,
+     "end": 236.34
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "It was preserved by being forgotten.",
+     "start": 236.34,
+     "end": 238.97
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "One man arrived a few years after the court had gone.",
+     "start": 240.17,
+     "end": 243.79
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "A painter from Greece, hoping to work for the king.",
+     "start": 243.79,
+     "end": 247.35
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "The king tried him once, and did not like the result.",
+     "start": 247.35,
+     "end": 250.63
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "So he stayed here for the rest of his life, and painted this city's priests, its noblemen and its stormy sky.",
+     "start": 250.63,
+     "end": 257.39
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "You know him already.",
+     "start": 257.39,
+     "end": 259.57
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "El Greco.",
+     "start": 259.57,
+     "end": 261.25
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "That is Toledo.",
+     "start": 262.45,
+     "end": 264.77
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Romans, Goths, Muslims, Christians and Jews, all on one rock, and then four centuries of sleep.",
+     "start": 264.77,
+     "end": 271.88
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Now choose your next track.",
+     "start": 271.88,
+     "end": 273.88
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "The cathedral, Santo Tomé, or whatever is in front of you.",
+     "start": 273.88,
+     "end": 277.97
+    }
+   ],
+   "group": "Sights",
+   "room": "Anywhere. Listen first."
+  },
+  {
+   "id": "s01-santo-tome-orgaz",
+   "title": "Stop 1. Santo Tomé: The Burial of the Count of Orgaz",
+   "stop": 1,
+   "file": "audio/s01-santo-tome-orgaz.mp3?v=942670d8",
+   "duration": 262.3,
+   "bytes": 1574444,
+   "sections": [
+    {
+     "title": "A priest with a grudge",
+     "start": 0.1
+    },
+    {
+     "title": "The miracle",
+     "start": 62.75
+    },
+    {
+     "title": "The crowd is real",
+     "start": 109.95
+    },
+    {
+     "title": "The boy",
+     "start": 164.15
+    },
+    {
+     "title": "Up to heaven",
+     "start": 197.22
+    },
+    {
+     "title": "The fight over the price",
+     "start": 216.3
+    },
+    {
+     "title": "Walk on",
+     "start": 250.02
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop one.",
+     "start": 0.4,
+     "end": 2.42
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The church of Santo Tomé, with its brick tower.",
+     "start": 2.42,
+     "end": 6.11
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The painting has its own entrance and its own room beside the church; check at the door.",
+     "start": 6.11,
+     "end": 11.23
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Go in and stand back from it.",
+     "start": 11.23,
+     "end": 13.25
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "It fills the wall.",
+     "start": 13.25,
+     "end": 14.98
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "This story begins with a painting, and a lawsuit.",
+     "start": 17.38,
+     "end": 21.2
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "A rich nobleman of Toledo, the lord of the town of Orgaz, died in thirteen twenty-three.",
+     "start": 22.4,
+     "end": 29.06
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "He loved this church.",
+     "start": 29.06,
+     "end": 30.84
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "He left it money, to be paid every year by the people of his town, forever.",
+     "start": 30.84,
+     "end": 35.6
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Two centuries pass.",
+     "start": 36.8,
+     "end": 39.38
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Forever is a long time.",
+     "start": 39.38,
+     "end": 41.57
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "The town of Orgaz stops paying.",
+     "start": 41.57,
+     "end": 43.85
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "And the parish priest here, Andrés Núñez, takes them to court.",
+     "start": 43.85,
+     "end": 48.25
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "And he wins.",
+     "start": 48.25,
+     "end": 49.95
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Now he wants the whole city to remember why the money was owed.",
+     "start": 51.15,
+     "end": 55.59
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "So he hires the foreign painter Toledo is talking about.",
+     "start": 55.59,
+     "end": 60.0
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "The Greek.",
+     "start": 60.0,
+     "end": 61.55
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Here is the legend, as Toledo tells it.",
+     "start": 63.05,
+     "end": 66.47
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "At the nobleman's funeral, as his body was lowered, two saints came down from heaven.",
+     "start": 66.47,
+     "end": 72.6
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Saint Stephen, young.",
+     "start": 72.6,
+     "end": 75.47
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Saint Augustine, old, with a long beard.",
+     "start": 75.47,
+     "end": 79.03
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "They lifted the dead man with their own hands and laid him in his tomb.",
+     "start": 79.03,
+     "end": 83.65
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "That is legend.",
+     "start": 85.15,
+     "end": 87.38
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "The priest wrote it into the contract: the miracle, and the crowd who saw it.",
+     "start": 87.38,
+     "end": 92.73
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "Look at the bottom half.",
+     "start": 95.13,
+     "end": 97.11
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "The two saints in gold vestments, bending under the weight of the body in black armour.",
+     "start": 97.11,
+     "end": 102.11
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "How gently they hold him.",
+     "start": 102.11,
+     "end": 103.93
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "Augustine's face is close to the dead man's.",
+     "start": 103.93,
+     "end": 107.05
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "Stephen holds his feet.",
+     "start": 107.05,
+     "end": 109.05
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Now look at the row of men behind them.",
+     "start": 110.25,
+     "end": 113.55
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Black clothes.",
+     "start": 113.55,
+     "end": 115.73
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "White ruffs.",
+     "start": 115.73,
+     "end": 117.83
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Long pale faces.",
+     "start": 117.83,
+     "end": 120.43
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Every one of them looks like a portrait, because many were.",
+     "start": 120.43,
+     "end": 124.45
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "These were real Toledans of El Greco's own day, not of the dead man's.",
+     "start": 124.45,
+     "end": 129.5
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "On the right, in white, reading from a book, is the priest himself.",
+     "start": 130.7,
+     "end": 135.7
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Núñez put himself at the funeral he had fought for.",
+     "start": 135.7,
+     "end": 138.92
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Now look high up, above that row of faces, a little left of centre.",
+     "start": 141.32,
+     "end": 146.48
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Just above the raised hand of a knight with the red cross on his chest.",
+     "start": 146.48,
+     "end": 150.96
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "One man is not watching the miracle.",
+     "start": 150.96,
+     "end": 153.41
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "He is looking straight at you.",
+     "start": 153.41,
+     "end": 155.4
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "It is said to be El Greco.",
+     "start": 156.6,
+     "end": 158.82
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "He put himself in the crowd, and turned to face us.",
+     "start": 158.82,
+     "end": 162.05
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Now the lower left corner.",
+     "start": 164.45,
+     "end": 166.65
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "A small boy in black, holding a torch.",
+     "start": 166.65,
+     "end": 169.55
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "He points at the saints, and he looks out at you, as if to say: look, there.",
+     "start": 169.55,
+     "end": 174.2
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "This is El Greco's son, Jorge Manuel.",
+     "start": 175.4,
+     "end": 178.7
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Look at the white handkerchief in his pocket.",
+     "start": 178.7,
+     "end": 181.3
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "On it the painter wrote his own name, and the year fifteen seventy-eight.",
+     "start": 181.3,
+     "end": 185.82
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Not the year of the painting.",
+     "start": 185.82,
+     "end": 187.74
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "The year the boy was born.",
+     "start": 187.74,
+     "end": 190.07
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "A father, signing his masterpiece on his child.",
+     "start": 192.47,
+     "end": 196.32
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Now lift your eyes.",
+     "start": 197.52,
+     "end": 199.6
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Up the middle, an angel carries something small and pale, like a newborn.",
+     "start": 199.6,
+     "end": 204.42
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "It is the dead man's soul, going up through a narrow passage of cloud.",
+     "start": 204.42,
+     "end": 209.24
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Look for the faces there.",
+     "start": 209.24,
+     "end": 211.02
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Among the saints, El Greco even placed the living king of Spain.",
+     "start": 211.02,
+     "end": 215.4
+    },
+    {
+     "p": 16,
+     "s": 5,
+     "who": "N",
+     "text": "When it was done, the parish did not want to pay what El Greco asked.",
+     "start": 216.6,
+     "end": 221.77
+    },
+    {
+     "p": 16,
+     "s": 5,
+     "who": "N",
+     "text": "Experts valued it.",
+     "start": 221.77,
+     "end": 224.3
+    },
+    {
+     "p": 16,
+     "s": 5,
+     "who": "N",
+     "text": "In the end he gave in and accepted the lower valuation.",
+     "start": 224.3,
+     "end": 228.36
+    },
+    {
+     "p": 16,
+     "s": 5,
+     "who": "N",
+     "text": "A masterpiece, settled like a debt.",
+     "start": 228.36,
+     "end": 231.37
+    },
+    {
+     "p": 17,
+     "s": 5,
+     "who": "N",
+     "text": "It has never been sold.",
+     "start": 232.57,
+     "end": 234.81
+    },
+    {
+     "p": 17,
+     "s": 5,
+     "who": "N",
+     "text": "It has hung in this church for more than four centuries, where it was made to hang.",
+     "start": 234.81,
+     "end": 239.6
+    },
+    {
+     "p": 18,
+     "s": 5,
+     "who": "N",
+     "text": "Look back at the boy one last time.",
+     "start": 242.0,
+     "end": 244.72
+    },
+    {
+     "p": 18,
+     "s": 5,
+     "who": "N",
+     "text": "Four hundred years on, he is still pointing, still asking you to look.",
+     "start": 244.72,
+     "end": 249.12
+    },
+    {
+     "p": 19,
+     "s": 6,
+     "who": "N",
+     "text": "Walk on, down the hill, past the old Jewish quarter, to the great stone monastery with chains on its walls.",
+     "start": 250.32,
+     "end": 257.72
+    },
+    {
+     "p": 19,
+     "s": 6,
+     "who": "N",
+     "text": "That is stop two, San Juan de los Reyes.",
+     "start": 257.72,
+     "end": 261.3
+    }
+   ],
+   "group": "Sights",
+   "room": "Church of Santo Tomé, Calle Santo Tomé"
+  },
+  {
+   "id": "s02-san-juan-de-los-reyes",
+   "title": "Stop 2. San Juan de los Reyes: A tomb left empty",
+   "stop": 2,
+   "file": "audio/s02-san-juan-de-los-reyes.mp3?v=4ee1e0b6",
+   "duration": 263.88,
+   "bytes": 1583804,
+   "sections": [
+    {
+     "title": "The chains",
+     "start": 0.1
+    },
+    {
+     "title": "A gamble that paid",
+     "start": 76.23
+    },
+    {
+     "title": "Read the walls",
+     "start": 124.13
+    },
+    {
+     "title": "The empty tomb",
+     "start": 166.15
+    },
+    {
+     "title": "The cloister",
+     "start": 216.52
+    },
+    {
+     "title": "Walk on",
+     "start": 254.85
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop two.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The monastery of San Juan de los Reyes.",
+     "start": 2.48,
+     "end": 5.7
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Before you go in, stay outside.",
+     "start": 5.7,
+     "end": 8.36
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Find the long wall of pale stone facing the street, and look up.",
+     "start": 8.36,
+     "end": 12.58
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Iron chains, hanging in loops high on the stone.",
+     "start": 14.98,
+     "end": 19.25
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Shackles.",
+     "start": 19.25,
+     "end": 21.3
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Manacles.",
+     "start": 21.3,
+     "end": 23.38
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "They look like a decoration.",
+     "start": 23.38,
+     "end": 26.08
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "They are not.",
+     "start": 26.08,
+     "end": 27.73
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "These chains were worn by Christian prisoners held in the Muslim kingdom of Granada.",
+     "start": 28.93,
+     "end": 34.66
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "When the armies of Isabella and Ferdinand took the towns of that kingdom, one by one, the prisoners were set free.",
+     "start": 34.66,
+     "end": 42.33
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "The queen had their chains brought here and hung on the wall of her church.",
+     "start": 42.33,
+     "end": 46.88
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Which prisons, exactly?",
+     "start": 48.38,
+     "end": 51.65
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "The stories differ.",
+     "start": 51.65,
+     "end": 54.25
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Some say Granada itself.",
+     "start": 54.25,
+     "end": 56.49
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Others say Málaga, or Ronda.",
+     "start": 56.49,
+     "end": 57.99
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "What they agree on is the message: look what we did.",
+     "start": 57.99,
+     "end": 62.37
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "We set our people free.",
+     "start": 62.37,
+     "end": 64.4
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "You have just come from Granada.",
+     "start": 65.9,
+     "end": 68.24
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Picture a man walking out of a dungeon there, rubbing his wrists.",
+     "start": 68.24,
+     "end": 72.3
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "His chains ended up here, as a trophy.",
+     "start": 72.3,
+     "end": 75.33
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Now go inside.",
+     "start": 76.53,
+     "end": 78.85
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Hold a question as you enter.",
+     "start": 78.85,
+     "end": 81.29
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Why build so grand a church, and then not use it for the one thing it was made for?",
+     "start": 81.29,
+     "end": 86.43
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Go back to the start.",
+     "start": 87.63,
+     "end": 89.49
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "When Isabella became queen, her claim was not safe.",
+     "start": 89.49,
+     "end": 93.25
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Another princess said the crown was hers, and the king of Portugal marched into Castile to back her.",
+     "start": 93.25,
+     "end": 99.61
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Everything came down to a battle at a town called Toro, in fourteen seventy-six.",
+     "start": 99.61,
+     "end": 105.5
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Isabella's side won.",
+     "start": 105.5,
+     "end": 107.65
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "To give thanks, the queen and king founded this monastery, for Franciscan friars.",
+     "start": 108.85,
+     "end": 114.91
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "And they decided it would be their tomb.",
+     "start": 114.91,
+     "end": 117.33
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "Here, in Toledo, the old heart of Castile, they would lie forever.",
+     "start": 117.33,
+     "end": 122.03
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Walk up to the crossing of the church, where the great stone arches meet.",
+     "start": 124.43,
+     "end": 128.77
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Look at the walls.",
+     "start": 128.77,
+     "end": 130.23
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "They are covered in coats of arms, held up by huge stone eagles.",
+     "start": 130.23,
+     "end": 134.81
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "The eagle is the sign of Saint John, whose church this is.",
+     "start": 134.81,
+     "end": 138.93
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Now look for two small emblems, again and again.",
+     "start": 140.12,
+     "end": 143.54
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "A yoke, like the wooden collar for oxen.",
+     "start": 143.54,
+     "end": 146.12
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "And a bundle of arrows.",
+     "start": 146.12,
+     "end": 147.84
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "The yoke is for Isabella.",
+     "start": 147.84,
+     "end": 149.56
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Yugo, with a Y, the old spelling of her name.",
+     "start": 149.56,
+     "end": 152.5
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "The arrows are for Ferdinand.",
+     "start": 152.5,
+     "end": 154.56
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Flechas, with an F.",
+     "start": 154.56,
+     "end": 155.99
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Each chose the sign that began with the other's initial.",
+     "start": 155.99,
+     "end": 159.41
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Two monarchs carved into one wall, like lovers' initials on a tree.",
+     "start": 159.41,
+     "end": 164.05
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "So why are they not here?",
+     "start": 166.45,
+     "end": 168.53
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Because of Granada.",
+     "start": 169.72,
+     "end": 172.17
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "In fourteen ninety-two the last Muslim kingdom in Spain surrendered, and the Alhambra was theirs.",
+     "start": 172.17,
+     "end": 179.57
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Isabella fell for that city.",
+     "start": 179.57,
+     "end": 181.79
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "She decided to be buried there instead, in the place of her greatest victory.",
+     "start": 181.79,
+     "end": 186.72
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "When she died, her body was taken south and laid first in a convent inside the Alhambra itself.",
+     "start": 187.92,
+     "end": 194.36
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "If you walked past the hotel there called the Parador, that old convent is where she first lay.",
+     "start": 194.36,
+     "end": 200.44
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Later she and Ferdinand were moved to the Royal Chapel, beside Granada's cathedral.",
+     "start": 200.44,
+     "end": 206.08
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "They are there still.",
+     "start": 206.08,
+     "end": 207.67
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "This great church was left without its king and queen.",
+     "start": 208.87,
+     "end": 212.41
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "A tomb with nobody in it.",
+     "start": 212.41,
+     "end": 214.42
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Before you leave, walk into the cloister.",
+     "start": 216.82,
+     "end": 219.82
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Two floors of stone arches around a garden.",
+     "start": 219.82,
+     "end": 222.91
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Look up at the carving, at the strange beasts and creatures sticking out of the walls.",
+     "start": 222.91,
+     "end": 228.15
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Three centuries after the friars came, Napoleon's soldiers were quartered here.",
+     "start": 229.35,
+     "end": 234.75
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Much of the monastery burned.",
+     "start": 234.75,
+     "end": 236.79
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "What you see has been patched and rebuilt.",
+     "start": 236.79,
+     "end": 239.57
+    },
+    {
+     "p": 16,
+     "s": 4,
+     "who": "N",
+     "text": "Stand in the garden.",
+     "start": 241.97,
+     "end": 243.83
+    },
+    {
+     "p": 16,
+     "s": 4,
+     "who": "N",
+     "text": "Look up at the arches.",
+     "start": 243.83,
+     "end": 245.49
+    },
+    {
+     "p": 16,
+     "s": 4,
+     "who": "N",
+     "text": "Then think of that wall outside.",
+     "start": 245.49,
+     "end": 247.87
+    },
+    {
+     "p": 16,
+     "s": 4,
+     "who": "N",
+     "text": "The chains of men set free, hung on a church built for a queen who chose to lie somewhere else.",
+     "start": 247.87,
+     "end": 253.95
+    },
+    {
+     "p": 17,
+     "s": 5,
+     "who": "N",
+     "text": "Walk on, uphill, across the old town, to the little mosque of Cristo de la Luz.",
+     "start": 255.15,
+     "end": 260.99
+    },
+    {
+     "p": 17,
+     "s": 5,
+     "who": "N",
+     "text": "That is stop three.",
+     "start": 260.99,
+     "end": 262.87
+    }
+   ],
+   "group": "Sights",
+   "room": "Jewish quarter, Calle de los Reyes Católicos"
+  },
+  {
+   "id": "s03-cristo-de-la-luz",
+   "title": "Stop 3. Cristo de la Luz: The mosque by daylight",
+   "stop": 3,
+   "file": "audio/s03-cristo-de-la-luz.mp3?v=8a3622ac",
+   "duration": 209.6,
+   "bytes": 1258220,
+   "sections": [
+    {
+     "title": "A thousand years in a small square",
+     "start": 0.1
+    },
+    {
+     "title": "Nine small skies",
+     "start": 68.35
+    },
+    {
+     "title": "The Christians add a room",
+     "start": 117.18
+    },
+    {
+     "title": "The street beneath",
+     "start": 152.62
+    },
+    {
+     "title": "Walk on",
+     "start": 202.47
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop three.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The little mosque of Cristo de la Luz, near the Sun Gate.",
+     "start": 2.48,
+     "end": 6.82
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "You have heard its legend, the king's horse that knelt in the street.",
+     "start": 6.82,
+     "end": 10.78
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Now see it by daylight.",
+     "start": 10.78,
+     "end": 12.78
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Start outside, on the street side.",
+     "start": 15.18,
+     "end": 17.94
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Find the front wall of narrow red bricks, with its row of arches.",
+     "start": 17.94,
+     "end": 22.34
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Look along the top, just under the roof line.",
+     "start": 22.34,
+     "end": 25.27
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "A band of brick letters runs across it.",
+     "start": 25.27,
+     "end": 28.1
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "That is Arabic, in an old, square, angular script.",
+     "start": 29.3,
+     "end": 33.42
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "And it is a signature.",
+     "start": 33.42,
+     "end": 35.12
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "It says that a man named Ahmad ibn Hadidi paid for this mosque.",
+     "start": 36.33,
+     "end": 41.17
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "That it was finished in the year that Christians count as nine hundred and ninety-nine.",
+     "start": 41.17,
+     "end": 46.23
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "And it names the builders.",
+     "start": 46.23,
+     "end": 47.97
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Musa ibn Ali, and a man called Saada.",
+     "start": 47.97,
+     "end": 51.58
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Think about that.",
+     "start": 53.98,
+     "end": 56.15
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "A thousand years ago, a builder put his name on his work, in brick, where everyone walking past would see it.",
+     "start": 56.15,
+     "end": 63.47
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "We know almost nothing else about him.",
+     "start": 63.47,
+     "end": 65.77
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "But we know his name.",
+     "start": 65.77,
+     "end": 67.45
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Now go inside.",
+     "start": 68.65,
+     "end": 70.98
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "It is tiny.",
+     "start": 70.98,
+     "end": 73.12
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Four columns, holding up the whole roof.",
+     "start": 73.12,
+     "end": 76.21
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Stand in the middle, between them.",
+     "start": 76.21,
+     "end": 78.48
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Look up.",
+     "start": 80.88,
+     "end": 82.78
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "The ceiling is divided into nine little squares, three by three.",
+     "start": 82.78,
+     "end": 87.58
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Each square has its own dome.",
+     "start": 87.58,
+     "end": 89.76
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "And each dome is made differently.",
+     "start": 89.76,
+     "end": 92.08
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Brick ribs crossing in a different pattern, every time.",
+     "start": 92.08,
+     "end": 96.3
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Stars.",
+     "start": 96.3,
+     "end": 98.25
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Crosses.",
+     "start": 98.25,
+     "end": 100.3
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Grids.",
+     "start": 100.3,
+     "end": 101.83
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "Turn slowly and look at all nine.",
+     "start": 103.03,
+     "end": 105.81
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "It is like a builder showing off nine ways to make a sky.",
+     "start": 105.81,
+     "end": 109.33
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "If you saw the great mosque of Córdoba, you will know this family of ribbed domes.",
+     "start": 109.33,
+     "end": 114.13
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "N",
+     "text": "This is its small cousin.",
+     "start": 114.13,
+     "end": 116.28
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Now look east, to the end of the building.",
+     "start": 117.48,
+     "end": 121.1
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "The style changes.",
+     "start": 121.1,
+     "end": 123.58
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "A rounded apse, a half-circle chamber, built on later in the same red brick.",
+     "start": 123.58,
+     "end": 129.35
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "After the Christian conquest of Toledo, the mosque became a church.",
+     "start": 130.55,
+     "end": 135.01
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "To make it face the right way for Christian prayer, they added this apse.",
+     "start": 135.01,
+     "end": 139.21
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Look at the walls inside it for the faded paintings of Christ and saints.",
+     "start": 139.21,
+     "end": 143.65
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Muslim domes on one side.",
+     "start": 143.65,
+     "end": 145.93
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Christian saints on the other.",
+     "start": 145.93,
+     "end": 147.85
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "One building, joined at the seam.",
+     "start": 147.85,
+     "end": 150.53
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "One last thing, under your feet.",
+     "start": 152.93,
+     "end": 155.73
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "This hill was a Roman town before it was anything else.",
+     "start": 155.73,
+     "end": 159.15
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "About twenty years ago, archaeologists digging beside the mosque found a Roman street.",
+     "start": 159.15,
+     "end": 164.73
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "N",
+     "text": "Big granite paving slabs, a road about five metres wide, with a drain running beneath it.",
+     "start": 164.73,
+     "end": 171.43
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Look for the opened ground in the garden next to the building.",
+     "start": 172.62,
+     "end": 176.31
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "If it is covered or closed, check at the door.",
+     "start": 176.31,
+     "end": 179.84
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Picture carts rolling over those stones, nearly a thousand years before the mosque was built on the slope above.",
+     "start": 179.84,
+     "end": 186.7
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "So stand here for a moment.",
+     "start": 187.9,
+     "end": 190.7
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Roman stones below.",
+     "start": 190.7,
+     "end": 193.32
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "A Muslim builder's name above.",
+     "start": 193.32,
+     "end": 195.86
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Christian saints at the end.",
+     "start": 195.86,
+     "end": 197.76
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "All of Toledo, in a room you could cross in ten steps.",
+     "start": 197.76,
+     "end": 201.57
+    },
+    {
+     "p": 13,
+     "s": 4,
+     "who": "N",
+     "text": "Walk on, through the old streets, to the church of San Román.",
+     "start": 202.77,
+     "end": 206.79
+    },
+    {
+     "p": 13,
+     "s": 4,
+     "who": "N",
+     "text": "That is stop four.",
+     "start": 206.79,
+     "end": 208.6
+    }
+   ],
+   "group": "Sights",
+   "room": "Near Puerta del Sol, Calle Cristo de la Luz"
+  },
+  {
+   "id": "s04-san-roman",
+   "title": "Stop 4. San Román: Arabic on a Christian wall",
+   "stop": 4,
+   "file": "audio/s04-san-roman.mp3?v=81ff6f71",
+   "duration": 194.97,
+   "bytes": 1170380,
+   "sections": [
+    {
+     "title": "A church that speaks two languages",
+     "start": 0.1
+    },
+    {
+     "title": "The victory painted on the walls",
+     "start": 49.62
+    },
+    {
+     "title": "The kings before the Moors",
+     "start": 123.8
+    },
+    {
+     "title": "Walk on",
+     "start": 189.37
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop four.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The church of San Román, on the high ground at the centre of the old town.",
+     "start": 2.48,
+     "end": 7.7
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Today it is the Museum of the Councils and Visigothic Culture.",
+     "start": 7.7,
+     "end": 12.13
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Go in, stand in the middle of the nave, and look at the arches first.",
+     "start": 12.13,
+     "end": 17.05
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Horseshoe arches.",
+     "start": 19.45,
+     "end": 21.85
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Rows of them, like the ones you just saw at the little mosque.",
+     "start": 21.85,
+     "end": 25.83
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Now look at the columns holding them up.",
+     "start": 25.83,
+     "end": 28.09
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "They do not match.",
+     "start": 28.09,
+     "end": 29.59
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Some are older than the church by centuries, taken from Visigothic and even Roman buildings and reused.",
+     "start": 29.59,
+     "end": 36.35
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "But this was never a mosque.",
+     "start": 37.55,
+     "end": 39.91
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "It was built as a church, by Christians, in the Mudéjar way, the building style of Muslim craftsmen working for Christian patrons.",
+     "start": 39.91,
+     "end": 48.72
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Hold a question.",
+     "start": 49.92,
+     "end": 52.17
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Why would a Christian archbishop want Arabic writing in his church?",
+     "start": 52.17,
+     "end": 56.6
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Here is the scene.",
+     "start": 57.8,
+     "end": 59.82
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Early in the thirteenth century, a Christian army has just won a great battle against the Muslim south.",
+     "start": 59.82,
+     "end": 66.36
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "The Archbishop of Toledo rode with that army.",
+     "start": 66.36,
+     "end": 69.6
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Back home, he has this church painted and consecrated again, to celebrate.",
+     "start": 69.6,
+     "end": 75.05
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Look at the walls.",
+     "start": 77.45,
+     "end": 79.19
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Saints and angels in red and ochre.",
+     "start": 79.19,
+     "end": 81.97
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Look for the four evangelists with wings.",
+     "start": 81.97,
+     "end": 84.65
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Look for the rows of bishops.",
+     "start": 84.65,
+     "end": 86.69
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "And look around the arches, for bands of lettering.",
+     "start": 86.69,
+     "end": 90.28
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Some is Latin.",
+     "start": 90.28,
+     "end": 92.58
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Some is in Arabic letters.",
+     "start": 92.58,
+     "end": 95.03
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "One answer: in Toledo, Arabic letters were not only the enemy's script.",
+     "start": 96.23,
+     "end": 101.77
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "They were the look of beauty and learning, the way grand buildings were dressed.",
+     "start": 101.77,
+     "end": 106.63
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "So the victory over the Muslim south was painted in a style that came from it.",
+     "start": 106.63,
+     "end": 111.5
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Scholars still argue over what some of that writing says, and whether it was meant to be read at all.",
+     "start": 113.0,
+     "end": 119.36
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Perhaps it was there simply to look splendid.",
+     "start": 119.36,
+     "end": 122.6
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Now walk round the cases.",
+     "start": 124.1,
+     "end": 126.5
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Before the Muslims came, Toledo was the capital of the Visigoths, Christian kings who ruled Spain from here for well over a century.",
+     "start": 126.5,
+     "end": 135.3
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Their bishops met here in great councils.",
+     "start": 135.3,
+     "end": 137.94
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "That is the museum's name.",
+     "start": 137.94,
+     "end": 140.18
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Look for the jewellery, the belt buckles, the carved stones.",
+     "start": 141.38,
+     "end": 145.5
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "The most famous Visigothic treasure is a hoard of gold votive crowns, found in a field near Toledo, called Guarrazar.",
+     "start": 146.7,
+     "end": 155.08
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Kings hung them over altars.",
+     "start": 155.08,
+     "end": 157.22
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "The finest originals are in Madrid and Paris.",
+     "start": 157.22,
+     "end": 160.34
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "A copy may be on display here; check at the door.",
+     "start": 160.34,
+     "end": 163.74
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "If you find it, look for the gold letters hanging beneath it.",
+     "start": 163.74,
+     "end": 167.3
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "They spell a king's name.",
+     "start": 167.3,
+     "end": 169.4
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Stand under the arches once more.",
+     "start": 171.8,
+     "end": 174.92
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Roman columns.",
+     "start": 174.92,
+     "end": 177.22
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Visigothic stones.",
+     "start": 177.22,
+     "end": 179.9
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Arabic letters.",
+     "start": 179.9,
+     "end": 182.22
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Christian saints.",
+     "start": 182.22,
+     "end": 184.5
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "One small church, holding every Toledo at once.",
+     "start": 184.5,
+     "end": 188.47
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Walk on, downhill, to the cathedral.",
+     "start": 189.67,
+     "end": 192.29
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop five.",
+     "start": 192.29,
+     "end": 193.97
+    }
+   ],
+   "group": "Sights",
+   "room": "Museum of the Councils and Visigothic Culture, Calle San Román"
+  },
+  {
+   "id": "s05-cathedral",
+   "title": "Stop 5. The Cathedral: Six things not to miss",
+   "stop": 5,
+   "file": "audio/s05-cathedral.mp3?v=c13cef41",
+   "duration": 399.07,
+   "bytes": 2395100,
+   "sections": [
+    {
+     "title": "How to use this stop",
+     "start": 0.1
+    },
+    {
+     "title": "One. A hole in the roof",
+     "start": 26.12
+    },
+    {
+     "title": "Two. The red robe",
+     "start": 85.95
+    },
+    {
+     "title": "Three. The war in wood",
+     "start": 149.42
+    },
+    {
+     "title": "Four. A tower of silver",
+     "start": 202.17
+    },
+    {
+     "title": "Five. The room of the archbishops",
+     "start": 253.47
+    },
+    {
+     "title": "Six. The old Christians",
+     "start": 323.65
+    },
+    {
+     "title": "Walk on",
+     "start": 392.42
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop five.",
+     "start": 0.4,
+     "end": 2.52
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The cathedral of Toledo.",
+     "start": 2.52,
+     "end": 4.73
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Six things, six stories, in any order.",
+     "start": 4.73,
+     "end": 7.57
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Pause between them, find the next one, and press play.",
+     "start": 7.57,
+     "end": 11.12
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "This was the seat of the most powerful churchman in Spain, the Archbishop of Toledo.",
+     "start": 13.53,
+     "end": 19.66
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Everything here was made by people with money, who wanted to be seen spending it on God.",
+     "start": 19.66,
+     "end": 25.23
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "Walk round behind the high altar, into the passage at the back.",
+     "start": 26.43,
+     "end": 30.45
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "Stop when the light changes.",
+     "start": 30.45,
+     "end": 32.33
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "Then turn, and look up.",
+     "start": 32.33,
+     "end": 34.23
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Marble clouds.",
+     "start": 36.62,
+     "end": 38.95
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Angels tumbling.",
+     "start": 38.95,
+     "end": 41.33
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Rays of gold.",
+     "start": 41.33,
+     "end": 43.62
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "And above it all, real daylight, pouring through a hole in the ceiling.",
+     "start": 43.62,
+     "end": 48.35
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "This is the Transparente.",
+     "start": 49.55,
+     "end": 52.17
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Behind the high altar the bread of the Mass was kept, the most holy thing in the church.",
+     "start": 52.17,
+     "end": 57.49
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "But it sat in the dark.",
+     "start": 57.49,
+     "end": 59.29
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "So, in the seventeen hundreds, a sculptor named Narciso Tomé did something outrageous.",
+     "start": 59.29,
+     "end": 65.55
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "He cut a hole in the Gothic vault of this cathedral and let the sun in.",
+     "start": 65.55,
+     "end": 70.03
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Some people at the time were thrilled.",
+     "start": 71.23,
+     "end": 74.45
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Some were horrified.",
+     "start": 74.45,
+     "end": 76.78
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Which are you?",
+     "start": 76.78,
+     "end": 79.05
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Find the Last Supper, carved high up in the marble, and watch how the light lands on it.",
+     "start": 79.05,
+     "end": 85.05
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Now go to the sacristy.",
+     "start": 86.25,
+     "end": 88.41
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Walk to the far end of the long room.",
+     "start": 88.41,
+     "end": 90.75
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "The painting on the end wall.",
+     "start": 90.75,
+     "end": 92.9
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "El Greco's Disrobing of Christ.",
+     "start": 95.3,
+     "end": 98.28
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "One of his first commissions in Toledo.",
+     "start": 98.28,
+     "end": 100.9
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "N",
+     "text": "If you saw his saints at the Prado, this is where his Spanish story starts.",
+     "start": 100.9,
+     "end": 105.78
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Look at the robe.",
+     "start": 106.98,
+     "end": 109.15
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "That red.",
+     "start": 109.15,
+     "end": 111.15
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "It burns out of a crowd of grey faces and steel.",
+     "start": 111.15,
+     "end": 115.15
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Christ looks up.",
+     "start": 115.15,
+     "end": 117.38
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "The soldiers close in.",
+     "start": 117.38,
+     "end": 119.4
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Someone is already reaching for the cloth.",
+     "start": 119.4,
+     "end": 121.95
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "The cathedral did not like it.",
+     "start": 123.15,
+     "end": 125.53
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "They argued about the price, and it went to valuation.",
+     "start": 125.53,
+     "end": 128.93
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "And, as the story goes, they objected to the three Marys in the corner, who are not in the Gospel at this moment.",
+     "start": 128.93,
+     "end": 135.73
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Look at the three women, lower left.",
+     "start": 135.73,
+     "end": 139.03
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "They stayed.",
+     "start": 139.03,
+     "end": 140.7
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "A young foreigner, fighting the richest church in Spain.",
+     "start": 141.9,
+     "end": 146.06
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "The picture has hung here ever since.",
+     "start": 146.06,
+     "end": 148.53
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Now walk to the choir, the enclosed space in the middle of the nave.",
+     "start": 149.72,
+     "end": 154.32
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Look at the lower row of wooden seats, and above each seat, the carved panel.",
+     "start": 154.32,
+     "end": 159.75
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Every panel is a scene from one war.",
+     "start": 162.15,
+     "end": 165.01
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "The conquest of Granada.",
+     "start": 165.01,
+     "end": 167.55
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Towns falling.",
+     "start": 167.55,
+     "end": 169.78
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Walls.",
+     "start": 169.78,
+     "end": 171.72
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Ladders.",
+     "start": 171.72,
+     "end": 173.7
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Turbaned defenders on the battlements.",
+     "start": 173.7,
+     "end": 176.34
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Knights with banners riding in.",
+     "start": 176.34,
+     "end": 178.65
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "A carver named Rodrigo Alemán made them, only a few years after the war ended.",
+     "start": 179.85,
+     "end": 185.81
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "More than fifty scenes.",
+     "start": 185.81,
+     "end": 187.53
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "The war was still news.",
+     "start": 187.53,
+     "end": 189.53
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "You have just walked through the Alhambra, the prize at the end of this war.",
+     "start": 190.72,
+     "end": 195.44
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "Find one panel and look at the people on the walls.",
+     "start": 195.44,
+     "end": 198.6
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "Someone is about to lose their city.",
+     "start": 198.6,
+     "end": 201.28
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Now find the Treasury chapel.",
+     "start": 202.47,
+     "end": 204.95
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Behind the glass, a tower taller than a person, in silver and gold.",
+     "start": 204.95,
+     "end": 209.95
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "The great monstrance, the Custodia.",
+     "start": 209.95,
+     "end": 212.53
+    },
+    {
+     "p": 16,
+     "s": 4,
+     "who": "N",
+     "text": "It was made to carry the holy bread through the streets at Corpus Christi, and still goes out each year.",
+     "start": 213.72,
+     "end": 220.5
+    },
+    {
+     "p": 17,
+     "s": 4,
+     "who": "N",
+     "text": "Look into its heart.",
+     "start": 222.9,
+     "end": 224.74
+    },
+    {
+     "p": 17,
+     "s": 4,
+     "who": "N",
+     "text": "At the centre there is a smaller piece, in gold.",
+     "start": 224.74,
+     "end": 228.06
+    },
+    {
+     "p": 17,
+     "s": 4,
+     "who": "N",
+     "text": "That one belonged to Queen Isabella.",
+     "start": 228.06,
+     "end": 230.56
+    },
+    {
+     "p": 17,
+     "s": 4,
+     "who": "N",
+     "text": "After her death, the cathedral acquired it, and the goldsmith built this great tower around it.",
+     "start": 230.56,
+     "end": 236.53
+    },
+    {
+     "p": 18,
+     "s": 4,
+     "who": "A",
+     "text": "The guides love a story.",
+     "start": 238.03,
+     "end": 240.06
+    },
+    {
+     "p": 18,
+     "s": 4,
+     "who": "A",
+     "text": "The gilding, they say, was done with the first gold Columbus brought back from the Americas.",
+     "start": 240.06,
+     "end": 245.99
+    },
+    {
+     "p": 18,
+     "s": 4,
+     "who": "A",
+     "text": "Nobody has proved it.",
+     "start": 245.99,
+     "end": 247.65
+    },
+    {
+     "p": 18,
+     "s": 4,
+     "who": "A",
+     "text": "But look at the shine, and think of where gold came from in those years.",
+     "start": 247.65,
+     "end": 252.28
+    },
+    {
+     "p": 19,
+     "s": 5,
+     "who": "N",
+     "text": "Now find the Chapter House, off the walkway behind the high altar.",
+     "start": 253.78,
+     "end": 258.66
+    },
+    {
+     "p": 19,
+     "s": 5,
+     "who": "N",
+     "text": "The room where the canons met to govern.",
+     "start": 258.66,
+     "end": 261.73
+    },
+    {
+     "p": 19,
+     "s": 5,
+     "who": "N",
+     "text": "Look up first.",
+     "start": 261.73,
+     "end": 263.48
+    },
+    {
+     "p": 20,
+     "s": 5,
+     "who": "N",
+     "text": "A ceiling of carved and painted wood, gold and colour, in the Mudéjar style.",
+     "start": 265.88,
+     "end": 271.75
+    },
+    {
+     "p": 20,
+     "s": 5,
+     "who": "N",
+     "text": "Then the walls, painted all over by Juan de Borgoña.",
+     "start": 271.75,
+     "end": 275.39
+    },
+    {
+     "p": 20,
+     "s": 5,
+     "who": "N",
+     "text": "Scenes from the life of the Virgin.",
+     "start": 275.39,
+     "end": 277.98
+    },
+    {
+     "p": 20,
+     "s": 5,
+     "who": "N",
+     "text": "And at the far end, the Last Judgement.",
+     "start": 277.98,
+     "end": 280.75
+    },
+    {
+     "p": 20,
+     "s": 5,
+     "who": "N",
+     "text": "A message for the men who sat here: you will answer for what you decide in this room.",
+     "start": 280.75,
+     "end": 285.75
+    },
+    {
+     "p": 21,
+     "s": 5,
+     "who": "N",
+     "text": "Now look lower, along the walls, under the frescoes.",
+     "start": 286.95,
+     "end": 290.73
+    },
+    {
+     "p": 21,
+     "s": 5,
+     "who": "N",
+     "text": "A long row of painted faces.",
+     "start": 290.73,
+     "end": 293.41
+    },
+    {
+     "p": 21,
+     "s": 5,
+     "who": "N",
+     "text": "These are the archbishops of Toledo, one after another, reaching back toward the earliest centuries.",
+     "start": 293.41,
+     "end": 299.85
+    },
+    {
+     "p": 21,
+     "s": 5,
+     "who": "N",
+     "text": "The early faces are imagined; there was nothing to copy.",
+     "start": 299.85,
+     "end": 303.8
+    },
+    {
+     "p": 22,
+     "s": 5,
+     "who": "N",
+     "text": "The man who built this room was Cardinal Cisneros, archbishop, regent of Spain, the queen's confessor.",
+     "start": 305.0,
+     "end": 312.58
+    },
+    {
+     "p": 22,
+     "s": 5,
+     "who": "N",
+     "text": "A row of predecessors around the room where he ruled.",
+     "start": 312.58,
+     "end": 316.46
+    },
+    {
+     "p": 22,
+     "s": 5,
+     "who": "N",
+     "text": "He was telling everyone who walked in that he stood at the end of a line more than a thousand years long.",
+     "start": 316.46,
+     "end": 322.75
+    },
+    {
+     "p": 23,
+     "s": 6,
+     "who": "N",
+     "text": "Last, find the Mozarabic Chapel, near the main west doors.",
+     "start": 323.95,
+     "end": 328.61
+    },
+    {
+     "p": 23,
+     "s": 6,
+     "who": "N",
+     "text": "It may be closed outside its service; check at the door.",
+     "start": 328.61,
+     "end": 332.27
+    },
+    {
+     "p": 24,
+     "s": 6,
+     "who": "N",
+     "text": "When Toledo was a Muslim city, its Christians kept their own old way of worship, different from Rome's.",
+     "start": 333.47,
+     "end": 340.89
+    },
+    {
+     "p": 24,
+     "s": 6,
+     "who": "N",
+     "text": "They were called Mozarabs.",
+     "start": 340.89,
+     "end": 342.85
+    },
+    {
+     "p": 24,
+     "s": 6,
+     "who": "N",
+     "text": "When Christian kings took Toledo, the new rulers wanted the Roman way instead.",
+     "start": 342.85,
+     "end": 348.35
+    },
+    {
+     "p": 25,
+     "s": 6,
+     "who": "A",
+     "text": "Now the legend.",
+     "start": 349.85,
+     "end": 352.2
+    },
+    {
+     "p": 25,
+     "s": 6,
+     "who": "A",
+     "text": "The king, they say, ordered a trial by fire.",
+     "start": 352.2,
+     "end": 355.5
+    },
+    {
+     "p": 25,
+     "s": 6,
+     "who": "A",
+     "text": "Two prayer books were thrown into the flames, the Roman and the Toledan.",
+     "start": 355.5,
+     "end": 360.46
+    },
+    {
+     "p": 25,
+     "s": 6,
+     "who": "A",
+     "text": "The Toledan book would not burn.",
+     "start": 360.46,
+     "end": 362.7
+    },
+    {
+     "p": 25,
+     "s": 6,
+     "who": "A",
+     "text": "And so the old rite was allowed to survive.",
+     "start": 362.7,
+     "end": 365.85
+    },
+    {
+     "p": 26,
+     "s": 6,
+     "who": "N",
+     "text": "That is legend.",
+     "start": 367.35,
+     "end": 369.57
+    },
+    {
+     "p": 26,
+     "s": 6,
+     "who": "N",
+     "text": "What is true is this.",
+     "start": 369.57,
+     "end": 371.67
+    },
+    {
+     "p": 26,
+     "s": 6,
+     "who": "N",
+     "text": "Cardinal Cisneros, the man of the Chapter House, founded this chapel to keep the old rite alive.",
+     "start": 371.67,
+     "end": 377.97
+    },
+    {
+     "p": 26,
+     "s": 6,
+     "who": "N",
+     "text": "It is still celebrated here.",
+     "start": 377.97,
+     "end": 380.25
+    },
+    {
+     "p": 27,
+     "s": 6,
+     "who": "N",
+     "text": "Of all the gold in this building, that may be the rarest thing.",
+     "start": 382.65,
+     "end": 387.03
+    },
+    {
+     "p": 27,
+     "s": 6,
+     "who": "N",
+     "text": "A way of praying older than the cathedral, still spoken inside it.",
+     "start": 387.03,
+     "end": 391.52
+    },
+    {
+     "p": 28,
+     "s": 7,
+     "who": "N",
+     "text": "When you are ready, the closing track is stop six.",
+     "start": 392.72,
+     "end": 396.12
+    },
+    {
+     "p": 28,
+     "s": 7,
+     "who": "N",
+     "text": "Play it wherever you are.",
+     "start": 396.12,
+     "end": 398.07
+    }
+   ],
+   "group": "Sights",
+   "room": "Cathedral of Toledo, Plaza del Ayuntamiento"
+  },
+  {
+   "id": "s06-closing",
+   "title": "Stop 6. Toledo: The city of three cultures",
+   "stop": 6,
+   "file": "audio/s06-closing.mp3?v=dd91a3e0",
+   "duration": 183.35,
+   "bytes": 1100684,
+   "sections": [
+    {
+     "title": "The postcard and the truth",
+     "start": 0.1
+    },
+    {
+     "title": "Yes",
+     "start": 28.43
+    },
+    {
+     "title": "No",
+     "start": 69.95
+    },
+    {
+     "title": "What is left",
+     "start": 144.97
+    },
+    {
+     "title": "Goodbye, Toledo",
+     "start": 158.25
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop six, the last.",
+     "start": 0.4,
+     "end": 2.44
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Play this wherever you are.",
+     "start": 2.44,
+     "end": 4.3
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "If you can, find a spot where you can see the river bending round the rock.",
+     "start": 4.3,
+     "end": 8.7
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "You will hear it everywhere in Toledo.",
+     "start": 11.1,
+     "end": 13.88
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "The city of three cultures.",
+     "start": 13.88,
+     "end": 15.96
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Christians, Muslims and Jews, side by side.",
+     "start": 15.96,
+     "end": 19.44
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "It is on the posters and in the shops.",
+     "start": 19.44,
+     "end": 22.25
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Is it true?",
+     "start": 22.25,
+     "end": 24.5
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "The honest answer is yes, and no.",
+     "start": 24.5,
+     "end": 27.53
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "Think of what you saw today.",
+     "start": 28.73,
+     "end": 30.75
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "A mosque whose builder signed his name in brick.",
+     "start": 30.75,
+     "end": 33.8
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "A church with Arabic letters round its arches.",
+     "start": 33.8,
+     "end": 37.03
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "N",
+     "text": "And in the Jewish quarter you walked through, two synagogues still stand, one built by Muslim craftsmen, one decorated like a palace of Granada.",
+     "start": 37.03,
+     "end": 46.55
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "In this city, scholars of three faiths worked together, turning books from Arabic into Latin and Castilian.",
+     "start": 47.75,
+     "end": 55.01
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Astronomy, medicine, philosophy, much of it Greek learning kept alive in Arabic, came back into Europe through Toledo.",
+     "start": 55.01,
+     "end": 63.8
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "That was real.",
+     "start": 63.8,
+     "end": 65.92
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "It made this city.",
+     "start": 65.92,
+     "end": 67.85
+    },
+    {
+     "p": 4,
+     "s": 2,
+     "who": "N",
+     "text": "But living side by side is not the same as being equal.",
+     "start": 70.25,
+     "end": 74.41
+    },
+    {
+     "p": 4,
+     "s": 2,
+     "who": "N",
+     "text": "Jews and Muslims lived under Christian law, protected in good times, and in bad times by nobody.",
+     "start": 74.41,
+     "end": 81.49
+    },
+    {
+     "p": 4,
+     "s": 2,
+     "who": "N",
+     "text": "In thirteen ninety-one, riots swept the Jewish quarters of Castile.",
+     "start": 81.49,
+     "end": 86.88
+    },
+    {
+     "p": 4,
+     "s": 2,
+     "who": "N",
+     "text": "Synagogues were taken.",
+     "start": 86.88,
+     "end": 89.03
+    },
+    {
+     "p": 5,
+     "s": 2,
+     "who": "N",
+     "text": "Then, fourteen ninety-two.",
+     "start": 90.23,
+     "end": 93.2
+    },
+    {
+     "p": 5,
+     "s": 2,
+     "who": "N",
+     "text": "The year Granada fell.",
+     "start": 93.2,
+     "end": 95.52
+    },
+    {
+     "p": 5,
+     "s": 2,
+     "who": "N",
+     "text": "That spring, Isabella and Ferdinand signed the order expelling every Jew who would not convert.",
+     "start": 95.52,
+     "end": 101.44
+    },
+    {
+     "p": 5,
+     "s": 2,
+     "who": "N",
+     "text": "They signed it in the Alhambra.",
+     "start": 101.44,
+     "end": 103.38
+    },
+    {
+     "p": 5,
+     "s": 2,
+     "who": "N",
+     "text": "The palace you walked through.",
+     "start": 103.38,
+     "end": 105.45
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Families who had lived here longer than anyone could remember had a few months to go.",
+     "start": 107.85,
+     "end": 112.99
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Many left, for Portugal, North Africa, the lands of the Ottomans.",
+     "start": 112.99,
+     "end": 118.21
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "Their descendants kept speaking a form of Spanish for five hundred years.",
+     "start": 118.21,
+     "end": 122.55
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "N",
+     "text": "The Muslims of Castile were forced to convert a few years later, and a century after that, their descendants were expelled too.",
+     "start": 122.55,
+     "end": 130.65
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "Some Sephardic families are said to have carried the keys of their Spanish houses with them, and kept them for generations.",
+     "start": 132.15,
+     "end": 139.79
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "It is hard to prove.",
+     "start": 139.79,
+     "end": 141.45
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "The story has never died.",
+     "start": 141.45,
+     "end": 143.78
+    },
+    {
+     "p": 8,
+     "s": 3,
+     "who": "N",
+     "text": "So the three cultures are here, in the stone.",
+     "start": 145.28,
+     "end": 148.47
+    },
+    {
+     "p": 8,
+     "s": 3,
+     "who": "N",
+     "text": "The people who made it are mostly gone.",
+     "start": 148.47,
+     "end": 150.69
+    },
+    {
+     "p": 8,
+     "s": 3,
+     "who": "N",
+     "text": "The beauty is real.",
+     "start": 150.69,
+     "end": 152.12
+    },
+    {
+     "p": 8,
+     "s": 3,
+     "who": "N",
+     "text": "The loss is real.",
+     "start": 152.12,
+     "end": 153.69
+    },
+    {
+     "p": 8,
+     "s": 3,
+     "who": "N",
+     "text": "Toledo asks you to carry both.",
+     "start": 153.69,
+     "end": 156.15
+    },
+    {
+     "p": 9,
+     "s": 4,
+     "who": "N",
+     "text": "Look at the river one last time, wrapped round the city like an arm.",
+     "start": 158.55,
+     "end": 163.3
+    },
+    {
+     "p": 10,
+     "s": 4,
+     "who": "N",
+     "text": "Thank you for walking it with me, Monica.",
+     "start": 164.5,
+     "end": 167.2
+    },
+    {
+     "p": 10,
+     "s": 4,
+     "who": "N",
+     "text": "Take the train back to Madrid.",
+     "start": 167.2,
+     "end": 169.34
+    },
+    {
+     "p": 10,
+     "s": 4,
+     "who": "N",
+     "text": "And if you go back to the Prado, find El Greco again.",
+     "start": 169.34,
+     "end": 172.76
+    },
+    {
+     "p": 10,
+     "s": 4,
+     "who": "N",
+     "text": "You have stood in his city now, in front of his son.",
+     "start": 172.76,
+     "end": 175.62
+    },
+    {
+     "p": 10,
+     "s": 4,
+     "who": "N",
+     "text": "His saints will look different.",
+     "start": 175.62,
+     "end": 177.82
+    },
+    {
+     "p": 11,
+     "s": 4,
+     "who": "N",
+     "text": "Goodbye, Toledo.",
+     "start": 180.22,
+     "end": 182.35
+    }
+   ],
+   "group": "Sights",
+   "room": "Anywhere, ideally a viewpoint over the river"
+  },
+  {
+   "id": "l00-a-toledan-night",
+   "title": "Toledo after dark: the legends",
+   "stop": 0,
+   "file": "audio/l00-a-toledan-night.mp3?v=17eaa06f",
+   "duration": 204.43,
+   "bytes": 1227116,
+   "sections": [
+    {
+     "title": "A city that keeps its secrets",
+     "start": 0.1
+    },
+    {
+     "title": "A Toledan night",
+     "start": 75.23
+    },
+    {
+     "title": "How to use these tracks",
+     "start": 145.92
+    },
+    {
+     "title": "Walk on",
+     "start": 195.92
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Good evening, Monica.",
+     "start": 0.4,
+     "end": 3.15
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The sun has gone down behind the river, the day crowds have gone home, and Toledo is starting to change.",
+     "start": 3.15,
+     "end": 10.38
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "You have seen this city by daylight.",
+     "start": 11.57,
+     "end": 14.17
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Churches, synagogues, a cathedral, the old mosque.",
+     "start": 14.17,
+     "end": 18.16
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Christians, Jews and Muslims, living side by side on one rock above the Tagus for centuries.",
+     "start": 18.16,
+     "end": 24.7
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Tonight is for the other Toledo.",
+     "start": 25.9,
+     "end": 28.46
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "The one that people whisper about.",
+     "start": 28.46,
+     "end": 30.7
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "For hundreds of years, all over Europe, this city's name meant magic.",
+     "start": 33.1,
+     "end": 38.14
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Students were said to come here to learn to raise the dead.",
+     "start": 38.14,
+     "end": 41.7
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Kings were said to lose their kingdoms here by opening the wrong door.",
+     "start": 41.7,
+     "end": 46.53
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Statues here move.",
+     "start": 46.53,
+     "end": 48.93
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Crucifixes speak.",
+     "start": 48.93,
+     "end": 51.42
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "A wooden man once walked these streets.",
+     "start": 51.42,
+     "end": 54.5
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Why here?",
+     "start": 55.7,
+     "end": 57.85
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Think about where you are standing.",
+     "start": 57.85,
+     "end": 60.01
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "A maze of lanes too narrow for the moon.",
+     "start": 60.01,
+     "end": 62.57
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Three faiths, each with its own scholars and its own secrets.",
+     "start": 62.57,
+     "end": 66.97
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Libraries full of books in languages most of Europe could not read.",
+     "start": 66.97,
+     "end": 71.15
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "A city like that breeds stories after dark.",
+     "start": 71.15,
+     "end": 74.33
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "The Spanish have a phrase for a night when nobody sleeps.",
+     "start": 75.53,
+     "end": 79.75
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Una noche toledana.",
+     "start": 79.75,
+     "end": 82.48
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "A Toledan night.",
+     "start": 82.48,
+     "end": 84.5
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "One story behind the phrase is the darkest in the city.",
+     "start": 85.7,
+     "end": 90.67
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Listen.",
+     "start": 90.67,
+     "end": 92.2
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "More than a thousand years ago, Toledo kept rebelling against the emir in far-off Córdoba.",
+     "start": 93.7,
+     "end": 99.06
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "So the emir sent a new governor, a man named Amrus.",
+     "start": 99.06,
+     "end": 102.58
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "He announced a great feast to welcome the prince, and invited the leading men of Toledo to his palace.",
+     "start": 102.58,
+     "end": 108.16
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They came in, one by one, through a single gate.",
+     "start": 108.16,
+     "end": 111.56
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And one by one, as they entered, they were killed.",
+     "start": 111.56,
+     "end": 114.9
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Their bodies went into a pit dug in secret.",
+     "start": 114.9,
+     "end": 118.28
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Hundreds of them.",
+     "start": 118.28,
+     "end": 120.8
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Toledo did not sleep that night.",
+     "start": 120.8,
+     "end": 123.44
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And it did not rebel again for a long time.",
+     "start": 123.44,
+     "end": 126.62
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "N",
+     "text": "Arab chroniclers tell this massacre as history, and some scholars doubt it.",
+     "start": 129.03,
+     "end": 134.53
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "N",
+     "text": "And the phrase may come from something smaller.",
+     "start": 134.53,
+     "end": 137.53
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "N",
+     "text": "An old dictionary from four centuries ago blamed it on the mosquitoes, which ate visitors alive in the summer heat.",
+     "start": 137.53,
+     "end": 145.03
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "At seven, you join the legends tour.",
+     "start": 146.22,
+     "end": 148.86
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "It will be in Spanish.",
+     "start": 148.86,
+     "end": 150.6
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Each track here tells you one story in English, before you get there.",
+     "start": 151.8,
+     "end": 156.32
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Listen over a drink, or standing at the place itself.",
+     "start": 156.32,
+     "end": 159.8
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Then, when the guide stops, drops their voice and points, you will know exactly what they are pointing at.",
+     "start": 159.8,
+     "end": 166.38
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "You will know when the horse kneels, and when the statue moves.",
+     "start": 166.38,
+     "end": 170.22
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "One promise.",
+     "start": 171.42,
+     "end": 173.57
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "When I tell you a legend, you will hear it in another voice.",
+     "start": 173.57,
+     "end": 177.63
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "When I tell you what really happened, it will be me.",
+     "start": 177.63,
+     "end": 180.53
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Keep them apart, and enjoy both.",
+     "start": 180.53,
+     "end": 183.02
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Some of the places are shut at night, and you will only see their doors and walls.",
+     "start": 185.42,
+     "end": 190.64
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "That is how legends should be met.",
+     "start": 190.64,
+     "end": 192.82
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "From outside, in the dark.",
+     "start": 192.82,
+     "end": 195.02
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Start with the little mosque by the old gate, and a horse that would not take another step.",
+     "start": 196.22,
+     "end": 201.64
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop one.",
+     "start": 201.64,
+     "end": 203.42
+    }
+   ],
+   "group": "Legends",
+   "room": "Anywhere in the old town, before the tour"
+  },
+  {
+   "id": "l01-cristo-de-la-luz",
+   "title": "Stop 1. Cristo de la Luz: the horse that knelt",
+   "stop": 1,
+   "file": "audio/l01-cristo-de-la-luz.mp3?v=91233dcf",
+   "duration": 204.45,
+   "bytes": 1227260,
+   "sections": [
+    {
+     "title": "The horse that would not move",
+     "start": 0.1
+    },
+    {
+     "title": "The light in the wall",
+     "start": 86.25
+    },
+    {
+     "title": "The stone in the street",
+     "start": 169.1
+    },
+    {
+     "title": "Walk on",
+     "start": 195.3
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop one.",
+     "start": 0.4,
+     "end": 2.42
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The small brick mosque of Cristo de la Luz stands on a steep lane just inside the old walls, near the Puerta del Sol gate.",
+     "start": 2.42,
+     "end": 11.09
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "It closes before dark, so tonight you will see it from outside: a little square building of red brick, with arches over arches in its walls.",
+     "start": 11.09,
+     "end": 20.72
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "It is older than almost anything around you.",
+     "start": 23.12,
+     "end": 26.36
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "An inscription on its front gives the year it was finished, nine hundred and ninety-nine.",
+     "start": 26.36,
+     "end": 32.0
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "A thousand years ago, this was a neighbourhood mosque.",
+     "start": 32.0,
+     "end": 35.62
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Now the story.",
+     "start": 36.83,
+     "end": 39.05
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Picture a spring day, almost a century later.",
+     "start": 39.05,
+     "end": 42.87
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Toledo has opened its gates to a Christian king.",
+     "start": 42.87,
+     "end": 46.05
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "King Alfonso rides in at the head of his army, in triumph, up this very slope.",
+     "start": 47.55,
+     "end": 52.77
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Beside him rides his greatest knight, they say, the Cid.",
+     "start": 52.77,
+     "end": 57.03
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "And then, here, outside this little mosque, the king's horse stops.",
+     "start": 57.03,
+     "end": 61.75
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "It will not go on.",
+     "start": 62.95,
+     "end": 64.45
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "The king spurs it.",
+     "start": 64.45,
+     "end": 66.73
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "Nothing.",
+     "start": 66.73,
+     "end": 68.6
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "And then, in front of the whole army, the horse slowly bends its front legs, and kneels in the street.",
+     "start": 68.6,
+     "end": 75.22
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "Facing the wall of the mosque.",
+     "start": 75.22,
+     "end": 77.55
+    },
+    {
+     "p": 5,
+     "s": 0,
+     "who": "N",
+     "text": "Why would a horse kneel to a wall?",
+     "start": 79.95,
+     "end": 83.08
+    },
+    {
+     "p": 5,
+     "s": 0,
+     "who": "N",
+     "text": "Hold that question.",
+     "start": 83.08,
+     "end": 85.05
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "The king orders the wall opened.",
+     "start": 86.55,
+     "end": 89.19
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "The soldiers strike at the stones.",
+     "start": 89.19,
+     "end": 91.41
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And behind them they find a hollow, a hidden niche.",
+     "start": 91.41,
+     "end": 94.61
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Inside it, a crucifix.",
+     "start": 94.61,
+     "end": 96.65
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And beside the crucifix, an oil lamp.",
+     "start": 96.65,
+     "end": 100.17
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Still burning.",
+     "start": 100.17,
+     "end": 102.0
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Here is the secret, as the legend tells it.",
+     "start": 103.2,
+     "end": 106.5
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Nearly four hundred years before, when the Muslim armies came, the Christians of Toledo hid their Christ in this wall to save it, and lit a lamp beside it.",
+     "start": 106.5,
+     "end": 116.64
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They sealed it up.",
+     "start": 116.64,
+     "end": 118.6
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They died.",
+     "start": 118.6,
+     "end": 120.55
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Nobody remembered.",
+     "start": 120.55,
+     "end": 123.05
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And all that time, in the dark, the little flame kept burning.",
+     "start": 123.05,
+     "end": 127.67
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Waiting for someone to come back for it.",
+     "start": 127.67,
+     "end": 130.32
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "N",
+     "text": "That is why the building is called Christ of the Light.",
+     "start": 132.72,
+     "end": 136.28
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "N",
+     "text": "And they say the king held the first Christian Mass here, and left his shield behind, with a cross on it, hanging in the church.",
+     "start": 136.28,
+     "end": 144.6
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "Now the history.",
+     "start": 145.8,
+     "end": 148.05
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "The king was real, and he did take Toledo in ten eighty-five.",
+     "start": 148.05,
+     "end": 152.75
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "The mosque really did become a chapel.",
+     "start": 152.75,
+     "end": 155.35
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "But the legend appears only after the conquest, told by the winners.",
+     "start": 155.35,
+     "end": 159.83
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "Some tellings even forget the lamp.",
+     "start": 159.83,
+     "end": 162.27
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "Others put the Cid on the horse.",
+     "start": 162.27,
+     "end": 164.47
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "The kneeling horse belongs to the story, not the record.",
+     "start": 164.47,
+     "end": 168.2
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "When you are outside, look down at the paving in front of the building.",
+     "start": 169.4,
+     "end": 173.92
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Toledans say one white stone marks the spot where the horse went down on its knees.",
+     "start": 173.92,
+     "end": 179.12
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Look for it with the guide's torch.",
+     "start": 179.12,
+     "end": 181.45
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "And stand a moment with this.",
+     "start": 183.85,
+     "end": 186.19
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "The lamp of the legend burned for a faith that was hidden.",
+     "start": 186.19,
+     "end": 189.83
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "The building that kept it was built by another faith.",
+     "start": 189.83,
+     "end": 192.77
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Whose light is it?",
+     "start": 192.77,
+     "end": 194.4
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Next, down under the streets near the cathedral, to a palace no king was ever meant to open.",
+     "start": 195.6,
+     "end": 201.66
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop two.",
+     "start": 201.66,
+     "end": 203.45
+    }
+   ],
+   "group": "Legends",
+   "room": "Mosque of Cristo de la Luz, near the Puerta del Sol gate, north side of the old town"
+  },
+  {
+   "id": "l02-cave-of-hercules",
+   "title": "Stop 2. The Cave of Hercules: the king who broke the locks",
+   "stop": 2,
+   "file": "audio/l02-cave-of-hercules.mp3?v=9de46575",
+   "duration": 203.5,
+   "bytes": 1221644,
+   "sections": [
+    {
+     "title": "The house of many locks",
+     "start": 0.1
+    },
+    {
+     "title": "Rodrigo opens the door",
+     "start": 57.18
+    },
+    {
+     "title": "The girl by the river",
+     "start": 122.17
+    },
+    {
+     "title": "Walk on",
+     "start": 194.3
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop two.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The Cave of Hercules is under a narrow alley called Callejón de San Ginés, a short walk from the cathedral.",
+     "start": 2.48,
+     "end": 10.24
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "It opens only for a few hours in the daytime, so tonight you will stand at a plain door in the alley and look down, in your mind, into the dark.",
+     "start": 10.24,
+     "end": 19.07
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "A",
+     "text": "Long ago, they say, the hero Hercules came to Spain and founded this city.",
+     "start": 21.47,
+     "end": 26.77
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "A",
+     "text": "He was strong, but he was also a magician.",
+     "start": 26.77,
+     "end": 29.83
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "A",
+     "text": "And under this hill he built an enchanted palace.",
+     "start": 29.83,
+     "end": 32.88
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "A",
+     "text": "Inside, he left a secret.",
+     "start": 32.88,
+     "end": 35.16
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "A",
+     "text": "Then he sealed the door with a lock.",
+     "start": 35.16,
+     "end": 37.65
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "Every king who ruled in Toledo after him came here and added one more lock.",
+     "start": 38.85,
+     "end": 44.47
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "Century after century, the door grew heavier with iron.",
+     "start": 44.47,
+     "end": 48.73
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Until a king came who wanted to know.",
+     "start": 51.12,
+     "end": 53.84
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "What could be worth so many locks?",
+     "start": 53.84,
+     "end": 55.98
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "His name was Rodrigo, the last king of the Goths.",
+     "start": 57.48,
+     "end": 61.2
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "He believed there was treasure inside.",
+     "start": 61.2,
+     "end": 63.59
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "His lords begged him not to.",
+     "start": 63.59,
+     "end": 65.42
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "He broke the locks anyway, one after another, and walked in with a torch.",
+     "start": 65.42,
+     "end": 70.47
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "There was no gold.",
+     "start": 71.67,
+     "end": 73.16
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "There was only a chest.",
+     "start": 73.16,
+     "end": 74.75
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "And in the chest, a folded cloth.",
+     "start": 74.75,
+     "end": 77.92
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "He unfolded it.",
+     "start": 77.92,
+     "end": 80.42
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Painted on it were horsemen he had never seen.",
+     "start": 80.42,
+     "end": 84.45
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Strange faces.",
+     "start": 84.45,
+     "end": 87.0
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Turbans on their heads.",
+     "start": 87.0,
+     "end": 88.72
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Bows and lances in their hands.",
+     "start": 88.72,
+     "end": 91.06
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "And words beneath them.",
+     "start": 91.06,
+     "end": 92.68
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Whoever opens this, men like these will take his kingdom.",
+     "start": 92.68,
+     "end": 96.7
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Imagine him holding that cloth.",
+     "start": 99.1,
+     "end": 102.17
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "The torch shaking.",
+     "start": 102.17,
+     "end": 104.52
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "Every lock on the floor around him, broken by his own hand.",
+     "start": 104.52,
+     "end": 108.92
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Within a year, the riders came.",
+     "start": 110.42,
+     "end": 112.94
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They crossed the sea from Africa, and Rodrigo rode out to meet them, and he was never seen again.",
+     "start": 112.94,
+     "end": 118.78
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "The Goths' Spain was gone.",
+     "start": 118.78,
+     "end": 121.27
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "And why did they come?",
+     "start": 122.47,
+     "end": 125.38
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "Toledo has a second story for that.",
+     "start": 125.38,
+     "end": 127.91
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "Go down to the river, by the old bridge of San Martín, and you will find a ruined tower called the Bath of La Cava.",
+     "start": 127.91,
+     "end": 134.39
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "They say that from it, King Rodrigo watched a young girl bathing in the Tagus.",
+     "start": 134.39,
+     "end": 138.63
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "Florinda, the daughter of Count Julian.",
+     "start": 138.63,
+     "end": 141.16
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "He wanted her, and he took her.",
+     "start": 141.16,
+     "end": 142.88
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "Her father, who guarded the strait for the king, swore revenge.",
+     "start": 142.88,
+     "end": 146.94
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "And he opened the way across the sea for the invaders.",
+     "start": 146.94,
+     "end": 150.25
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Now the history.",
+     "start": 152.65,
+     "end": 154.9
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Rodrigo was real.",
+     "start": 154.9,
+     "end": 157.43
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "He really was the last Gothic king, and he really did lose his kingdom in battle in seven hundred and eleven.",
+     "start": 157.43,
+     "end": 164.78
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "The locked palace, the painted riders and Florinda are legend, written down by chroniclers long after.",
+     "start": 164.78,
+     "end": 171.78
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "And the cave itself?",
+     "start": 172.97,
+     "end": 175.57
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Archaeologists say it is a Roman water tank, part of the system that fed the city.",
+     "start": 175.57,
+     "end": 181.66
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "The tower by the river is the stump of a medieval bridge.",
+     "start": 181.66,
+     "end": 185.7
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Stand at the door and ask yourself the king's question.",
+     "start": 188.1,
+     "end": 191.8
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Would you have opened it?",
+     "start": 191.8,
+     "end": 193.4
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Next, the city of magicians, and the man who could make you live a whole life in an afternoon.",
+     "start": 194.6,
+     "end": 200.68
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop three.",
+     "start": 200.68,
+     "end": 202.5
+    }
+   ],
+   "group": "Legends",
+   "room": "Cueva de Hércules, Callejón de San Ginés, a few minutes from the cathedral"
+  },
+  {
+   "id": "l03-school-of-magic",
+   "title": "Stop 3. Toledo, school of magic: Don Illán and the Dean",
+   "stop": 3,
+   "file": "audio/l03-school-of-magic.mp3?v=6cd7f521",
+   "duration": 219.93,
+   "bytes": 1320140,
+   "sections": [
+    {
+     "title": "The city where they taught the dark arts",
+     "start": 0.1
+    },
+    {
+     "title": "The Dean and the magician",
+     "start": 54.5
+    },
+    {
+     "title": "The table of Solomon",
+     "start": 179.35
+    },
+    {
+     "title": "Walk on",
+     "start": 213.25
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop three.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "This story has no single address.",
+     "start": 2.48,
+     "end": 5.56
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The tour may tell it in a lane near the cathedral, or at the mouth of a cellar.",
+     "start": 5.56,
+     "end": 10.4
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "In the Middle Ages, across Europe, if a man said he had studied in Toledo, people crossed themselves.",
+     "start": 12.8,
+     "end": 19.96
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "The Toledan arts meant necromancy.",
+     "start": 19.96,
+     "end": 22.72
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Students were said to learn it in caves beneath this city.",
+     "start": 22.72,
+     "end": 26.55
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Here is the real root of the rumour.",
+     "start": 27.75,
+     "end": 30.59
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "After the Christian conquest, scholars came here from all over Europe.",
+     "start": 30.59,
+     "end": 34.99
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Toledo had what no one else had: Arabic books on stars, medicine, mathematics, the Greek philosophers.",
+     "start": 34.99,
+     "end": 42.13
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Christians, Jews and Muslims sat together and turned those books into Latin.",
+     "start": 42.13,
+     "end": 47.01
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Astronomy looked like sorcery to people who could not read it.",
+     "start": 47.01,
+     "end": 50.71
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "So Toledo became the city of magicians.",
+     "start": 50.71,
+     "end": 53.6
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "A Spanish prince wrote the most famous of these stories seven centuries ago.",
+     "start": 54.8,
+     "end": 60.73
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "N",
+     "text": "Listen.",
+     "start": 60.73,
+     "end": 62.25
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "A churchman, the Dean of Santiago, rides all the way to Toledo.",
+     "start": 63.75,
+     "end": 67.99
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "He has heard of a master of magic, Don Illán.",
+     "start": 67.99,
+     "end": 71.15
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "He begs to be taught.",
+     "start": 71.15,
+     "end": 72.81
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "Don Illán looks at him and says: men like you rise high, and then forget who helped them.",
+     "start": 72.81,
+     "end": 78.27
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "The Dean swears he will never forget.",
+     "start": 78.27,
+     "end": 81.18
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "So Don Illán agrees.",
+     "start": 82.38,
+     "end": 84.68
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "And he calls to his housekeeper.",
+     "start": 84.68,
+     "end": 86.76
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Roast us two partridges for supper.",
+     "start": 86.76,
+     "end": 89.04
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "But do not cook them until I tell you.",
+     "start": 89.04,
+     "end": 91.68
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Then, the lesson begins.",
+     "start": 94.08,
+     "end": 97.08
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Messengers arrive.",
+     "start": 97.08,
+     "end": 99.98
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "The Dean's uncle, the archbishop, is dead.",
+     "start": 99.98,
+     "end": 103.24
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "The Dean is made bishop.",
+     "start": 103.24,
+     "end": 105.7
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Then archbishop.",
+     "start": 105.7,
+     "end": 108.2
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Then cardinal, in Rome.",
+     "start": 108.2,
+     "end": 111.33
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Then Pope.",
+     "start": 111.33,
+     "end": 113.33
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Years pass.",
+     "start": 113.33,
+     "end": 115.58
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And at every step, Don Illán asks one small favour.",
+     "start": 115.58,
+     "end": 119.48
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "A post for his son.",
+     "start": 119.48,
+     "end": 120.76
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And every time, the Dean says: not yet.",
+     "start": 120.76,
+     "end": 124.6
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "Next time.",
+     "start": 124.6,
+     "end": 126.25
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "At last, the Pope loses patience.",
+     "start": 127.45,
+     "end": 130.29
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "He calls his old teacher a heretic and a sorcerer, and threatens him with prison.",
+     "start": 130.29,
+     "end": 135.47
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "He will not even give him food for the road home.",
+     "start": 135.47,
+     "end": 138.65
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "Don Illán says quietly: then I will eat the partridges I ordered tonight.",
+     "start": 141.05,
+     "end": 146.59
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "And he calls out to his housekeeper.",
+     "start": 146.59,
+     "end": 149.05
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "And the Dean is sitting in a cellar in Toledo.",
+     "start": 150.25,
+     "end": 154.62
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "The same evening.",
+     "start": 154.62,
+     "end": 157.1
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "The same chair.",
+     "start": 157.1,
+     "end": 159.45
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "No Rome.",
+     "start": 159.45,
+     "end": 161.55
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "No crown.",
+     "start": 161.55,
+     "end": 163.72
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "The partridges are still raw.",
+     "start": 163.72,
+     "end": 166.06
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "It was all a spell, to see who he really was.",
+     "start": 166.06,
+     "end": 169.38
+    },
+    {
+     "p": 10,
+     "s": 1,
+     "who": "N",
+     "text": "He was ashamed, says the book, and did not know what to say.",
+     "start": 170.88,
+     "end": 175.07
+    },
+    {
+     "p": 10,
+     "s": 1,
+     "who": "N",
+     "text": "Don Illán sent him home without his lesson.",
+     "start": 175.07,
+     "end": 178.15
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "One more treasure belongs to this magic city.",
+     "start": 179.65,
+     "end": 182.91
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "They say the conquerors of Toledo found here the table of King Solomon, made of gold and jewels, and on it the secret name of God.",
+     "start": 182.91,
+     "end": 191.49
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "Two generals fought over it.",
+     "start": 191.49,
+     "end": 193.53
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "One broke off a leg to prove he found it first.",
+     "start": 193.53,
+     "end": 196.88
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "That is legend too.",
+     "start": 198.38,
+     "end": 200.47
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Arab chroniclers wrote it down, and the table has never been found.",
+     "start": 200.47,
+     "end": 204.9
+    },
+    {
+     "p": 13,
+     "s": 2,
+     "who": "N",
+     "text": "Every one of us has made the Dean's promise to someone.",
+     "start": 207.3,
+     "end": 210.8
+    },
+    {
+     "p": 13,
+     "s": 2,
+     "who": "N",
+     "text": "Would you have kept it?",
+     "start": 210.8,
+     "end": 212.35
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "Next, down to a quiet street and a well with bitter water.",
+     "start": 213.55,
+     "end": 217.13
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop four.",
+     "start": 217.13,
+     "end": 218.93
+    }
+   ],
+   "group": "Legends",
+   "room": "Old town lanes; the guide may stop near the cathedral or a cellar"
+  },
+  {
+   "id": "l04-bitter-well",
+   "title": "Stop 4. The Bitter Well: Raquel and Fernando",
+   "stop": 4,
+   "file": "audio/l04-bitter-well.mp3?v=b98ed082",
+   "duration": 184.72,
+   "bytes": 1108892,
+   "sections": [
+    {
+     "title": "A garden with a well",
+     "start": 0.1
+    },
+    {
+     "title": "Meeting in the dark",
+     "start": 72.08
+    },
+    {
+     "title": "What is true",
+     "start": 138.73
+    },
+    {
+     "title": "Walk on",
+     "start": 175.98
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop four.",
+     "start": 0.4,
+     "end": 2.48
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The Bitter Well gives its name to a short street, Calle del Pozo Amargo, in the south of the old town, towards the river.",
+     "start": 2.48,
+     "end": 10.58
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The well is in a tiny square, open to the street, so you can see it at any hour.",
+     "start": 10.58,
+     "end": 15.99
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Look for a low stone ring, closed over, and a plaque on the wall.",
+     "start": 15.99,
+     "end": 20.62
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Picture this lane when it was a garden behind a wall.",
+     "start": 23.02,
+     "end": 26.8
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "A well in the middle, with water so sweet the neighbours came for it.",
+     "start": 26.8,
+     "end": 31.09
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "And a girl who came to the well every evening.",
+     "start": 31.09,
+     "end": 34.1
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "Her name was Raquel.",
+     "start": 35.6,
+     "end": 37.32
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "She was the daughter of a Jewish family, the most beautiful girl in Toledo, they say.",
+     "start": 37.32,
+     "end": 43.02
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "And one evening, at the garden wall, a young Christian man named Fernando saw her.",
+     "start": 43.02,
+     "end": 48.56
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "And she saw him.",
+     "start": 48.56,
+     "end": 50.07
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Nothing could have been more dangerous.",
+     "start": 51.27,
+     "end": 53.61
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "A Jewish girl and a Christian boy.",
+     "start": 53.61,
+     "end": 56.13
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "In this city, the three faiths lived side by side.",
+     "start": 56.13,
+     "end": 59.85
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "But they did not marry.",
+     "start": 59.85,
+     "end": 61.67
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "So what can two people do, when they cannot be seen together?",
+     "start": 64.08,
+     "end": 68.98
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "N",
+     "text": "Hold on to that.",
+     "start": 68.98,
+     "end": 70.88
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "They meet at the well.",
+     "start": 72.38,
+     "end": 74.83
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "At night.",
+     "start": 74.83,
+     "end": 76.7
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "When the house is asleep, Raquel slips out to the garden, and Fernando climbs the wall.",
+     "start": 76.7,
+     "end": 82.74
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "They talk across the stone ring of the well, in whispers.",
+     "start": 82.74,
+     "end": 87.08
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Every night.",
+     "start": 87.08,
+     "end": 89.15
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "For months.",
+     "start": 89.15,
+     "end": 90.75
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And then her father finds out.",
+     "start": 91.95,
+     "end": 93.97
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "He does not shout.",
+     "start": 93.97,
+     "end": 95.19
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "He does not lock her in.",
+     "start": 95.19,
+     "end": 96.69
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "He does something worse.",
+     "start": 96.69,
+     "end": 98.27
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "He pays a man with a knife.",
+     "start": 98.27,
+     "end": 100.45
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "The next night, Fernando does not come.",
+     "start": 101.65,
+     "end": 104.49
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Raquel waits by the well until dawn.",
+     "start": 104.49,
+     "end": 107.25
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And the next night.",
+     "start": 107.25,
+     "end": 109.2
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And the next.",
+     "start": 109.2,
+     "end": 110.85
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "She never learned what happened.",
+     "start": 113.25,
+     "end": 115.15
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "Or maybe she did.",
+     "start": 115.15,
+     "end": 116.67
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "She sat by that well and wept, night after night, and her tears fell into the water.",
+     "start": 116.67,
+     "end": 122.31
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "And the water turned bitter.",
+     "start": 122.31,
+     "end": 124.05
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "From then on, nobody could drink from it.",
+     "start": 124.05,
+     "end": 126.9
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "Some say that one night, looking down into the well, she saw his face in the water, and leaned in to reach him.",
+     "start": 128.1,
+     "end": 135.6
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "A",
+     "text": "And did not come back up.",
+     "start": 135.6,
+     "end": 137.53
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "This is a legend, and it changes with every teller.",
+     "start": 139.03,
+     "end": 142.99
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "Even the father's name is different from one book to the next.",
+     "start": 142.99,
+     "end": 146.73
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "N",
+     "text": "No record shows that Raquel or Fernando ever lived.",
+     "start": 146.73,
+     "end": 150.9
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "But the well is real.",
+     "start": 152.1,
+     "end": 154.08
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "A medieval well from a Jewish house.",
+     "start": 154.08,
+     "end": 156.8
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Its stone ring was sealed in the nineteen sixties, and you can still see it here.",
+     "start": 156.8,
+     "end": 161.88
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "And the street still carries the name of bitter water.",
+     "start": 161.88,
+     "end": 165.28
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Put your hand on the stone if you can.",
+     "start": 167.68,
+     "end": 170.32
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Then ask: what would you have done, if you were Raquel, and he never came?",
+     "start": 170.32,
+     "end": 175.08
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Next, out beyond the walls, to a Christ who came down from his cross to keep a promise.",
+     "start": 176.28,
+     "end": 181.9
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "That is stop five.",
+     "start": 181.9,
+     "end": 183.73
+    }
+   ],
+   "group": "Legends",
+   "room": "Calle del Pozo Amargo, a small lane in the south of the old town"
+  },
+  {
+   "id": "l05-cristo-de-la-vega",
+   "title": "Stop 5. Cristo de la Vega: the witness",
+   "stop": 5,
+   "file": "audio/l05-cristo-de-la-vega.mp3?v=416beca0",
+   "duration": 212.4,
+   "bytes": 1274924,
+   "sections": [
+    {
+     "title": "A promise at the foot of the cross",
+     "start": 0.1
+    },
+    {
+     "title": "Diego and Inés",
+     "start": 51.8
+    },
+    {
+     "title": "The witness",
+     "start": 104.9
+    },
+    {
+     "title": "What is true",
+     "start": 180.88
+    },
+    {
+     "title": "Walk on",
+     "start": 203.3
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop five.",
+     "start": 0.4,
+     "end": 2.52
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The little church of the Cristo de la Vega stands outside the city walls, on the open plain below the north-west of the old town, a walk downhill from the Cambrón gate.",
+     "start": 2.52,
+     "end": 13.64
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "At night it is closed and the gates are locked.",
+     "start": 13.64,
+     "end": 16.45
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "If the tour comes here, you will see a white chapel behind a wall, with the dark city rising behind it.",
+     "start": 16.45,
+     "end": 23.17
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Inside, out of sight tonight, is a carved Christ on the cross.",
+     "start": 25.57,
+     "end": 29.99
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "And something is wrong with him.",
+     "start": 29.99,
+     "end": 31.89
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "One arm is not nailed to the cross.",
+     "start": 31.89,
+     "end": 34.29
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "It hangs down, open, as if reaching for something.",
+     "start": 34.29,
+     "end": 37.92
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Why?",
+     "start": 39.12,
+     "end": 41.05
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "Here is the story.",
+     "start": 41.05,
+     "end": 43.13
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "N",
+     "text": "A Spanish poet, José Zorrilla, made it famous almost two hundred years ago, from an old Toledan tradition.",
+     "start": 43.13,
+     "end": 50.6
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "A",
+     "text": "Inés de Vargas loves a young man, Diego Martínez.",
+     "start": 52.1,
+     "end": 56.54
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "A",
+     "text": "He loves her, or says he does.",
+     "start": 56.54,
+     "end": 58.86
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "A",
+     "text": "But he has to go to war in Flanders, to make his name.",
+     "start": 58.86,
+     "end": 62.58
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "Before he goes, she brings him here.",
+     "start": 63.78,
+     "end": 67.48
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "To this Christ.",
+     "start": 67.48,
+     "end": 69.78
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "And in front of the cross, Diego swears.",
+     "start": 69.78,
+     "end": 72.86
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "When I come back, I will marry you.",
+     "start": 72.86,
+     "end": 75.35
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Three years pass.",
+     "start": 77.75,
+     "end": 80.48
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "No letter.",
+     "start": 80.48,
+     "end": 82.53
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Then one day, soldiers come marching home through the city gate, and Inés runs to look.",
+     "start": 82.53,
+     "end": 88.51
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "And there he is.",
+     "start": 88.51,
+     "end": 90.55
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Diego.",
+     "start": 90.55,
+     "end": 92.43
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "A captain now, made by the king.",
+     "start": 92.43,
+     "end": 95.5
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "She runs to him.",
+     "start": 96.7,
+     "end": 98.2
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And he looks at her as if she were a stranger.",
+     "start": 98.2,
+     "end": 100.8
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "He says: I never promised you anything.",
+     "start": 100.8,
+     "end": 104.0
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "Inés goes to court.",
+     "start": 105.2,
+     "end": 107.04
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "The judge asks her: who saw this promise?",
+     "start": 107.04,
+     "end": 110.78
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "Was there a witness?",
+     "start": 110.78,
+     "end": 113.55
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "And she says: yes.",
+     "start": 113.55,
+     "end": 116.35
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "There was one.",
+     "start": 116.35,
+     "end": 118.48
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "The Christ of the Vega.",
+     "start": 118.48,
+     "end": 121.13
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "So the judge, and the lawyers, and the whole city, come down to this church.",
+     "start": 122.33,
+     "end": 127.51
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "And before the crucifix, the judge asks.",
+     "start": 127.51,
+     "end": 130.59
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "Do you swear that this man promised to marry this woman?",
+     "start": 130.59,
+     "end": 134.08
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "And a voice comes from the cross.",
+     "start": 136.48,
+     "end": 139.75
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "Yes.",
+     "start": 139.75,
+     "end": 141.43
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "I swear it.",
+     "start": 141.43,
+     "end": 143.08
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "And in the popular version, the Christ tears his right hand free of the nail, and lowers it, as if laying it on a book to take the oath.",
+     "start": 144.28,
+     "end": 153.03
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "And it never went back.",
+     "start": 153.03,
+     "end": 154.85
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "Zorrilla named his poem after an old Spanish saying.",
+     "start": 156.35,
+     "end": 160.25
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "A buen juez, mejor testigo.",
+     "start": 160.25,
+     "end": 162.61
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "N",
+     "text": "To a good judge, a better witness.",
+     "start": 162.61,
+     "end": 165.15
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "And Diego and Inés?",
+     "start": 167.55,
+     "end": 170.35
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Zorrilla does not give them a wedding.",
+     "start": 170.35,
+     "end": 173.17
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "N",
+     "text": "Shaken by what they had seen, both turned away from the world, and spent their lives in religious houses.",
+     "start": 173.17,
+     "end": 179.98
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "This is legend.",
+     "start": 181.18,
+     "end": 183.38
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Zorrilla's poem tells of a voice.",
+     "start": 183.38,
+     "end": 186.56
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "The lowered arm belongs to the popular telling, and the figure inside today is said to be a later replacement.",
+     "start": 186.56,
+     "end": 193.48
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "But think of her.",
+     "start": 194.68,
+     "end": 196.26
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "A woman with no proof, against a captain of the king.",
+     "start": 196.26,
+     "end": 199.68
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "And the one witness she had hung on a cross.",
+     "start": 199.68,
+     "end": 202.4
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "Next, a poet who walked these streets at night, and a soldier who kissed the wrong statue.",
+     "start": 203.6,
+     "end": 209.56
+    },
+    {
+     "p": 15,
+     "s": 4,
+     "who": "N",
+     "text": "That is stop six.",
+     "start": 209.56,
+     "end": 211.4
+    }
+   ],
+   "group": "Legends",
+   "room": "Ermita del Cristo de la Vega, outside the walls on the plain below the north-west of the old town"
+  },
+  {
+   "id": "l06-becquer-the-kiss",
+   "title": "Stop 6. Bécquer: The Kiss",
+   "stop": 6,
+   "file": "audio/l06-becquer-the-kiss.mp3?v=a6f15b86",
+   "duration": 207.62,
+   "bytes": 1246412,
+   "sections": [
+    {
+     "title": "The poet in the dark streets",
+     "start": 0.1
+    },
+    {
+     "title": "The French captain",
+     "start": 48.55
+    },
+    {
+     "title": "The supper in the church",
+     "start": 100.58
+    },
+    {
+     "title": "What is true",
+     "start": 176.0
+    },
+    {
+     "title": "Walk on",
+     "start": 200.15
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop six.",
+     "start": 0.4,
+     "end": 2.55
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "This is a story by a poet, so it has no fixed stop.",
+     "start": 2.55,
+     "end": 6.57
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "But the poet does have an address.",
+     "start": 6.57,
+     "end": 8.89
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Gustavo Adolfo Bécquer lived on Calle de San Ildefonso, a quiet street near the convent of San Clemente, in the north-west of the old town.",
+     "start": 8.89,
+     "end": 18.45
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "If the tour passes San Clemente, look at the church doorway.",
+     "start": 18.45,
+     "end": 22.57
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Restorers cleaning it recently found a signature in pencil, thought to be his.",
+     "start": 22.57,
+     "end": 27.8
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Bécquer was Spain's great romantic poet, a young man from Seville.",
+     "start": 30.2,
+     "end": 35.42
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "He loved Toledo at night.",
+     "start": 35.42,
+     "end": 37.6
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "He walked these lanes after dark, alone, sketching ruined churches with his brother, the painter Valeriano.",
+     "start": 37.6,
+     "end": 44.74
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "And out of those walks came his legends.",
+     "start": 44.74,
+     "end": 47.35
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "A",
+     "text": "It is the time of the war against Napoleon.",
+     "start": 48.85,
+     "end": 51.93
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "A",
+     "text": "French dragoons ride into Toledo, and there is no room left for them.",
+     "start": 51.93,
+     "end": 56.37
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "A",
+     "text": "So they are put up in an old, half-ruined church.",
+     "start": 56.37,
+     "end": 59.89
+    },
+    {
+     "p": 2,
+     "s": 1,
+     "who": "A",
+     "text": "Their horses stamp in the chapels.",
+     "start": 59.89,
+     "end": 62.57
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "A",
+     "text": "Their captain is young, handsome and bored.",
+     "start": 63.77,
+     "end": 67.03
+    },
+    {
+     "p": 3,
+     "s": 1,
+     "who": "A",
+     "text": "And one night, in the dark church, he finds something.",
+     "start": 67.03,
+     "end": 70.55
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "On a tomb, by the light of his lamp, kneel two figures carved in stone.",
+     "start": 71.75,
+     "end": 76.45
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "A knight in armour.",
+     "start": 76.45,
+     "end": 77.93
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "And beside him, his wife.",
+     "start": 77.93,
+     "end": 80.58
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "Doña Elvira.",
+     "start": 80.58,
+     "end": 83.17
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "Her hands joined in prayer.",
+     "start": 83.17,
+     "end": 85.62
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "A",
+     "text": "And she is so beautiful that the captain cannot stop looking at her.",
+     "start": 85.62,
+     "end": 89.95
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "What happens when a living man falls in love with a woman of stone?",
+     "start": 92.35,
+     "end": 97.8
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Hold on.",
+     "start": 97.8,
+     "end": 99.38
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "A",
+     "text": "He comes back every night.",
+     "start": 100.88,
+     "end": 103.0
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "A",
+     "text": "He tells his fellow officers he has found a lady in Toledo, the loveliest in the city, and they laugh at him.",
+     "start": 103.0,
+     "end": 110.08
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "A",
+     "text": "So he invites them to supper.",
+     "start": 110.08,
+     "end": 112.75
+    },
+    {
+     "p": 6,
+     "s": 2,
+     "who": "A",
+     "text": "In the church.",
+     "start": 112.75,
+     "end": 114.5
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "They light a fire with wood hacked from the carved choir stalls.",
+     "start": 115.7,
+     "end": 120.88
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "They drink.",
+     "start": 120.88,
+     "end": 122.88
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "They toast the lady.",
+     "start": 122.88,
+     "end": 124.54
+    },
+    {
+     "p": 7,
+     "s": 2,
+     "who": "A",
+     "text": "And the captain shows them his lady, kneeling in stone.",
+     "start": 124.54,
+     "end": 128.63
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "The captain is drunk now.",
+     "start": 129.83,
+     "end": 131.83
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "He mocks the stone knight beside her, the husband who cannot defend her.",
+     "start": 131.83,
+     "end": 136.11
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "He raises his glass to him, and throws the wine in his face.",
+     "start": 136.11,
+     "end": 140.23
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "A",
+     "text": "And then he says: I will kiss her.",
+     "start": 140.23,
+     "end": 142.88
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "He climbs up to the tomb.",
+     "start": 145.28,
+     "end": 147.16
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "He leans towards that cold stone face.",
+     "start": 147.16,
+     "end": 150.2
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "A",
+     "text": "His lips come close.",
+     "start": 150.2,
+     "end": 152.1
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "And the officers hear a terrible sound.",
+     "start": 153.3,
+     "end": 156.18
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "A cry, and the crash of a body on stone.",
+     "start": 156.18,
+     "end": 159.53
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "They run to him.",
+     "start": 160.72,
+     "end": 162.14
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "The captain is lying at the foot of the tomb, blood running from his eyes, his nose, his mouth.",
+     "start": 162.14,
+     "end": 168.41
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "The stone knight has struck him down, with one terrible blow of his stone gauntlet.",
+     "start": 168.41,
+     "end": 173.9
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "The war was real.",
+     "start": 176.3,
+     "end": 178.3
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "French soldiers were quartered in Toledo's convents, and some did terrible damage.",
+     "start": 178.3,
+     "end": 183.62
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "But the church in the story, and the lovers on the tomb, are Bécquer's invention.",
+     "start": 183.62,
+     "end": 188.6
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Walk on knowing this: a husband, carved in stone, still keeping watch over his wife.",
+     "start": 189.8,
+     "end": 196.2
+    },
+    {
+     "p": 13,
+     "s": 3,
+     "who": "N",
+     "text": "Who would you trust to guard you, after you were gone?",
+     "start": 196.2,
+     "end": 199.25
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "Next, a short street, a clockmaker, and a man made of wood.",
+     "start": 200.45,
+     "end": 204.79
+    },
+    {
+     "p": 14,
+     "s": 4,
+     "who": "N",
+     "text": "That is stop seven.",
+     "start": 204.79,
+     "end": 206.62
+    }
+   ],
+   "group": "Legends",
+   "room": "Old town lanes near the convent of San Clemente, north-west of the old town"
+  },
+  {
+   "id": "l07-hombre-de-palo",
+   "title": "Stop 7. Street of the Wooden Man: Juanelo's automaton",
+   "stop": 7,
+   "file": "audio/l07-hombre-de-palo.mp3?v=1d9fd0a6",
+   "duration": 202.65,
+   "bytes": 1216460,
+   "sections": [
+    {
+     "title": "A man who was not a man",
+     "start": 0.1
+    },
+    {
+     "title": "The emperor's clockmaker",
+     "start": 54.42
+    },
+    {
+     "title": "What is true",
+     "start": 122.75
+    },
+    {
+     "title": "The devil's alley",
+     "start": 155.52
+    },
+    {
+     "title": "Walk on",
+     "start": 197.4
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop seven.",
+     "start": 0.4,
+     "end": 2.55
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "The Calle del Hombre de Palo, the Street of the Wooden Man, is a short lane of about a hundred metres near the cathedral.",
+     "start": 2.55,
+     "end": 10.57
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "It is open at all hours.",
+     "start": 10.57,
+     "end": 12.73
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Look for the street sign, and for a plaque that remembers who once walked here.",
+     "start": 12.73,
+     "end": 17.67
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Picture this lane four and a half centuries ago.",
+     "start": 20.07,
+     "end": 24.07
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Morning.",
+     "start": 24.07,
+     "end": 25.97
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "Shopkeepers opening their shutters.",
+     "start": 25.97,
+     "end": 28.61
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "And down the middle of the street, stiff and slow, walks a man made of wood.",
+     "start": 28.61,
+     "end": 33.4
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "He bows to the people he passes.",
+     "start": 34.9,
+     "end": 37.26
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "He carries a bowl.",
+     "start": 37.26,
+     "end": 38.8
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "At the archbishop's palace, they say, he stops, and someone fills the bowl with food.",
+     "start": 38.8,
+     "end": 44.6
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Who made him?",
+     "start": 46.1,
+     "end": 48.32
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "And why would a machine beg for bread?",
+     "start": 48.32,
+     "end": 51.62
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "N",
+     "text": "Hold on to that.",
+     "start": 51.62,
+     "end": 53.52
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "His maker was real.",
+     "start": 54.72,
+     "end": 56.86
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "Juanelo Turriano, an Italian clockmaker, the greatest of his age.",
+     "start": 56.86,
+     "end": 61.94
+    },
+    {
+     "p": 4,
+     "s": 1,
+     "who": "N",
+     "text": "He built marvellous clocks for the emperor Charles the Fifth, and stayed in Spain to serve his son.",
+     "start": 61.94,
+     "end": 68.07
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "And here in Toledo he did something nobody thought possible.",
+     "start": 69.27,
+     "end": 73.15
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "The city sits high on its rock, and the river runs far below.",
+     "start": 73.15,
+     "end": 77.47
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Water had to be carried up by donkey.",
+     "start": 77.47,
+     "end": 80.07
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "Juanelo built a vast machine of wood and metal that lifted the water of the Tagus all the way up to the Alcázar, the fortress at the top of the hill.",
+     "start": 80.07,
+     "end": 89.13
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "N",
+     "text": "It was finished in fifteen sixty-nine.",
+     "start": 89.13,
+     "end": 92.1
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "But here is the turn.",
+     "start": 94.5,
+     "end": 96.42
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "He was owed money for it, and he was not paid in full.",
+     "start": 96.42,
+     "end": 99.88
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "N",
+     "text": "The great engineer grew old and poor.",
+     "start": 99.88,
+     "end": 102.8
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And so, the legend says, he built one last machine.",
+     "start": 104.3,
+     "end": 108.16
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "A wooden servant, to walk out each day and fetch what his master could no longer pay for.",
+     "start": 108.16,
+     "end": 113.82
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "The people of Toledo grew fond of it.",
+     "start": 113.82,
+     "end": 116.28
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They dropped coins in its bowl.",
+     "start": 116.28,
+     "end": 118.42
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "And they named the street after it.",
+     "start": 118.42,
+     "end": 120.65
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Juanelo, his water machine, and his money troubles are history.",
+     "start": 123.05,
+     "end": 127.71
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "He died in Toledo in fifteen eighty-five.",
+     "start": 127.71,
+     "end": 130.91
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "The walking wooden man is legend.",
+     "start": 130.91,
+     "end": 133.27
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Some writers think there was only a wooden figure standing still, collecting alms.",
+     "start": 133.27,
+     "end": 138.65
+    },
+    {
+     "p": 8,
+     "s": 2,
+     "who": "N",
+     "text": "Others believe he really did build moving figures, which would not be surprising for a man who made clocks that showed the heavens.",
+     "start": 138.65,
+     "end": 146.12
+    },
+    {
+     "p": 9,
+     "s": 2,
+     "who": "N",
+     "text": "Even then, Toledans whispered that a man who could make water climb a mountain must be a magician.",
+     "start": 147.32,
+     "end": 154.32
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "A",
+     "text": "One more street, if the tour takes you near Zocodover, the main square.",
+     "start": 155.82,
+     "end": 160.72
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "A",
+     "text": "There is a narrow, dark alley there called the Alley of the Devil.",
+     "start": 160.72,
+     "end": 164.41
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "A",
+     "text": "They say it is named for old stories of witchcraft and pacts with the devil.",
+     "start": 164.41,
+     "end": 168.76
+    },
+    {
+     "p": 10,
+     "s": 3,
+     "who": "A",
+     "text": "And on windy nights, they say, you can still hear whispering between the walls.",
+     "start": 168.76,
+     "end": 174.38
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "That one, nobody has ever proved.",
+     "start": 175.88,
+     "end": 179.35
+    },
+    {
+     "p": 11,
+     "s": 3,
+     "who": "N",
+     "text": "Listen anyway.",
+     "start": 179.35,
+     "end": 181.28
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "Think of the old man.",
+     "start": 183.68,
+     "end": 186.12
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "A genius, forgotten.",
+     "start": 186.12,
+     "end": 188.8
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "And his last invention is a servant who never leaves him.",
+     "start": 188.8,
+     "end": 192.88
+    },
+    {
+     "p": 12,
+     "s": 3,
+     "who": "N",
+     "text": "What would you build, if you could not ask anyone for help?",
+     "start": 192.88,
+     "end": 196.5
+    },
+    {
+     "p": 13,
+     "s": 4,
+     "who": "N",
+     "text": "One more story for the walk home.",
+     "start": 197.7,
+     "end": 200.08
+    },
+    {
+     "p": 13,
+     "s": 4,
+     "who": "N",
+     "text": "That is stop eight.",
+     "start": 200.08,
+     "end": 201.65
+    }
+   ],
+   "group": "Legends",
+   "room": "Calle del Hombre de Palo, a short street near the cathedral"
+  },
+  {
+   "id": "l08-christ-of-the-skull",
+   "title": "Stop 8. The Christ of the Skull: a walk home, and goodnight",
+   "stop": 8,
+   "file": "audio/l08-christ-of-the-skull.mp3?v=2dfa0dd3",
+   "duration": 222.43,
+   "bytes": 1335116,
+   "sections": [
+    {
+     "title": "A glove on the floor",
+     "start": 0.1
+    },
+    {
+     "title": "The lamp",
+     "start": 71.5
+    },
+    {
+     "title": "The balcony",
+     "start": 124.43
+    },
+    {
+     "title": "Goodnight",
+     "start": 178.82
+    }
+   ],
+   "segments": [
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Stop eight, the last one.",
+     "start": 0.4,
+     "end": 2.6
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Listen to this on the way back, in any dark lane.",
+     "start": 2.6,
+     "end": 6.0
+    },
+    {
+     "p": 0,
+     "s": 0,
+     "who": "N",
+     "text": "Toledans place the story near Calle de las Bulas, in the south-west of the old town, where a small Christ once hung under an archway, lit by a little lamp, with a skull at his feet.",
+     "start": 6.0,
+     "end": 17.6
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "It is Bécquer again.",
+     "start": 20.0,
+     "end": 21.84
+    },
+    {
+     "p": 1,
+     "s": 0,
+     "who": "N",
+     "text": "And it begins with a party.",
+     "start": 21.84,
+     "end": 23.82
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "The king is about to ride to war against the Moors.",
+     "start": 25.32,
+     "end": 28.82
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "On the last night, there is a great feast at the Alcázar.",
+     "start": 28.82,
+     "end": 32.32
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "And the most beautiful woman at court, Doña Inés, drops her glove.",
+     "start": 32.32,
+     "end": 37.24
+    },
+    {
+     "p": 2,
+     "s": 0,
+     "who": "A",
+     "text": "A perfumed glove, with gold buttons.",
+     "start": 37.24,
+     "end": 40.45
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Two knights reach for it at the same moment.",
+     "start": 41.65,
+     "end": 44.43
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Two old friends, born in Toledo, who learned to fight side by side.",
+     "start": 44.43,
+     "end": 49.41
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "Now they are rivals for the same woman.",
+     "start": 49.41,
+     "end": 51.83
+    },
+    {
+     "p": 3,
+     "s": 0,
+     "who": "A",
+     "text": "The king has to step between them.",
+     "start": 51.83,
+     "end": 54.47
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "So they agree to settle it that night.",
+     "start": 56.87,
+     "end": 60.47
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "With swords.",
+     "start": 60.47,
+     "end": 62.47
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "They walk through the sleeping city to the only light they can find.",
+     "start": 62.47,
+     "end": 66.91
+    },
+    {
+     "p": 4,
+     "s": 0,
+     "who": "A",
+     "text": "The little lamp in front of the Christ of the Skull.",
+     "start": 66.91,
+     "end": 70.6
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "They draw.",
+     "start": 71.8,
+     "end": 73.8
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "And the moment their blades touch, the lamp goes out.",
+     "start": 73.8,
+     "end": 78.1
+    },
+    {
+     "p": 5,
+     "s": 1,
+     "who": "A",
+     "text": "Total darkness.",
+     "start": 78.1,
+     "end": 80.15
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "They step apart.",
+     "start": 81.35,
+     "end": 83.72
+    },
+    {
+     "p": 6,
+     "s": 1,
+     "who": "A",
+     "text": "And the lamp lights again, by itself.",
+     "start": 83.72,
+     "end": 86.92
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They try again.",
+     "start": 88.12,
+     "end": 90.5
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Steel touches steel.",
+     "start": 90.5,
+     "end": 93.3
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Darkness.",
+     "start": 93.3,
+     "end": 95.22
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "They part.",
+     "start": 95.22,
+     "end": 97.15
+    },
+    {
+     "p": 7,
+     "s": 1,
+     "who": "A",
+     "text": "Light.",
+     "start": 97.15,
+     "end": 98.35
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "And then a voice.",
+     "start": 100.75,
+     "end": 102.09
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "From somewhere in the dark lane.",
+     "start": 102.09,
+     "end": 105.08
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "Low, strange.",
+     "start": 105.08,
+     "end": 107.42
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "They cannot understand a single word.",
+     "start": 107.42,
+     "end": 110.36
+    },
+    {
+     "p": 8,
+     "s": 1,
+     "who": "A",
+     "text": "But both men freeze, and their swords fall from their hands.",
+     "start": 110.36,
+     "end": 114.65
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "What does a man do, when heaven itself refuses to light his duel?",
+     "start": 116.15,
+     "end": 121.65
+    },
+    {
+     "p": 9,
+     "s": 1,
+     "who": "N",
+     "text": "Hold on.",
+     "start": 121.65,
+     "end": 123.23
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "They make peace.",
+     "start": 124.73,
+     "end": 126.9
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "And together they walk to her house.",
+     "start": 126.9,
+     "end": 129.4
+    },
+    {
+     "p": 10,
+     "s": 2,
+     "who": "A",
+     "text": "They are below her balcony as the sky turns grey.",
+     "start": 129.4,
+     "end": 133.2
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "And at dawn, a rope comes down from that balcony.",
+     "start": 134.4,
+     "end": 138.12
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "And down the rope climbs a man.",
+     "start": 138.12,
+     "end": 140.93
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "A third man.",
+     "start": 140.93,
+     "end": 143.15
+    },
+    {
+     "p": 11,
+     "s": 2,
+     "who": "A",
+     "text": "And Doña Inés leans out to wave him goodbye.",
+     "start": 143.15,
+     "end": 147.22
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "A",
+     "text": "The two knights look at each other.",
+     "start": 149.62,
+     "end": 151.82
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "A",
+     "text": "And they burst out laughing.",
+     "start": 151.82,
+     "end": 154.43
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "A",
+     "text": "Friends again.",
+     "start": 154.43,
+     "end": 156.62
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "A",
+     "text": "The next day, as the army rides out, Doña Inés sees them laughing at her.",
+     "start": 156.62,
+     "end": 161.99
+    },
+    {
+     "p": 12,
+     "s": 2,
+     "who": "A",
+     "text": "And one tear of spite rolls down her face.",
+     "start": 161.99,
+     "end": 165.32
+    },
+    {
+     "p": 13,
+     "s": 2,
+     "who": "N",
+     "text": "That is a legend, by a poet.",
+     "start": 166.82,
+     "end": 169.85
+    },
+    {
+     "p": 13,
+     "s": 2,
+     "who": "N",
+     "text": "Nobody fought here.",
+     "start": 169.85,
+     "end": 172.25
+    },
+    {
+     "p": 13,
+     "s": 2,
+     "who": "N",
+     "text": "But Toledans still tell it, and it is a good one to carry home through dark streets.",
+     "start": 172.25,
+     "end": 177.92
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "So, Monica.",
+     "start": 179.12,
+     "end": 181.35
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "Tonight you have heard a horse kneel, a king break the locks, a well turn bitter, a crucifix speak, and a stone knight strike.",
+     "start": 181.35,
+     "end": 189.59
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "None of it is history.",
+     "start": 189.59,
+     "end": 191.09
+    },
+    {
+     "p": 14,
+     "s": 3,
+     "who": "N",
+     "text": "All of it is Toledo.",
+     "start": 191.09,
+     "end": 192.95
+    },
+    {
+     "p": 15,
+     "s": 3,
+     "who": "N",
+     "text": "If the Spanish tour carried you past these doors tonight, I hope you knew exactly where you were.",
+     "start": 194.15,
+     "end": 200.5
+    },
+    {
+     "p": 16,
+     "s": 3,
+     "who": "N",
+     "text": "Tomorrow, the tracks take you back to these places by daylight, with the real stories behind the walls.",
+     "start": 202.9,
+     "end": 209.9
+    },
+    {
+     "p": 17,
+     "s": 3,
+     "who": "N",
+     "text": "Walk slowly.",
+     "start": 211.1,
+     "end": 213.25
+    },
+    {
+     "p": 17,
+     "s": 3,
+     "who": "N",
+     "text": "Watch the lamps.",
+     "start": 213.25,
+     "end": 215.5
+    },
+    {
+     "p": 17,
+     "s": 3,
+     "who": "N",
+     "text": "And if one of them goes out as you pass, keep walking.",
+     "start": 215.5,
+     "end": 219.9
+    },
+    {
+     "p": 17,
+     "s": 3,
+     "who": "N",
+     "text": "Goodnight.",
+     "start": 219.9,
+     "end": 221.42
+    }
+   ],
+   "group": "Legends",
+   "room": "Any dark lane on the way home; Toledans place it near Calle de las Bulas"
+  }
+ ]
+}
