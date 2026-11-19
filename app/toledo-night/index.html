@@ -701,7 +701,8 @@ const HALLUCINATION = [
   /like and subscribe/i, /see you (in the )?next (video|time)/i, /(translated|transcribed|captions?) by/i,
   /^\W*(\[?music\]?|♪+)\W*$/i, /www\.\S+/i, /don't forget to subscribe/i
 ];
-const WEAK_LINES = /^\W*(thank you( very much)?|thanks|you|bye( bye)?|okay|ok|so|yeah|hmm+)\W*$/i;
+let recStream = null;
+const WEAK_LINES = /^\W*(thank you( very much)?|thanks|you|bye( bye)?|okay|ok|so|yeah|hmm+|um+|uh+|i don'?t know|it'?s very different|that'?s it)\W*$/i;
 // Legend guesser on accent-stripped lowercase text. `ref` is a track id or spot id that opens the story.
 const LEGENDS = [
   { name: 'The Bitter Well (Pozo Amargo)', ref: 'l04-bitter-well', all: [/pozo|well/, /amargo|bitter/] },
@@ -962,7 +963,7 @@ async function startMic() {
   starting = true;
   let s;
   try {
-    s = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, channelCount: 1 } });
+    s = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: true, channelCount: 1 } });
   } catch (err) {
     starting = false;
     const resumed = !!audioCtx; // an automatic restart after a story may need a fresh tap
@@ -979,8 +980,16 @@ async function startMic() {
     if (audioCtx.state === 'suspended') await audioCtx.resume();
     srcNode = audioCtx.createMediaStreamSource(stream);
     if (!analyser) { analyser = audioCtx.createAnalyser(); analyser.fftSize = 2048; }
-    srcNode.connect(analyser);
-  } catch { analyser = null; }
+    // A guide a few metres away is quiet: cut rumble, boost, and tame peaks,
+    // then record the boosted signal. The phone's own noise suppression is off
+    // because it treats a distant voice as noise and removes it.
+    const hp = audioCtx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 110;
+    const gain = audioCtx.createGain(); gain.gain.value = 4;
+    const comp = audioCtx.createDynamicsCompressor(); comp.threshold.value = -18; comp.ratio.value = 6; comp.attack.value = 0.005; comp.release.value = 0.2;
+    const dest = audioCtx.createMediaStreamDestination();
+    srcNode.connect(hp); hp.connect(gain); gain.connect(comp); comp.connect(analyser); comp.connect(dest);
+    recStream = dest.stream;
+  } catch { analyser = null; recStream = null; }
   running = true;
   clearInterval(meterTimer); clearInterval(statusTimer);
   meterTimer = setInterval(sampleLevel, 100);
@@ -992,7 +1001,7 @@ async function startMic() {
 
 function beginChunk() {
   let rec;
-  try { rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream); }
+  try { const src = recStream || stream; rec = mime ? new MediaRecorder(src, { mimeType: mime, audioBitsPerSecond: 48000 }) : new MediaRecorder(src); }
   catch { turnOff('Recorder failed to start.', 'err'); return; }
   const parts = [];
   const stats = { frames: 0, voiced: 0, peak: 0, start: Date.now() };
@@ -1081,6 +1090,9 @@ function cleanText(data, voicedFrac) {
   } else text = (data && data.text) || '';
   text = (text.match(/[^.!?]+[.!?]*/g) || []).map(s => s.trim()).filter(s => s && !HALLUCINATION.some(r => r.test(s))).join(' ').trim();
   if (WEAK_LINES.test(text) && voicedFrac < 0.2) return '';
+  // A whole chunk that is nothing but filler is Whisper guessing at noise.
+  const sents = text.match(/[^.!?]+[.!?]*/g) || [];
+  if (sents.length && sents.every(x => WEAK_LINES.test(x.trim()))) return '';
   return text;
 }
 async function pump() {
