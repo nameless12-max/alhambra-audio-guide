@@ -3,7 +3,7 @@
    Audio: cache keyed by the exact URL (including ?v= version), with HTTP Range support, else network. */
 'use strict';
 
-const SHELL_CACHE = 'toledo-shell-v2';
+const SHELL_CACHE = 'toledo-shell-v3';
 const IMG_CACHE = 'toledo-img-v1'; // painting images, kept across shell versions
 const AUDIO_CACHE = 'toledo-audio-v1'; // kept across shell versions
 const SHELL_FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg', 'icon-180.png', 'icon-512.png', 'tracks.json'];
