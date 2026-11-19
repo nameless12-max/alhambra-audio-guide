@@ -1,0 +1,49 @@
+# title: Toledo's dark side 4. The cells: the brotherhood's prison, and what remains
+# stop: 4
+# room: Posada de la Hermandad, Calle de la Hermandad, near the cathedral, or anywhere
+
+## The men with green sleeves
+
+N: Near the cathedral, in a narrow street, there is an old stone doorway. Look up at it. Above the door, the arms of the Catholic Monarchs. And on either side, two small armed guards with crossbows.
+
+N: This was the house of the Holy Brotherhood. Not the Inquisition. Something older, and in its way more feared on a lonely road.
+
+N: Long before the inquisitors came, the hills south of Toledo were wild country. Beekeepers, hunters and shepherds lived out there, and so did bandits. So the country people banded together into an armed brotherhood, to hunt the robbers down themselves. Later the Catholic Monarchs took the idea across all of Castile. A rural police, with its own judges and its own jails.
+
+A: People mocked them, too. Their uniform had green sleeves. And when help came too late, Spaniards would say: at a fine hour, green sleeves. They still say it today.
+
+N: In Don Quixote, after the knight frees a chain of convicts, his squire Sancho is terrified of one thing. Not the convicts. The Holy Brotherhood, coming after them.
+
+## Down the steps
+
+N: If the lower floor is open, go down. The cells are underground, vaulted rooms with iron bars, gathered around a shaft that drops daylight from the street above. Each room, it is said, could hold up to forty prisoners.
+
+...
+
+N: Stand by the bars and look up at that light. That pale square is all a prisoner had of the day. It is the most honest thing in the building. No label needed.
+
+## The secret prisons
+
+N: And the Inquisition's own cells? They were called the secret prisons. In Toledo, for more than two centuries, the tribunal had its house beside the church of San Vicente, in the upper town. Nothing of them is open to visit today.
+
+N: Here is a twist the legend never tells. The Inquisition's cells were often cleaner and better fed than the king's jails. Historians have found prisoners in the king's jails who blasphemed on purpose, just to be moved into them.
+
+N: But they were secret in a way no ordinary jail was. You did not know why you were there. You could not see your family. You might wait months or years, as Elvira del Campo waited, guessing at your accusers in the dark.
+
+A: In Toledo, people say tunnels ran from the Inquisition's house under the streets, to the cathedral and beyond. Guides will point to cellars and swear by them. No one has ever shown such a tunnel to be real. But the city loves the story.
+
+## What remains
+
+N: The tribunal of Toledo sat for the last time in eighteen twenty, and the Inquisition was abolished for good in eighteen thirty-four. Its papers went to Madrid. Thousands of trials. Names, recipes, prayers, the gossip of kitchens, the cries in the chamber, all written down.
+
+N: That is the strange gift of this cruel court. It kept such careful records that the people it tried to erase are still here. We know what Elvira del Campo ate, and what she wore on a Saturday, and what she said when her arms hurt.
+
+...
+
+N: So if you walk past a glass case again, Monica, look for the plain things. A rope. A jar. A yellow tunic. And put a person beside each one.
+
+N: Not monsters, on either side. A city that let fear of its neighbours become law. That is the darkest thing in Toledo, and it was never kept in a dungeon.
+
+## Walk on
+
+N: Walk up into the light. Toledo is still the city of three faiths, in its stones. Thank you for listening.

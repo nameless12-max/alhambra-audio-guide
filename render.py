@@ -27,8 +27,8 @@ import soundfile as sf
 ROOT = Path(__file__).parent
 TOUR = sys.argv[sys.argv.index("--tour") + 1] if "--tour" in sys.argv else None
 # A combined tour reads several parts; each part's tracks are tagged with its group.
-TOURS = {"madrid": ["prado", "reina"], "toledo": ["toledo_sights", "toledo_cathedral", "toledo_legends", "toledo_dark"]}
-GROUPS = {"prado": "Prado", "reina": "Reina Sofía", "toledo_legends": "Legends", "toledo_sights": "Sights", "toledo_cathedral": "Cathedral", "toledo_dark": "Inquisition"}
+TOURS = {"madrid": ["prado", "reina"], "toledo": ["toledo_intro", "toledo_dark", "toledo_cathedral", "toledo_sights", "toledo_legends"]}
+GROUPS = {"prado": "Prado", "reina": "Reina Sofía", "toledo_legends": "Legends", "toledo_sights": "Sights", "toledo_cathedral": "Cathedral", "toledo_dark": "Inquisition and dungeons", "toledo_intro": "Start here"}
 if TOUR:
     PARTS = TOURS.get(TOUR, [TOUR])
     SCRIPT_DIRS = [ROOT / p / "scripts" for p in PARTS]

@@ -411,7 +411,7 @@ ul.sl { list-style: none; margin: -2px 0 14px 18px; padding: 0; border-left: 2px
   function absUrl(f) { return new URL(f, location.href).href; }
   function group(t) {
     if (t.stop) return 'stops';
-    return /welcome|intro|^l00/i.test(t.id || '') ? 'intro' : /closing/i.test(t.id || '') ? 'closing' : 'stops';
+    return /welcome|intro|^[lcd]00/i.test(t.id || '') ? 'intro' : /closing/i.test(t.id || '') ? 'closing' : 'stops';
   }
   function museum(t) { return t.group || ''; }
   function museums() {
